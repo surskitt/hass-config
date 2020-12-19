@@ -1,0 +1,25 @@
+---
+- name: wigeon
+  platform: wake_on_lan
+  mac: '2C:FD:A1:BE:32:53'
+  host: 192.168.1.1
+  turn_off:
+    service: shell_command.sleep_wigeon
+
+- platform: template
+  switches:
+    tv:
+      value_template: "{{ is_state('media_player.tv', 'on') }}"
+      turn_on:
+        service: media_player.turn_on
+        data:
+          entity: media_player.tv
+      turn_off:
+        service: media_player.turn_off
+        data:
+          entity_id: media_player.tv
+
+- name: Doorbell press
+  platform: momentary
+  mode: on
+  toggle_for: 5

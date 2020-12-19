@@ -1,0 +1,2 @@
+---
+sleep_wigeon: 'ssh hass:192.168.1.1 sudo systemctl suspend'

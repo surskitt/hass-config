@@ -1,0 +1,5 @@
+---
+- platform: ffmpeg
+  name: living room cam
+  input: !secret living_room_cam_cmd
+  extra_arguments: -pred 1 -q:v 2

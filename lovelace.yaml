@@ -1,0 +1,138 @@
+---
+views:
+  - icon: 'mdi:toggle-switch'
+    title: Switches
+    panel: false
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: picture-entity
+            entity: camera.living_room_cam
+            camera_image: camera.living_room_cam
+            show_name: false
+            show_state: false
+          - type: entities
+            entities:
+              - entity: switch.living_room_light_mss510x_main_channel
+                name: Light switch
+                icon: 'mdi:ceiling-light'
+              - entity: switch.01188014fcf5c4aa6a0c_4
+                icon: 'mdi:lamp'
+              - entity: light.10m_strip
+                icon: 'mdi:led-strip-variant'
+              - entity: switch.14503513c82b965f1dd3
+                icon: 'mdi:string-lights'
+            title: Living room
+            show_header_toggle: false
+      - type: entities
+        entities:
+          - entity: switch.14503513c82b965f16f9
+            icon: 'mdi:fridge'
+        title: Kitchen
+        show_header_toggle: false
+      - type: entities
+        entities:
+          - entity: switch.office_light_mss510x_main_channel
+            name: Light switch
+            icon: 'mdi:ceiling-light'
+        title: Office
+      - type: entities
+        entities:
+          - entity: switch.bedroom_light_mss510x_main_channel
+            name: Light switch
+            icon: 'mdi:ceiling-light'
+        title: Bedroom
+        show_header_toggle: false
+      - type: entities
+        entities:
+          - entity: switch.nzbget_download
+            icon: 'mdi:download'
+          - entity: switch.transmission_switch
+            icon: 'mdi:download'
+          - entity: switch.transmission_turtle_mode
+            icon: 'mdi:download'
+        title: Media centre
+        show_header_toggle: false
+  - title: Heating
+    path: heating
+    icon: 'mdi:radiator'
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: 'custom:simple-thermostat'
+            entity: climate.living_room
+            show_header: true
+            step_size: 0.5
+          - type: sensor
+            entity: sensor.living_room_temperature
+            graph: line
+            detail: 1
+          - type: sensor
+            entity: sensor.living_room_humidity
+            graph: line
+      - type: vertical-stack
+        cards:
+          - type: 'custom:simple-thermostat'
+            entity: climate.office
+            step_size: 1
+          - type: sensor
+            entity: sensor.office_temperature
+            graph: line
+          - type: sensor
+            entity: sensor.office_humidity
+            graph: line
+      - type: weather-forecast
+        entity: weather.home
+        show_forecast: false
+  - title: Cameras
+    path: cameras
+    icon: 'mdi:camera'
+    badges: []
+    cards:
+      - type: picture-entity
+        entity: camera.doorbell
+        camera_image: camera.doorbell
+        name: Doorbell
+        show_state: false
+      - type: picture-entity
+        entity: camera.living_room_cam
+        camera_image: camera.living_room_cam
+        show_name: true
+        show_state: false
+  - title: Batteries
+    path: batteries
+    icon: 'mdi:battery'
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - entity: sensor.moto_g6_battery_level
+            name: wren
+        title: Handheld
+        show_header_toggle: false
+        state_color: true
+      - type: entities
+        entities:
+          - entity: sensor.battery_doorbell
+        title: Cameras
+  - title: Scheduling
+    path: scheduling
+    icon: 'mdi:clock'
+    badges: []
+    cards:
+      - type: calendar
+        entities:
+          - calendar.calendar
+        initial_view: dayGridMonth
+      - type: 'custom:scheduler-card'
+        discover_existing: false
+        title: Light strip
+        include:
+          - light.10m_strip
+      - type: 'custom:scheduler-card'
+        include:
+          - switch.office_light_mss510x_main_channel
+        title: Office light
+        discover_existing: false

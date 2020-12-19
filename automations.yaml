@@ -1,0 +1,50 @@
+---
+- id: spotify_play
+  alias: Play spotify using nfc tags
+  mode: single
+  max_exceeded: silent
+  variables:
+    tags:
+      glenn_branca_the_ascension:
+        media_content_id: spotify:album:2cFixT6QIE4gzPjZS7sen7
+      swans_the_seer:
+        media_content_id: spotify:album:774XM9c4BAxkNqvu7Rea1E
+      johnny_cash_at_folsom_prison:
+        media_content_id: spotify:album:4TJIdlY9hGSSTO1kUs1neh
+      boris_akuma_no_uta:
+        media_content_id: spotify:album:00oVPPcp3eor9x6VG2hvhy
+      boris_feedbacker:
+        media_content_id: spotify:album:2Xbd3EI9auhlw5WOKnNX3H
+      chai_punk:
+        media_content_id: spotify:album:0SkwXqlaB16ENaYJaPUW7d
+  trigger:
+    platform: event
+    event_type: tag_scanned
+  condition:
+    - "{{ trigger.event.data.tag_id in tags }}"
+
+  action:
+    - variables:
+        media_content_id: "{{ tags[trigger.event.data.tag_id].media_content_id }}"
+
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.spotify_sharktamer
+        media_content_id: "{{ media_content_id }}"
+        media_content_type: album
+
+    - delay: 2
+
+- alias: Doorbell notification
+  trigger:
+    - platform: state
+      entity_id: switch.momentary_doorbell_press
+      from: 'off'
+      to: 'on'
+  action:
+    - service: notify.wigeon
+      data:
+        title: Doorbell
+        message: Someone is at the door
+        target: doorbell.png
+  mode: single

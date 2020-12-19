@@ -1,0 +1,99 @@
+---
+homeassistant:
+  name: Paddlepond Home Assistant
+  latitude: !secret ha_latitude
+  longitude: !secret ha_longitude
+  unit_system: metric
+  time_zone: Europe/London
+  auth_providers:
+    - type: homeassistant
+    - type: trusted_networks
+      trusted_networks:
+        - 192.168.1.0/24
+      allow_bypass_login: true
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+frontend:
+  themes: !include_dir_merge_named themes
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+# cloud:
+#   google_actions:
+
+webostv:
+  name: TV
+  host: 192.168.5.1
+  turn_on_action:
+    service: wake_on_lan.send_magic_packet
+    data:
+      mac: "64:95:6C:51:52:1F"
+  customize:
+    sources:
+      - youtube
+      - netflix
+      - plex
+      - spotify
+
+plex:
+  host: !secret plex_host
+  port: 443
+
+spotify:
+  client_id: !secret spotify_client_id
+  client_secret: !secret spotify_client_secret
+
+device_tracker:
+  - platform: luci
+    host: 192.168.0.1
+    username: !secret luci_username
+    password: !secret luci_password
+
+# hacs
+
+vacuum:
+  - name: RoboVAC
+    platform: eufyrobovac
+    ip_address: 192.168.0.162
+    username: !secret eufy_home_username
+    password: !secret eufy_home_password
+
+calendar:
+  - platform: caldav
+    username: !secret caldav_username
+    password: !secret caldav_password
+    url: https://dav.mailbox.org/caldav/Y2FsOi8vMC8zMQ
+
+spotcast:
+  sp_dc: !secret spotcast_dc
+  sp_key: !secret spotcast_key
+
+# lovelace:
+#   mode: yaml
+#   dashboards:
+#     main:
+#       mode: yaml
+#       title: Main
+#       filename: lovelace.yaml
+
+automation: !include automations.yaml
+camera: !include cameras.yaml
+group: !include groups.yaml
+scene: !include scenes.yaml
+script: !include scripts.yaml
+sensor: !include sensors.yaml
+shell_command: !include shell_commands.yaml
+switch: !include switches.yaml
+
+notify:
+  - name: wigeon
+    platform: rest
+    resource: http://192.168.1.1:4950/notify
+    method: POST_JSON
+    title_param_name: summary
+    message_param_name: body
+    target_param_name: icon
