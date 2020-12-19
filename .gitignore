@@ -26,3 +26,5 @@ __pycache__
 
 # Specific keeps
 !.gitkeep
+
+.HA_VERSION
