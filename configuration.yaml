@@ -72,13 +72,8 @@ spotcast:
   sp_dc: !secret spotcast_dc
   sp_key: !secret spotcast_key
 
-# lovelace:
-#   mode: yaml
-#   dashboards:
-#     main:
-#       mode: yaml
-#       title: Main
-#       filename: lovelace.yaml
+lovelace:
+  mode: yaml
 
 automation: !include automations.yaml
 camera: !include cameras.yaml
