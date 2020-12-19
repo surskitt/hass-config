@@ -1,4 +1,7 @@
 ---
+resource:
+  - url: /hacsfiles/simple-thermostat/simple-thermostat.js
+    type: module
 views:
   - icon: 'mdi:toggle-switch'
     title: Switches
