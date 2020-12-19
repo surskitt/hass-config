@@ -1,6 +1,7 @@
 #!/usr/bin/with-contenv bashio
 
 USER="homeassistant"
+GROUP="$USER"
 PUID="${PUID:-1000}"
 PGID="${PGID:-1000}"
 
@@ -11,11 +12,8 @@ PACKAGES="${PACKAGES:-}"
 VENV_PATH="${VENV:-/var/tmp/homeassistant-venv}"
 CONFIG_PATH=/config
 
-# Enable Jemalloc for Home Assistant Core
-export LD_PRELOAD="/usr/local/lib/libjemalloc.so.2"
-
 #
-# Creating user
+# Create user
 #
 
 # Some HA commands seem to fail if we don't have an actual user.
@@ -23,10 +21,24 @@ export LD_PRELOAD="/usr/local/lib/libjemalloc.so.2"
 bashio::log.info "Creating user $USER with $PUID:$PGID"
 
 deluser "$USER" >/dev/null 2>&1 || true
-delgroup "$USER" >/dev/null 2>&1 || true
+delgroup "$GROUP" >/dev/null 2>&1 || true
 
-addgroup -g "$PGID" "$USER"
-adduser -G "$USER" -D -H -u "$PUID" "$USER"
+# Re-use existing group (can't delgroup a group that is in use)
+group="$(getent group "$PGID" | cut -d: -f1 || true)"
+if [ -z "$group" ]; then
+  addgroup -g "$PGID" "$GROUP"
+else
+  bashio::log.notice "Re-using existing group with gid $PGID: $group"
+  GROUP="$group"
+fi
+
+# Replace existing user (ensures correct shell and primary group)
+user="$(getent passwd "$PUID" | cut -d: -f1 || true)"
+if [ -n "$user" ]; then
+  bashio::log.notice "Replacing existing user with uid $PUID: $user"
+  deluser "$user"
+fi
+adduser -G "$GROUP" -D -H -u "$PUID" "$USER"
 
 if [ -n "${EXTRA_GID:-}" ]; then
   bashio::log.info "Resolving suppementary GIDs: $EXTRA_GID"
@@ -55,7 +67,7 @@ fi
 
 if [ -n "${PACKAGES}" ]; then
   bashio::log.info "Installing extra packages: $PACKAGES"
-  apk add --quiet --no-progress --no-cache $PACKAGES
+  apk add --quiet --no-progress --no-cache -- $PACKAGES
 fi
 
 #
@@ -70,9 +82,6 @@ su "$USER" \
 # Fix permissions
 #
 
-cd "$CONFIG_PATH" || bashio::exit.nok "Can't find config folder: $CONFIG_PATH"
-chown -R "$USER:$USER" .
-
 if [ -n "${UMASK}" ]; then
   bashio::log.info "Setting umask: $UMASK"
   umask "$UMASK"
@@ -84,6 +93,16 @@ fi
 
 bashio::log.info "Activating venv"
 . "$VENV_PATH/bin/activate"
+
+# Everything below should be kept in sync with
+#   core:rootfs/etc/services.d/home-assistant/run
+# from upstream:
+cd "$CONFIG_PATH" || bashio::exit.nok "Can't find config folder: $CONFIG_PATH"
+
+# Enable Jemalloc for Home Assistant Core, unless disabled
+if [[ -z "${DISABLE_JEMALLOC+x}" ]]; then
+  export LD_PRELOAD="/usr/local/lib/libjemalloc.so.2"
+fi
 
 bashio::log.info "Starting homeassistant"
 exec \
