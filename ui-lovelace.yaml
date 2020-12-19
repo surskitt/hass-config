@@ -3,7 +3,6 @@ views:
   - icon: 'mdi:toggle-switch'
     title: Switches
     panel: false
-    badges: []
     cards:
       - type: vertical-stack
         cards:
@@ -57,7 +56,6 @@ views:
   - title: Heating
     path: heating
     icon: 'mdi:radiator'
-    badges: []
     cards:
       - type: vertical-stack
         cards:
@@ -89,7 +87,6 @@ views:
   - title: Cameras
     path: cameras
     icon: 'mdi:camera'
-    badges: []
     cards:
       - type: picture-entity
         entity: camera.doorbell
@@ -104,7 +101,6 @@ views:
   - title: Batteries
     path: batteries
     icon: 'mdi:battery'
-    badges: []
     cards:
       - type: entities
         entities:
@@ -120,7 +116,6 @@ views:
   - title: Scheduling
     path: scheduling
     icon: 'mdi:clock'
-    badges: []
     cards:
       - type: calendar
         entities:
