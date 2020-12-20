@@ -79,6 +79,8 @@ lovelace:
       type: module
     - url: /hacsfiles/scheduler-card/scheduler-card.js
       type: module
+    - url: /hacsfiles/lovelace-swipe-navigation/swipe-navigation.js?v=1.0.0
+      type: module
 
 automation: !include automations.yaml
 camera: !include cameras.yaml
