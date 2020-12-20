@@ -1,0 +1,16 @@
+---
+title: Batteries
+path: batteries
+icon: 'mdi:battery'
+cards:
+  - type: entities
+    entities:
+      - entity: sensor.moto_g6_battery_level
+        name: wren
+    title: Handheld
+    show_header_toggle: false
+    state_color: true
+  - type: entities
+    entities:
+      - entity: sensor.battery_doorbell
+    title: Cameras

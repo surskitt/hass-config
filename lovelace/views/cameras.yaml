@@ -1,0 +1,20 @@
+---
+title: Cameras
+path: cameras
+icon: 'mdi:camera'
+cards:
+  - type: picture-entity
+    entity: camera.doorbell
+    camera_image: camera.doorbell
+    name: Doorbell
+    show_state: false
+  - type: picture-entity
+    entity: camera.living_room_cam
+    camera_image: camera.living_room_cam
+    show_name: true
+    show_state: false
+  - type: picture-entity
+    entity: camera.backyard
+    camera_image: camera.backyard
+    show_name: true
+    show_state: false

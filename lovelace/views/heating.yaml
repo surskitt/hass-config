@@ -1,0 +1,32 @@
+---
+title: Heating
+path: heating
+icon: 'mdi:radiator'
+cards:
+  - type: vertical-stack
+    cards:
+      - type: 'custom:simple-thermostat'
+        entity: climate.living_room
+        show_header: true
+        step_size: 0.5
+      - type: sensor
+        entity: sensor.living_room_temperature
+        graph: line
+        detail: 1
+      - type: sensor
+        entity: sensor.living_room_humidity
+        graph: line
+  - type: vertical-stack
+    cards:
+      - type: 'custom:simple-thermostat'
+        entity: climate.office
+        step_size: 1
+      - type: sensor
+        entity: sensor.office_temperature
+        graph: line
+      - type: sensor
+        entity: sensor.office_humidity
+        graph: line
+  - type: weather-forecast
+    entity: weather.home
+    show_forecast: false
