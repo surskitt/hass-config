@@ -77,6 +77,8 @@ lovelace:
   resources:
     - url: /hacsfiles/simple-thermostat/simple-thermostat.js
       type: module
+    - url: /hacsfiles/scheduler-card/scheduler-card.js
+      type: module
 
 automation: !include automations.yaml
 camera: !include cameras.yaml
