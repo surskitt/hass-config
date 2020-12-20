@@ -29,10 +29,12 @@ cards:
         graph: line
   - type: vertical-stack
     cards:
-      - type: sensor
+      - name: Bathroom temperature
+        type: sensor
         entity: sensor.bathroom_sensor_temperature
         graph: line
-      - type: sensor
+      - name: Bathroom humidity
+        type: sensor
         entity: sensor.bathroom_sensor_humidity
         graph: line
   - type: weather-forecast
