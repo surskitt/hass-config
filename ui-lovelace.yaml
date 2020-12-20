@@ -46,6 +46,11 @@ views:
         camera_image: camera.living_room_cam
         show_name: true
         show_state: false
+      - type: picture-entity
+        entity: camera.backyard
+        camera_image: camera.backyard
+        show_name: true
+        show_state: false
   - title: Batteries
     path: batteries
     icon: 'mdi:battery'
