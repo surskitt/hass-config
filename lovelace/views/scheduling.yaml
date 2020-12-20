@@ -13,5 +13,7 @@ cards:
     entities:
       - entity: automation.set_light_strip_brightness_to_1_at_8_30pm
         icon: 'mdi:led-strip-variant'
+      - entity: automation.turn_light_strip_off_at_10_30pm
+        icon: 'mdi:led-strip-variant'
     show_header_toggle: false
     state_color: true

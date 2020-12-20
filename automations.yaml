@@ -59,3 +59,13 @@
       data:
         entity_id: light.10m_strip
         brightness_pct: 1
+
+- alias: Turn light strip off at 10:30pm
+  id: light_strip_night_off
+  trigger:
+    - platform: time
+      at: "23;00:00"
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.10m_strip
