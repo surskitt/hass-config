@@ -1,7 +1,4 @@
 ---
-resource:
-  - url: /hacsfiles/simple-thermostat/simple-thermostat.js
-    type: module
 views:
   - !include lovelace/views/switches.yaml
   - title: Heating
