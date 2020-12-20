@@ -27,6 +27,14 @@ cards:
       - type: sensor
         entity: sensor.office_humidity
         graph: line
+  - type: vertical-stack
+    cards:
+      - type: sensor
+        entity: sensor.bathroom_sensor_temperature
+        graph: line
+      - type: sensor
+        entity: sensor.bathroom_sensor_humidity
+        graph: line
   - type: weather-forecast
     entity: weather.home
     show_forecast: false
