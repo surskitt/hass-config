@@ -1,6 +1,6 @@
 ---
 resource:
-  - url: /local/simple-thermostat/simple-thermostat.js
+  - url: /config/www/community/simple-thermostat/simple-thermostat.js
     type: module
 views:
   - !include lovelace/views/switches.yaml
