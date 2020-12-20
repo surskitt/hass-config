@@ -64,7 +64,7 @@
   id: light_strip_night_off
   trigger:
     - platform: time
-      at: "23;00:00"
+      at: "23:00:00"
   action:
     - service: light.turn_off
       data:
