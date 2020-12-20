@@ -48,3 +48,14 @@
         message: Someone is at the door
         target: doorbell.png
   mode: single
+
+- alias: Set light strip brightness to 1% at 8:30pm
+  id: light_strip_evening_brightness
+  trigger:
+    - platform: time
+      at: "20:30:00"
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.10m_strip
+        brightness_pct: 1

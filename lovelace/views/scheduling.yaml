@@ -7,13 +7,11 @@ cards:
     entities:
       - calendar.calendar
     initial_view: dayGridMonth
-  - type: 'custom:scheduler-card'
-    discover_existing: false
-    title: Light strip
-    include:
-      - light.10m_strip
-  - type: 'custom:scheduler-card'
-    include:
-      - switch.office_light_mss510x_main_channel
-    title: Office light
-    discover_existing: false
+
+  - type: entities
+    title: Lights
+    entities:
+      - entity: automation.light_strip_evening_brightness
+        icon: 'mdi:led-strip-variant'
+    show_header_toggle: false
+    state_color: true
