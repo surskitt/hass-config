@@ -73,10 +73,10 @@ spotcast:
   sp_key: !secret spotcast_key
 
 lovelace:
-  resource:
+  mode: yaml
+  resources:
     - url: /hacsfiles/simple-thermostat/simple-thermostat.js
       type: module
-  mode: yaml
 
 automation: !include automations.yaml
 camera: !include cameras.yaml
