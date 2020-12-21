@@ -22,6 +22,6 @@ cards:
       - name: Bathroom temperature sensor
         entity: sensor.bathroom_sensor_battery
       - name: Office light sensor
-        entity: sensor.lumi_lumi_sen_ill_mgl01_d15c7b3c_power
+        entity: sensor.office_light_sensor_battery
     show_header_toggle: false
     state_color: true
