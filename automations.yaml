@@ -69,3 +69,16 @@
     - service: light.turn_off
       data:
         entity_id: light.10m_strip
+
+- alias: Turn on office light when it gets dark
+  id: office_light_after_dark
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.lumi_lumi_sen_ill_mgl01_d15c7b3c_illuminance
+      below: 200
+      for:
+        minutes: 10
+  action:
+    - service: switch.turn_on
+      data:
+        entity: switch.office_light_mss510x_main_channel

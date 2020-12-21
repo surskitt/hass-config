@@ -2,4 +2,12 @@
 title: Automations
 path: automations
 icon: 'mdi:robot'
-cards: []
+cards: 
+  - type: entities
+    title: Lights
+    entities:
+      - entity: automation.turn_on_office_light_when_it_gets_dark
+        icon: 'mdi:ceiling-light'
+        secondary_info: last-triggered
+    show_header_toggle: false
+    state_color: true
