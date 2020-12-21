@@ -4,6 +4,15 @@ path: automations
 icon: 'mdi:robot'
 cards: 
   - type: entities
+    title: Notifications
+    entities:
+      - entity: automation.doorbell_notification
+        icon: 'mdi:doorbell'
+        secondary_info: last-triggered
+    show_header_toggle: false
+    state_color: true
+
+  - type: entities
     title: Lights
     entities:
       - entity: automation.turn_on_office_light_when_it_gets_dark
