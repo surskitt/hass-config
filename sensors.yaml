@@ -6,3 +6,19 @@
       unit_of_measurement: '%'
       value_template: "{{ state_attr('camera.doorbell', '1101') }}"
       device_class: battery
+
+    sunrise_time:
+      friendly_name: Sunrise time
+      value_template: "{{ as_timestamp(states.sun.sun.attributes.next_rising) | timestamp_custom(' %I:%M %p') | replace(' 0', '') }}"
+
+    sunset_time:
+      friendly_name: Sunset time
+      value_template: "{{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom(' %I:%M %p') | replace(' 0', '') }}"
+
+    dawn_time:
+      friendly_name: Dawn time
+      value_template: "{{ as_timestamp(states.sun.sun.attributes.next_dawn) | timestamp_custom(' %I:%M %p') | replace(' 0', '') }}"
+
+    dusk_time:
+      friendly_name: Dusk time
+      value_template: "{{ as_timestamp(states.sun.sun.attributes.next_dusk) | timestamp_custom(' %I:%M %p') | replace(' 0', '') }}"

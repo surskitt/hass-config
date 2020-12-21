@@ -9,6 +9,14 @@ cards:
     initial_view: dayGridMonth
 
   - type: entities
+    title: Sun
+    entities:
+      - entity: sensor.dawn_time
+      - entity: sensor.sunrise_time
+      - entity: sensor.sunset_time
+      - entity: sensor.dusk_time
+
+  - type: entities
     title: Lights
     entities:
       - entity: automation.set_light_strip_brightness_to_1_at_8_30pm
