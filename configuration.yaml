@@ -100,3 +100,8 @@ notify:
     title_param_name: summary
     message_param_name: body
     target_param_name: icon
+
+zha:
+  zigpy_config:
+    ota:
+      ikea_provider: true
