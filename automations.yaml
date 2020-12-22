@@ -82,3 +82,17 @@
   action:
     - service: switch.turn_on
       entity_id: switch.office_light_mss510x_main_channel
+
+- alias: Turn on stairs bulbs when motion is detected
+  id: 'stairs_bulbs_motion_turn_on'
+  mode: restart
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.lumi_lumi_sensor_motion_aq2_ias_zone
+      to: 'on'
+  action:
+    - service: light.turn_on
+      entity_id: light.stairs_bulbs
+    - delay: 120
+    - service: light.turn_off
+      entity_id: light.stairs_bulbs
