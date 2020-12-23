@@ -93,6 +93,6 @@
   action:
     - service: light.turn_on
       entity_id: light.stairs_bulbs
-    - delay: 30
+    - delay: 60
     - service: light.turn_off
       entity_id: light.stairs_bulbs
