@@ -85,7 +85,7 @@
 
 - alias: Turn on stairs bulbs when motion is detected
   id: 'stairs_bulbs_motion_turn_on'
-  mode: restart
+  mode: single
 
   trigger:
     - platform: state
@@ -103,7 +103,7 @@
 
 - alias: Turn off stairs bulbs when motion is no longer detected
   id: 'stairs_bulbs_motion_turn_off'
-  mode: restart
+  mode: single
 
   trigger:
     - platform: state
