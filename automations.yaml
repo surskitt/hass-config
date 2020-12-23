@@ -100,6 +100,15 @@
   action:
     - service: light.turn_on
       entity_id: light.stairs_bulbs
+      data:
+        brightness_pct: >
+          {%- if now().strftime('%H') | int >=22 %}
+            1
+          {%- elif now().strftime('%H') | int < 6 %}
+            1
+          {%- elif now().strftime('%H') | int >= 6 %}
+            100
+          {%- endif %}
 
 - alias: Turn off stairs bulbs when motion is no longer detected
   id: 'stairs_bulbs_motion_turn_off'
