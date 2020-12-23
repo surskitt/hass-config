@@ -27,4 +27,10 @@ __pycache__
 # Specific keeps
 !.gitkeep
 
-.HA_VERSION
+/.HA_VERSION
+/.cloud
+/custom_components
+/govee_learning.yaml
+/image
+/themes
+/www
