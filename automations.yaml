@@ -95,7 +95,7 @@
   condition:
     - condition: numeric_state
       entity_id: sensor.lumi_lumi_sensor_motion_aq2_illuminance
-      below: 5
+      below: 10
 
   action:
     - service: light.turn_on
