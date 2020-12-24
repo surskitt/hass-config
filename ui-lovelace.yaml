@@ -4,7 +4,6 @@ views:
   - !include lovelace/views/heating.yaml
   - !include lovelace/views/cameras.yaml
   - !include lovelace/views/batteries.yaml
-  - !include lovelace/views/scheduling.yaml
   - !include lovelace/views/automations.yaml
   - !include lovelace/views/plants.yaml
   - !include lovelace/views/music.yaml

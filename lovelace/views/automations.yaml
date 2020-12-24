@@ -2,24 +2,46 @@
 title: Automations
 path: automations
 icon: 'mdi:robot'
-cards: 
+cards:
+  - type: calendar
+    initial_view: dayGridMonth
+    entities:
+      - calendar.calendar
+
+  - type: entities
+    title: Sun
+    entities:
+      - entity: sensor.dawn_time
+      - entity: sensor.sunrise_time
+      - entity: sensor.sunset_time
+      - entity: sensor.dusk_time
+
+  - type: entities
+    title: Lights
+    show_header_toggle: false
+    state_color: true
+    entities:
+      - entity: automation.set_light_strip_brightness_to_1_at_8_30pm
+        icon: 'mdi:led-strip-variant'
+        secondary_info: last-triggered
+
+      - entity: automation.turn_light_strip_off_at_10_30pm
+        icon: 'mdi:led-strip-variant'
+        secondary_info: last-triggered
+
+      - entity: automation.turn_on_office_light_when_it_gets_dark
+        icon: 'mdi:ceiling-light'
+        secondary_info: last-triggered
+
+      - entity: automation.turn_on_stairs_bulbs_when_motion_is_detected
+        icon: 'mdi:lightbulb-multiple'
+        secondary_info: last-triggered
+
   - type: entities
     title: Notifications
+    show_header_toggle: false
+    state_color: true
     entities:
       - entity: automation.doorbell_notification
         icon: 'mdi:doorbell'
         secondary_info: last-triggered
-    show_header_toggle: false
-    state_color: true
-
-  - type: entities
-    title: Lights
-    entities:
-      - entity: automation.turn_on_office_light_when_it_gets_dark
-        icon: 'mdi:ceiling-light'
-        secondary_info: last-triggered
-      - entity: automation.turn_on_stairs_bulbs_when_motion_is_detected
-        icon: 'mdi:lightbulb-multiple'
-        secondary_info: last-triggered
-    show_header_toggle: false
-    state_color: true
