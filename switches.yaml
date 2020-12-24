@@ -21,10 +21,5 @@
 
 - name: Doorbell press
   platform: momentary
-  mode: 'on'
+  mode: on
   toggle_for: 5
-
-- name: Stair bulbs
-  platform: momentary
-  mode: 'on'
-  toggle_for: 120
