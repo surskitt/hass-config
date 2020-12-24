@@ -50,6 +50,17 @@
         target: doorbell.png
   mode: single
 
+- alias: Turn on led strip at sunrise
+  id: 'led_strip_turn_on'
+  trigger:
+    platform: sun
+    event: sunrise
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.10m_strip
+      brightness_pct: 100
+
 - alias: Set light strip brightness to 1% at 8:30pm
   id: 'light_strip_evening_brightness'
   trigger:
@@ -122,12 +133,3 @@
   action:
     - service: light.turn_off
       entity_id: light.stairs_bulbs
-
-- alias: Turn on led strip at sunrise
-  id: 'led_strip_turn_on'
-  trigger:
-    platform: sun
-    event: sunrise
-  action:
-    service: light.turn_on
-    entity_id: light.10m_strip
