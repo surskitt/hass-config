@@ -133,3 +133,31 @@
   action:
     - service: light.turn_off
       entity_id: light.stairs_bulbs
+
+- alias: Turn on not when living room door is opened
+  mode: single
+
+  trigger:
+    - type: opened
+      platform: device
+      device_id: d77c2bb1203ea741dec3261f678efc1d
+      entity_id: binary_sensor.lumi_lumi_sensor_magnet_aq2_on_off
+      domain: binary_sensor
+
+  action:
+    - service: switch.turn_on
+      entity_id: switch.01188014fcf5c4aa6a0c_4
+
+- alias: Turn off not when living room door is closed
+  mode: single
+
+  trigger:
+    - type: not_opened
+      platform: device
+      device_id: d77c2bb1203ea741dec3261f678efc1d
+      entity_id: binary_sensor.lumi_lumi_sensor_magnet_aq2_on_off
+      domain: binary_sensor
+
+  action:
+    - service: switch.turn_off
+      entity_id: switch.01188014fcf5c4aa6a0c_4
