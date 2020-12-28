@@ -49,6 +49,18 @@ cards:
         icon: 'mdi:door'
         secondary_info: last-triggered
 
+  - type: entities
+    title: Heating
+    show_header_toggle: false
+    state_color: true
+    entities:
+      - entity: automation.turn_on_office_heating_when_in_office
+        icon: 'mdi:radiator'
+        secondary_info: last-triggered
+
+      - entity: automation.turn_on_house_heating_when_not_in_office
+        icon: 'mdi:radiator'
+        secondary_info: last-triggered
 
   - type: entities
     title: Notifications
