@@ -161,3 +161,43 @@
   action:
     - service: switch.turn_off
       entity_id: switch.01188014fcf5c4aa6a0c_4
+
+- alias: Turn on office heating when in office
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: sensor.moto_g_6_room_presence
+      to: office
+      for: "00:02:00"
+
+  action:
+    - service: climate.set_temperature
+      data:
+        temperature: 22
+      entity_id: climate.office
+
+    - service: climate.set_temperature
+      data:
+        temperature: 15
+      entity_id: climate.living_room
+
+- alias: Turn on house heating when not in office
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: sensor.moto_g_6_room_presence
+      from: office
+      for: "00:02:00"
+
+  action:
+    - service: climate.set_temperature
+      data:
+        temperature: 15
+      entity_id: climate.office
+
+    - service: climate.set_temperature
+      data:
+        temperature: 22
+      entity_id: climate.living_room
