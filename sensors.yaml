@@ -26,3 +26,8 @@
       friendly_name: Dusk time
       value_template: "{{ as_timestamp(states.sun.sun.attributes.next_dusk) | timestamp_custom(' %I:%M %p') | replace(' 0', '') }}"
       icon_template: 'mdi:weather-sunset-down'
+
+    shane_room_formatted:
+      friendly_name: "Shane's location"
+      value_template: "{{ states('sensor.moto_g_6_room_presence')|replace('_', ' ')|capitalize }}"
+      icon_template: 'mdi:account'
