@@ -14,7 +14,7 @@ cards:
         state_color: false
 
       - type: entity
-        entity: sensor.moto_g_6_room_presence
+        entity: sensor.shane_room_formatted
         name: Location
         icon: 'mdi:crosshairs-gps'
 
