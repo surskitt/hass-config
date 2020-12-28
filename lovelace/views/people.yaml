@@ -1,0 +1,24 @@
+---
+title: People
+path: people
+icon: 'mdi:account-multiple'
+cards:
+  - type: vertical-stack
+    in_card: true
+
+    cards:
+      - type: entities
+        entities:
+          - entity: person.shane
+        show_header_toggle: false
+        state_color: false
+
+      - type: entity
+        entity: sensor.moto_g_6_room_presence
+        name: Location
+        icon: 'mdi:crosshairs-gps'
+
+      - type: logbook
+        entities:
+          - sensor.moto_g_6_room_presence
+        hours_to_show: 6

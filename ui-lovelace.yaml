@@ -2,6 +2,7 @@
 views:
   - !include lovelace/views/switches.yaml
   - !include lovelace/views/heating.yaml
+  - !include lovelace/views/people.yaml
   - !include lovelace/views/cameras.yaml
   - !include lovelace/views/batteries.yaml
   - !include lovelace/views/automations.yaml
