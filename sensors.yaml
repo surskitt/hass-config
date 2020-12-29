@@ -29,5 +29,5 @@
 
     shane_room_formatted:
       friendly_name: "Shane's location"
-      value_template: "{{ states('sensor.moto_g_6_room_presence')|replace('_', ' ')|capitalize }}"
+      value_template: "{{ states('sensor.wren_room_presence')|replace('_', ' ')|capitalize }}"
       icon_template: 'mdi:account'
