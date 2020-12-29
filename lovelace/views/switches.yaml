@@ -11,8 +11,9 @@ cards:
         show_name: false
         show_state: false
 
-      - type: entities
-        title: Living room
+      - title: Living room
+        type: entities
+        state_color: true
         show_header_toggle: false
         entities:
           - entity: switch.living_room_light_mss510x_main_channel
@@ -25,27 +26,31 @@ cards:
           - entity: switch.14503513c82b965f1dd3
             icon: 'mdi:string-lights'
 
-  - type: entities
+  - title: Kitchen
+    type: entities
+    state_color: true
+    show_header_toggle: false
     entities:
       - entity: switch.14503513c82b965f16f9
         icon: 'mdi:fridge'
-    title: Kitchen
-    show_header_toggle: false
 
-  - type: entities
+  - title: Office
+    type: entities
+    state_color: true
+    show_header_toggle: false
     entities:
       - entity: switch.office_light_switch
         name: Light switch
         icon: 'mdi:ceiling-light'
-    title: Office
 
-  - type: entities
+  - title: Bedroom
+    type: entities
+    state_color: true
+    show_header_toggle: false
     entities:
       - entity: switch.bedroom_light_switch
         name: Light switch
         icon: 'mdi:ceiling-light'
-    title: Bedroom
-    show_header_toggle: false
 
   # - type: entities
   #   entities:
