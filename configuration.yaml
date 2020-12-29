@@ -61,7 +61,7 @@ device_tracker:
     password: !secret luci_password
   - platform: mqtt
     devices:
-      wren_ra: 'room-assistant/device_tracker/bluetooth-classic-60-1d-91-50-85-11-tracker/state'
+      wren_ra: 'room-assistant/device_tracker/ble-0e0883021ce04050bd8781c24ca9dc8a-1-2-tracker/state'
     payload_home: 'true'
     payload_not_home: 'false'
     source_type: bluetooth
