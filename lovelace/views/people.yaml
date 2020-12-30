@@ -20,5 +20,5 @@ cards:
 
       - type: logbook
         entities:
-          - sensor.moto_g_6_room_presence
+          - sensor.wren_room_presence
         hours_to_show: 6
