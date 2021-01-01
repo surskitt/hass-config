@@ -152,7 +152,7 @@
 
   trigger:
     - platform: state
-      entity_id: sensor.moto_g_6_room_presence
+      entity_id: sensor.wren_room_presence
       to: office
       for: "00:02:00"
 
@@ -172,7 +172,7 @@
 
   trigger:
     - platform: state
-      entity_id: sensor.moto_g_6_room_presence
+      entity_id: sensor.wren_room_presence
       from: office
       for: "00:02:00"
 
