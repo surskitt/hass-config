@@ -99,7 +99,9 @@ lovelace:
     - url: /hacsfiles/lovelace-canary/canary.js
       type: module
 
-automation: !include automations.yaml
+automation ui: !include automations.yaml
+automation manual: !include_dir_merge_list automations/
+
 camera: !include cameras.yaml
 # group: !include groups.yaml
 scene: !include scenes.yaml

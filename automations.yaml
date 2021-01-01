@@ -35,21 +35,6 @@
 
     - delay: 2
 
-- alias: Doorbell notification
-  id: 'doorbell_notification'
-  trigger:
-    - platform: state
-      entity_id: switch.momentary_doorbell_press
-      from: 'off'
-      to: 'on'
-  action:
-    - service: notify.wigeon
-      data:
-        title: Doorbell
-        message: Someone is at the door
-        target: doorbell.png
-  mode: single
-
 - alias: Turn on led strip at sunrise
   id: 'led_strip_turn_on'
   trigger:
