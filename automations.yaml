@@ -154,7 +154,7 @@
     - platform: state
       entity_id: sensor.wren_room_presence
       to: office
-      for: "00:02:00"
+      for: "00:01:00"
 
   action:
     - service: climate.set_temperature
@@ -174,7 +174,7 @@
     - platform: state
       entity_id: sensor.wren_room_presence
       from: office
-      for: "00:02:00"
+      for: "00:01:00"
 
   action:
     - service: climate.set_temperature
