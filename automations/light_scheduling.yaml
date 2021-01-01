@@ -1,0 +1,44 @@
+---
+- alias: Turn on led strip at sunrise
+  id: 'led_strip_turn_on'
+  trigger:
+    platform: sun
+    event: sunrise
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.10m_strip
+      brightness_pct: 100
+
+- alias: Set light strip brightness to 1% at 8:30pm
+  id: 'light_strip_evening_brightness'
+  trigger:
+    - platform: time
+      at: "20:30:00"
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.10m_strip
+        brightness_pct: 1
+
+- alias: Turn light strip off at 10:30pm
+  id: 'light_strip_night_off'
+  trigger:
+    - platform: time
+      at: "23:00:00"
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.10m_strip
+
+- alias: Turn on office light when it gets dark
+  id: 'office_light_after_dark'
+
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.office_light_sensor_brightness
+      below: 200
+
+  action:
+    - service: switch.turn_on
+      entity_id: switch.office_light_mss510x_main_channel
