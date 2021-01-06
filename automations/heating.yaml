@@ -63,3 +63,8 @@
       data:
         temperature: 15
       entity_id: climate.living_room
+
+    - service: notify.mobile_app_moto_g6
+      data:
+        title: "Turning off heating"
+        message: "Good night"
