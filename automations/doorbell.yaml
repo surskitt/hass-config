@@ -33,7 +33,7 @@
         target: doorbell.png
 
 - alias: Doorbell motion detection notification
-  id: 'doorbell_notification'
+  id: 'doorbell_motion_notification'
   mode: single
 
   trigger:
