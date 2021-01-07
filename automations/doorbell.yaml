@@ -1,6 +1,6 @@
 ---
-- alias: Doorbell notification
-  id: 'doorbell_notification'
+- alias: Doorbell notification old
+  id: 'doorbell_notification_old'
   mode: single
 
   trigger:
@@ -8,6 +8,38 @@
       entity_id: switch.momentary_doorbell_press
       from: 'off'
       to: 'on'
+
+  action:
+    - service: notify.wigeon
+      data:
+        title: Doorbell
+        message: Someone is at the door
+        target: doorbell.png
+
+- alias: Doorbell notification
+  id: 'doorbell_notification'
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.doorbell_doorbell_pressed
+      to: 'Detected'
+
+  action:
+    - service: notify.wigeon
+      data:
+        title: Doorbell
+        message: Someone pressed the doorbell
+        target: doorbell.png
+
+- alias: Doorbell motion detection notification
+  id: 'doorbell_notification'
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.doorbell_motion_detected
+      to: 'Detected'
 
   action:
     - service: notify.wigeon
