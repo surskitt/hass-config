@@ -22,3 +22,7 @@ bathroom_presence:
 garden_presence:
   name: Garden is occupied
   icon: mdi:flower
+
+guest_mode:
+  name: Guest mode
+  icon: mdi:account-multiple-plus
