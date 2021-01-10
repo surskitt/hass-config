@@ -29,5 +29,5 @@
 
     shane_presence_formatted:
       friendly_name: "Shane's location"
-      value_template: "{{ ['group.room_presence']|expand|selectattr('state', 'eq', 'on')|join('/', attribute='attributes.friendly_name') or 'Away' }}"
+      value_template: "{{ (expand('group.room_presence')|selectattr('state', 'eq', 'on')|join('/', attribute='attributes.friendly_name')) or 'Away' }}"
       icon_template: 'mdi:account'
