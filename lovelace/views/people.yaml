@@ -3,22 +3,33 @@ title: People
 path: people
 icon: 'mdi:account-multiple'
 cards:
-  - type: vertical-stack
+  - type: entities
+    entities:
+      - entity: input_boolean.guest_mode
+        state_color: true
+
+  - title: Shane
+    type: vertical-stack
     in_card: true
 
     cards:
-      - type: entities
+      - type: 'custom:fold-entity-row'
+        head:
+          type: section
+          label: Manual presence override
+        group_config:
+          state_color: true
+          secondary_info: last-changed
         entities:
-          - entity: person.shane
-        show_header_toggle: false
-        state_color: false
-
-      - type: entity
-        entity: sensor.shane_room_formatted
-        name: Location
-        icon: 'mdi:crosshairs-gps'
-
-      - type: logbook
-        entities:
-          - sensor.wren_room_presence
-        hours_to_show: 6
+          - name: Living room
+            entity: input_boolean.living_room_presence
+          - name: Kitchen
+            entity: input_boolean.kitchen_presence
+          - name: Office
+            entity: input_boolean.office_presence
+          - name: Bedroom
+            entity: input_boolean.bedroom_presence
+          - name: Bathroom
+            entity: input_boolean.bathroom_presence
+          - name: Garden
+            entity: input_boolean.garden_presence

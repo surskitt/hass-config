@@ -89,17 +89,7 @@ spotcast:
 
 lovelace:
   mode: yaml
-  resources:
-    - url: /hacsfiles/simple-thermostat/simple-thermostat.js
-      type: module
-    - url: /hacsfiles/scheduler-card/scheduler-card.js
-      type: module
-    - url: /hacsfiles/lovelace-swipe-navigation/swipe-navigation.js?v=1.0.0
-      type: module
-    - url: /hacsfiles/lovelace-canary/canary.js
-      type: module
-    - url: /hacsfiles/lovelace-fold-entity-row/fold-entity-row.js
-      type: module
+  resources: !include lovelace/resources.yaml
 
 automation ui: !include automations.yaml
 automation manual: !include_dir_merge_list automations/
