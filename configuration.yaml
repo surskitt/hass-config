@@ -95,7 +95,7 @@ automation ui: !include automations.yaml
 automation manual: !include_dir_merge_list automations/
 
 camera: !include cameras.yaml
-# group: !include groups.yaml
+group: !include groups.yaml
 input_boolean: !include booleans.yaml
 scene: !include scenes.yaml
 script: !include scripts.yaml

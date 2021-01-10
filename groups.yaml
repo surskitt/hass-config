@@ -1,1 +1,10 @@
 ---
+room_presence:
+  name: Presence
+  entities:
+    - input_boolean.living_room_presence
+    - input_boolean.kitchen_presence
+    - input_boolean.office_presence
+    - input_boolean.bedroom_presence
+    - input_boolean.bathroom_presence
+    - input_boolean.garden_presence

@@ -9,14 +9,11 @@ cards:
         state_color: true
 
   - title: Shane
-    type: vertical-stack
-    in_card: true
+    type: entities
 
-    cards:
+    entities:
       - type: 'custom:fold-entity-row'
-        head:
-          type: section
-          label: Manual presence override
+        head: sensor.shane_presence_formatted
         group_config:
           state_color: true
           secondary_info: last-changed
