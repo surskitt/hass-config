@@ -1,0 +1,24 @@
+---
+living_room_presence:
+  name: Living room is occupied
+  icon: mdi:sofa
+
+kitchen_presence:
+  name: Kitchen is occupied
+  icon: mdi:stove
+
+office_presence:
+  name: Office is occupied
+  icon: mdi:desktop-classic
+
+bedroom_presence:
+  name: Bedroom is occupied
+  icon: mdi:bed
+
+bathroom_presence:
+  name: Bathroom is occupied
+  icon: mdi:toilet
+
+garden_presence:
+  name: Garden is occupied
+  icon: mdi:flower
