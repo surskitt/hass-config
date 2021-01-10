@@ -13,7 +13,9 @@ cards:
 
     entities:
       - type: 'custom:fold-entity-row'
-        head: sensor.shane_presence_formatted
+        head:
+          name: Location
+          entity: sensor.shane_presence_formatted
         group_config:
           state_color: true
           secondary_info: last-changed
