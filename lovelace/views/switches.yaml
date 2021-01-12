@@ -19,12 +19,6 @@ cards:
           - entity: switch.living_room_light_switch
             name: Light switch
             icon: 'mdi:ceiling-light'
-          - entity: switch.01188014fcf5c4aa6a0c_4
-            icon: 'mdi:lamp'
-          - entity: light.10m_strip
-            icon: 'mdi:led-strip-variant'
-          - entity: switch.14503513c82b965f1dd3
-            icon: 'mdi:string-lights'
 
   - title: Kitchen
     type: entities
