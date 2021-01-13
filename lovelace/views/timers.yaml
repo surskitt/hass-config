@@ -6,21 +6,6 @@ cards:
   - title: Washing machine
     type: entities
     state_color: true
-    show_header_toggle: false
     entities:
       - name: 60°C cottons
-        type: 'custom:multiple-entity-row'
         entity: timer.washing_machine
-        entities:
-          - icon: 'mdi:stop'
-            tap_action:
-              action: call-service
-              service: timer.finish
-              service_data:
-                entity_id: timer.washing_machine
-          - icon: 'mdi:play'
-            tap_action:
-              action: call-service
-              service: timer.start
-              service_data:
-                entity_id: timer.washing_machine
