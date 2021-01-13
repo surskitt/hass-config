@@ -1,2 +1,7 @@
 ---
+washing_machine:
+  name: Washing machine
+  duration: '02:41:00'
+  icon: 'mdi:washing-machine'
+
 custom1:
