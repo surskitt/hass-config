@@ -14,6 +14,8 @@
         summary: Doorbell
         body: Someone pressed the doorbell
         icon: doorbell.png
+        urgency: critical
+        timeout: 30000
 
     - service: notify.tv
       data:
