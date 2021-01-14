@@ -7,6 +7,7 @@
   variables:
     tags:
       washing_machine_timer: "timer.washing_machine"
+      dryer_mixed_load_timer: "timer.dryer_mixed_load"
   trigger:
     platform: event
     event_type: tag_scanned
@@ -40,5 +41,26 @@
     - service: notify.mobile_app_wren
       data:
         message: "Washing machine finished"
+        data:
+          vibrationPattern: "0, 1000, 100, 1000"
+
+- alias: Dryer timer finished
+  id: dryer_timer_finished
+
+  trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.dryer_mixed_load
+
+  action:
+    - service: rest_command.wigeon_notify
+      data:
+        summary: Dryer finished
+        icon: tumble-dryer.png
+
+    - service: notify.mobile_app_wren
+      data:
+        message: "Dryer finished"
         data:
           vibrationPattern: "0, 1000, 100, 1000"

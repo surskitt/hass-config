@@ -4,4 +4,9 @@ washing_machine:
   duration: '02:41:00'
   icon: 'mdi:washing-machine'
 
+dryer_mixed_load:
+  name: Dryer (mixed load)
+  duration: '01:05:00'
+  icon: 'mdi:tumble-dryer'
+
 custom1:
