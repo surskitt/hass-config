@@ -9,3 +9,10 @@ cards:
     entities:
       - name: 60°C cottons
         entity: timer.washing_machine
+
+  - title: Dryer
+    type: entities
+    state_color: true
+    entities:
+      - name: Mixed load
+        entity: timer.dryer_mixed_load

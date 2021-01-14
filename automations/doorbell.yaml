@@ -15,6 +15,10 @@
         body: Someone pressed the doorbell
         icon: doorbell.png
 
+    - service: notify.tv
+      data:
+        message: Someone pressed the doorbell
+
 - alias: Doorbell motion detection notification
   id: 'doorbell_motion_notification'
   mode: single
@@ -30,3 +34,7 @@
         summary: Doorbell
         body: Someone is at the door
         icon: doorbell.png
+
+    - service: notify.tv
+      data:
+        message: Someone is at the door
