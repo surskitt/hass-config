@@ -19,11 +19,6 @@
         data:
           entity_id: media_player.tv
 
-- name: Doorbell press
-  platform: momentary
-  mode: on
-  toggle_for: 5
-
 - platform: mqtt
   name: bathroom fan
   command_topic: homeassistant/switch/switchbot/f3:87:77:eb:02:4e/set
