@@ -63,3 +63,7 @@
         message: "{{ timer_dict.summary }}"
         data:
           vibrationPattern: "0, 1000, 100, 1000"
+
+    - service: notify.tv
+      data:
+        message: "{{ timer_dict.summary }}"
