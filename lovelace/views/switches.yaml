@@ -51,6 +51,9 @@ cards:
       - entity: switch.bedroom_light_switch
         name: Light switch
         icon: 'mdi:ceiling-light'
+      - entity: light.wled_bed
+        name: Bed light strip
+        icon: 'mdi:led-strip-variant'
 
   - title: Attic
     type: entities
