@@ -16,6 +16,7 @@ cards:
       - type: sensor
         entity: sensor.living_room_humidity
         graph: line
+
   - type: vertical-stack
     cards:
       - type: 'custom:simple-thermostat'
@@ -27,6 +28,19 @@ cards:
       - type: sensor
         entity: sensor.office_humidity
         graph: line
+
+  - type: vertical-stack
+    cards:
+      - type: 'custom:simple-thermostat'
+        entity: climate.bedroom
+        step_size: 1
+      - type: sensor
+        entity: sensor.bedroom_temperature
+        graph: line
+      - type: sensor
+        entity: sensor.bedroom_humidity
+        graph: line
+
   - type: vertical-stack
     cards:
       - name: Bathroom temperature
@@ -37,6 +51,7 @@ cards:
         type: sensor
         entity: sensor.bathroom_sensor_humidity
         graph: line
+
   - type: weather-forecast
     entity: weather.home
     show_forecast: false
