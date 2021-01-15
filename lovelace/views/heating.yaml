@@ -20,13 +20,13 @@ cards:
   - type: vertical-stack
     cards:
       - type: 'custom:simple-thermostat'
-        entity: climate.office
+        entity: climate.kitchen
         step_size: 1
       - type: sensor
-        entity: sensor.office_temperature
+        entity: sensor.kitchen_temperature
         graph: line
       - type: sensor
-        entity: sensor.office_humidity
+        entity: sensor.kitchen_humidity
         graph: line
 
   - type: vertical-stack
@@ -39,6 +39,18 @@ cards:
         graph: line
       - type: sensor
         entity: sensor.bedroom_humidity
+        graph: line
+
+  - type: vertical-stack
+    cards:
+      - type: 'custom:simple-thermostat'
+        entity: climate.office
+        step_size: 1
+      - type: sensor
+        entity: sensor.office_temperature
+        graph: line
+      - type: sensor
+        entity: sensor.office_humidity
         graph: line
 
   - type: vertical-stack
