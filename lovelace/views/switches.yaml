@@ -52,6 +52,15 @@ cards:
         name: Light switch
         icon: 'mdi:ceiling-light'
 
+  - title: Attic
+    type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+      - entity: light.attic_light
+        name: Bulb
+        icon: 'mdi:ceiling-light'
+
   # - type: entities
   #   entities:
   #     - entity: switch.nzbget_download
