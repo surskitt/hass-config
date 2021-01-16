@@ -124,6 +124,11 @@ light:
     entities:
       - light.stairs_upstairs_bulb
       - light.stairs_downstairs_bulb
+  - platform: group
+    name: Bedroom LEDs
+    entities:
+      - light.wled_bed
+      - light.wled_bedroom_dresser
 
 rest_command:
   wigeon_notify:
