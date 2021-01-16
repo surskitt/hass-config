@@ -13,7 +13,7 @@
       turn_on:
         service: media_player.turn_on
         data:
-          entity: media_player.tv
+          entity_id: media_player.tv
       turn_off:
         service: media_player.turn_off
         data:

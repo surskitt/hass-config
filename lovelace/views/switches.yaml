@@ -52,22 +52,68 @@ cards:
         name: Light switch
         icon: 'mdi:ceiling-light'
 
-      - entity: light.wled_bed
-        name: Bed light strip
-        icon: 'mdi:led-strip-variant'
-
       - type: 'custom:fold-entity-row'
         head:
           name: LEDs
+          type: 'custom:slider-entity-row'
           entity: light.wled_bedroom
+          toggle: true
+          icon: 'mdi:led-strip-variant'
         group_config:
           state_color: true
           secondary_info: last-changed
         entities:
           - name: Bed
             entity: light.wled_bed
+            icon: 'mdi:led-strip-variant'
+
           - name: Dresser
             entity: light.wled_bedroom_dresser
+            icon: 'mdi:led-strip-variant'
+
+          - type: 'custom:rgb-light-card'
+            entity: light.wled_bedroom
+            colors:
+              - color_name: white
+                white_value: 255
+                brightness: 1
+                effect: solid
+                transition: 1
+                label: white
+
+              - effect: pacifica
+                brightness_pct: 10
+                color_temp: 1
+                transition: 1
+                icon_color: 'linear-gradient(15deg, #aaee99, #1387c4)'
+                label: pacifica
+
+              - effect: noise 2
+                brightness_pct: 10
+                color_temp: 1
+                transition: 1
+                label: noise 2
+
+              - effect: noise 4
+                brightness_pct: 10
+                color_temp: 1
+                transition: 1
+                label: noise 4
+
+              - effect: pride 2015
+                color_temp: 1
+                transition: 1
+                label: pride 2015
+
+              - effect: colorful
+                color_temp: 1
+                transition: 1
+                label: colorful
+
+              - effect: palette
+                color_temp: 1
+                transition: 1
+                label: palette
 
   - title: Attic
     type: entities
