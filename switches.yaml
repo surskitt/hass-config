@@ -24,3 +24,9 @@
   command_topic: homeassistant/switch/switchbot/f3:87:77:eb:02:4e/set
   state_topic: homeassistant/switch/switchbot/f3:87:77:eb:02:4e/state
   icon: mdi:fan
+
+- platform: mqtt
+  name: switchbot 2
+  command_topic: homeassistant/switch/switchbot/c9:f4:4b:82:6b:51/set
+  state_topic: homeassistant/switch/switchbot/c9:f4:4b:82:6b:51/state
+  icon: mdi:fan
