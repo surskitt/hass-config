@@ -19,12 +19,18 @@ cards:
           - entity: switch.living_room_light_switch
             name: Light switch
             icon: 'mdi:ceiling-light'
+          - entity: switch.tv
+            name: TV
+            icon: 'mdi:television'
 
   - title: Kitchen
     type: entities
     state_color: true
     show_header_toggle: false
     entities:
+      - entity: switch.kitchen_light_switch
+        name: Light switch
+        icon: 'mdi:ceiling-light'
       - entity: switch.14503513c82b965f16f9
         icon: 'mdi:fridge'
 
@@ -44,6 +50,32 @@ cards:
     entities:
       - entity: switch.bedroom_light_switch
         name: Light switch
+        icon: 'mdi:ceiling-light'
+
+      - entity: light.wled_bed
+        name: Bed light strip
+        icon: 'mdi:led-strip-variant'
+
+      - type: 'custom:fold-entity-row'
+        head:
+          name: LEDs
+          entity: light.wled_bedroom
+        group_config:
+          state_color: true
+          secondary_info: last-changed
+        entities:
+          - name: Bed
+            entity: light.wled_bed
+          - name: Dresser
+            entity: light.wled_bedroom_dresser
+
+  - title: Attic
+    type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+      - entity: light.attic_light
+        name: Bulb
         icon: 'mdi:ceiling-light'
 
   # - type: entities

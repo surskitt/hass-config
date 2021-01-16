@@ -41,14 +41,6 @@ cards:
         icon: 'mdi:lightbulb-multiple'
         secondary_info: last-triggered
 
-      - entity: automation.turn_on_not_when_living_room_door_is_opened
-        icon: 'mdi:door-open'
-        secondary_info: last-triggered
-
-      - entity: automation.turn_off_not_when_living_room_door_is_closed
-        icon: 'mdi:door'
-        secondary_info: last-triggered
-
   - type: entities
     title: Heating
     show_header_toggle: false

@@ -125,9 +125,15 @@ light:
       - light.stairs_upstairs_bulb
       - light.stairs_downstairs_bulb
 
+  - platform: group
+    name: WLED bedroom
+    entities:
+      - light.wled_bed
+      - light.wled_bedroom_dresser
+
 rest_command:
   wigeon_notify:
     url: "http://192.168.1.1:4950/notify"
     method: post
-    payload: '{"summary": "{{ summary }}", "body": "{{ body }}", "icon": "{{ icon }}"}'
+    payload: '{"summary": "{{ summary }}", "body": "{{ body }}", "icon": "{{ icon }}", "urgency": "{{ urgency }}", "timeout": {{ timeout|default(10000) }}}'
     content_type: 'application/json; charset=utf-8'

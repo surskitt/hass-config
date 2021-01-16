@@ -4,13 +4,16 @@
   alias: Start timers using nfc tags
   mode: single
   max_exceeded: silent
+
   variables:
     tags:
       washing_machine_timer: "timer.washing_machine"
       dryer_mixed_load_timer: "timer.dryer_mixed_load"
+
   trigger:
     platform: event
     event_type: tag_scanned
+
   condition:
     - "{{ trigger.event.data.tag_id in tags }}"
 
@@ -22,45 +25,45 @@
       data:
         entity_id: "{{ timer_id }}"
 
-# Notify when timer finishes
-- alias: Timer finished
-  id: timer_finished
+- id: timer_finished
+  alias: Timer finished
+  mode: single
+  max_exceeded: silent
 
-  trigger:
-    - platform: event
-      event_type: timer.finished
-      event_data:
-        entity_id: timer.washing_machine
-
-  action:
-    - service: rest_command.wigeon_notify
-      data:
+  variables:
+    timers:
+      timer.washing_machine:
         summary: Washing machine finished
         icon: washing-machine.png
-
-    - service: notify.mobile_app_wren
-      data:
-        message: "Washing machine finished"
-        data:
-          vibrationPattern: "0, 1000, 100, 1000"
-
-- alias: Dryer timer finished
-  id: dryer_timer_finished
-
-  trigger:
-    - platform: event
-      event_type: timer.finished
-      event_data:
-        entity_id: timer.dryer_mixed_load
-
-  action:
-    - service: rest_command.wigeon_notify
-      data:
+        urgency: critical
+      timer.dryer_mixed_load:
         summary: Dryer finished
         icon: tumble-dryer.png
 
+  trigger:
+    platform: event
+    event_type: timer.finished
+
+  condition:
+    - "{{ trigger.event.data.entity_id in timers }}"
+
+  action:
+    - variables:
+        timer_dict: "{{ timers[trigger.event.data.entity_id] }}"
+
+    - service: rest_command.wigeon_notify
+      data:
+        summary: "{{ timer_dict.summary }}"
+        body: "{{ timer_dict.body }}"
+        icon: "{{ timer_dict.icon }}"
+        urgency: "{{ timer_dict.urgency }}"
+
     - service: notify.mobile_app_wren
       data:
-        message: "Dryer finished"
+        message: "{{ timer_dict.summary }}"
         data:
           vibrationPattern: "0, 1000, 100, 1000"
+
+    - service: notify.tv
+      data:
+        message: "{{ timer_dict.summary }}"
