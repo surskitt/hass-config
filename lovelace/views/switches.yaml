@@ -42,6 +42,9 @@ cards:
       - entity: switch.office_light_switch
         name: Light switch
         icon: 'mdi:ceiling-light'
+      - name: wigeon
+        entity: switch.wigeon
+        icon: 'mdi:desktop-tower-monitor'
 
   - title: Bedroom
     type: entities
