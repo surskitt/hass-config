@@ -55,7 +55,9 @@ cards:
       - type: 'custom:fold-entity-row'
         head:
           name: LEDs
+          type: 'custom:slider-entity-row'
           entity: light.wled_bedroom
+          toggle: true
           icon: 'mdi:led-strip-variant'
         group_config:
           state_color: true
@@ -99,19 +101,16 @@ cards:
                 label: noise 4
 
               - effect: pride 2015
-                brightness_pct: 10
                 color_temp: 1
                 transition: 1
                 label: pride 2015
 
               - effect: colorful
-                brightness_pct: 10
                 color_temp: 1
                 transition: 1
                 label: colorful
 
               - effect: palette
-                brightness_pct: 10
                 color_temp: 1
                 transition: 1
                 label: palette
