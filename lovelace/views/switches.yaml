@@ -86,6 +86,36 @@ cards:
                 icon_color: 'linear-gradient(15deg, #aaee99, #1387c4)'
                 label: pacifica
 
+              - effect: noise 2
+                brightness_pct: 10
+                color_temp: 1
+                transition: 1
+                label: noise 2
+
+              - effect: noise 4
+                brightness_pct: 10
+                color_temp: 1
+                transition: 1
+                label: noise 4
+
+              - effect: pride 2015
+                brightness_pct: 10
+                color_temp: 1
+                transition: 1
+                label: pride 2015
+
+              - effect: colorful
+                brightness_pct: 10
+                color_temp: 1
+                transition: 1
+                label: colorful
+
+              - effect: palette
+                brightness_pct: 10
+                color_temp: 1
+                transition: 1
+                label: palette
+
   - title: Attic
     type: entities
     state_color: true
