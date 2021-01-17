@@ -30,3 +30,7 @@
     - service: script.kitchen_lights
     - service: script.bedroom_lights
     - service: script.office_lights
+    - service: script.living_room_heating
+    - service: script.kitchen_heating
+    - service: script.bedroom_heating
+    - service: script.office_heating

@@ -1,0 +1,80 @@
+---
+living_room_heating:
+  sequence:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: input_boolean.living_room_presence
+              state: 'on'
+
+          sequence:
+            - service: climate.set_temperature
+              entity_id: climate.living_room
+              data:
+                temperature: 22
+
+      default:
+        - service: climate.set_temperature
+          entity_id: climate.living_room
+          data:
+            temperature: 12
+
+kitchen_heating:
+  sequence:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: input_boolean.kitchen_presence
+              state: 'on'
+
+          sequence:
+            - service: climate.set_temperature
+              entity_id: climate.kitchen
+              data:
+                temperature: 22
+
+      default:
+        - service: climate.set_temperature
+          entity_id: climate.kitchen
+          data:
+            temperature: 12
+
+bedroom_heating:
+  sequence:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: input_boolean.bedroom_presence
+              state: 'on'
+
+          sequence:
+            - service: climate.set_temperature
+              entity_id: climate.bedroom
+              data:
+                temperature: 22
+
+      default:
+        - service: climate.set_temperature
+          entity_id: climate.bedroom
+          data:
+            temperature: 12
+
+office_heating:
+  sequence:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: input_boolean.office_presence
+              state: 'on'
+
+          sequence:
+            - service: climate.set_temperature
+              entity_id: climate.office
+              data:
+                temperature: 22
+
+      default:
+        - service: climate.set_temperature
+          entity_id: climate.office
+          data:
+            temperature: 12
