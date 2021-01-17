@@ -96,13 +96,15 @@ automation manual: !include_dir_merge_list automations/
 
 camera: !include cameras.yaml
 group: !include groups.yaml
-input_boolean: !include booleans.yaml
 scene: !include scenes.yaml
 script: !include scripts.yaml
 sensor: !include sensors.yaml
 shell_command: !include shell_commands.yaml
 switch: !include switches.yaml
 timer: !include timers.yaml
+
+input_boolean: !include inputs/booleans.yaml
+input_number: !include inputs/numbers.yaml
 
 notify:
   - name: wigeon
