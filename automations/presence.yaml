@@ -10,19 +10,23 @@
 
   action:
     - service: input_boolean.turn_off
-      entity_id: input_boolean.living_room_presence
+      entity_id:
+        - input_boolean.living_room_presence
+        - input_boolean.kitchen_presence
+        - input_boolean.office_presence
+        - input_boolean.bedroom_presence
+        - input_boolean.bathroom_presence
+        - input_boolean.garden_presence
 
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.kitchen_presence
+- alias: Presence control
+  description: Turn on lights and heating when presence changes
 
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.office_presence
+  trigger:
+    - platform: state
+      entity_id: sensor.shane_presence_formatted
 
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.bedroom_presence
-
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.bathroom_presence
-
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.garden_presence
+  action:
+    - service: script.living_room_lights
+    - service: script.kitchen_lights
+    - service: script.bedroom_lights
+    - service: script.office_lights
