@@ -4,4 +4,4 @@ fake_sun:
   options:
     - above_horizon
     - below_horizon
-  icon: 'mdi:weasther-sunny'
+  icon: 'mdi:weather-sunny'
