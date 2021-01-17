@@ -5,7 +5,7 @@ fake_hour:
   max: 23
   step: 1
   icon: mdi:clock
-  mode: box
+  mode: slider
 
 fake_minute:
   name: Fake minute
@@ -13,4 +13,4 @@ fake_minute:
   max: 59
   step: 1
   icon: mdi:clock
-  mode: box
+  mode: slider
