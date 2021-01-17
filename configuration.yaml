@@ -104,6 +104,7 @@ switch: !include switches.yaml
 timer: !include timers.yaml
 
 input_boolean: !include inputs/booleans.yaml
+input_select: !include inputs/select.yaml
 input_number: !include inputs/numbers.yaml
 
 notify:

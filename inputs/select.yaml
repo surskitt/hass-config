@@ -1,0 +1,7 @@
+---
+fake_sun:
+  name: Fake sun
+  options:
+    - above_horizon
+    - below_horizon
+  icon: 'mdi:sun'
