@@ -94,10 +94,11 @@ lovelace:
 automation ui: !include automations.yaml
 automation manual: !include_dir_merge_list automations/
 
+script: !include_dir_merge_named scripts/
+
 camera: !include cameras.yaml
 group: !include groups.yaml
 scene: !include scenes.yaml
-script: !include scripts.yaml
 sensor: !include sensors.yaml
 shell_command: !include shell_commands.yaml
 switch: !include switches.yaml

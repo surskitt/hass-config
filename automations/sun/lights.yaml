@@ -1,0 +1,32 @@
+---
+- alias: Turn on lights when sun sets
+  id: sunset_lights_on
+  mode: single
+
+  trigger:
+    platform: state
+    entity_id: input_select.fake_sun
+    to: 'below_horizon'
+
+  action:
+    - service: script.living_room_lights
+    - service: script.kitchen_lights
+    - service: script.bedroom_lights
+    - service: script.office_lights
+
+- alias: Turn off lights when sun rises
+  id: sunset_lights_off
+  mode: single
+
+  trigger:
+    platform: state
+    entity_id: input_select.fake_sun
+    to: 'above_horizon'
+
+  action:
+    - service: switch.turn_off
+      entity_id:
+        - switch.living_room_light_switch
+        - switch.kitchen_light_switch
+        - switch.bedroom_light_switch
+        - switch.office_light_switch

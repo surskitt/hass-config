@@ -1,0 +1,35 @@
+living_room_lights:
+  sequence:
+    - condition: state
+      entity_id: input_boolean.living_room_presence
+      state: 'on'
+
+    - service: switch.turn_on
+      entity_id: switch.living_room_light_switch
+
+kitchen_lights:
+  sequence:
+    - condition: state
+      entity_id: input_boolean.kitchen_presence
+      state: 'on'
+
+    - service: switch.turn_on
+      entity_id: switch.kitchen_light_switch
+
+bedroom_lights:
+  sequence:
+    - condition: state
+      entity_id: input_boolean.bedroom_presence
+      state: 'on'
+
+    - service: switch.turn_on
+      entity_id: switch.bedroom_light_switch
+
+office_lights:
+  sequence:
+    - condition: state
+      entity_id: input_boolean.office_presence
+      state: 'on'
+
+    - service: switch.turn_on
+      entity_id: switch.office_light_switch
