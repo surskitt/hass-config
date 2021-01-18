@@ -10,12 +10,15 @@ cards:
         name: wren
     show_header_toggle: false
     state_color: true
+
   - title: Cameras
     type: entities
     entities:
       - entity: sensor.battery_doorbell
+      - entity: sensor.battery_garden_camera
     show_header_toggle: false
     state_color: true
+
   - title: Sensors
     type: entities
     entities:
