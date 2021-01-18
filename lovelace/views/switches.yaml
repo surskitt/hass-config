@@ -22,6 +22,7 @@ cards:
           - entity: switch.tv
             name: TV
             icon: 'mdi:television'
+          - entity: vacuum.robovac
 
   - title: Kitchen
     type: entities
