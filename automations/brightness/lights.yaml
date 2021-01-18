@@ -1,0 +1,12 @@
+---
+- alias: Turn on office light when it gets dark
+  id: 'office_light_after_dark'
+
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.office_light_sensor_brightness
+      below: 200
+
+  action:
+    - service: switch.turn_on
+      entity_id: switch.office_light_mss510x_main_channel
