@@ -54,6 +54,9 @@ cards:
       - name: wigeon
         entity: switch.wigeon
         icon: 'mdi:desktop-tower-monitor'
+      - name: Not
+        entity: switch.not
+        icon: 'mdi:floor-lamp-torchiere'
 
   - title: Bedroom
     type: entities
