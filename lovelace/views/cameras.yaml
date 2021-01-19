@@ -8,11 +8,19 @@ cards:
     camera_image: camera.doorbell
     name: Doorbell
     show_state: false
+
   - type: picture-entity
     entity: camera.living_room_cam
     camera_image: camera.living_room_cam
     show_name: true
     show_state: false
+
+  - type: picture-entity
+    entity: camera.kitchen_cam_hd
+    camera_image: camera.kitchen_cam_hd
+    show_name: true
+    show_state: false
+
   - type: picture-entity
     entity: camera.backyard
     camera_image: camera.backyard

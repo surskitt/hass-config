@@ -22,17 +22,26 @@ cards:
           - entity: switch.tv
             name: TV
             icon: 'mdi:television'
+          - entity: vacuum.robovac
 
-  - title: Kitchen
-    type: entities
-    state_color: true
-    show_header_toggle: false
-    entities:
-      - entity: switch.kitchen_light_switch
-        name: Light switch
-        icon: 'mdi:ceiling-light'
-      - entity: switch.14503513c82b965f16f9
-        icon: 'mdi:fridge'
+  - type: vertical-stack
+    cards:
+      - type: picture-entity
+        entity: camera.kitchen_cam_hd
+        camera_image: camera.kitchen_cam_hd
+        show_name: false
+        show_state: false
+
+      - title: Kitchen
+        type: entities
+        state_color: true
+        show_header_toggle: false
+        entities:
+          - entity: switch.kitchen_light_switch
+            name: Light switch
+            icon: 'mdi:ceiling-light'
+          - entity: switch.14503513c82b965f16f9
+            icon: 'mdi:fridge'
 
   - title: Office
     type: entities
