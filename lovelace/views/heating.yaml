@@ -66,11 +66,11 @@ cards:
 
   - type: vertical-stack
     cards:
-      - name: Boiler temperature
+      - name: Boiler room temperature
         type: sensor
         entity: sensor.shellyht_b895d2_temperature
         graph: line
-      - name: Boiler humidity
+      - name: Boiler room humidity
         type: sensor
         entity: sensor.shellyht_b895d2_humidity
         graph: line
