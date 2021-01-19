@@ -100,7 +100,6 @@ camera: !include cameras.yaml
 group: !include groups.yaml
 scene: !include scenes.yaml
 sensor: !include sensors.yaml
-shell_command: !include shell_commands.yaml
 switch: !include switches.yaml
 timer: !include timers.yaml
 
@@ -108,14 +107,8 @@ input_boolean: !include inputs/booleans.yaml
 input_select: !include inputs/select.yaml
 input_number: !include inputs/numbers.yaml
 
-notify:
-  - name: wigeon
-    platform: rest
-    resource: http://192.168.1.1:4950/notify
-    method: POST_JSON
-    title_param_name: summary
-    message_param_name: body
-    target_param_name: icon
+rest_command: !include commands/rest.yaml
+shell_command: !include commands/shell.yaml
 
 zha:
   zigpy_config:
@@ -135,15 +128,3 @@ light:
       - light.wled_bed
       - light.wled_bedroom_dresser
 
-rest_command:
-  wigeon_notify:
-    url: "http://192.168.1.1:4950/notify"
-    method: post
-    payload: '{"summary": "{{ summary }}", "body": "{{ body }}", "icon": "{{ icon }}", "urgency": "{{ urgency }}", "timeout": {{ timeout|default(10000) }}}'
-    content_type: 'application/json; charset=utf-8'
-
-  teal_notify:
-    url: "http://192.168.1.2:4950/notify"
-    method: post
-    payload: '{"summary": "{{ summary }}", "body": "{{ body }}", "icon": "{{ icon }}", "urgency": "{{ urgency }}", "timeout": {{ timeout|default(10000) }}}'
-    content_type: 'application/json; charset=utf-8'
