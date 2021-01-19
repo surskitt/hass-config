@@ -1,0 +1,3 @@
+---
+host: !secret plex_host
+port: 443

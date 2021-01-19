@@ -20,36 +20,10 @@ python_script:
 frontend:
   themes: !include_dir_merge_named themes
 
-person:
-  - name: Shane
-    id: shane
-    device_trackers:
-      - device_tracker.wren
-
-# cloud:
-#   google_actions:
-
-webostv:
-  name: TV
-  host: 192.168.5.1
-  turn_on_action:
-    service: wake_on_lan.send_magic_packet
-    data:
-      mac: "64:95:6C:51:52:1F"
-  customize:
-    sources:
-      - youtube
-      - netflix
-      - plex
-      - spotify
-
-plex:
-  host: !secret plex_host
-  port: 443
-
-spotify:
-  client_id: !secret spotify_client_id
-  client_secret: !secret spotify_client_secret
+webostv: !include component_config/webostv.yaml
+plex: !include component_config/plex.yaml
+spotify: !include component_config/spotify.yaml
+spotcast: !include component_config/spotcast.yaml
 
 device_tracker:
   - platform: luci
@@ -69,10 +43,6 @@ calendar:
     username: !secret caldav_username
     password: !secret caldav_password
     url: https://dav.mailbox.org/caldav/Y2FsOi8vMC8zMQ
-
-spotcast:
-  sp_dc: !secret spotcast_dc
-  sp_key: !secret spotcast_key
 
 lovelace:
   mode: yaml
