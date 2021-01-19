@@ -15,15 +15,10 @@ homeassistant:
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
-
 python_script:
 
 frontend:
   themes: !include_dir_merge_named themes
-
-# Text to speech
-tts:
-  - platform: google_translate
 
 person:
   - name: Shane
@@ -31,22 +26,7 @@ person:
     device_trackers:
       - device_tracker.wren
 
-# cloud:
-#   google_actions:
-
-webostv:
-  name: TV
-  host: 192.168.5.1
-  turn_on_action:
-    service: wake_on_lan.send_magic_packet
-    data:
-      mac: "64:95:6C:51:52:1F"
-  customize:
-    sources:
-      - youtube
-      - netflix
-      - plex
-      - spotify
+webostv: !include component_config/webostv.yaml
 
 plex:
   host: !secret plex_host
@@ -61,14 +41,6 @@ device_tracker:
     host: 192.168.0.1
     username: !secret luci_username
     password: !secret luci_password
-  - platform: mqtt
-    devices:
-      wren_ra: 'room-assistant/device_tracker/ble-0e0883021ce04050bd8781c24ca9dc8a-1-2-tracker/state'
-    payload_home: 'true'
-    payload_not_home: 'false'
-    source_type: bluetooth
-
-# hacs
 
 vacuum:
   - name: RoboVAC
@@ -108,11 +80,6 @@ input_number: !include inputs/numbers.yaml
 
 rest_command: !include commands/rest.yaml
 shell_command: !include commands/shell.yaml
-
-zha:
-  zigpy_config:
-    ota:
-      ikea_provider: true
 
 light groups: !include groups/lights.yaml
 group switches: !include groups/switches.yaml
