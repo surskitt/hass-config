@@ -26,7 +26,22 @@ person:
     device_trackers:
       - device_tracker.wren
 
-webostv: !include component_config/webostv.yaml
+# cloud:
+#   google_actions:
+
+webostv:
+  name: TV
+  host: 192.168.5.1
+  turn_on_action:
+    service: wake_on_lan.send_magic_packet
+    data:
+      mac: "64:95:6C:51:52:1F"
+  customize:
+    sources:
+      - youtube
+      - netflix
+      - plex
+      - spotify
 
 plex:
   host: !secret plex_host
