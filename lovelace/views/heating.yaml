@@ -64,6 +64,17 @@ cards:
         entity: sensor.bathroom_sensor_humidity
         graph: line
 
+  - type: vertical-stack
+    cards:
+      - name: Boiler temperature
+        type: sensor
+        entity: sensor.shellyht_b895d2_temperature
+        graph: line
+      - name: Boiler humidity
+        type: sensor
+        entity: sensor.shellyht_b895d2_humidity
+        graph: line
+
   - type: weather-forecast
     entity: weather.home
     show_forecast: false
