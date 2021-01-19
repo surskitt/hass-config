@@ -20,33 +20,20 @@ python_script:
 frontend:
   themes: !include_dir_merge_named themes
 
-webostv: !include component_config/webostv.yaml
+lovelace: !include lovelace/config.yaml
+
+calendar: !include component_config/calendar.yaml
 plex: !include component_config/plex.yaml
 spotify: !include component_config/spotify.yaml
 spotcast: !include component_config/spotcast.yaml
+vacuum: !include component_config/robovac.yaml
+webostv: !include component_config/webostv.yaml
 
 device_tracker:
   - platform: luci
     host: 192.168.0.1
     username: !secret luci_username
     password: !secret luci_password
-
-vacuum:
-  - name: RoboVAC
-    platform: eufyrobovac
-    ip_address: 192.168.0.162
-    username: !secret eufy_home_username
-    password: !secret eufy_home_password
-
-calendar:
-  - platform: caldav
-    username: !secret caldav_username
-    password: !secret caldav_password
-    url: https://dav.mailbox.org/caldav/Y2FsOi8vMC8zMQ
-
-lovelace:
-  mode: yaml
-  resources: !include lovelace/resources.yaml
 
 automation ui: !include automations.yaml
 automation manual: !include_dir_merge_list automations/

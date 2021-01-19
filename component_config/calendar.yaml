@@ -1,0 +1,5 @@
+---
+- platform: caldav
+  username: !secret caldav_username
+  password: !secret caldav_password
+  url: https://dav.mailbox.org/caldav/Y2FsOi8vMC8zMQ

@@ -1,0 +1,6 @@
+---
+- name: RoboVAC
+  platform: eufyrobovac
+  ip_address: 192.168.0.162
+  username: !secret eufy_home_username
+  password: !secret eufy_home_password
