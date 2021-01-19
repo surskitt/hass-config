@@ -29,15 +29,10 @@ spotcast: !include component_config/spotcast.yaml
 vacuum: !include component_config/robovac.yaml
 webostv: !include component_config/webostv.yaml
 
-device_tracker:
-  - platform: luci
-    host: 192.168.0.1
-    username: !secret luci_username
-    password: !secret luci_password
+device_tracker: !include device_trackers.yaml
 
 automation ui: !include automations.yaml
 automation manual: !include_dir_merge_list automations/
-
 script: !include_dir_merge_named scripts/
 
 camera: !include cameras.yaml

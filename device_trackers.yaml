@@ -1,0 +1,5 @@
+---
+- platform: luci
+  host: 192.168.0.1
+  username: !secret luci_username
+  password: !secret luci_password
