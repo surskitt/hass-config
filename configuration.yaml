@@ -97,4 +97,4 @@ rest_command: !include commands/rest.yaml
 shell_command: !include commands/shell.yaml
 
 light groups: !include groups/lights.yaml
-group switches: !include groups/switches.yaml
+group: !include groups/switches.yaml
