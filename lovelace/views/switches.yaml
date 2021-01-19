@@ -56,7 +56,7 @@ cards:
         icon: 'mdi:desktop-tower-monitor'
       - name: Not
         entity: switch.not
-        icon: 'mdi:floor-lamp-torchiere'
+        icon: 'mdi:floor-lamp'
 
   - title: Bedroom
     type: entities
