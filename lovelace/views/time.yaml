@@ -1,0 +1,10 @@
+---
+title: Switches
+icon: 'mdi:timer'
+panel: false
+cards:
+  - title: Alarm clock
+    type: entities
+    state_color: true
+    entities:
+      - entity: input_datetime.alarm_clock

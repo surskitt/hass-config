@@ -1,0 +1,5 @@
+---
+alarm_clock:
+  name: Alarm clock time
+  has_time: true
+  icon: 'mdi:alarm'

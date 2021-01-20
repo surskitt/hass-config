@@ -41,8 +41,9 @@ switch: !include switches.yaml
 timer: !include timers.yaml
 
 input_boolean: !include inputs/booleans.yaml
-input_select: !include inputs/select.yaml
+input_datetime: !include inputs/datetime.yaml
 input_number: !include inputs/numbers.yaml
+input_select: !include inputs/select.yaml
 
 rest_command: !include commands/rest.yaml
 shell_command: !include commands/shell.yaml
