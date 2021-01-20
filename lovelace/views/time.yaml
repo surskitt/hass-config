@@ -1,6 +1,6 @@
 ---
 title: Switches
-icon: 'mdi:timer'
+icon: 'mdi:clock'
 panel: false
 cards:
   - title: Alarm clock
