@@ -8,3 +8,5 @@ cards:
     state_color: true
     entities:
       - entity: input_datetime.alarm_clock
+      - entity: automation.morning_routine
+        icon: 'mdi:alarm'
