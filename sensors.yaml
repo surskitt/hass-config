@@ -37,3 +37,7 @@
       friendly_name: "Shane's location"
       value_template: "{{ (expand('group.room_presence')|selectattr('state', 'eq', 'on')|join('/', attribute='attributes.friendly_name')) or 'Away' }}"
       icon_template: 'mdi:account'
+
+- platform: time_date
+  display_options:
+    - 'time'
