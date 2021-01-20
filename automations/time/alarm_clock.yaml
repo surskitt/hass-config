@@ -1,0 +1,20 @@
+---
+- alias: Morning routine
+  id: morning_routine
+  mode: single
+
+  trigger:
+    - platform: template
+      value_template: "{{ states('sensor.time') == ( states.input_datetime.alarm_clock.attributes.timestamp | int - 1200 ) | timestamp_custom('%H:%M', False) }}"
+
+  condition:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+
+  action:
+    - service: script.morning_routine
