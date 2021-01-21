@@ -26,3 +26,25 @@ garden_presence:
 guest_mode:
   name: Guest mode
   icon: mdi:account-multiple-plus
+
+# fakes
+
+fake_living_room_door:
+  name: Fake living room door
+  icon: mdi:sofa
+
+fake_kitchen_door:
+  name: Fake kitchen door
+  icon: mdi:stove
+
+fake_office_door:
+  name: Fake office door
+  icon: mdi:desktop-classic
+
+fake_bedroom_door:
+  name: Fake bedroom door
+  icon: mdi:bed
+
+fake_bathroom_door:
+  name: Fake bathroom door
+  icon: mdi:toilet
