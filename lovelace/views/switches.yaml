@@ -130,6 +130,15 @@ cards:
                 transition: 1
                 label: palette
 
+  - title: Bathroom
+    type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+      - entity: switch.bathroom_light_switch
+        name: Light switch
+        icon: 'mdi:ceiling-light'
+
   - title: Attic
     type: entities
     state_color: true
