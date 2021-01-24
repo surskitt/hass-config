@@ -1,18 +1,6 @@
 ---
 - platform: template
   sensors:
-    battery_doorbell:
-      friendly_name: Doorbell battery
-      unit_of_measurement: '%'
-      value_template: "{{ state_attr('camera.doorbell', '1101') }}"
-      device_class: battery
-
-    battery_garden_camera:
-      friendly_name: Garden camera battery
-      unit_of_measurement: '%'
-      value_template: "{{ state_attr('camera.backyard', '1101') }}"
-      device_class: battery
-
     sunrise_time:
       friendly_name: Sunrise time
       value_template: "{{ as_timestamp(states.sun.sun.attributes.next_rising) | timestamp_custom(' %I:%M %p') | replace(' 0', '') }}"

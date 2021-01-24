@@ -41,3 +41,107 @@
     - service: script.kitchen_heating
     - service: script.bedroom_heating
     - service: script.office_heating
+
+- alias: Presence set
+  description: Set presence when door opens
+
+  trigger:
+    - platform: state
+      entity_id:
+        - input_boolean.fake_living_room_door
+        - input_boolean.fake_kitchen_door
+        - input_boolean.fake_office_door
+        - input_boolean.fake_bedroom_door
+        - input_boolean.fake_bathroom_door
+      to: 'on'
+
+  action:
+    - choose:
+        - conditions: >
+            {{ trigger.entity_id == 'input_boolean.fake_living_room_door' }}
+          sequence:
+            - service: input_boolean.turn_on
+              entity_id: input_boolean.living_room_presence
+
+        - conditions: >
+            {{ trigger.entity_id == 'input_boolean.fake_kitchen_door' }}
+          sequence:
+            - service: input_boolean.turn_on
+              entity_id: input_boolean.kitchen_presence
+
+        - conditions: >
+            {{ trigger.entity_id == 'input_boolean.fake_office_door' }}
+          sequence:
+            - service: input_boolean.turn_on
+              entity_id: input_boolean.office_presence
+
+        - conditions: >
+            {{ trigger.entity_id == 'input_boolean.fake_bedroom_door' }}
+          sequence:
+            - service: input_boolean.turn_on
+              entity_id: input_boolean.bedroom_presence
+
+        - conditions: >
+            {{ trigger.entity_id == 'input_boolean.fake_bathroom_door' }}
+          sequence:
+            - service: input_boolean.turn_on
+              entity_id: input_boolean.bathroom_presence
+
+- alias: Presence unset
+  description: Unset presence(s) when door closes
+
+  trigger:
+    - platform: state
+      entity_id:
+        - input_boolean.fake_living_room_door
+        - input_boolean.fake_kitchen_door
+        - input_boolean.fake_office_door
+        - input_boolean.fake_bedroom_door
+        - input_boolean.fake_bathroom_door
+      to: 'off'
+
+  action:
+    - choose:
+        - conditions: >
+            {{ trigger.entity_id == 'input_boolean.fake_living_room_door' }}
+          sequence:
+            - service: input_boolean.turn_off
+              entity_id:
+                - input_boolean.kitchen_presence
+                - input_boolean.office_presence
+                - input_boolean.bedroom_presence
+                - input_boolean.bathroom_presence
+                - input_boolean.garden_presence
+
+        - conditions: >
+            {{ trigger.entity_id == 'input_boolean.fake_kitchen_door' }}
+          sequence:
+            - service: input_boolean.turn_off
+              entity_id:
+                - input_boolean.kitchen_presence
+                - input_boolean.office_presence
+                - input_boolean.bedroom_presence
+                - input_boolean.bathroom_presence
+                - input_boolean.garden_presence
+
+        - conditions: >
+            {{ trigger.entity_id == 'input_boolean.fake_office_door' }}
+          sequence:
+            - service: input_boolean.turn_off
+              entity_id:
+                - input_boolean.living_room_presence
+                - input_boolean.kitchen_presence
+                - input_boolean.bedroom_presence
+                - input_boolean.bathroom_presence
+                - input_boolean.garden_presence
+
+        - conditions: >
+            {{ trigger.entity_id == 'input_boolean.fake_bedroom_door' }}
+          sequence:
+            - service: input_boolean.turn_off
+              entity_id:
+                - input_boolean.living_room_presence
+                - input_boolean.kitchen_presence
+                - input_boolean.office_presence
+                - input_boolean.bathroom_presence
+                - input_boolean.garden_presence
