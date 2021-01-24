@@ -10,4 +10,3 @@
   entities:
     - light.wled_bed
     - light.wled_bedroom_dresser
-
