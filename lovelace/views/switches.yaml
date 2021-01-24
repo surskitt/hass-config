@@ -139,6 +139,30 @@ cards:
         name: Light switch
         icon: 'mdi:ceiling-light'
 
+  - title: Stairs
+    type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+      - type: 'custom:fold-entity-row'
+        head:
+          name: Stairs bulbs
+          type: 'custom:slider-entity-row'
+          entity: light.stairs_bulbs
+          toggle: true
+          icon: 'mdi:bulb'
+        group_config:
+          state_color: true
+          secondary_info: last-changed
+        entities:
+          - name: Upstairs bulb
+            entity: light.stairs_upstairs_bulb
+            icon: 'mdi:bulb'
+
+          - name: Downstairs bulb
+            entity: light.stairs_downstairs_bulb
+            icon: 'mdi:bulb'
+
   - title: Attic
     type: entities
     state_color: true
