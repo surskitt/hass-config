@@ -54,9 +54,18 @@ cards:
       - name: wigeon
         entity: switch.wigeon
         icon: 'mdi:desktop-tower-monitor'
-      - name: Not
-        entity: switch.not
-        icon: 'mdi:floor-lamp'
+      - type: 'custom:fold-entity-row'
+        head:
+          name: Not
+          type: 'custom:slider-entity-row'
+          entity: light.not_bulb
+          toggle: true
+          icon: 'mdi:floor-lamp'
+        entities:
+          - name: Colour temperature
+            type: 'custom:slider-entity-row'
+            entity: light.not_bulb
+            attribute: color_temp
 
   - title: Bedroom
     type: entities
