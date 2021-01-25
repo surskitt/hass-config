@@ -1,0 +1,36 @@
+---
+- alias: Activate bedtime routine
+  description: Turn off all lights and heating when pressing tradfri 1 off button
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: sensor.tradfri1_action
+      to: 'off'
+
+  action:
+    - service: climate.set_temperature
+      entity_id:
+        - climate.living_room
+        - climate.kitchen
+        - climate.bedroom
+        - climate.office
+      data:
+        temperature: 12
+
+    - service: switch.turn_off
+      entity_id:
+        - switch.living_room_light_switch
+        - switch.tv
+        - switch.kitchen_light_switch
+        - switch.bedroom_light_switch
+        - switch.office_light_switch
+        - switch.wigeon
+        - switch.bathroom_light_switch
+
+    - service: light.turn_off
+      entity_id:
+        - light.not_bulb
+        - light.wled_bedroom
+        - light.stairs_bulbs
+        - light.attic_light
