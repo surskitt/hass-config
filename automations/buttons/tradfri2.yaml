@@ -1,0 +1,64 @@
+---
+- alias: Cycle office lights
+  description: Cycle office lights when tradfri2 on is pressed
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: sensor.tradfri2_action
+      to: 'on'
+
+  action:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: switch.office_light_switch
+              state: 'on'
+
+          sequence:
+            - service: light.turn_on
+              entity_id: light.not_bulb
+              data:
+                brightness: 255
+
+            - service: switch.turn_off
+              entity_id: switch.office_light_switch
+
+        - conditions:
+            - condition: state
+              entity_id: light.not_bulb
+              state: 'on'
+
+            - condition: template
+              value_template: "{{ state_attr('light.not_bulb', 'brightness') >= 127 }}"
+
+          sequence:
+            - service: light.turn_on
+              entity_id: light.not_bulb
+              data:
+                brightness: 127
+
+            - service: switch.turn_off
+              entity_id: switch.office_light_switch
+
+      default:
+        - service: switch.turn_on
+          entity_id: switch.office_light_switch
+
+        - service: light.turn_off
+          entity_id: light.not_bulb
+
+- alias: Turn off office lights when tradfri2 off is pressed
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: sensor.tradfri2_action
+      to: 'off'
+
+  action:
+    - service: switch.turn_off
+      entity_id: switch.office_light_switch
+
+    - service: light.turn_off
+      entity_id: light.not_bulb
