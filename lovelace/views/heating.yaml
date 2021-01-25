@@ -3,77 +3,77 @@ title: Heating
 path: heating
 icon: 'mdi:radiator'
 cards:
-  - type: vertical-stack
-    cards:
-      - type: 'custom:simple-thermostat'
+  - title: Living room
+    type: entities
+    entities:
+      - name: Thermostat
+        type: 'custom:slider-entity-row'
         entity: climate.living_room
-        show_header: true
-        step_size: 1
-      - type: sensor
+      - name: Current temperature
         entity: sensor.living_room_temperature
-        graph: line
-        detail: 1
-      - type: sensor
+      - name: Humidity
         entity: sensor.living_room_humidity
-        graph: line
+      - name: Valve
+        entity: sensor.living_room_heating
+        icon: 'mdi:radiator'
 
-  - type: vertical-stack
-    cards:
-      - type: 'custom:simple-thermostat'
+  - title: Kitchen
+    type: entities
+    entities:
+      - name: Thermostat
+        type: 'custom:slider-entity-row'
         entity: climate.kitchen
-        step_size: 1
-      - type: sensor
+      - name: Current temperature
         entity: sensor.kitchen_temperature
-        graph: line
-      - type: sensor
+      - name: Humidity
         entity: sensor.kitchen_humidity
-        graph: line
+      - name: Valve
+        entity: sensor.kitchen_heating
+        icon: 'mdi:radiator'
 
-  - type: vertical-stack
-    cards:
-      - type: 'custom:simple-thermostat'
+  - title: Bedroom
+    type: entities
+    entities:
+      - name: Thermostat
+        type: 'custom:slider-entity-row'
         entity: climate.bedroom
-        step_size: 1
-      - type: sensor
+      - name: Current temperature
         entity: sensor.bedroom_temperature
-        graph: line
-      - type: sensor
+      - name: Humidity
         entity: sensor.bedroom_humidity
-        graph: line
+      - name: Valve
+        entity: sensor.bedroom_heating
+        icon: 'mdi:radiator'
 
-  - type: vertical-stack
-    cards:
-      - type: 'custom:simple-thermostat'
+  - title: Office
+    type: entities
+    entities:
+      - name: Thermostat
+        type: 'custom:slider-entity-row'
         entity: climate.office
-        step_size: 1
-      - type: sensor
+      - name: Current temperature
         entity: sensor.office_temperature
-        graph: line
-      - type: sensor
+      - name: Humidity
         entity: sensor.office_humidity
-        graph: line
+      - name: Valve
+        entity: sensor.office_heating
+        icon: 'mdi:radiator'
 
-  - type: vertical-stack
-    cards:
-      - name: Bathroom temperature
-        type: sensor
-        entity: sensor.bathroom_sensor_temperature
-        graph: line
-      - name: Bathroom humidity
-        type: sensor
-        entity: sensor.bathroom_sensor_humidity
-        graph: line
+  - title: Bathroom
+    type: entities
+    entities:
+      - name: Current temperature
+        entity: sensor.bathroom_temperature_temperature
+      - name: Humidity
+        entity: sensor.bathroom_temperature_humidity
 
-  - type: vertical-stack
-    cards:
-      - name: Boiler room temperature
-        type: sensor
+  - title: Boiler room
+    type: entities
+    entities:
+      - name: Current temperature
         entity: sensor.shellyht_b895d2_temperature
-        graph: line
-      - name: Boiler room humidity
-        type: sensor
+      - name: Humidity
         entity: sensor.shellyht_b895d2_humidity
-        graph: line
 
   - type: weather-forecast
     entity: weather.home
