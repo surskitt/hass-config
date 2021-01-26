@@ -13,10 +13,13 @@
       entity_id:
         - climate.living_room
         - climate.kitchen
-        - climate.bedroom
         - climate.office
       data:
         temperature: 12
+
+    - service: timer.start
+      data:
+        entity_id: timer.bedtime_heating
 
     - service: switch.turn_off
       entity_id:

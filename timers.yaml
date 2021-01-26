@@ -10,3 +10,8 @@ dryer_mixed_load:
   icon: 'mdi:tumble-dryer'
 
 custom1:
+
+bedtime_heating:
+  name: Bedtime heating
+  duration: '00:30:00'
+  icon: 'mdi:radiator'
