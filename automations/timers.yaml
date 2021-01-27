@@ -83,3 +83,16 @@
       entity_id: climate.bedroom
       data:
         temperature: 12
+
+- id: presence_heating
+  alias: Turn on heating after timer finishes
+  mode: single
+
+  trigger:
+    platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.presence_heating
+
+  action:
+    - service: script.presence_heating

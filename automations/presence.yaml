@@ -36,11 +36,10 @@
     - service: script.kitchen_lights
     - service: script.bedroom_lights
     - service: script.office_lights
-    # maybe control these with a timer, start timer then have it run the script once it's done
-    - service: script.living_room_heating
-    - service: script.kitchen_heating
-    - service: script.bedroom_heating
-    - service: script.office_heating
+
+    - service: timer.start
+      data:
+        entity_id: timer.presence_heating
 
 - alias: Presence set
   description: Set presence when door opens
