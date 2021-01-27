@@ -1,0 +1,40 @@
+---
+- alias: office lights input
+  description: Change office lights using input select
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: input_select.office_lights
+
+  action:
+    - choose:
+        - conditions: "{{ trigger.to_state.state == 'light_switch' }}"
+          sequence:
+            - service: switch.turn_on
+              entity_id: switch.office_light_switch
+
+            - service: light.turn_off
+              entity_id: light.not_bulb
+
+        - conditions: "{{ trigger.to_state.state == 'not_blue_100' }}"
+          sequence:
+            - service: light.turn_on
+              entity_id: light.not_bulb
+              data:
+                brightness: 255
+                color_temp: 155
+
+            - service: switch.turn_off
+              entity_id: switch.office_light_switch
+
+        - conditions: "{{ trigger.to_state.state == 'not_orange_50' }}"
+          sequence:
+            - service: light.turn_on
+              entity_id: light.not_bulb
+              data:
+                brightness: 127
+                color_temp: 370
+
+            - service: switch.turn_off
+              entity_id: switch.office_light_switch

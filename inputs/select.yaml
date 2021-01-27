@@ -5,3 +5,11 @@ fake_sun:
     - above_horizon
     - below_horizon
   icon: 'mdi:weather-sunny'
+
+office_lights:
+  name: Office lights
+  options:
+    - light_switch
+    - not_blue_100
+    - not_orange_50
+  icon: 'mdi:lightbulb-group-outline'
