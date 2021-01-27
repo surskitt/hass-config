@@ -5,7 +5,7 @@
 
   trigger:
     platform: state
-    entity_id: input_select.fake_sun
+    entity_id: sun.sun
     to: 'below_horizon'
 
   action:
