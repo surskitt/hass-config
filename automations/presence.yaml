@@ -48,6 +48,7 @@
   trigger:
     - platform: state
       entity_id:
+        - binary_sensor.living_room_door_contact
         - binary_sensor.office_door_contact
         - binary_sensor.bedroom_door_contact
       to: 'on'
@@ -90,6 +91,7 @@
   trigger:
     - platform: state
       entity_id:
+        - binary_sensor.living_room_door_contact
         - binary_sensor.office_door_contact
         - binary_sensor.bedroom_door_contact
       to: 'off'
