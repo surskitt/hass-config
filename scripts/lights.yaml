@@ -8,7 +8,7 @@ living_room_lights:
               state: 'on'
 
             - condition: state
-              entity_id: input_select.fake_sun
+              entity_id: sun.sun
               state: 'below_horizon'
 
           sequence:
@@ -28,7 +28,7 @@ kitchen_lights:
               state: 'on'
 
             - condition: state
-              entity_id: input_select.fake_sun
+              entity_id: sun.sun
               state: 'below_horizon'
 
           sequence:
@@ -48,7 +48,7 @@ bedroom_lights:
               state: 'on'
 
             - condition: state
-              entity_id: input_select.fake_sun
+              entity_id: sun.sun
               state: 'below_horizon'
 
           sequence:
@@ -68,7 +68,7 @@ office_lights:
               state: 'on'
 
             - condition: state
-              entity_id: input_select.fake_sun
+              entity_id: sun.sun
               state: 'below_horizon'
 
           sequence:
