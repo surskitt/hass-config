@@ -1,0 +1,19 @@
+---
+- alias: guest mode
+  description: Disable presence switching when guest mode switch is on
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: input_boolean.guest_mode
+
+  action:
+    - service: >
+        {% if trigger.to_state.state == 'on' %}
+          automation.turn_off
+        {% else %}
+          automation.turn_on
+        {% endif %}
+      entity_id:
+        - automation.presence_set
+        - automation.presence_unset
