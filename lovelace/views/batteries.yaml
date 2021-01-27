@@ -13,22 +13,44 @@ cards:
 
   - title: Cameras
     type: entities
+    show_header_toggle: false
+    state_color: true
     entities:
       - entity: sensor.doorbell_battery_percentage
         name: Doorbell
       - entity: sensor.garden_battery_percentage
         name: Garden
-    show_header_toggle: false
-    state_color: true
 
   - title: Sensors
     type: entities
-    entities:
-      - name: Bathroom temperature sensor
-        entity: sensor.bathroom_temperature_battery
-      - name: Office light sensor
-        entity: sensor.office_luminosity_battery
-      - name: Stairs motion sensor
-        entity: sensor.stairs_motion_battery
     show_header_toggle: false
     state_color: true
+    entities:
+      - name: Living room door sensor
+        entity: sensor.living_room_door_battery
+      - name: Stairs motion sensor
+        entity: sensor.stairs_motion_battery
+      - name: Bedroom door sensor
+        entity: sensor.bedroom_door_battery
+      - name: Bed motion sensor
+        entity: sensor.bed_motion_battery
+      - name: Office door sensor
+        entity: sensor.office_door_battery
+      - name: Office light sensor
+        entity: sensor.office_luminosity_battery
+      - name: Bathroom temperature sensor
+        entity: sensor.bathroom_temperature_battery
+
+  - title: Buttons
+    type: entities
+    show_header_toggle: false
+    state_color: true
+    entities:
+      - name: Tradfri button 1
+        entity: sensor.tradfri1_battery
+      - name: Tradfri button 2
+        entity: sensor.tradfri2_battery
+      - name: Tradfri button 3
+        entity: sensor.tradfri3_battery
+      - name: Tradfri button 4
+        entity: sensor.tradfri4_battery
