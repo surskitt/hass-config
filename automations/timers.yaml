@@ -39,6 +39,9 @@
       timer.dryer_mixed_load:
         summary: Dryer finished
         icon: tumble-dryer.png
+      timer.bath_full:
+        summary: Bath full
+        icon: water-pump.png
 
   trigger:
     platform: event

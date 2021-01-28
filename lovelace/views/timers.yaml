@@ -16,3 +16,10 @@ cards:
     entities:
       - name: Mixed load
         entity: timer.dryer_mixed_load
+
+  - title: Bath
+    type: entities
+    state_colour: true
+    entities:
+      - name: Bath filling
+        entity: timer.bath_fill

@@ -20,3 +20,8 @@ presence_heating:
   name: Presence heating
   duration: '00:01:30'
   icon: mdi:account-multiple
+
+bath_fill:
+  name: Bath filling
+  duration: '00:19:00'
+  icon: mdi:water-pump
