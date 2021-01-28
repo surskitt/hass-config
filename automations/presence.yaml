@@ -32,10 +32,7 @@
         - input_boolean.garden_presence
 
   action:
-    - service: script.living_room_lights
-    - service: script.kitchen_lights
-    - service: script.bedroom_lights
-    - service: script.office_lights
+    - service: script.presence_lights
 
     - service: timer.start
       data:

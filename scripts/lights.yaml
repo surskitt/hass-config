@@ -1,4 +1,12 @@
 ---
+presence_lights:
+  sequence:
+    - service: script.living_room_lights
+    - service: script.kitchen_lights
+    - service: script.bedroom_lights
+    - service: script.office_lights
+    - service: script.bathroom_lights
+
 living_room_lights:
   sequence:
     - choose:
@@ -78,3 +86,23 @@ office_lights:
       default:
         - service: switch.turn_off
           entity_id: switch.office_light_switch
+
+bathroom_lights:
+  sequence:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: input_boolean.bathroom_presence
+              state: 'on'
+
+            - condition: state
+              entity_id: sun.sun
+              state: 'below_horizon'
+
+          sequence:
+            - service: switch.turn_on
+              entity_id: switch.bathroom_light_switch
+
+      default:
+        - service: switch.turn_off
+          entity_id: switch.bathroom_light_switch
