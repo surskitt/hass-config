@@ -48,8 +48,10 @@
     - platform: state
       entity_id:
         - binary_sensor.living_room_door_contact
-        - binary_sensor.office_door_contact
+        - binary_sensor.kitchen_door_contact
         - binary_sensor.bedroom_door_contact
+        - binary_sensor.office_door_contact
+        - binary_sensor.bathroom_door_contact
       to: 'on'
 
   action:
@@ -61,7 +63,7 @@
               entity_id: input_boolean.living_room_presence
 
         - conditions: >
-            {{ trigger.entity_id == 'input_boolean.fake_kitchen_door' }}
+            {{ trigger.entity_id == 'binary_sensor.kitchen_door_contact'' }}
           sequence:
             - service: input_boolean.turn_on
               entity_id: input_boolean.kitchen_presence
@@ -79,7 +81,7 @@
               entity_id: input_boolean.bedroom_presence
 
         - conditions: >
-            {{ trigger.entity_id == 'input_boolean.fake_bathroom_door' }}
+            {{ trigger.entity_id == 'binary_sensor.bathroom_door_contact' }}
           sequence:
             - service: input_boolean.turn_on
               entity_id: input_boolean.bathroom_presence
@@ -91,8 +93,9 @@
     - platform: state
       entity_id:
         - binary_sensor.living_room_door_contact
-        - binary_sensor.office_door_contact
+        - binary_sensor.kitchen_door_contact
         - binary_sensor.bedroom_door_contact
+        - binary_sensor.office_door_contact
       to: 'off'
 
   action:
@@ -109,7 +112,7 @@
                 - input_boolean.garden_presence
 
         - conditions: >
-            {{ trigger.entity_id == 'input_boolean.fake_kitchen_door' }}
+            {{ trigger.entity_id == 'binary_sensor.kitchen_door_contact' }}
           sequence:
             - service: input_boolean.turn_off
               entity_id:
