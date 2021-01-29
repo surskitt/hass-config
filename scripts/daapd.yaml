@@ -1,0 +1,87 @@
+---
+presence_daapd:
+  sequence:
+    - service: script.living_room_daapd
+    - service: script.kitchen_daapd
+    - service: script.bedroom_daapd
+    - service: script.office_daapd
+
+living_room_daapd:
+  sequence:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: input_boolean.living_room_presence
+              state: 'on'
+
+            - condition: state
+              entity_id: sun.sun
+              state: 'below_horizon'
+
+          sequence:
+            - service: media_player.turn_on
+              entity_id: media_player.forked_daapd_output_living_room_speaker
+
+      default:
+        - service: media_player.turn_off
+          entity_id: media_player.forked_daapd_output_living_room_speaker
+
+kitchen_daapd:
+  sequence:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: input_boolean.kitchen_presence
+              state: 'on'
+
+            - condition: state
+              entity_id: sun.sun
+              state: 'below_horizon'
+
+          sequence:
+            - service: media_player.turn_on
+              entity_id: media_player.forked_daapd_output_kitchen_speaker
+
+      default:
+        - service: media_player.turn_off
+          entity_id: media_player.forked_daapd_output_kitchen_speaker
+
+bedroom_daapd:
+  sequence:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: input_boolean.bedroom_presence
+              state: 'on'
+
+            - condition: state
+              entity_id: sun.sun
+              state: 'below_horizon'
+
+          sequence:
+            - service: media_player.turn_on
+              entity_id: media_player.forked_daapd_output_bedroom_speaker
+
+      default:
+        - service: media_player.turn_off
+          entity_id: media_player.forked_daapd_output_bedroom_speaker
+
+office_daapd:
+  sequence:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: input_boolean.office_presence
+              state: 'on'
+
+            - condition: state
+              entity_id: sun.sun
+              state: 'below_horizon'
+
+          sequence:
+            - service: media_player.turn_on
+              entity_id: media_player.forked_daapd_output_office_speaker
+
+      default:
+        - service: media_player.turn_off
+          entity_id: media_player.forked_daapd_output_office_speaker

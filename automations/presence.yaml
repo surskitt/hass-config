@@ -33,6 +33,7 @@
 
   action:
     - service: script.presence_lights
+    - service: script.presence_daapd
 
     - service: timer.start
       data:
