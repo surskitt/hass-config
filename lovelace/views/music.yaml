@@ -2,4 +2,57 @@
 title: Music
 path: music
 icon: 'mdi:music'
-cards: []
+cards:
+  - title: forked-daapd
+    type: entities
+    entities:
+      - type: 'custom:mini-media-player'
+        entity: media_player.forked_daapd_server
+        group: true
+        source: icon
+        info: short
+        hide:
+          volume: true
+          power: true
+
+      - type: 'custom:mini-media-player'
+        entity: media_player.forked_daapd_output_wigeon
+        name: wigeon
+        group: true
+        hide:
+          controls: true
+
+      - type: 'custom:mini-media-player'
+        entity: media_player.forked_daapd_output_living_room_speaker
+        name: Living room speaker
+        group: true
+        hide:
+          controls: true
+
+      - type: 'custom:mini-media-player'
+        entity: media_player.forked_daapd_output_front_room_tv
+        name: TV
+        group: true
+        hide:
+          controls: true
+
+      - type: 'custom:mini-media-player'
+        entity: media_player.forked_daapd_output_kitchen_speaker
+        name: Kitchen speaker
+        group: true
+        hide:
+          controls: true
+
+      - type: 'custom:mini-media-player'
+        entity: media_player.forked_daapd_output_bedroom_speaker
+        name: Bedroom speaker
+        group: true
+        hide:
+          controls: true
+
+      - type: 'custom:mini-media-player'
+        entity: media_player.forked_daapd_output_office_speaker
+        name: Office speaker
+        group: true
+        hide:
+          controls: true
