@@ -15,9 +15,13 @@ living_room_lights:
               entity_id: input_boolean.living_room_presence
               state: 'on'
 
-            - condition: sun
-              after: sunrise
-              after_offset: "-00:45:00"
+            - condition: or
+              conditions:
+                - condition: sun
+                  after: sunset
+                  after_offset: "-00:45:00"
+                - condition: sun
+                  before: sunrise
 
           sequence:
             - service: switch.turn_on
@@ -35,9 +39,13 @@ kitchen_lights:
               entity_id: input_boolean.kitchen_presence
               state: 'on'
 
-            - condition: sun
-              after: sunrise
-              after_offset: "-00:45:00"
+            - condition: or
+              conditions:
+                - condition: sun
+                  after: sunset
+                  after_offset: "-00:45:00"
+                - condition: sun
+                  before: sunrise
 
           sequence:
             - service: switch.turn_on
@@ -55,9 +63,13 @@ bedroom_lights:
               entity_id: input_boolean.bedroom_presence
               state: 'on'
 
-            - condition: sun
-              after: sunrise
-              after_offset: "-00:45:00"
+            - condition: or
+              conditions:
+                - condition: sun
+                  after: sunset
+                  after_offset: "-00:45:00"
+                - condition: sun
+                  before: sunrise
 
           sequence:
             - service: switch.turn_on
@@ -75,9 +87,13 @@ office_lights:
               entity_id: input_boolean.office_presence
               state: 'on'
 
-            - condition: sun
-              after: sunrise
-              after_offset: "-00:45:00"
+            - condition: or
+              conditions:
+                - condition: sun
+                  after: sunset
+                  after_offset: "-00:45:00"
+                - condition: sun
+                  before: sunrise
 
           sequence:
             - service: switch.turn_on
@@ -95,9 +111,13 @@ bathroom_lights:
               entity_id: input_boolean.bathroom_presence
               state: 'on'
 
-            - condition: sun
-              after: sunrise
-              after_offset: "-00:45:00"
+            - condition: or
+              conditions:
+                - condition: sun
+                  after: sunset
+                  after_offset: "-00:45:00"
+                - condition: sun
+                  before: sunrise
 
           sequence:
             - service: switch.turn_on
