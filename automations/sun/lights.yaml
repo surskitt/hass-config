@@ -4,9 +4,9 @@
   mode: single
 
   trigger:
-    platform: state
-    entity_id: sun.sun
-    to: 'below_horizon'
+    platform: sun
+    event: sunset
+    offset: "-00:45:00"
 
   action:
     - service: script.living_room_lights
@@ -19,9 +19,9 @@
   mode: single
 
   trigger:
-    platform: state
-    entity_id: input_select.fake_sun
-    to: 'above_horizon'
+    platform: sun
+    event: sunrise
+    offset: '+00:00:00'
 
   action:
     - service: switch.turn_off

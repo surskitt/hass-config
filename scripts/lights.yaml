@@ -15,9 +15,9 @@ living_room_lights:
               entity_id: input_boolean.living_room_presence
               state: 'on'
 
-            - condition: state
-              entity_id: sun.sun
-              state: 'below_horizon'
+            - condition: sun
+              after: sunrise
+              after_offset: "-00:45:00"
 
           sequence:
             - service: switch.turn_on
@@ -35,9 +35,9 @@ kitchen_lights:
               entity_id: input_boolean.kitchen_presence
               state: 'on'
 
-            - condition: state
-              entity_id: sun.sun
-              state: 'below_horizon'
+            - condition: sun
+              after: sunrise
+              after_offset: "-00:45:00"
 
           sequence:
             - service: switch.turn_on
@@ -55,9 +55,9 @@ bedroom_lights:
               entity_id: input_boolean.bedroom_presence
               state: 'on'
 
-            - condition: state
-              entity_id: sun.sun
-              state: 'below_horizon'
+            - condition: sun
+              after: sunrise
+              after_offset: "-00:45:00"
 
           sequence:
             - service: switch.turn_on
@@ -75,9 +75,9 @@ office_lights:
               entity_id: input_boolean.office_presence
               state: 'on'
 
-            - condition: state
-              entity_id: sun.sun
-              state: 'below_horizon'
+            - condition: sun
+              after: sunrise
+              after_offset: "-00:45:00"
 
           sequence:
             - service: switch.turn_on
@@ -95,9 +95,9 @@ bathroom_lights:
               entity_id: input_boolean.bathroom_presence
               state: 'on'
 
-            - condition: state
-              entity_id: sun.sun
-              state: 'below_horizon'
+            - condition: sun
+              after: sunrise
+              after_offset: "-00:45:00"
 
           sequence:
             - service: switch.turn_on
