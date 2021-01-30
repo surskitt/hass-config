@@ -14,10 +14,6 @@ living_room_daapd:
               entity_id: input_boolean.living_room_presence
               state: 'on'
 
-            - condition: state
-              entity_id: sun.sun
-              state: 'below_horizon'
-
           sequence:
             - service: media_player.turn_on
               entity_id: media_player.forked_daapd_output_living_room_speaker
@@ -33,10 +29,6 @@ kitchen_daapd:
             - condition: state
               entity_id: input_boolean.kitchen_presence
               state: 'on'
-
-            - condition: state
-              entity_id: sun.sun
-              state: 'below_horizon'
 
           sequence:
             - service: media_player.turn_on
@@ -54,10 +46,6 @@ bedroom_daapd:
               entity_id: input_boolean.bedroom_presence
               state: 'on'
 
-            - condition: state
-              entity_id: sun.sun
-              state: 'below_horizon'
-
           sequence:
             - service: media_player.turn_on
               entity_id: media_player.forked_daapd_output_bedroom_speaker
@@ -73,10 +61,6 @@ office_daapd:
             - condition: state
               entity_id: input_boolean.office_presence
               state: 'on'
-
-            - condition: state
-              entity_id: sun.sun
-              state: 'below_horizon'
 
           sequence:
             - service: media_player.turn_on
