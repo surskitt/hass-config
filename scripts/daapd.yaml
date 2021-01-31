@@ -78,14 +78,41 @@ office_daapd:
               state: 'on'
 
           sequence:
-            - service: media_player.turn_on
-              entity_id: media_player.forked_daapd_output_office_speaker
+            - choose:
+                - conditions:
+                    - condition: state
+                      entity_id: media_player.forked_daapd_output_wigeon
+                      state:
+                        - 'on'
+                        - 'off'
 
-            - service: media_player.volume_set
-              entity_id: media_player.forked_daapd_output_office_speaker
-              data:
-                volume_level: 0.2
+                  sequence:
+                    - service: media_player.turn_on
+                      entity_id: media_player.forked_daapd_output_wigeon
+
+                    - service: media_player.volume_set
+                      entity_id: media_player.forked_daapd_output_wigeon
+                      data:
+                        volume_level: 1
+
+                    - service: media_player.turn_off
+                      entity_id: media_player.forked_daapd_output_office_speaker
+
+              default:
+                - service: media_player.turn_on
+                  entity_id: media_player.forked_daapd_output_office_speaker
+
+                - service: media_player.volume_set
+                  entity_id: media_player.forked_daapd_output_office_speaker
+                  data:
+                    volume_level: 0.2
+
+                - service: media_player.turn_off
+                  entity_id: media_player.forked_daapd_output_wigeon
 
       default:
         - service: media_player.turn_off
           entity_id: media_player.forked_daapd_output_office_speaker
+
+        - service: media_player.turn_off
+          entity_id: media_player.forked_daapd_output_wigeon
