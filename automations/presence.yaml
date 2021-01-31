@@ -1,7 +1,7 @@
 ---
 - alias: Set away
   description: Clear presence when not on wifi
-  mode: single
+  mode: queued
 
   trigger:
     - platform: state
@@ -20,6 +20,7 @@
 
 - alias: Presence control
   description: Turn on lights and heating when presence changes
+  mode: queued
 
   trigger:
     - platform: state
@@ -86,6 +87,7 @@
 
 - alias: Presence unset
   description: Unset presence(s) when door closes
+  mode: queued
 
   trigger:
     - platform: state
