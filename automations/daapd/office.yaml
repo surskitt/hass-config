@@ -1,0 +1,11 @@
+---
+- alias: office daapd switcher
+  description: Enable or disable office speakers based on availability
+  mode: queued
+
+  trigger:
+    - platform: state
+      entity_id: media_player.forked_daapd_output_wigeon
+
+  action:
+    - service: script.office_daapd
