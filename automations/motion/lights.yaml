@@ -9,9 +9,13 @@
       to: 'on'
 
   condition:
-    - condition: numeric_state
-      entity_id: sensor.stairs_motion_illuminance
-      below: 10
+    - condition: or
+      conditions:
+        - condition: sun
+          after: sunset
+          after_offset: "-00:45:00"
+        - condition: sun
+          before: sunrise
 
   action:
     - service: light.turn_on
@@ -33,7 +37,7 @@
         entity_id: binary_sensor.stairs_motion_occupancy
         state: 'off'
 
-    - delay: '10'
+    - delay: '25'
 
     - service: light.turn_off
       entity_id: light.stairs_bulbs
