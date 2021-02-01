@@ -1,0 +1,26 @@
+---
+presence_wigeon:
+  sequence:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: input_boolean.office_presence
+              state: 'off'
+
+            - condition: state
+              entity_id: switch.wigeon
+              state: 'on'
+
+          sequence:
+            - condition: state
+              entity_id: timer.wigeon_suspend
+              state: 'idle'
+
+            - service: timer.start
+              data:
+                entity_id: timer.wigeon_suspend
+
+      default:
+        - service: timer.cancel
+          data:
+            entity_id: timer.wigeon_suspend

@@ -35,6 +35,7 @@
   action:
     - service: script.presence_lights
     - service: script.presence_daapd
+    - service: script.presence_wigeon
 
     - service: timer.start
       data:

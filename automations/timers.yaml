@@ -99,3 +99,17 @@
 
   action:
     - service: script.presence_heating
+
+- id: wigeon_suspend
+  alias: Suspend wigeon after timer finishes
+  mode: single
+
+  trigger:
+    platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.wigeon_suspend
+
+  action:
+    - service: switch.turn_off
+      entity_id: switch.wigeon
