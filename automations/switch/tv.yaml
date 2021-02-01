@@ -15,3 +15,6 @@
     - service: timer.cancel
       data:
         entity_id: timer.wigeon_suspend
+
+    - service: media_player.media_pause
+      entity_id: media_player.forked_daapd_server
