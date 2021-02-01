@@ -1,0 +1,17 @@
+---
+- alias: tv_wigeon_sleep
+  description: Put wigeon to sleep when tv is turned on
+  mode: queued
+
+  trigger:
+    - platform: state
+      entity_id: switch.tv
+      to: 'on'
+
+  action:
+    - service: switch.turn_off
+      entity_id: switch.wigeon
+
+    - service: timer.cancel
+      data:
+        entity_id: timer.wigeon_suspend
