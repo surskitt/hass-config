@@ -8,6 +8,6 @@ views:
   - !include lovelace/views/automations.yaml
   - !include lovelace/views/time.yaml
   - !include lovelace/views/timers.yaml
-  - !include lovelace/views/plants.yaml
   - !include lovelace/views/music.yaml
+  - !include lovelace/views/plants.yaml
   - !include lovelace/views/video.yaml
