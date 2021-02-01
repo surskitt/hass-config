@@ -26,7 +26,7 @@ calendar: !include component_config/calendar.yaml
 plex: !include component_config/plex.yaml
 spotify: !include component_config/spotify.yaml
 spotcast: !include component_config/spotcast.yaml
-vacuum: !include component_config/robovac.yaml
+# vacuum: !include component_config/robovac.yaml
 webostv: !include component_config/webostv.yaml
 
 device_tracker: !include device_trackers.yaml
