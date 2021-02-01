@@ -22,7 +22,7 @@ cards:
           - entity: switch.tv
             name: TV
             icon: 'mdi:television'
-          - entity: vacuum.robovac
+          # - entity: vacuum.robovac
 
   - type: vertical-stack
     cards:
