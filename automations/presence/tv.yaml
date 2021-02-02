@@ -1,0 +1,39 @@
+---
+- alias: tv_auto_pause
+  description: Pause tv when leaving room
+  mode: queued
+
+  trigger:
+    - platform: state
+      entity_id:
+        - input_boolean.kitchen_presence
+        - input_boolean.office_presence
+        - input_boolean.bedroom_presence
+        - input_boolean.bathroom_presence
+
+  condition:
+    - condition: state
+      entity_id: media_player.tv
+      state: 'on'
+
+  action:
+    - choose:
+        - conditions: "{{ trigger.to_state.state == 'on' }}"
+          sequence:
+            - service: media_player.media_pause
+              entity_id: media_player.tv
+
+            - service: input_boolean.turn_on
+              entity_id: input_boolean.tv_auto_pause
+
+        - conditions: "{{ trigger.to_state.state == 'off' }}"
+          sequence:
+            - condition: state
+              entity_id: input_boolean.tv_auto_pause
+              state: 'on'
+
+            - service: media_player.media_play
+              entity_id: media_player.tv
+
+            - service: input_boolean.turn_off
+              entity_id: input_boolean.tv_auto_pause

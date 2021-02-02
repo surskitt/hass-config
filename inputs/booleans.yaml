@@ -48,3 +48,7 @@ fake_bedroom_door:
 fake_bathroom_door:
   name: Fake bathroom door
   icon: mdi:toilet
+
+tv_auto_pause:
+  name: TV automatically paused
+  icon: mdi:television
