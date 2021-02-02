@@ -1,0 +1,19 @@
+---
+- alias: Set away
+  description: Clear presence when not on wifi
+  mode: queued
+
+  trigger:
+    - platform: state
+      entity_id: sensor.moto_g6_wifi_connection
+      from: Beetroot
+
+  action:
+    - service: input_boolean.turn_off
+      entity_id:
+        - input_boolean.living_room_presence
+        - input_boolean.kitchen_presence
+        - input_boolean.office_presence
+        - input_boolean.bedroom_presence
+        - input_boolean.bathroom_presence
+        - input_boolean.garden_presence

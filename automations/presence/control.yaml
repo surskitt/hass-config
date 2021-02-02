@@ -1,0 +1,23 @@
+---
+- alias: Presence control
+  description: Turn on lights and heating when presence changes
+  mode: queued
+
+  trigger:
+    - platform: state
+      entity_id:
+        - input_boolean.living_room_presence
+        - input_boolean.kitchen_presence
+        - input_boolean.office_presence
+        - input_boolean.bedroom_presence
+        - input_boolean.bathroom_presence
+        - input_boolean.garden_presence
+
+  action:
+    - service: script.presence_lights
+    - service: script.presence_daapd
+    - service: script.presence_wigeon
+
+    - service: timer.start
+      data:
+        entity_id: timer.presence_heating
