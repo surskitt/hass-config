@@ -56,7 +56,7 @@
 
     - service: script.presence_notify
       data:
-        message: "{{ timer_dict.body }}"
+        message: "{{ timer_dict.summary }}"
         icon: "{{ timer_dict.icon }}"
 
 - id: bedtime_heating
