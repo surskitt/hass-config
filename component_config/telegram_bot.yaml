@@ -1,0 +1,4 @@
+- platform: broadcast
+  api_key: !secret telegram_bot_api
+  allowed_chat_ids:
+    - !secret telegram_user_id

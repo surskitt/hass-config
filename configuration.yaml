@@ -23,6 +23,7 @@ frontend:
 lovelace: !include lovelace/config.yaml
 
 calendar: !include component_config/calendar.yaml
+telegram_bot: !include component_config/telegram_bot.yaml
 plex: !include component_config/plex.yaml
 spotify: !include component_config/spotify.yaml
 spotcast: !include component_config/spotcast.yaml
