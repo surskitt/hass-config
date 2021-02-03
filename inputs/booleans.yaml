@@ -23,6 +23,10 @@ garden_presence:
   name: Garden
   icon: mdi:flower
 
+stairs_presence:
+  name: Stairs
+  icon: mdi:stairs
+
 guest_mode:
   name: Guest mode
   icon: mdi:account-multiple-plus

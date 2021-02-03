@@ -102,3 +102,34 @@
                 - input_boolean.office_presence
                 - input_boolean.bathroom_presence
                 - input_boolean.garden_presence
+
+- alias: stairs_presence_set
+  description: Set stairs presence when doors open
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.living_room_door_contact
+        - binary_sensor.bedroom_door_contact
+        - binary_sensor.office_door_contact
+        - binary_sensor.bathroom_door_contact
+      to: 'on'
+
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.stairs_presence
+
+    - wait_for_trigger:
+        - platform: state
+          entity_id:
+            - binary_sensor.living_room_door_contact
+            - binary_sensor.bedroom_door_contact
+            - binary_sensor.office_door_contact
+            - binary_sensor.bathroom_door_contact
+          to: 'on'
+      timeout:
+        minutes: 3
+
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.stairs_presence
