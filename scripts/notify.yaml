@@ -4,6 +4,9 @@ presence_notify:
     message:
       description: "Message to be sent in notification"
       example: "Notification message"
+    icon:
+      description: "Icon to use for curst notifications"
+      example: "star.png"
 
   sequence:
     - service: telegram_bot.send_message
@@ -31,6 +34,7 @@ presence_notify:
     - service: script.office_notify
       data:
         message: "{{ message }}"
+        icon: "{{ icon }}"
 
     - choose:
         - conditions: "{{ daapd_playing == 'playing' }}"
@@ -125,6 +129,9 @@ office_notify:
     message:
       description: "Message to be sent in notification"
       example: "Notification message"
+    icon:
+      description: "Icon to use for curst notifications"
+      example: "star.png"
 
   sequence:
     - condition: state
@@ -134,6 +141,7 @@ office_notify:
     - service: script.wigeon_notify
       data:
         message: "{{ message }}"
+        icon: "{{ icon }}"
 
     - delay: 5
 
@@ -155,6 +163,9 @@ wigeon_notify:
     message:
       description: "Message to be sent in notification"
       example: "Notification message"
+    icon:
+      description: "Icon to use for curst notifications"
+      example: "star.png"
 
   sequence:
     - condition: state
@@ -165,7 +176,28 @@ wigeon_notify:
       data:
         summary: "Home assistant notification"
         body: "{{ message }}"
-        icon: washing-machine.png
+        icon: "{{ icon }}"
+        # urgency:
+
+teal_notify:
+  fields:
+    message:
+      description: "Message to be sent in notification"
+      example: "Notification message"
+    icon:
+      description: "Icon to use for curst notifications"
+      example: "star.png"
+
+  sequence:
+    - condition: state
+      entity_id: switch.teal
+      state: 'on'
+
+    - service: rest_command.teal_notify
+      data:
+        summary: "Home assistant notification"
+        body: "{{ message }}"
+        icon: "{{ icon }}"
         # urgency:
 
 tv_notify:
