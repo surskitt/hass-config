@@ -33,14 +33,14 @@
   variables:
     timers:
       timer.washing_machine:
-        summary: Washing machine finished
+        summary: The washing machine has finished
         icon: washing-machine.png
         urgency: critical
       timer.dryer_mixed_load:
-        summary: Dryer finished
+        summary: The dryer has finished
         icon: tumble-dryer.png
       timer.bath_full:
-        summary: Bath full
+        summary: The bath is full
         icon: water-pump.png
 
   trigger:
@@ -54,22 +54,10 @@
     - variables:
         timer_dict: "{{ timers[trigger.event.data.entity_id] }}"
 
-    - service: rest_command.wigeon_notify
+    - service: script.presence_notify
       data:
-        summary: "{{ timer_dict.summary }}"
-        body: "{{ timer_dict.body }}"
+        message: "{{ timer_dict.body }}"
         icon: "{{ timer_dict.icon }}"
-        urgency: "{{ timer_dict.urgency }}"
-
-    - service: notify.mobile_app_wren
-      data:
-        message: "{{ timer_dict.summary }}"
-        data:
-          vibrationPattern: "0, 1000, 100, 1000"
-
-    - service: notify.tv
-      data:
-        message: "{{ timer_dict.summary }}"
 
 - id: bedtime_heating
   alias: Turn off heating at bedtime after a delay
