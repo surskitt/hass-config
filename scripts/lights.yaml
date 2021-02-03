@@ -6,6 +6,7 @@ presence_lights:
     - service: script.bedroom_lights
     - service: script.office_lights
     - service: script.bathroom_lights
+    - service: script.stairs_lights
 
 living_room_lights:
   sequence:
@@ -126,3 +127,36 @@ bathroom_lights:
       default:
         - service: switch.turn_off
           entity_id: switch.bathroom_light_switch
+
+stairs_lights:
+  sequence:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: input_boolean.stairs_presence
+              state: 'on'
+
+            - condition: or
+              conditions:
+                - condition: sun
+                  after: sunset
+                  after_offset: "-00:45:00"
+                - condition: sun
+                  before: sunrise
+
+          sequence:
+            - service: light.turn_on
+              entity_id: light.stairs_bulbs
+              data:
+                brightness_pct: >
+                  {%- if now().strftime('%H') | int >=22 %}
+                    1
+                  {%- elif now().strftime('%H') | int < 6 %}
+                    1
+                  {%- elif now().strftime('%H') | int >= 6 %}
+                    100
+                  {%- endif %}
+
+      default:
+        - service: light.turn_off
+          entity_id: light.stairs_bulbs
