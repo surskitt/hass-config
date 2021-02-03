@@ -7,11 +7,6 @@
     - platform: state
       entity_id: sensor.shane_presence_formatted
 
-  # condition:
-  #   - condition: state
-  #     entity_id: media_player.tv
-  #     state: 'on'
-
   action:
     - choose:
         - conditions: "{{ is_state('sensor.shane_presence_formatted', 'Living room') }}"
@@ -32,11 +27,3 @@
 
         - service: input_boolean.turn_on
           entity_id: input_boolean.tv_auto_pause
-
-        # - conditions: "{{ trigger.to_state.state == 'off' }}"
-        #   sequence:
-        #     - service: media_player.media_pause
-        #       entity_id: media_player.tv
-
-        #     - service: input_boolean.turn_on
-        #       entity_id: input_boolean.tv_auto_pause
