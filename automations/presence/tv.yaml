@@ -5,28 +5,16 @@
 
   trigger:
     - platform: state
-      entity_id:
-        - input_boolean.kitchen_presence
-        - input_boolean.office_presence
-        - input_boolean.bedroom_presence
-        - input_boolean.bathroom_presence
+      entity_id: sensor.shane_presence_formatted
 
-  condition:
-    - condition: state
-      entity_id: media_player.tv
-      state: 'on'
+  # condition:
+  #   - condition: state
+  #     entity_id: media_player.tv
+  #     state: 'on'
 
   action:
     - choose:
-        - conditions: "{{ trigger.to_state.state == 'on' }}"
-          sequence:
-            - service: media_player.media_pause
-              entity_id: media_player.tv
-
-            - service: input_boolean.turn_on
-              entity_id: input_boolean.tv_auto_pause
-
-        - conditions: "{{ trigger.to_state.state == 'off' }}"
+        - conditions: "{{ is_state('sensor.shane_presence_formatted', 'Living room') }}"
           sequence:
             - condition: state
               entity_id: input_boolean.tv_auto_pause
@@ -37,3 +25,18 @@
 
             - service: input_boolean.turn_off
               entity_id: input_boolean.tv_auto_pause
+
+      default:
+        - service: media_player.media_pause
+          entity_id: media_player.tv
+
+        - service: input_boolean.turn_on
+          entity_id: input_boolean.tv_auto_pause
+
+        # - conditions: "{{ trigger.to_state.state == 'off' }}"
+        #   sequence:
+        #     - service: media_player.media_pause
+        #       entity_id: media_player.tv
+
+        #     - service: input_boolean.turn_on
+        #       entity_id: input_boolean.tv_auto_pause

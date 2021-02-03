@@ -7,4 +7,5 @@ room_presence:
     - input_boolean.office_presence
     - input_boolean.bedroom_presence
     - input_boolean.bathroom_presence
+    - input_boolean.stairs_presence
     - input_boolean.garden_presence
