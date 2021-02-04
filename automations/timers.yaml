@@ -39,7 +39,7 @@
       timer.dryer_mixed_load:
         summary: The dryer has finished
         icon: tumble-dryer.png
-      timer.bath_full:
+      timer.bath_fill:
         summary: The bath is full
         icon: water-pump.png
 
