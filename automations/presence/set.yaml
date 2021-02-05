@@ -103,7 +103,7 @@
                 - input_boolean.bathroom_presence
                 - input_boolean.garden_presence
 
-- alias: stairs_presence_set
+- alias: Stairs presence set
   description: Set stairs presence when doors open
   mode: single
 
