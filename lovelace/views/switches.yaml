@@ -181,6 +181,15 @@ cards:
         name: Bulb
         icon: 'mdi:ceiling-light'
 
+  - title: Garden
+    type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+      - entity: light.shelly_garden
+        name: Lamp
+        icon: 'mdi:coach-lamp'
+
   # - type: entities
   #   entities:
   #     - entity: switch.nzbget_download
