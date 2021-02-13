@@ -26,6 +26,8 @@ cards:
             entity: input_boolean.living_room_presence
           - name: Kitchen
             entity: input_boolean.kitchen_presence
+          - name: Stairs
+            entity: input_boolean.stairs_presence
           - name: Office
             entity: input_boolean.office_presence
           - name: Bedroom
