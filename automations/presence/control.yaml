@@ -19,6 +19,13 @@
     - service: script.presence_daapd
     - service: script.presence_wigeon
 
-    - service: timer.start
-      data:
-        entity_id: timer.presence_heating
+    - choose:
+        - conditions:
+            - conditionm: state
+              entity_id: input_boolean.presence_heating
+              state: 'on'
+
+          sequence:
+            - service: timer.start
+              data:
+                entity_id: timer.presence_heating

@@ -56,3 +56,7 @@ fake_bathroom_door:
 tv_auto_pause:
   name: TV automatically paused
   icon: mdi:television
+
+presence_heating:
+  name: Presence controlled heating
+  icon: mdi:radiator
