@@ -2,4 +2,7 @@
 title: Plants
 path: plants
 icon: 'mdi:sprout'
-cards: []
+cards:
+  - type: plant-status
+    entity: plant.ben
+    name: Ben
