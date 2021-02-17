@@ -54,3 +54,11 @@ cards:
         entity: sensor.tradfri3_battery
       - name: Tradfri button 4
         entity: sensor.tradfri4_battery
+
+  - title: Plant monitors
+    type: entities
+    show_header_toggle: false
+    state_color: true
+    entities:
+      - name: Ben
+        entity: sensor.ben_battery
