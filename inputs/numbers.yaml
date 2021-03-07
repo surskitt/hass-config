@@ -14,3 +14,21 @@ fake_minute:
   step: 1
   icon: mdi:clock
   mode: slider
+
+heating_minimum:
+  name: Heating minimum
+  mode: slider
+  icon: mdi:radiator
+  min: 5
+  max: 25
+  initial: 22
+  step: 1
+
+heating_maximum:
+  name: Heating maximum
+  mode: slider
+  icon: mdi:radiator
+  min: 5
+  max: 25
+  initial: 22
+  step: 1
