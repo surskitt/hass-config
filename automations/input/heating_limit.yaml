@@ -1,0 +1,13 @@
+---
+- id: heating_limit_set
+  alias: set heating when limits change
+  mode: queue
+
+  trigger:
+    - platform: state
+      entity_id: input_number.heating_minimum
+    - platform: state
+      entity_id: input_number.heating_maximum
+
+  action:
+    - service: script.presence_heating
