@@ -75,6 +75,16 @@ cards:
       - name: Humidity
         entity: sensor.shellyht_b895d2_humidity
 
+  - title: Limits
+    type: entities
+    entities:
+      - name: Minimum temperature
+        entity: input_boolean.heating_minimum
+        type: 'custom:slider-entity-row'
+      - name: Maximum temperature
+        entity: input_boolean.heating_maximum
+        type: 'custom:slider-entity-row'
+
   - type: weather-forecast
     entity: weather.home
     show_forecast: false
