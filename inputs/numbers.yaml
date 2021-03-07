@@ -21,7 +21,7 @@ heating_minimum:
   icon: mdi:radiator
   min: 5
   max: 25
-  initial: 22
+  initial: 12
   step: 1
 
 heating_maximum:
