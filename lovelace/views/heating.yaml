@@ -79,11 +79,9 @@ cards:
     type: entities
     entities:
       - name: Minimum temperature
-        entity: input_boolean.heating_minimum
-        type: 'custom:slider-entity-row'
+        entity: input_number.heating_minimum
       - name: Maximum temperature
-        entity: input_boolean.heating_maximum
-        type: 'custom:slider-entity-row'
+        entity: input_number.heating_maximum
 
   - type: weather-forecast
     entity: weather.home
