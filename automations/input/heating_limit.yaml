@@ -1,7 +1,7 @@
 ---
 - id: heating_limit_set
   alias: set heating when limits change
-  mode: queue
+  mode: queued
 
   trigger:
     - platform: state
