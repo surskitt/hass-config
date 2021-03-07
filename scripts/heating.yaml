@@ -18,13 +18,13 @@ living_room_presence_heating:
             - service: climate.set_temperature
               entity_id: climate.living_room
               data:
-                temperature: 22
+                temperature: "{{ states('input_number.heating_maximum') | int }}"
 
       default:
         - service: climate.set_temperature
           entity_id: climate.living_room
           data:
-            temperature: 12
+            temperature: "{{ states('input_number.heating_minimum') | int }}"
 
 kitchen_presence_heating:
   sequence:
@@ -38,13 +38,13 @@ kitchen_presence_heating:
             - service: climate.set_temperature
               entity_id: climate.kitchen
               data:
-                temperature: 22
+                temperature: "{{ states('input_number.heating_maximum') | int }}"
 
       default:
         - service: climate.set_temperature
           entity_id: climate.kitchen
           data:
-            temperature: 12
+            temperature: "{{ states('input_number.heating_minimum') | int }}"
 
 bedroom_presence_heating:
   sequence:
@@ -58,13 +58,13 @@ bedroom_presence_heating:
             - service: climate.set_temperature
               entity_id: climate.bedroom
               data:
-                temperature: 22
+                temperature: "{{ states('input_number.heating_maximum') | int }}"
 
       default:
         - service: climate.set_temperature
           entity_id: climate.bedroom
           data:
-            temperature: 12
+            temperature: "{{ states('input_number.heating_minimum') | int }}"
 
 office_presence_heating:
   sequence:
@@ -78,10 +78,10 @@ office_presence_heating:
             - service: climate.set_temperature
               entity_id: climate.office
               data:
-                temperature: 22
+                temperature: "{{ states('input_number.heating_maximum') | int }}"
 
       default:
         - service: climate.set_temperature
           entity_id: climate.office
           data:
-            temperature: 12
+            temperature: "{{ states('input_number.heating_minimum') | int }}"
