@@ -60,3 +60,13 @@ tv_auto_pause:
 presence_heating:
   name: Presence controlled heating
   icon: mdi:radiator
+
+heating_minimum:
+  name: Heating minimum
+  icon: mdi:radiator
+  initial: 12
+
+heating_maximum:
+  name: Heating maximum
+  icon: mdi:radiator
+  initial: 22
