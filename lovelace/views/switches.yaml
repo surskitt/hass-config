@@ -139,6 +139,10 @@ cards:
                 transition: 1
                 label: palette
 
+      - entity: switch.bedroom_humidifier
+        name: Humidifier
+        icon: 'mdi:air-humidifier'
+
   - title: Bathroom
     type: entities
     state_color: true
