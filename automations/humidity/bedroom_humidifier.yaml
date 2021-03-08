@@ -12,6 +12,6 @@
       entity_id: input_boolean.bedroom_humidifier_active
       state: 'on'
 
-  actions:
+  action:
     - service: switch.turn_on
       entity: switch.bedroom_humidifier
