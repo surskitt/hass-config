@@ -12,7 +12,7 @@ morning_routine:
         temperature: 22
 
     - service: input_boolean.turn_off
-      entity_id: bedroom_humidifier_active
+      entity_id: input_boolean.bedroom_humidifier_active
 
     - delay:
         minutes: 20
