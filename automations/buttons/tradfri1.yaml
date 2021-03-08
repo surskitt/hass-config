@@ -21,6 +21,10 @@
       data:
         entity_id: timer.bedtime_heating
 
+    - service: timer.start
+      data:
+        entity_id: timer.bedroom_humidifier_active
+
     - service: switch.turn_off
       entity_id:
         - switch.living_room_light_switch
