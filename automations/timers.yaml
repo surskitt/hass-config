@@ -101,3 +101,17 @@
   action:
     - service: switch.turn_off
       entity_id: switch.wigeon
+
+- id: humidifier_active
+  alias: Set humidifier active after timer finishes
+  mode: single
+
+  trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.bedroom_humidifier_active
+
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.bedroom_humidifier_active
