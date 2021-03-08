@@ -1,0 +1,17 @@
+---
+- id: bedroom_humidifier
+  alias: Turn on bedroom humidifier when above humidity
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: input_boolean.bedroom_humidifier_active
+
+  condition:
+    - condition: state
+      entity_id: input_boolean.bedroom_humidifier_active
+      state: 'on'
+
+  actions:
+    - service: switch.turn_on
+      entity: switch.bedroom_humidifier

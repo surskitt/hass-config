@@ -60,3 +60,7 @@ tv_auto_pause:
 presence_heating:
   name: Presence controlled heating
   icon: mdi:radiator
+
+bedroom_humidifier_active:
+  name: Bedroom humidifier active
+  icon: 'mdi:air-humidifier'
