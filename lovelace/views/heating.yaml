@@ -78,9 +78,9 @@ cards:
   - title: Limits
     type: entities
     entities:
-      - name: Minimum temperature
+      - name: Minimum
         entity: input_number.heating_minimum
-      - name: Maximum temperature
+      - name: Maximum
         entity: input_number.heating_maximum
 
   - type: weather-forecast
