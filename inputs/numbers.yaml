@@ -32,3 +32,10 @@ heating_maximum:
   max: 25
   initial: 22
   step: 1
+
+water_drinking_daily:
+  name: Water drunk today
+  mode: box
+  icon: mdi:cup-water
+  initial: 0
+  step: 0.1
