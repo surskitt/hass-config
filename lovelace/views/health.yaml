@@ -6,5 +6,32 @@ cards:
   - title: Water
     type: entities
     entities:
-      - name: Litres
+      - name: Drunk today
         entity: input_number.water_drinking_daily
+      - type: button
+        name: 1 litre
+        icon: 'mdi:glass-mug'
+        action_name: Add
+        tap_action:
+          action: call-service
+          service: script.input_number_inc_val
+          service_data:
+            steps: 100
+      - type: button
+        name: 1 pint
+        icon: 'mdi:beer'
+        action_name: Add
+        tap_action:
+          action: call-service
+          service: script.input_number_inc_val
+          service_data:
+            steps: 56
+      - type: button
+        name: 1/2 pint
+        icon: 'mdi:cup'
+        action_name: Add
+        tap_action:
+          action: call-service
+          service: script.input_number_inc_val
+          service_data:
+            steps: 28

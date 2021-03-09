@@ -40,5 +40,5 @@ water_drinking_daily:
   min: 0
   max: 10000
   initial: 0
-  step: 100
+  step: 10
   unit_of_measurement: ml
