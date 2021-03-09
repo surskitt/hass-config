@@ -11,3 +11,4 @@ views:
   - !include lovelace/views/music.yaml
   - !include lovelace/views/video.yaml
   - !include lovelace/views/plants.yaml
+  - !include lovelace/views/health.yaml

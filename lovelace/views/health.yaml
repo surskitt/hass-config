@@ -1,0 +1,10 @@
+---
+title: Health
+path: health
+icon: mdi:heart
+cards:
+  - title: Water
+    type: entities
+    entities:
+      - name: Litres
+        entity: input_number.water_drinking_daily
