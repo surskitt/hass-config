@@ -1,0 +1,14 @@
+---
+input_number_inc_val:
+  fields:
+    steps:
+      description: "Amount (in steps) to increment"
+      example: 1
+
+  sequence:
+    - repeat:
+        count: "{{ steps }}"
+        sequence:
+          - service: input_number.increment
+            data:
+              entity_id: input_number.water_drinking_daily
