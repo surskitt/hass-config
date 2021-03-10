@@ -6,7 +6,7 @@
   variables:
     hour: "{{ now().hour - 9 }}"
     expected_water: "{{ ( hour // 3 ) * 500 }}"
-    current_water: "{{ states('input_number.water_drinking_daily')|float }}"
+    current_water: "{{ states('input_number.water_drinking_daily')|int }}"
     message: "You have drunk {{ current_water }}ml of water today, you should have drunk {{ expected_water }}ml"
 
   trigger:
