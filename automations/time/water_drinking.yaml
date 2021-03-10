@@ -1,0 +1,32 @@
+---
+- id: water_drinking_reminder
+  alias: Send reminder to drink water
+  mode: single
+
+  variables:
+    hour: "{{ now().hour - 9 }}"
+    expected_water: "{{ ( hour // 3 ) * 500 }}"
+    current_water: "{{ states('input_number.water_drinking_daily')|float }}"
+    message: "You have drunk {{ current_water }}ml of water today, you should have drunk {{ expected_water }}"
+
+  trigger:
+    - platform: time_pattern
+      minutes: "/30"
+
+  condition:
+    - condition: time
+      after: "09:00:00"
+      before: "00:00:00"
+
+    - condition: template
+      value_template: "{{ current_water < expected_water }}"
+
+  action:
+    - service: script.wigeon_notify
+      data:
+        message: "{{ message }}"
+        icon: beer.png
+
+    - service: telegram_bot.send_message
+      data:
+        message: "{{ message }}"
