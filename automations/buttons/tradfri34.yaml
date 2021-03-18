@@ -1,0 +1,60 @@
+---
+- alias: stairs bulbs buttons
+  description: Control stairs bulbs using tradfri buttons
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id:
+        - sensor.tradfri3_action
+        - sensor.tradfri4_action
+      to:
+        - "on"
+        - "off"
+
+  action:
+    - choose:
+        - conditions: "{{ trigger.to_state.state == 'on' }}"
+          sequence:
+            # - service: light.turn_on
+            #   entity_id: light.stairs_bulbs
+            - choose:
+                - conditions:
+                    - condition: state
+                      entity_id: light.stairs_bulbs
+                      state: "off"
+                  sequence:
+                    - service: light.turn_on
+                      entity_id: light.stairs_bulbs
+                      data:
+                        brightness_pct: >
+                          {%- if now().strftime('%H') | int >=22 %}
+                            1
+                          {%- elif now().strftime('%H') | int < 6 %}
+                            1
+                          {%- elif now().strftime('%H') | int >= 6 %}
+                            100
+                          {%- endif %}
+
+                - conditions:
+                    - condition: state
+                      entity_id: light.stairs_bulbs
+                      state: "on"
+                  sequence:
+                    - choose:
+                        - conditions: "{{ state_attr('light.stairs_bulbs', 'brightness') < 250 }}"
+                          sequence:
+                            - service: light.turn_on
+                              entity_id: light.stairs_bulbs
+                              data:
+                                brightness_pct: 100
+                      default:
+                        - service: light.turn_on
+                          entity_id: light.stairs_bulbs
+                          data:
+                            brightness_pct: 1
+
+        - conditions: "{{ trigger.to_state.state == 'off' }}"
+          sequence:
+            - service: light.turn_off
+              entity_id: light.stairs_bulbs
