@@ -66,8 +66,14 @@ cards:
             type: 'custom:slider-entity-row'
             entity: light.not_bulb
             attribute: color_temp
-      - name: Diffuser
-        entity: switch.office_diffuser
+
+      - type: 'custom:fold-entity-row'
+        head:
+          name: Diffuser
+          entity: switch.office_diffuser
+        entities:
+          - name: Diffuser light
+            entity: light.office_diffuser_light
 
   - title: Bedroom
     type: entities
