@@ -66,7 +66,6 @@ cards:
             type: 'custom:slider-entity-row'
             entity: light.not_bulb
             attribute: color_temp
-
       - type: 'custom:fold-entity-row'
         head:
           name: Diffuser
