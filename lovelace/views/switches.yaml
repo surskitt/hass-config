@@ -67,7 +67,7 @@ cards:
             entity: light.not_bulb
             attribute: color_temp
       - name: Diffuser
-        entity: input_boolean.office_diffuser
+        entity: switch.office_diffuser
 
   - title: Bedroom
     type: entities
