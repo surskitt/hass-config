@@ -30,3 +30,16 @@
   command_topic: homeassistant/switch/switchbot/c9:f4:4b:82:6b:51/set
   state_topic: homeassistant/switch/switchbot/c9:f4:4b:82:6b:51/state
   icon: mdi:fan
+
+- platform: template
+  switches:
+    office_diffuser:
+      icon_template: 'mdi:flower'
+      turn_on:
+        service: scene.turn_on
+        target:
+          entity_id: scene.office_diffuser_on
+      turn_off:
+        service: scene.turn_on
+        target:
+          entity_id: scene.office_diffuser_off

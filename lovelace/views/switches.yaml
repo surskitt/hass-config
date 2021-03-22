@@ -66,6 +66,8 @@ cards:
             type: 'custom:slider-entity-row'
             entity: light.not_bulb
             attribute: color_temp
+      - name: Diffuser
+        entity: input_boolean.office_diffuser
 
   - title: Bedroom
     type: entities
