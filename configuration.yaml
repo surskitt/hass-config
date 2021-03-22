@@ -52,3 +52,5 @@ shell_command: !include commands/shell.yaml
 
 light groups: !include groups/lights.yaml
 group: !include groups/switches.yaml
+
+localtuya: !include component_config/localtuya.yaml
