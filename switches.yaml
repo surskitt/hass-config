@@ -30,3 +30,24 @@
   command_topic: homeassistant/switch/switchbot/c9:f4:4b:82:6b:51/set
   state_topic: homeassistant/switch/switchbot/c9:f4:4b:82:6b:51/state
   icon: mdi:fan
+
+- platform: template
+  switches:
+    office_diffuser:
+      icon_template: 'mdi:tailwind'
+      value_template: >
+        {{
+          is_state_attr('fan.office_diffuser_control', 'speed', 'low')
+          or
+          is_state_attr('fan.office_diffuser_control', 'speed', 'high')
+        }}
+      turn_on:
+        service: fan.set_speed
+        data:
+          entity_id: fan.office_diffuser_control
+          speed: 'high'
+      turn_off:
+        service: fan.set_speed
+        data:
+          entity_id: fan.office_diffuser_control
+          speed: 'off'

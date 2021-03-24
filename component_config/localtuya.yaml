@@ -1,0 +1,20 @@
+---
+- host: 192.168.10.1
+  device_id: 020488303c6105cc8a44
+  local_key: 19cdcdc11f92a76a
+  friendly_name: Office diffuser
+  protocol_version: "3.3"
+  entities:
+    - platform: fan
+      friendly_name: Office diffuser
+      id: 1
+      fan_speed_control: 103
+      fan_speed_low: small
+      fan_speed_high: big
+    - platform: light
+      friendly_name: Office diffuser
+      id: 11
+      brightness: 111
+      brightness_lower: 0
+      brightness_upper: 255
+      color: 108
