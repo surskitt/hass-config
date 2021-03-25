@@ -13,6 +13,9 @@ homeassistant:
       allow_bypass_login: true
   # customize: !include customize.yaml
 
+recorder:
+  db_url: !secret mariadb_connect_string
+
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 python_script:
