@@ -41,6 +41,22 @@ cards:
       - name: Bathroom temperature sensor
         entity: sensor.bathroom_temperature_battery
 
+  - title: Radiators
+    type: entities
+    show_header_toggle: false
+    state_color: true
+    entities:
+      - name: Thermostat
+        entity: binary_sensor.ru0831198208_battery_state
+      - name: Living room
+        entity: binary_sensor.va4254929920_battery_state
+      - name: Kitchen
+        entity: binary_sensor.va0873074944_battery_state
+      - name: Bedroom
+        entity: binary_sensor.va1661604096_battery_state
+      - name: Office
+        entity: binary_sensor.va2543522816_battery_state
+
   - title: Buttons
     type: entities
     show_header_toggle: false
