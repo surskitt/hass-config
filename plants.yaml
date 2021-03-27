@@ -10,3 +10,11 @@ ben:
   max_conductivity: 2000
   min_temperature: 8
   max_temperature: 32
+
+eric:
+  sensors:
+    moisture: sensor.eric_soil
+    battery: sensor.eric_battery
+    temperature: sensor.eric_temperature
+    conductivity: sensor.eric_fertilizer
+    brightness: sensor.eric_lux

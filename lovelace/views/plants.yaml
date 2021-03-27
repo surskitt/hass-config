@@ -4,5 +4,9 @@ path: plants
 icon: 'mdi:sprout'
 cards:
   - type: plant-status
-    entity: plant.ben
     name: Ben
+    entity: plant.ben
+
+  - type: plant-status
+    name: Eric
+    entity: plant.eric
