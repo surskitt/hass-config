@@ -64,3 +64,7 @@ presence_heating:
 bedroom_humidifier_active:
   name: Bedroom humidifier active
   icon: 'mdi:air-humidifier'
+
+music_auto_pause:
+  name: Music automatically paused
+  icon: 'mdi:play-pause'

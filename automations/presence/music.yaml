@@ -1,0 +1,59 @@
+---
+- alias: music_no_speaker_pause
+  description: Pause music when in room without speakers
+  mode: queued
+
+  trigger:
+    - platform: state
+      entity_id:
+        - input_boolean.living_room_presence
+        - input_boolean.kitchen_presence
+        - input_boolean.office_presence
+        - input_boolean.bedroom_presence
+        - input_boolean.bathroom_presence
+        - input_boolean.stairs_presence
+        - input_boolean.garden_presence
+
+  # condition:
+  #   - condition: state
+  #     entity_id: media_player.forked_daapd_server
+  #     state: 'playing'
+
+  action:
+    - choose:
+        - conditions:
+            - condition: or
+              conditions:
+                - condition: state
+                  entity_id: input_boolean.stairs_presence
+                  state: 'on'
+                - condition: state
+                  entity_id: input_boolean.bathroom_presence
+                  state: 'on'
+                - condition: state
+                  entity_id: input_boolean.garden_presence
+                  state: 'on'
+
+          sequence:
+            - condition: state
+              entity_id: media_player.forked_daapd_server
+              state: 'playing'
+
+            - service: input_boolean.turn_on
+              entity_id: input_boolean.music_auto_pause
+
+            - service: media_player.media_pause
+              target:
+                entity_id: media_player.forked_daapd_server
+
+      default:
+        - condition: state
+          entity_id: input_boolean.music_auto_pause
+          state: 'on'
+
+        - service: media_player.media_play
+          target:
+            entity_id: media_player.forked_daapd_server
+
+        - service: input_boolean.turn_off
+          entity_id: input_boolean.music_auto_pause
