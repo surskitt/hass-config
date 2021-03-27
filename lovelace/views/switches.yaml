@@ -201,13 +201,13 @@ cards:
         name: Lamp
         icon: 'mdi:coach-lamp'
 
-  # - type: entities
-  #   entities:
-  #     - entity: switch.nzbget_download
-  #       icon: 'mdi:download'
-  #     - entity: switch.transmission_switch
-  #       icon: 'mdi:download'
-  #     - entity: switch.transmission_turtle_mode
-  #       icon: 'mdi:download'
-  #   title: Media centre
-  #   show_header_toggle: false
+  - type: entities
+    entities:
+      - entity: switch.nzbget_download
+        icon: 'mdi:download'
+      - entity: switch.transmission_switch
+        icon: 'mdi:download'
+      - entity: switch.transmission_turtle_mode
+        icon: 'mdi:download'
+    title: Media centre
+    show_header_toggle: false
