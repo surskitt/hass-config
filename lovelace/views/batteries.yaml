@@ -56,6 +56,8 @@ cards:
         entity: binary_sensor.va1661604096_battery_state
       - name: Office
         entity: binary_sensor.va2543522816_battery_state
+      - name: Stairs
+        entity: binary_sensor.va4232258816_battery_state
 
   - title: Buttons
     type: entities
