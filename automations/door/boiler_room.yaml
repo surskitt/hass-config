@@ -1,0 +1,50 @@
+---
+- alias: boiler_room_light_switch
+  description: Turn on boiler room light switch when door is opened
+  mode: restart
+
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.boiler_room_door_contact
+
+  action:
+    choose:
+      - conditions: "{{ trigger.to_state.state == 'on' }}"
+        sequence:
+          - repeat:
+              sequence:
+                - service: switch.turn_on
+                  entity_id:
+                    - switch.boiler_room_light_switch
+
+                - delay: 5
+
+              until:
+                - condition: or
+                  conditions:
+                    - condition: state
+                      entity_id:
+                        - switch.boiler_room_light_switch
+                      state: 'on'
+                    - condition: template
+                      value_template: "{{ repeat.index == 12 }}"
+
+    default:
+      - repeat:
+          sequence:
+            - service: switch.turn_off
+              entity_id:
+                - switch.boiler_room_light_switch
+
+            - delay: 5
+
+          until:
+            - condition: or
+              conditions:
+                - condition: state
+                  entity_id:
+                    - switch.boiler_room_light_switch
+                  state: 'off'
+                - condition: template
+                  value_template: "{{ repeat.index == 12 }}"
