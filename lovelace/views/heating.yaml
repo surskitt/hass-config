@@ -67,6 +67,20 @@ cards:
       - name: Humidity
         entity: sensor.bathroom_temperature_humidity
 
+  - title: Stairs
+    type: entities
+    entities:
+      - name: Thermostat
+        type: 'custom:slider-entity-row'
+        entity: climate.stairs
+      - name: Current temperature
+        entity: sensor.stairs_temperature
+      - name: Humidity
+        entity: sensor.stairs_humidity
+      - name: Valve
+        entity: sensor.stairs_heating
+        icon: 'mdi:radiator'
+
   - title: Boiler room
     type: entities
     entities:
