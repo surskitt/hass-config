@@ -1,0 +1,61 @@
+---
+- alias: media_centre_presence
+  description: Pause media centre downloads when in living room
+  mode: restart
+
+  trigger:
+    - platform: state
+      entity_id:
+        - input_boolean.living_room_presence
+        - input_boolean.guest_mode
+
+  action:
+    choose:
+      - conditions: "{{ trigger.to_state.state == 'on' }}"
+        sequence:
+          - repeat:
+              sequence:
+                - service: switch.turn_off
+                  entity_id:
+                    - switch.nzbget_download
+                    - switch.transmission_switch
+
+                - delay: 2
+
+              until:
+                - condition: or
+                  conditions:
+                    - condition: state
+                      entity_id:
+                        - input_boolean.living_room_presence
+                        - input_boolean.guest_mode
+                      state: 'off'
+                    - condition: template
+                      value_template: "{{ repeat.index == 30 }}"
+
+    default:
+      - condition: state
+        entity_id:
+          - input_boolean.living_room_presence
+          - input_boolean.guest_mode
+        state: 'off'
+
+      - repeat:
+          sequence:
+            - service: switch.turn_on
+              entity_id:
+                - switch.nzbget_download
+                - switch.transmission_switch
+
+            - delay: 2
+
+          until:
+            - condition: or
+              conditions:
+                - condition: state
+                  entity_id:
+                    - input_boolean.living_room_presence
+                    - input_boolean.guest_mode
+                  state: 'on'
+                - condition: template
+                  value_template: "{{ repeat.index == 30 }}"
