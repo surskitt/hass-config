@@ -18,3 +18,23 @@
       brightness_lower: 0
       brightness_upper: 255
       color: 108
+
+# - host: 192.168.10.2
+#   device_id: 706440278cce4ee0d4d4
+#   local_key: 9e3fa13361a8dde4
+#   friendly_name: Living room diffuser
+#   protocol_version: "3.3"
+#   entities:
+#     - platform: fan
+#       friendly_name: Living room diffuser
+#       id: 1
+#       fan_speed_control: 103
+#       fan_speed_low: small
+#       fan_speed_high: big
+#     - platform: light
+#       friendly_name: Living room diffuser
+#       id: 11
+#       brightness: 111
+#       brightness_lower: 0
+#       brightness_upper: 255
+#       color: 108

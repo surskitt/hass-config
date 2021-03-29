@@ -1,6 +1,6 @@
 ---
-- alias: diffuser_light_fixed
-  description: Set diffuser light to fixed when turned on
+- alias: office_diffuser_light_fixed
+  description: Set office diffuser light to fixed when turned on
   mode: single
 
   trigger:
@@ -13,8 +13,8 @@
       target:
         entity_id: scene.office_diffuser_light_fixed
 
-- alias: diffuser_keep_light_on
-  description: keep light on when turning off diffuser switch
+- alias: office_diffuser_keep_light_on
+  description: keep light on when turning off office diffuser switch
   mode: single
 
   trigger:
@@ -36,3 +36,41 @@
     - service: scene.turn_on
       target:
         entity_id: scene.office_diffuser_light_fixed
+
+- alias: living_room_diffuser_light_fixed
+  description: Set living room diffuser light to fixed when turned on
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: light.living_room_diffuser
+      to: 'on'
+
+  action:
+    - service: scene.turn_on
+      target:
+        entity_id: scene.living_room_diffuser_light_fixed
+
+- alias: living_room_diffuser_keep_light_on
+  description: keep light on when turning off living room diffuser switch
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: switch.living_room_diffuser
+      to: 'off'
+
+  condition:
+    - condition: state
+      entity_id: light.living_room_diffuser
+      state: 'on'
+
+  action:
+    - delay: 1
+
+    - service: light.turn_on
+      entity_id: light.living_room_diffuser
+
+    - service: scene.turn_on
+      target:
+        entity_id: scene.living_room_diffuser_light_fixed

@@ -51,3 +51,22 @@
         data:
           entity_id: fan.office_diffuser_control
           speed: 'off'
+
+    living_room_diffuser:
+      icon_template: 'mdi:tailwind'
+      value_template: >
+        {{
+          is_state_attr('fan.living_room_diffuser', 'speed', 'low')
+          or
+          is_state_attr('fan.living_room_diffuser', 'speed', 'high')
+        }}
+      turn_on:
+        service: fan.set_speed
+        data:
+          entity_id: fan.living_room_diffuser
+          speed: 'high'
+      turn_off:
+        service: fan.set_speed
+        data:
+          entity_id: fan.living_room_diffuser
+          speed: 'off'

@@ -24,6 +24,13 @@ cards:
             icon: 'mdi:television'
           - entity: switch.boiler_room_light_switch
             name: Boiler room light switch
+          - type: 'custom:fold-entity-row'
+            head:
+              name: Diffuser
+              entity: switch.living_room_diffuser
+            entities:
+              - name: Diffuser light
+                entity: light.living_room_diffuser
           # - entity: vacuum.robovac
 
   - type: vertical-stack
