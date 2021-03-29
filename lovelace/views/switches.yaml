@@ -22,6 +22,8 @@ cards:
           - entity: switch.tv
             name: TV
             icon: 'mdi:television'
+          - entity: switch.boiler_room_light_switch
+            name: Boiler room light switch
           # - entity: vacuum.robovac
 
   - type: vertical-stack
