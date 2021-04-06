@@ -3,54 +3,38 @@ title: Switches
 icon: 'mdi:toggle-switch'
 panel: false
 cards:
-  - type: vertical-stack
-    cards:
-      - type: picture-entity
-        entity: camera.living_room_cam
-        camera_image: camera.living_room_cam
-        show_name: false
-        show_state: false
-
-      - title: Living room
-        type: entities
-        state_color: true
-        show_header_toggle: false
+  - title: Living room
+    type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+      - entity: switch.living_room_light_switch
+        name: Light switch
+        icon: 'mdi:ceiling-light'
+      - entity: switch.tv
+        name: TV
+        icon: 'mdi:television'
+      - entity: switch.boiler_room_light_switch
+        name: Boiler room light switch
+      - type: 'custom:fold-entity-row'
+        head:
+          name: Diffuser
+          entity: switch.living_room_diffuser
         entities:
-          - entity: switch.living_room_light_switch
-            name: Light switch
-            icon: 'mdi:ceiling-light'
-          - entity: switch.tv
-            name: TV
-            icon: 'mdi:television'
-          - entity: switch.boiler_room_light_switch
-            name: Boiler room light switch
-          - type: 'custom:fold-entity-row'
-            head:
-              name: Diffuser
-              entity: switch.living_room_diffuser
-            entities:
-              - name: Diffuser light
-                entity: light.living_room_diffuser
-          # - entity: vacuum.robovac
+          - name: Diffuser light
+            entity: light.living_room_diffuser
+      # - entity: vacuum.robovac
 
-  - type: vertical-stack
-    cards:
-      - type: picture-entity
-        entity: camera.kitchen_cam_hd
-        camera_image: camera.kitchen_cam_hd
-        show_name: false
-        show_state: false
-
-      - title: Kitchen
-        type: entities
-        state_color: true
-        show_header_toggle: false
-        entities:
-          - entity: switch.kitchen_light_switch
-            name: Light switch
-            icon: 'mdi:ceiling-light'
-          - entity: switch.14503513c82b965f16f9
-            icon: 'mdi:fridge'
+  - title: Kitchen
+    type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+      - entity: switch.kitchen_light_switch
+        name: Light switch
+        icon: 'mdi:ceiling-light'
+      - entity: switch.14503513c82b965f16f9
+        icon: 'mdi:fridge'
 
   - title: Office
     type: entities
