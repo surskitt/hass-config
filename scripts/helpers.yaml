@@ -1,6 +1,8 @@
 ---
 input_number_inc_val:
   fields:
+    entity:
+      description: "id of entity to increment"
     steps:
       description: "Amount (in steps) to increment"
       example: 1
@@ -11,4 +13,4 @@ input_number_inc_val:
         sequence:
           - service: input_number.increment
             data:
-              entity_id: input_number.water_drinking_daily
+              entity_id: "{{ entity }}"

@@ -16,6 +16,7 @@ cards:
           action: call-service
           service: script.input_number_inc_val
           service_data:
+            entity: input_number.water_drinking_daily
             steps: 100
       - type: button
         name: 1 pint
@@ -25,6 +26,7 @@ cards:
           action: call-service
           service: script.input_number_inc_val
           service_data:
+            entity: input_number.water_drinking_daily
             steps: 56
       - type: button
         name: 1/2 pint
@@ -34,4 +36,5 @@ cards:
           action: call-service
           service: script.input_number_inc_val
           service_data:
+            entity: input_number.water_drinking_daily
             steps: 28
