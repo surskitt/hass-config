@@ -1,0 +1,32 @@
+---
+- id: nfc_script_inc_val
+  alias: Increment value when tag is scanned
+  mode: queued
+
+  variables:
+    tags:
+      water_half_pint_drunk:
+        data:
+          entity: input_number.water_drinking_daily
+          steps: 28
+      water_pint_drunk:
+        data:
+          entity: input_number.water_drinking_daily
+          steps: 56
+      water_litre_drunk:
+        data:
+          entity: input_number.water_drinking_daily
+          steps: 100
+
+  trigger:
+    - platform: tag
+      tag_id:
+        - water_half_pint_drunk
+        - water_pint_drunk
+        - water_litre_drunk
+
+  action:
+    - service: script.input_number_inc_val
+      data:
+        entity: "{{ tags[trigger.event.data.tag_id].data.entity }}"
+        steps: "{{ tags[trigger.event.data.tag_id].data.steps }}"
