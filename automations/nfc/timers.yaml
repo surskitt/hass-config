@@ -1,0 +1,26 @@
+---
+# start timer when tag is scanned
+- id: nfc_timer_start
+  alias: Start timers using nfc tags
+  mode: single
+  max_exceeded: silent
+
+  variables:
+    tags:
+      washing_machine_timer: "timer.washing_machine"
+      dryer_mixed_load_timer: "timer.dryer_mixed_load"
+
+  trigger:
+    platform: event
+    event_type: tag_scanned
+
+  condition:
+    - "{{ trigger.event.data.tag_id in tags }}"
+
+  action:
+    - variables:
+        timer_id: "{{ tags[trigger.event.data.tag_id] }}"
+
+    - service: timer.start
+      data:
+        entity_id: "{{ timer_id }}"
