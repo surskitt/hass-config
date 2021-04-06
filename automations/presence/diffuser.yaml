@@ -1,0 +1,40 @@
+---
+- alias: office_diffuser_off
+  description: Turn off office diffuser when leaving room
+  mode: restart
+
+  trigger:
+    - platform: state
+      entity_id: input_boolean.office_presence
+      to: 'off'
+
+  action:
+    - delay:
+        minutes: 2
+
+    - condition: state
+      entity_id: input_boolean.office_presence
+      state: 'off'
+
+    - service: switch.turn_off
+      entity_id: switch.office_diffuser
+
+- alias: living_room_diffuser_off
+  description: Turn off living room diffuser when leaving room
+  mode: restart
+
+  trigger:
+    - platform: state
+      entity_id: input_boolean.living_room_presence
+      to: 'off'
+
+  action:
+    - delay:
+        minutes: 2
+
+    - condition: state
+      entity_id: input_boolean.living_room_presence
+      state: 'off'
+
+    - service: switch.turn_off
+      entity_id: switch.living_room_diffuser
