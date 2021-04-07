@@ -59,6 +59,9 @@ cards:
             type: 'custom:slider-entity-row'
             entity: light.not_bulb
             attribute: color_temp
+      - entity: cover.office_curtain
+        name: Curtain
+        icon: 'mdi:window-open-variant'
       - type: 'custom:fold-entity-row'
         head:
           name: Diffuser

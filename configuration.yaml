@@ -43,6 +43,7 @@ camera: !include cameras.yaml
 plant: !include plants.yaml
 sensor: !include sensors.yaml
 switch: !include switches.yaml
+cover: !include covers.yaml
 timer: !include timers.yaml
 
 input_boolean: !include inputs/booleans.yaml

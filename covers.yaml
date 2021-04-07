@@ -1,0 +1,6 @@
+---
+- platform: mqtt
+  name: Office curtain
+  command_topic: homeassistant/cover/switchbot-curtain/eb:f0:51:1e:15:28/set
+  state_topic: homeassistant/cover/switchbot-curtain/eb:f0:51:1e:15:28/state
+  device_class: curtain
