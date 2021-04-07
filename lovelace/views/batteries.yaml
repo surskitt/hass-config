@@ -80,3 +80,5 @@ cards:
     entities:
       - name: Ben
         entity: sensor.ben_battery
+      - name: Eric
+        entity: sensor.eric_battery
