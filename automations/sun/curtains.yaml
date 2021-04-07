@@ -1,0 +1,13 @@
+---
+- alias: Open office curtains at sunrise
+  id: office_curtains_open_sunrise
+  mode: single
+
+  trigger:
+    platform: sun
+    event: sunrise
+
+  action:
+    - service: cover.open_cover
+      target:
+        entity_id: cover.office_curtain
