@@ -58,6 +58,13 @@ cards:
       - name: Valve
         entity: sensor.office_heating
         icon: 'mdi:radiator'
+      - type: 'custom:fold-entity-row'
+        head:
+          type: section
+          label: Alternate readings
+        entities:
+          - entity: sensor.office_bt_temperature
+          - entity: sensor.office_bt_humidity
 
   - title: Bathroom
     type: entities
