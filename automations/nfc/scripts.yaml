@@ -6,17 +6,17 @@
   variables:
     tags:
       water_half_pint_drunk:
-        data:
-          entity: input_number.water_drinking_daily
-          steps: 28
+        entity: input_number.water_drinking_daily
+        steps: 28
+        message: 280ml water drunk
       water_pint_drunk:
-        data:
-          entity: input_number.water_drinking_daily
-          steps: 56
+        entity: input_number.water_drinking_daily
+        steps: 56
+        message: 560ml water drunk
       water_litre_drunk:
-        data:
-          entity: input_number.water_drinking_daily
-          steps: 100
+        entity: input_number.water_drinking_daily
+        steps: 100
+        message: 1000ml water drunk
 
   trigger:
     - platform: tag
@@ -26,7 +26,17 @@
         - water_litre_drunk
 
   action:
+    - variables:
+        entity: "{{ tags[trigger.event.data.tag_id].entity }}"
+        steps: "{{ tags[trigger.event.data.tag_id].steps }}"
+        message: "{{ tags[trigger.event.data.tag_id].message }}"
+
     - service: script.input_number_inc_val
       data:
-        entity: "{{ tags[trigger.event.data.tag_id].data.entity }}"
-        steps: "{{ tags[trigger.event.data.tag_id].data.steps }}"
+        entity: "{{ entity }}"
+        steps: "{{ steps }}"
+
+    - service: notify.mobile_app_wren
+      data:
+        title: NFC tag scanned
+        message: "{{ message }}"

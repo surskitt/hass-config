@@ -7,8 +7,12 @@
 
   variables:
     tags:
-      washing_machine_timer: "timer.washing_machine"
-      dryer_mixed_load_timer: "timer.dryer_mixed_load"
+      washing_machine_timer:
+        id: timer.washing_machine
+        message: Washing machine timer started
+      dryer_mixed_load_timer: 
+        id: timer.dryer_mixed_load
+        message: Dryer mixed load timer started
 
   trigger:
     platform: event
@@ -19,8 +23,14 @@
 
   action:
     - variables:
-        timer_id: "{{ tags[trigger.event.data.tag_id] }}"
+        timer_id: "{{ tags[trigger.event.data.tag_id].id }}"
+        message: "{{ tags[trigger.event.data.tag_id].message }}"
 
     - service: timer.start
       data:
         entity_id: "{{ timer_id }}"
+
+    - service: notify.mobile_app_wren
+      data:
+        title: NFC tag scanned
+        message: "{{ message }}"
