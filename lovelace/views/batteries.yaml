@@ -79,7 +79,7 @@ cards:
     state_color: true
     entities:
       - name: Ben
-        entity: sensor.ben_battery
+        entity: sensor.ben_mqtt_battery
       - name: Eric
         entity: sensor.eric_battery
 

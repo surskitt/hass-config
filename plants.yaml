@@ -2,7 +2,7 @@
 ben:
   sensors:
     moisture: sensor.ben_moisture
-    # battery: sensor.ben_battery_level
+    battery: sensor.ben_mqtt_battery
     temperature: sensor.ben_temperature
     conductivity: sensor.ben_soil_conductivity
     brightness: sensor.ben_illuminance
