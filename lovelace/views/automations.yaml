@@ -21,18 +21,6 @@ cards:
     show_header_toggle: false
     state_color: true
     entities:
-      - entity: automation.turn_on_led_strip_at_sunrise
-        icon: 'mdi:led-strip-variant'
-        secondary_info: last-triggered
-
-      - entity: automation.set_light_strip_brightness_to_1_at_8_30pm
-        icon: 'mdi:led-strip-variant'
-        secondary_info: last-triggered
-
-      - entity: automation.turn_light_strip_off_at_10_30pm
-        icon: 'mdi:led-strip-variant'
-        secondary_info: last-triggered
-
       - entity: automation.turn_on_office_light_when_it_gets_dark
         icon: 'mdi:ceiling-light'
         secondary_info: last-triggered
@@ -41,18 +29,11 @@ cards:
         icon: 'mdi:lightbulb-multiple'
         secondary_info: last-triggered
 
-  - type: entities
-    title: Heating
-    show_header_toggle: false
-    state_color: true
-    entities:
-      - entity: automation.turn_on_office_heating_when_in_office
-        icon: 'mdi:radiator'
-        secondary_info: last-triggered
-
-      - entity: automation.turn_on_house_heating_when_not_in_office
-        icon: 'mdi:radiator'
-        secondary_info: last-triggered
+  # - type: entities
+  #   title: Heating
+  #   show_header_toggle: false
+  #   state_color: true
+  #   entities:
 
   - type: entities
     title: Notifications
