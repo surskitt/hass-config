@@ -22,6 +22,18 @@ cards:
     show_state: false
 
   - type: picture-entity
+    entity: camera.office_camera
+    camera_image: camera.office_camera
+    show_name: true
+    show_state: false
+
+  - type: picture-entity
+    entity: camera.bedroom_camera
+    camera_image: camera.bedroom_camera
+    show_name: true
+    show_state: false
+
+  - type: picture-entity
     entity: camera.backyard
     camera_image: camera.backyard
     show_name: true
