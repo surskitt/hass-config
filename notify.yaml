@@ -26,3 +26,7 @@
     extras:
       client::display:
         contentType: "text/markdown"
+
+- platform: telegram
+  name: telegram
+  chat_id: !secret telegram_user_id
