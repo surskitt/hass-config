@@ -30,7 +30,7 @@ telegram_bot: !include component_config/telegram_bot.yaml
 plex: !include component_config/plex.yaml
 saver:
 spotify: !include component_config/spotify.yaml
-spotcast: !include component_config/spotcast.yaml
+# spotcast: !include component_config/spotcast.yaml
 # vacuum: !include component_config/robovac.yaml
 webostv: !include component_config/webostv.yaml
 
