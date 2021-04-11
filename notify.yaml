@@ -1,0 +1,28 @@
+---
+- name: gotify
+  platform: rest
+  resource: http://gotify.gotify.svc.cluster.local/message
+  method: POST_JSON
+  headers: 
+    X-Gotify-Key: !secret gotify_key
+  message_param_name: message
+  title_param_name: title
+  data:
+    priority: 5
+    extras:
+      client::display:
+        contentType: "text/markdown"
+
+- name: gotify_high
+  platform: rest
+  resource: http://gotify.gotify.svc.cluster.local/message
+  method: POST_JSON
+  headers: 
+    X-Gotify-Key: !secret gotify_key
+  message_param_name: message
+  title_param_name: title
+  data:
+    priority: 10
+    extras:
+      client::display:
+        contentType: "text/markdown"
