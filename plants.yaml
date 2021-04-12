@@ -6,10 +6,13 @@ ben:
     temperature: sensor.ben_temperature
     conductivity: sensor.ben_soil_conductivity
     brightness: sensor.ben_illuminance
+  min_moisture: 20
+  max_moisture: 60
   min_conductivity: 350
   max_conductivity: 2000
   min_temperature: 8
   max_temperature: 32
+  min_battery: 10
 
 eric:
   sensors:
@@ -18,3 +21,78 @@ eric:
     temperature: sensor.eric_temperature
     conductivity: sensor.eric_fertilizer
     brightness: sensor.eric_lux
+
+ryu:
+  sensors:
+    moisture: sensor.ryu_moisture
+    battery: sensor.ryu_mqtt_battery
+    temperature: sensor.ryu_temperature
+    conductivity: sensor.ryu_soil_conductivity
+    brightness: sensor.ryu_illuminance
+  min_moisture: 15
+  max_moisture: 60
+  min_conductivity: 350
+  max_conductivity: 2000
+  min_temperature: 10
+  max_temperature: 32
+  min_battery: 10
+
+jaesuk:
+  sensors:
+    moisture: sensor.jaesuk_moisture
+    battery: sensor.jaesuk_mqtt_battery
+    temperature: sensor.jaesuk_temperature
+    conductivity: sensor.jaesuk_soil_conductivity
+    brightness: sensor.jaesuk_illuminance
+  min_moisture: 7
+  max_moisture: 50
+  min_conductivity: 300
+  max_conductivity: 1000
+  min_temperature: 5
+  max_temperature: 32
+  min_battery: 10
+
+gustaf:
+  sensors:
+    moisture: sensor.gustaf_moisture
+    battery: sensor.gustaf_mqtt_battery
+    temperature: sensor.gustaf_temperature
+    conductivity: sensor.gustaf_soil_conductivity
+    brightness: sensor.gustaf_illuminance
+  min_moisture: 15
+  max_moisture: 60
+  min_conductivity: 300
+  max_conductivity: 1000
+  min_temperature: 10
+  max_temperature: 37
+  min_battery: 10
+
+beric:
+  sensors:
+    moisture: sensor.beric_moisture
+    battery: sensor.beric_mqtt_battery
+    temperature: sensor.beric_temperature
+    conductivity: sensor.beric_soil_conductivity
+    brightness: sensor.beric_illuminance
+  min_moisture: 15
+  max_moisture: 60
+  min_conductivity: 300
+  max_conductivity: 1000
+  min_temperature: 10
+  max_temperature: 37
+  min_battery: 10
+
+paisley:
+  sensors:
+    moisture: sensor.paisley_moisture
+    battery: sensor.paisley_mqtt_battery
+    temperature: sensor.paisley_temperature
+    conductivity: sensor.paisley_soil_conductivity
+    brightness: sensor.paisley_illuminance
+  min_moisture: 25
+  max_moisture: 65
+  min_conductivity: 100
+  max_conductivity: 2000
+  min_temperature: 5
+  max_temperature: 35
+  min_battery: 10

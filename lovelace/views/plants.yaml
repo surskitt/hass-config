@@ -24,3 +24,23 @@ cards:
           background-size: 100%;
           background-position: center;
         }
+
+  - type: plant-status
+    name: Ryu
+    entity: plant.ryu
+
+  - type: plant-status
+    name: Jaesuk
+    entity: plant.jaesuk
+
+  - type: plant-status
+    name: Gustaf
+    entity: plant.gustaf
+
+  - type: plant-status
+    name: Beric
+    entity: plant.beric
+
+  - type: plant-status
+    name: Paisley
+    entity: plant.paisley
