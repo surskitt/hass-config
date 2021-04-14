@@ -27,6 +27,7 @@
         title: Drink some water!
         message: "{{ message }}"
 
-    - service: telegram_bot.send_message
+    - service: notify.mobile_app_wren
       data:
+        title: Drink some water!
         message: "{{ message }}"
