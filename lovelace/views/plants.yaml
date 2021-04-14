@@ -28,19 +28,54 @@ cards:
   - type: plant-status
     name: Ryu
     entity: plant.ryu
+    card_mod:
+      style: |
+        ha-card {
+          background: url("/local/static/plants/ryu.jpg");
+          background-size: 100%;
+          background-position: center;
+        }
 
   - type: plant-status
     name: Jaesuk
     entity: plant.jaesuk
+    card_mod:
+      style: |
+        ha-card {
+          background: url("/local/static/plants/jaesuk.jpg");
+          background-size: 100%;
+          background-position: center;
+        }
 
   - type: plant-status
     name: Gustaf
     entity: plant.gustaf
+    card_mod:
+      style: |
+        ha-card {
+          background: url("/local/static/plants/gustaf.jpg");
+          background-size: 100%;
+          background-position: center;
+        }
 
   - type: plant-status
     name: Beric
     entity: plant.beric
+    card_mod:
+      style: |
+        ha-card {
+          background: url("/local/static/plants/beric.jpg");
+          background-size: 100%;
+          background-position: center;
+        }
 
   - type: plant-status
     name: Paisley
     entity: plant.paisley
+    card_mod:
+      style: |
+        ha-card {
+          background: url("/local/static/plants/paisley.jpg");
+          background-size: 100%;
+          background-position: center;
+        }
