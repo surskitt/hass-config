@@ -1,0 +1,39 @@
+---
+- id: plant_report
+  alias: Give a report of plant status every morning
+  mode: single
+
+  trigger:
+    - platform: time
+      at: "09:00:00"
+
+  action:
+    - service: telegram_bot.send_message
+      data:
+        message: |
+          {% set plants = expand('plant.ben', 'plant.eric', 'plant.ryu', 'plant.jaesuk', 'plant.gustaf', 'plant.beric', 'plant.paisley') -%}
+
+          🪴 Plant report 🌱
+          {% for p in plants -%}
+
+          {% set name = state_attr(p.entity_id, 'friendly_name')|title -%}
+          {% set problem = state_attr(p.entity_id, 'problem') -%}
+
+          {% if problem != 'none' -%}
+          {% if 'moisture high' in problem -%}
+          🌊 {{ name }} has too much water
+          {% elif 'moisture low' in problem -%}
+          🌵 {{ name }} needs more water
+          {% elif 'temperature high' in problem -%}
+          😰 {{ name }} is too hot
+          {% elif 'temperature high' in problem -%}
+          ☃️ {{ name }} is too cold
+          {% elif 'conductivity high' in problem -%}
+          💩{{ name }} has too much food
+          {% elif 'conductivity low' in problem -%}
+          😋 {{ name }} needs food
+          {% endif -%}
+          {% else -%}
+          😊 {{ name}} is fine
+          {% endif %}
+          {%- endfor %}
