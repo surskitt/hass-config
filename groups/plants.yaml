@@ -1,0 +1,11 @@
+---
+plants:
+  name: plants
+  entities:
+    - plant.ben
+    - plant.eric
+    - plant.ryu
+    - plant.jaesuk
+    - plant.gustaf
+    - plant.beric
+    - plant.paisley
