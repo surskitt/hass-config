@@ -9,13 +9,10 @@
       to: 'on'
 
   action:
-    - service: rest_command.wigeon_notify
+    - service: notify.gotify_high
       data:
-        summary: Doorbell
-        body: Someone pressed the doorbell
-        icon: doorbell.png
-        urgency: critical
-        timeout: 30000
+        title: Doorbell
+        message: Someone pressed the doorbell
 
     - service: notify.tv
       data:
@@ -31,11 +28,10 @@
       to: 'on'
 
   action:
-    - service: rest_command.wigeon_notify
+    - service: notify.gotify
       data:
-        summary: Doorbell
-        body: Someone is at the door
-        icon: doorbell.png
+        title: Doorbell
+        message: Someone is at the door
 
     - service: notify.tv
       data:

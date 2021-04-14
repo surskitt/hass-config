@@ -22,10 +22,10 @@
       value_template: "{{ current_water < expected_water }}"
 
   action:
-    - service: script.wigeon_notify
+    - service: notify.gotify
       data:
+        title: Drink some water!
         message: "{{ message }}"
-        icon: beer.png
 
     - service: telegram_bot.send_message
       data:
