@@ -60,6 +60,7 @@ cards:
             entity: light.not_bulb
             attribute: color_temp
       - entity: cover.office_curtain
+        type: 'custom:slider-entity-row'
         name: Curtain
         icon: 'mdi:window-open-variant'
       - type: 'custom:fold-entity-row'
@@ -141,6 +142,11 @@ cards:
                 color_temp: 1
                 transition: 1
                 label: palette
+
+      - entity: cover.bedroom_curtains
+        type: 'custom:slider-entity-row'
+        name: Curtain
+        icon: 'mdi:window-open-variant'
 
       - entity: switch.bedroom_humidifier
         name: Humidifier

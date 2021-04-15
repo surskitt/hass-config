@@ -1,6 +1,26 @@
 ---
 - platform: mqtt
   name: Office curtain
-  command_topic: homeassistant/cover/switchbot-curtain/eb:f0:51:1e:15:28/set
-  state_topic: homeassistant/cover/switchbot-curtain/eb:f0:51:1e:15:28/state
-  device_class: curtain
+  command_topic: switchbotMQTT/control
+  qos: 0
+  retain: true
+  payload_open: "{\"id\":\"office_curtain\",\"value\":\"open\"}"
+  payload_close: "{\"id\":\"office_curtain\",\"value\":\"close\"}"
+  payload_stop: "{\"id\":\"office_curtain\",\"value\":\"pause\"}"
+  position_topic: switchbotMQTT/curtain/office_curtain
+  position_template: "{{ 100-((value_json['pos']|int) if 'pos' in value_json else (value_json['status']|int)) }}"
+  set_position_topic: switchbotMQTT/control
+  set_position_template: "{\"id\":\"office_curtain\",\"value\":\"{{ 100 - (position|int) }}\"}"
+
+- platform: mqtt
+  name: Bedroom curtains
+  command_topic: switchbotMQTT/control
+  qos: 0
+  retain: true
+  payload_open: "{\"id\":\"bedroom_curtains\",\"value\":\"open\"}"
+  payload_close: "{\"id\":\"bedroom_curtains\",\"value\":\"close\"}"
+  payload_stop: "{\"id\":\"bedroom_curtains\",\"value\":\"pause\"}"
+  position_topic: switchbotMQTT/curtain/bedroom_curtains
+  position_template: "{{ 100-((value_json['pos']|int) if 'pos' in value_json else (value_json['status']|int)) }}"
+  set_position_topic: switchbotMQTT/control
+  set_position_template: "{\"id\":\"bedroom_curtains\",\"value\":\"{{ 100 - (position|int) }}\"}"
