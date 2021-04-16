@@ -1,0 +1,14 @@
+---
+- id: switchbot_rescan_hass_start
+  alias: Rescan switchbot devices on home assistant startup
+  mode: single
+
+  trigger:
+    - platform: homeassistant
+      event: start
+
+  action:
+    - service: mqtt.publish
+      data:
+        topic: switchbotMQTT/rescan
+        payload: '{"sec": "30"};'
