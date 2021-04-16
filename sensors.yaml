@@ -33,3 +33,17 @@
 - platform: seventeentrack
   username: !secret 17track_username
   password: !secret 17track_password
+
+- platform: mqtt
+  name: Office curtain battery
+  state_topic: switchbotMQTT/curtain/office_curtain
+  device_class: battery
+  value_template: "{{ value_json.batt }}"
+  unit_of_measurement: "%"
+
+- platform: mqtt
+  name: Bedroom curtains battery
+  state_topic: switchbotMQTT/curtain/bedroom_curtains
+  device_class: battery
+  value_template: "{{ value_json.batt }}"
+  unit_of_measurement: "%"

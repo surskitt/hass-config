@@ -94,3 +94,13 @@ cards:
         entity: sensor.bedroom_bt_battery_level
       - name: Office
         entity: sensor.office_bt_battery_level
+        
+  - title: Curtains
+    type: entities
+    show_header_toggle: false
+    state_color: true
+    entities:
+      - name: Bedroom
+        entity: sensor.bedroom_curtains_battery
+      - name: Office
+        entity: sensor.office_curtain_battery
