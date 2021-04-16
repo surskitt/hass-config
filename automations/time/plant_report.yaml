@@ -23,20 +23,33 @@
           {% set problem = state_attr(p.entity_id, 'problem') -%}
 
           {% if problem != 'none' -%}
-          {% if 'moisture high' in problem -%}
+
+          {%- if 'moisture high' in problem -%}
           🌊 {{ name }} has too much water
-          {% elif 'moisture low' in problem -%}
+          {% endif %}
+
+          {%- if 'moisture low' in problem -%}
           🌵 {{ name }} needs more water
-          {% elif 'temperature high' in problem -%}
+          {% endif %}
+
+          {%- if 'temperature high' in problem -%}
           😰 {{ name }} is too hot
-          {% elif 'temperature high' in problem -%}
+          {% endif %}
+
+          {%- if 'temperature high' in problem -%}
           ☃️ {{ name }} is too cold
-          {% elif 'conductivity high' in problem -%}
+          {% endif %}
+
+          {%- if 'conductivity high' in problem -%}
           💩{{ name }} has too much food
-          {% elif 'conductivity low' in problem -%}
+          {% endif %}
+
+          {%- if 'conductivity low' in problem -%}
           😋 {{ name }} needs food
           {% endif -%}
-          {% else -%}
+
+          {%- else -%}
           😊 {{ name}} is fine
-          {% endif %}
+          {% endif -%}
+
           {%- endfor %}
