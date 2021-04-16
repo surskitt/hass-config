@@ -1,0 +1,21 @@
+---
+- id: bedroom_curtain_morning_open
+  alias: Open bedroom curtains in the morning after leaving room
+
+  trigger:
+    - platform: time
+      at:
+        - input_datetime.alarm_clock
+
+  action:
+    - wait_for_trigger:
+        - platform: state
+          entity_id:
+            - binary_sensor.bedroom_door_contact
+          to: 'on'
+
+    - service: cover.set_cover_position
+      target:
+        entity_id: cover.bedroom_curtains
+      data:
+        position: 40
