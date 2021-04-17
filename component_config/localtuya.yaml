@@ -38,3 +38,60 @@
 #       brightness_lower: 0
 #       brightness_upper: 255
 #       color: 108
+
+- host: 192.168.10.3
+  device_id: 14503513c82b965f16f9
+  local_key: 7d76e14e3e1e092b
+  friendly_name: Wigeon plug
+  protocol_version: "3.3"
+  entities:
+    - platform: binary_sensor
+      friendly_name: Wigeon plug
+      id: 1
+      device_class: power
+      state_on: "true"
+      state_off: "false"
+
+    - platform: switch
+      friendly_name: Wigeon plug
+      id: 1
+
+    - platform: sensor
+      friendly_name: Wigeon plug current
+      id: 18
+      device_class: current
+      unit_of_measurement: mA
+
+    - platform: sensor
+      friendly_name: Wigeon plug consumption
+      id: 19
+      device_class: power
+      unit_of_measurement: W
+      scaling: 0.1
+
+    - platform: sensor
+      friendly_name: Wigeon plug voltage
+      id: 20
+      device_class: voltage
+      unit_of_measurement: V
+      scaling: 0.1
+
+    - platform: sensor
+      friendly_name: Wigeon plug sensor 21
+      id: 21
+
+    - platform: sensor
+      friendly_name: Wigeon plug sensor 22
+      id: 22
+
+    - platform: sensor
+      friendly_name: Wigeon plug sensor 23
+      id: 23
+
+    - platform: sensor
+      friendly_name: Wigeon plug sensor 24
+      id: 24
+
+    - platform: sensor
+      friendly_name: Wigeon plug sensor 25
+      id: 25
