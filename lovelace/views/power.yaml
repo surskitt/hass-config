@@ -3,7 +3,6 @@ title: Power
 icon: 'mdi:power-plug'
 panel: false
 cards:
-  # - type: 'custom:vertical-stack-in-card'
   - type: vertical-stack
     title: wigeon
     cards:
@@ -52,18 +51,3 @@ cards:
             line_color: red
             line_width: 8
             font_size: 75
-
-      # - name: wigeon power usage
-      #   type: sensor
-      #   entity: sensor.wigeon_plug_power
-      #   graph: line
-
-      # - name: wigeon current
-      #   type: sensor
-      #   entity: sensor.wigeon_plug_current
-      #   graph: line
-
-      # - name: wigeon voltage
-      #   type: sensor
-      #   entity: sensor.wigeon_plug_voltage
-      #   graph: line
