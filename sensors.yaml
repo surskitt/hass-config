@@ -47,3 +47,9 @@
   device_class: battery
   value_template: "{{ value_json.batt }}"
   unit_of_measurement: "%"
+
+- platform: integration
+  source: sensor.wigeon_plug_power
+  name: wigeon total power
+  unit_prefix: k
+  round: 2

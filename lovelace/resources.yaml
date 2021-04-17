@@ -19,3 +19,7 @@
   type: module
 - url: /hacsfiles/lovelace-card-mod/card-mod.js
   type: module
+- url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
+  type: module
+- url: /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js
+  type: js

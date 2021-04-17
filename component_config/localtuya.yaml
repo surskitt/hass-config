@@ -46,7 +46,7 @@
   protocol_version: "3.3"
   entities:
     - platform: binary_sensor
-      friendly_name: Wigeon plug
+      friendly_name: Wigeon plug status
       id: 1
       device_class: power
       state_on: "true"
@@ -63,7 +63,7 @@
       unit_of_measurement: mA
 
     - platform: sensor
-      friendly_name: Wigeon plug consumption
+      friendly_name: Wigeon plug power
       id: 19
       device_class: power
       unit_of_measurement: W

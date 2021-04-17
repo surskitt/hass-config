@@ -5,6 +5,7 @@ views:
   - !include lovelace/views/people.yaml
   - !include lovelace/views/cameras.yaml
   - !include lovelace/views/batteries.yaml
+  - !include lovelace/views/power.yaml
   - !include lovelace/views/automations.yaml
   - !include lovelace/views/time.yaml
   - !include lovelace/views/timers.yaml

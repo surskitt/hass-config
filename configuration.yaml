@@ -47,6 +47,7 @@ sensor: !include sensors.yaml
 switch: !include switches.yaml
 cover: !include covers.yaml
 timer: !include timers.yaml
+utility_meter: !include utility_meter.yaml
 
 input_boolean: !include inputs/booleans.yaml
 input_datetime: !include inputs/datetime.yaml

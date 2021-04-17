@@ -1,0 +1,16 @@
+---
+wigeon_hourly_energy:
+  source: sensor.wigeon_total_power
+  cycle: hourly
+
+wigeon_daily_energy:
+  source: sensor.wigeon_total_power
+  cycle: daily
+
+wigeon_weekly_energy:
+  source: sensor.wigeon_total_power
+  cycle: weekly
+
+wigeon_monthly_energy:
+  source: sensor.wigeon_total_power
+  cycle: monthly

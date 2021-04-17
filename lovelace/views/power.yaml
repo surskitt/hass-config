@@ -1,0 +1,69 @@
+---
+title: Power
+icon: 'mdi:power-plug'
+panel: false
+cards:
+  # - type: 'custom:vertical-stack-in-card'
+  - type: vertical-stack
+    title: wigeon
+    cards:
+      - name: Hourly energy - day
+        type: 'custom:mini-graph-card'
+        entities:
+          - entity: sensor.wigeon_hourly_energy
+        hours_to_show: 24
+        aggregate_func: max
+        group_by: hour
+        show:
+          graph: bar
+
+      - name: Daily energy - week
+        type: 'custom:mini-graph-card'
+        entities:
+          - entity: sensor.wigeon_daily_energy
+        hours_to_show: 168
+        aggregate_func: max
+        group_by: date
+        show:
+          graph: bar
+
+      - type: horizontal-stack
+        cards:
+          - name: power
+            type: 'custom:mini-graph-card'
+            entities:
+              - sensor.wigeon_plug_power
+            line_color: green
+            line_width: 8
+            font_size: 75
+
+          - name: current
+            type: 'custom:mini-graph-card'
+            entities:
+              - sensor.wigeon_plug_current
+            line_color: blue
+            line_width: 8
+            font_size: 75
+
+          - name: voltage
+            type: 'custom:mini-graph-card'
+            entities:
+              - sensor.wigeon_plug_voltage
+            line_color: red
+            line_width: 8
+            font_size: 75
+
+      # - name: wigeon power usage
+      #   type: sensor
+      #   entity: sensor.wigeon_plug_power
+      #   graph: line
+
+      # - name: wigeon current
+      #   type: sensor
+      #   entity: sensor.wigeon_plug_current
+      #   graph: line
+
+      # - name: wigeon voltage
+      #   type: sensor
+      #   entity: sensor.wigeon_plug_voltage
+      #   graph: line
