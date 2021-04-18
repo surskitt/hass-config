@@ -1,0 +1,5 @@
+---
+views:
+  - !include views/automations.yaml
+  - !include views/time.yaml
+  - !include views/timers.yaml

@@ -1,3 +1,21 @@
 ---
 mode: yaml
 resources: !include resources.yaml
+dashboards:
+  lovelace-automations:
+    mode: yaml
+    filename: lovelace/automations.yaml
+    title: Automations
+    icon: 'mdi:robot'
+
+  lovelace-media:
+    mode: yaml
+    filename: lovelace/media.yaml
+    title: Media
+    icon: 'mdi:folder-multiple-image'
+
+  lovelace-me:
+    mode: yaml
+    filename: lovelace/me.yaml
+    title: Me
+    icon: 'mdi:account'

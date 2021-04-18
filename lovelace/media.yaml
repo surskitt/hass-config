@@ -1,0 +1,4 @@
+---
+views:
+  - !include views/music.yaml
+  - !include views/video.yaml
