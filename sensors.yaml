@@ -26,6 +26,16 @@
       value_template: "{{ (expand('group.room_presence')|selectattr('state', 'eq', 'on')|join('/', attribute='attributes.friendly_name')) or 'Away' }}"
       icon_template: 'mdi:account'
 
+    total_download_speed:
+      friendly_name: Total download speed
+      value_template: "{{ states('sensor.transmission_down_speed') + states('sensor.nzbget_speed') }}"
+      icon_template: 'mdi:download'
+
+    transmission_queue_size:
+      friendly_name: Transmission queue size
+      value_template: "{{ states('sensor.transmission_total_torrents')|int - states('sensor.transmission_completed_torrents')|int }}"
+      icon_template: 'mdi:download'
+
 - platform: time_date
   display_options:
     - 'time'

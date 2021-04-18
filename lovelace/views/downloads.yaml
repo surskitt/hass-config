@@ -1,0 +1,44 @@
+---
+title: Downloads
+path: downloads
+icon: 'mdi:download'
+cards:
+  - name: Download speeds
+    type: 'custom:mini-graph-card'
+    icon: 'mdi:download'
+    entities:
+      - entity: sensor.transmission_down_speed
+        name: Transmission
+        color: yellow
+        show_line: false
+      - entity: sensor.nzbget_speed
+        name: nzbget
+        color: blue
+        show_line: false
+      - entity: sensor.total_download_speed
+        name: Total
+        color: green
+        show_line: false
+
+  - name: Download queue size
+    type: horizontal-stack
+    cards:
+      - name: Transmission queue
+        type: 'custom:mini-graph-card'
+        icon: 'mdi:download'
+        line_color: yellow
+        line_width: 8
+        font_size: 75
+        entities:
+          - entity: sensor.transmission_queue_size
+            show_line: false
+      - name: nzbget queue
+        type: 'custom:mini-graph-card'
+        icon: 'mdi:download'
+        line_color: blue
+        line_width: 8
+        font_size: 75
+        entities:
+          - entity: sensor.nzbget_queue_size
+            show_line: false
+            y_axis: secondary

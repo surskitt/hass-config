@@ -2,3 +2,4 @@
 views:
   - !include views/music.yaml
   - !include views/video.yaml
+  - !include views/downloads.yaml
