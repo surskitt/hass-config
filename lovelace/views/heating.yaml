@@ -58,6 +58,11 @@ cards:
         entities:
           - entity: sensor.bedroom_bt_temperature
           - entity: sensor.bedroom_bt_humidity
+          - type: attribute
+            name: Offset
+            entity: climate.bedroom
+            attribute: offset_celsius
+            suffix: °C
 
   - title: Office
     type: entities
@@ -79,6 +84,11 @@ cards:
         entities:
           - entity: sensor.office_bt_temperature
           - entity: sensor.office_bt_humidity
+          - type: attribute
+            name: Offset
+            entity: climate.office
+            attribute: offset_celsius
+            suffix: °C
 
   - title: Bathroom
     type: entities

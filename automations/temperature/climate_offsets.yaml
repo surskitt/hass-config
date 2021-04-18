@@ -1,0 +1,24 @@
+---
+# - id: kitchen_climate_temperature_offset
+#   alias: Set kitchen temperature offset on office tado climate
+#   use_blueprint:
+#     path: sanderma/tado_temp_offset.yaml
+#     input:
+#       source_temp_sensor: sensor.kitchen_temperature
+#       target_tado: climate.kitchen
+
+- id: bedroom_climate_temperature_offset
+  alias: Set bedroom temperature offset on office tado climate
+  use_blueprint:
+    path: sanderma/tado_temp_offset.yaml
+    input:
+      source_temp_sensor: sensor.bedroom_bt_temperature
+      target_tado: climate.bedroom
+
+- id: office_climate_temperature_offset
+  alias: Set office temperature offset on office tado climate
+  use_blueprint:
+    path: sanderma/tado_temp_offset.yaml
+    input:
+      source_temp_sensor: sensor.office_bt_temperature
+      target_tado: climate.office
