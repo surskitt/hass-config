@@ -33,8 +33,6 @@ cards:
       - entity: switch.kitchen_light_switch
         name: Light switch
         icon: 'mdi:ceiling-light'
-      - entity: switch.14503513c82b965f16f9
-        icon: 'mdi:fridge'
 
   - title: Office
     type: entities
