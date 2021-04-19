@@ -10,6 +10,7 @@ cards:
         type: 'custom:mini-graph-card'
         entities:
           - entity: sensor.wigeon_hourly_energy
+        line_color: "#88C0D0"
         hours_to_show: 24
         aggregate_func: max
         group_by: hour
@@ -20,6 +21,7 @@ cards:
         type: 'custom:mini-graph-card'
         entities:
           - entity: sensor.wigeon_daily_energy
+        line_color: "#88C0D0"
         hours_to_show: 168
         aggregate_func: max
         group_by: date
@@ -32,7 +34,7 @@ cards:
             type: 'custom:mini-graph-card'
             entities:
               - sensor.wigeon_plug_power
-            line_color: green
+            line_color: "#A3BE8C"
             line_width: 8
             font_size: 75
 
@@ -40,7 +42,7 @@ cards:
             type: 'custom:mini-graph-card'
             entities:
               - sensor.wigeon_plug_current
-            line_color: blue
+            line_color: "#5E81AC"
             line_width: 8
             font_size: 75
 
@@ -48,7 +50,7 @@ cards:
             type: 'custom:mini-graph-card'
             entities:
               - sensor.wigeon_plug_voltage
-            line_color: red
+            line_color: "#BF616A"
             line_width: 8
             font_size: 75
 
@@ -59,6 +61,7 @@ cards:
         type: 'custom:mini-graph-card'
         entities:
           - entity: sensor.paddlepond_hourly_energy
+        line_color: "#88C0D0"
         hours_to_show: 24
         aggregate_func: max
         group_by: hour
@@ -69,6 +72,7 @@ cards:
         type: 'custom:mini-graph-card'
         entities:
           - entity: sensor.paddlepond_daily_energy
+        line_color: "#88C0D0"
         hours_to_show: 168
         aggregate_func: max
         group_by: date
@@ -81,7 +85,7 @@ cards:
             type: 'custom:mini-graph-card'
             entities:
               - sensor.paddlepond_plug_power
-            line_color: green
+            line_color: "#A3BE8C"
             line_width: 8
             font_size: 75
 
@@ -89,7 +93,7 @@ cards:
             type: 'custom:mini-graph-card'
             entities:
               - sensor.paddlepond_plug_current
-            line_color: blue
+            line_color: "#5E81AC"
             line_width: 8
             font_size: 75
 
@@ -97,6 +101,6 @@ cards:
             type: 'custom:mini-graph-card'
             entities:
               - sensor.paddlepond_plug_voltage
-            line_color: red
+            line_color: "#BF616A"
             line_width: 8
             font_size: 75
