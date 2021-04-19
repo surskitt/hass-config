@@ -14,3 +14,19 @@ wigeon_weekly_energy:
 wigeon_monthly_energy:
   source: sensor.wigeon_total_power
   cycle: monthly
+
+paddlepond_hourly_energy:
+  source: sensor.paddlepond_total_power
+  cycle: hourly
+
+paddlepond_daily_energy:
+  source: sensor.paddlepond_total_power
+  cycle: daily
+
+paddlepond_weekly_energy:
+  source: sensor.paddlepond_total_power
+  cycle: weekly
+
+paddlepond_monthly_energy:
+  source: sensor.paddlepond_total_power
+  cycle: monthly

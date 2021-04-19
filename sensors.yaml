@@ -63,3 +63,9 @@
   name: wigeon total power
   unit_prefix: k
   round: 2
+
+- platform: integration
+  source: sensor.paddlepond_plug_power
+  name: paddlepond total power
+  unit_prefix: k
+  round: 2

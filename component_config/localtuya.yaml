@@ -52,9 +52,9 @@
       state_on: "true"
       state_off: "false"
 
-    - platform: switch
-      friendly_name: Wigeon plug
-      id: 1
+    # - platform: switch
+    #   friendly_name: Wigeon plug
+    #   id: 1
 
     - platform: sensor
       friendly_name: Wigeon plug current
@@ -95,3 +95,40 @@
     - platform: sensor
       friendly_name: Wigeon plug sensor 25
       id: 25
+
+- host: 192.168.10.4
+  device_id: 14503513c82b965f1dd3
+  local_key: 85abcc4e310c42bb
+  friendly_name: Paddlepond plug
+  protocol_version: "3.3"
+  entities:
+    - platform: binary_sensor
+      friendly_name: Paddlepond plug status
+      id: 1
+      device_class: power
+      state_on: "true"
+      state_off: "false"
+
+    # - platform: switch
+    #   friendly_name: Paddlepond plug
+    #   id: 1
+
+    - platform: sensor
+      friendly_name: Paddlepond plug current
+      id: 18
+      device_class: current
+      unit_of_measurement: mA
+
+    - platform: sensor
+      friendly_name: Paddlepond plug power
+      id: 19
+      device_class: power
+      unit_of_measurement: W
+      scaling: 0.1
+
+    - platform: sensor
+      friendly_name: Paddlepond plug voltage
+      id: 20
+      device_class: voltage
+      unit_of_measurement: V
+      scaling: 0.1
