@@ -6,7 +6,7 @@ cards:
   - type: vertical-stack
     title: wigeon
     cards:
-      - name: Hourly energy - day
+      - name: Hourly energy
         type: 'custom:mini-graph-card'
         entities:
           - entity: sensor.wigeon_hourly_energy
@@ -16,7 +16,7 @@ cards:
         show:
           graph: bar
 
-      - name: Daily energy - week
+      - name: Daily energy
         type: 'custom:mini-graph-card'
         entities:
           - entity: sensor.wigeon_daily_energy
