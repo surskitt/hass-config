@@ -30,3 +30,19 @@ paddlepond_weekly_energy:
 paddlepond_monthly_energy:
   source: sensor.paddlepond_total_power
   cycle: monthly
+
+tv_hourly_energy:
+  source: sensor.tv_total_power
+  cycle: hourly
+
+tv_daily_energy:
+  source: sensor.tv_total_power
+  cycle: daily
+
+tv_weekly_energy:
+  source: sensor.tv_total_power
+  cycle: weekly
+
+tv_monthly_energy:
+  source: sensor.tv_total_power
+  cycle: monthly
