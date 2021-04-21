@@ -9,16 +9,20 @@ cards:
     entities:
       - entity: sensor.transmission_down_speed
         name: Transmission
-        color: yellow
+        color: "#EBCB8B"
         show_line: false
       - entity: sensor.nzbget_speed
         name: nzbget
-        color: blue
+        color: "#5E81AC"
         show_line: false
+      - entity: sensor.pyload_speed
+        name: pyload
+        color: "#D08770"
       - entity: sensor.total_download_speed
         name: Total
-        color: green
+        color: "#A3BE8C"
         show_line: false
+        unit: "MB/s"
 
   - name: Download queue size
     type: horizontal-stack
@@ -26,7 +30,7 @@ cards:
       - name: Transmission queue
         type: 'custom:mini-graph-card'
         icon: 'mdi:download'
-        line_color: yellow
+        line_color: "#EBCB8B"
         line_width: 8
         font_size: 75
         entities:
@@ -35,7 +39,7 @@ cards:
       - name: nzbget queue
         type: 'custom:mini-graph-card'
         icon: 'mdi:download'
-        line_color: blue
+        line_color: "#5E81AC"
         line_width: 8
         font_size: 75
         entities:
