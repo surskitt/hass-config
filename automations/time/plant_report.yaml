@@ -17,6 +17,7 @@
           {% set plants = expand('plant.ben', 'plant.eric', 'plant.ryu', 'plant.jaesuk', 'plant.gustaf', 'plant.beric', 'plant.paisley') -%}
 
           🪴 Plant report 🌱
+
           {% for p in plants -%}
 
           {% set name = state_attr(p.entity_id, 'friendly_name')|title -%}
@@ -52,4 +53,8 @@
           😊 {{ name}} is fine
           {% endif -%}
 
-          {%- endfor %}
+          {%- endfor -%}
+
+          {%- if now() | as_timestamp | timestamp_custom('%A') == 'Saturday' %}
+          🌵 You should water the small plants today 🍃
+          {% endif %}
