@@ -24,3 +24,16 @@
   position_template: "{{ 100-((value_json['pos']|int) if 'pos' in value_json else (value_json['status']|int)) }}"
   set_position_topic: switchbotMQTT/control
   set_position_template: "{\"id\":\"bedroom_curtains\",\"value\":\"{{ 100 - (position|int) }}\"}"
+
+- platform: mqtt
+  name: Living room curtains
+  command_topic: switchbotMQTT/control
+  qos: 0
+  retain: true
+  payload_open: "{\"id\":\"living_room_curtains\",\"value\":\"open\"}"
+  payload_close: "{\"id\":\"living_room_curtains\",\"value\":\"close\"}"
+  payload_stop: "{\"id\":\"living_room_curtains\",\"value\":\"pause\"}"
+  position_topic: switchbotMQTT/curtain/living_room_curtains
+  position_template: "{{ 100-((value_json['pos']|int) if 'pos' in value_json else (value_json['status']|int)) }}"
+  set_position_topic: switchbotMQTT/control
+  set_position_template: "{\"id\":\"living_room_curtains\",\"value\":\"{{ 100 - (position|int) }}\"}"

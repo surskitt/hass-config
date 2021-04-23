@@ -58,6 +58,20 @@
   value_template: "{{ value_json.batt }}"
   unit_of_measurement: "%"
 
+- platform: mqtt
+  name: Living room curtains battery
+  state_topic: switchbotMQTT/curtain/living_room_curtains
+  device_class: battery
+  value_template: "{{ value_json.batt }}"
+  unit_of_measurement: "%"
+
+- platform: mqtt
+  name: Boiler room light switch bot battery
+  state_topic: switchbotMQTT/bot/boiler_room_light_switch
+  device_class: battery
+  value_template: "{{ value_json.batt }}"
+  unit_of_measurement: "%"
+
 - platform: integration
   source: sensor.wigeon_plug_power
   name: wigeon total power
