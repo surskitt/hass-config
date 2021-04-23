@@ -27,8 +27,14 @@
 
 - platform: mqtt
   name: Boiler room light switch
-  command_topic: homeassistant/switch/switchbot/c9:f4:4b:82:6b:51/set
-  state_topic: homeassistant/switch/switchbot/c9:f4:4b:82:6b:51/state
+  command_topic: switchbotMQTT/control
+  payload_on: "{\"id\":\"boiler_room_light_switch\",\"value\":\"on\"}"
+  payload_off: "{\"id\":\"boiler_room_light_switch\",\"value\":\"off\"}"
+  state_topic: switchbotMQTT/bot/boiler_room_light_switch
+  state_on: "{\"id\":\"boiler_room_light_switch\",\"status\":\"on\"}"
+  state_off: "{\"id\":\"boiler_room_light_switch\",\"status\":\"off\"}"
+  qos: 0
+  retain: true
   icon: mdi:water-boiler
 
 - platform: template
