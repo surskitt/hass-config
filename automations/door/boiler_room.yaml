@@ -1,6 +1,6 @@
 ---
-- alias: boiler_room_light_switch
-  description: Turn on boiler room light switch when door is opened
+- id: boiler_room_light_switch
+  alias: Turn on boiler room light switch when door is opened
   mode: restart
 
   trigger:
@@ -10,13 +10,14 @@
 
   action:
     choose:
-      - conditions: "{{ trigger.to_state.state == 'off' }}"
+      - conditions: "{{ trigger.from_state.state == 'off' and trigger.to_state.state == 'on' }}"
         sequence:
           - service: switch.turn_on
             entity_id:
               - switch.boiler_room_light_switch
 
-    default:
-      - service: switch.turn_off
-        entity_id:
-          - switch.boiler_room_light_switch
+      - conditions: "{{ trigger.from_state.state == 'on' and trigger.to_state.state == 'off' }}"
+        sequence:
+          - service: switch.turn_off
+            entity_id:
+              - switch.boiler_room_light_switch
