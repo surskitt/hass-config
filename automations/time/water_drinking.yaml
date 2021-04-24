@@ -31,3 +31,7 @@
       data:
         title: Drink some water!
         message: "{{ message }}"
+        data:
+          actions:
+            - title: Suspend notifications
+              action: suspend_water_notifications

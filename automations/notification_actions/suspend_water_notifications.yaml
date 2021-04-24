@@ -1,0 +1,15 @@
+---
+- id: suspend_water_notifications
+  alias: Suspend water notifications by notification action
+  mode: single
+
+  trigger:
+    - platform: event
+      event_type: mobile_app_notification_action
+      event_data:
+        action: suspend_water_notifications
+
+  action:
+    - service: automation.turn_off
+      target:
+        entity_id: automation.send_reminder_to_drink_water

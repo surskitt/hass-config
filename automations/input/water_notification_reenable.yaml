@@ -1,0 +1,16 @@
+---
+- id: reenable_water_notification
+  alias: Reenable water notifications
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: input_number.water_drinking_daily
+
+    - platform: time
+      at: "09:00:00"
+
+  action:
+    - service: automation.turn_on
+      target:
+        entity_id: automation.send_reminder_to_drink_water

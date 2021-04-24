@@ -8,6 +8,7 @@ cards:
     entities:
       - name: Drunk today
         entity: input_number.water_drinking_daily
+
       - type: button
         name: 1 litre
         icon: 'mdi:glass-mug'
@@ -18,6 +19,7 @@ cards:
           service_data:
             entity: input_number.water_drinking_daily
             steps: 100
+
       - type: button
         name: 1 pint
         icon: 'mdi:beer'
@@ -28,6 +30,7 @@ cards:
           service_data:
             entity: input_number.water_drinking_daily
             steps: 56
+
       - type: button
         name: 1/2 pint
         icon: 'mdi:cup'
