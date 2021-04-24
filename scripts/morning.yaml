@@ -27,3 +27,10 @@ morning_routine:
 
     - service: media_player.media_play
       entity_id: media_player.forked_daapd_server
+
+    - delay: 10
+
+    - service: media_player.volume_set
+      entity_id: media_player.forked_daapd_output_bedroom_speaker
+      data:
+        volume_level: 0.3
