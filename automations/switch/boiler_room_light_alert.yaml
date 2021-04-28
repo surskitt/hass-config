@@ -1,0 +1,25 @@
+---
+- id: boiler_room_light_alert
+  alias: Send an alert when the boiler room light is on too long
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: switch.boiler_room_light_switch
+      to: 'on'
+      for: '00:10:00'
+
+  action:
+    - service: notify.gotify
+      data:
+        title: Boiler room light is on
+        message: Boiler room light has been on for 10 minutes
+
+    - service: notify.mobile_app_wren
+      data:
+        title: Boiler room light is on
+        message: Boiler room light has been on for 10 minutes
+
+    - service: notify.tv
+      data:
+        message: Boiler room light has been on for 10 minutes

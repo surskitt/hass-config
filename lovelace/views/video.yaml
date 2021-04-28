@@ -2,4 +2,11 @@
 title: Video
 path: video
 icon: 'mdi:theater'
-cards: []
+cards:
+  - type: 'custom:mini-media-player'
+    entity: media_player.tv
+    name: TV
+    source: full
+    artwork: material
+    sound_mode: icon
+    info: scroll 

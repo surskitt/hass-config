@@ -29,8 +29,10 @@ __pycache__
 
 /.HA_VERSION
 /.cloud
-/custom_components
 /govee_learning.yaml
 /image
 /themes
 /www/community
+
+/custom_components/**
+!/custom_components/eufyrobovac

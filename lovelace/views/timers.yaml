@@ -15,7 +15,7 @@ cards:
     state_color: true
     entities:
       - name: Mixed load
-        entity: timer.dryer_mixed_load
+        entity: timer.dryer
 
   - title: Bath
     type: entities

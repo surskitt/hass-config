@@ -10,9 +10,9 @@
       washing_machine_timer:
         id: timer.washing_machine
         message: Washing machine timer started
-      dryer_mixed_load_timer: 
-        id: timer.dryer_mixed_load
-        message: Dryer mixed load timer started
+      dryer_timer: 
+        id: timer.dryer
+        message: Dryer timer started
 
   trigger:
     platform: event

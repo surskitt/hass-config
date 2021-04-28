@@ -10,7 +10,7 @@
         summary: The washing machine has finished
         icon: washing-machine.png
         urgency: critical
-      timer.dryer_mixed_load:
+      timer.dryer:
         summary: The dryer has finished
         icon: tumble-dryer.png
       timer.bath_fill:
