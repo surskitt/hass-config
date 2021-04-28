@@ -19,6 +19,9 @@
     - service: switch.turn_off
       entity_id: switch.office_diffuser
 
+    - service: light.turn_off
+      entity_id: light.office_diffuser_light
+
 - alias: living_room_diffuser_off
   description: Turn off living room diffuser when leaving room
   mode: restart
@@ -38,3 +41,6 @@
 
     - service: switch.turn_off
       entity_id: switch.living_room_diffuser
+
+    - service: light.turn_off
+      entity_id: light.living_room_diffuser_light
