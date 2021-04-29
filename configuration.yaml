@@ -49,6 +49,7 @@ cover: !include covers.yaml
 timer: !include timers.yaml
 utility_meter: !include utility_meter.yaml
 
+input_text: !include inputs/text.yaml
 input_boolean: !include inputs/booleans.yaml
 input_datetime: !include inputs/datetime.yaml
 input_number: !include inputs/numbers.yaml

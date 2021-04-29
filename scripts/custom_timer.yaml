@@ -1,0 +1,14 @@
+---
+custom_timer:
+  fields:
+    timer:
+      description: timer to start
+    entity:
+      description: input_text entity to use for timer value
+
+  sequence:
+    - service: timer.start
+      target:
+        entity_id: "{{ timer }}"
+      data:
+        duration: "{{ states(entity) }}"

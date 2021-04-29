@@ -7,8 +7,35 @@ cards:
     type: entities
     state_color: true
     entities:
-      - name: 60°C cottons
+      - name: Timer
         entity: timer.washing_machine
+
+      - type: button
+        name: 60°C cottons
+        icon: 'mdi:thermometer'
+        action_name: Start
+        tap_action:
+          action: call-service
+          service: timer.start
+          service_data:
+            duration: '2:41:00'
+          target:
+            entity_id: timer.washing_machine
+
+      - name: Custom
+        entity: input_text.washing_machine_custom_timer
+
+      # - type: button
+      #   name: " "
+      #   icon: 'mdi:timer-outline'
+      #   action_name: Start
+      #   tap_action:
+      #     action: call-service
+      #     service: timer.start
+      #     service_data:
+      #       duration: "{{ states('input_text.washing_machine_custom_timer') }}"
+      #     target:
+      #       entity_id: timer.washing_machine
 
   - title: Dryer
     type: entities

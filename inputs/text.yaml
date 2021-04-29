@@ -1,0 +1,6 @@
+---
+washing_machine_custom_timer:
+  name: Washing machine custom timer
+  icon: mdi:help-circle-outline
+  pattern: '\d\d:[0-5]\d:[0-5]\d'
+  initial: '00:00:00'

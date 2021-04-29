@@ -36,6 +36,12 @@
       value_template: "{{ states('sensor.transmission_total_torrents')|int - states('sensor.transmission_completed_torrents')|int }}"
       icon_template: 'mdi:download'
 
+    washing_machine_custom_timer:
+      friendly_name: Washing machine custom timer
+      value_template: >
+        {{ ((states('input_number.washing_machine_custom_timer')|int)/3600)|int }}
+      icon_template: 'mdi:washing-machine'
+
 - platform: time_date
   display_options:
     - 'time'
