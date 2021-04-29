@@ -6,16 +6,19 @@
 
   variables:
     timers:
+      timer.fan_oven:
+        summary: The oven is finished
+        urgency: high
+      timer.top_oven:
+        summary: The top oven is finished
+        urgency: high
       timer.washing_machine:
         summary: The washing machine has finished
-        icon: washing-machine.png
-        urgency: critical
+        urgency: high
       timer.dryer:
         summary: The dryer has finished
-        icon: tumble-dryer.png
       timer.bath_fill:
         summary: The bath is full
-        icon: water-pump.png
 
   trigger:
     platform: event
@@ -28,10 +31,28 @@
     - variables:
         timer_dict: "{{ timers[trigger.event.data.entity_id] }}"
 
-    - service: script.presence_notify
+    - choose:
+        - conditions: "{{ timer_dict.urgency == 'high' }}"
+          sequence:
+            - service: notify.gotify_high
+              data:
+                title: Timer finished
+                message: "{{ timer_dict.summary }}"
+
+      default:
+        - service: notify.gotify
+          data:
+            title: Timer finished
+            message: "{{ timer_dict.summary }}"
+
+    - service: notify.tv
       data:
         message: "{{ timer_dict.summary }}"
-        icon: "{{ timer_dict.icon }}"
+
+    - service: notify.mobile_app_wren
+      data:
+        title: Timer finished
+        message: "{{ timer_dict.summary }}"
 
 - id: bedtime_heating
   alias: Turn off heating at bedtime after a delay

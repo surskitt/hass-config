@@ -9,6 +9,14 @@ dryer:
   duration: '01:05:00'
   icon: 'mdi:tumble-dryer'
 
+fan_oven:
+  name: Fan oven
+  icon: 'mdi:stove'
+
+top_oven:
+  name: Top oven
+  icon: 'mdi:stove'
+
 custom1:
 
 bedtime_heating:

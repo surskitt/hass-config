@@ -3,50 +3,198 @@ title: Timers
 icon: 'mdi:timer'
 panel: false
 cards:
+  - title: Fan oven
+    type: 'custom:vertical-stack-in-card'
+    cards:
+      - type: conditional
+        conditions:
+          - entity: timer.fan_oven
+            state_not: idle
+        card:
+          type: 'custom:timer-card'
+          entity: timer.fan_oven
+
+      - type: entities
+        state_color: true
+        entities:
+          - name: Custom
+            entity: input_text.fan_oven_custom_timer
+            icon: 'mdi:stove'
+            double_tap_action:
+              action: call-service
+              service: script.custom_timer
+              service_data:
+                timer: timer.fan_oven
+                entity: input_text.fan_oven_custom_timer
+
+          - type: button
+            name: Cancel timer
+            icon: 'mdi:close-octagon'
+            action_name: Cancel
+            tap_action:
+              action: call-service
+              service: timer.cancel
+              target:
+                entity_id: timer.fan_oven
+
+  - title: Top oven
+    type: 'custom:vertical-stack-in-card'
+    cards:
+      - type: conditional
+        conditions:
+          - entity: timer.top_oven
+            state_not: idle
+        card:
+          type: 'custom:timer-card'
+          entity: timer.top_oven
+
+      - type: entities
+        state_color: true
+        entities:
+          - name: Custom
+            entity: input_text.top_oven_custom_timer
+            icon: 'mdi:stove'
+            double_tap_action:
+              action: call-service
+              service: script.custom_timer
+              service_data:
+                timer: timer.top_oven
+                entity: input_text.top_oven_custom_timer
+
+          - type: button
+            name: Cancel timer
+            icon: 'mdi:close-octagon'
+            action_name: Cancel
+            tap_action:
+              action: call-service
+              service: timer.cancel
+              target:
+                entity_id: timer.top_oven
+
   - title: Washing machine
-    type: entities
-    state_color: true
-    entities:
-      - name: Timer
-        entity: timer.washing_machine
+    type: 'custom:vertical-stack-in-card'
+    cards:
+      - type: conditional
+        conditions:
+          - entity: timer.washing_machine
+            state_not: idle
+        card:
+          type: 'custom:timer-card'
+          entity: timer.washing_machine
 
-      - type: button
-        name: 60°C cottons
-        icon: 'mdi:thermometer'
-        action_name: Start
-        tap_action:
-          action: call-service
-          service: timer.start
-          service_data:
-            duration: '2:41:00'
-          target:
-            entity_id: timer.washing_machine
+      - type: entities
+        state_color: true
+        entities:
+          - type: button
+            name: 60°C cottons
+            icon: 'mdi:thermometer'
+            action_name: Start
+            tap_action:
+              action: call-service
+              service: timer.start
+              service_data:
+                duration: '2:41:00'
+              target:
+                entity_id: timer.washing_machine
 
-      - name: Custom
-        entity: input_text.washing_machine_custom_timer
+          - name: Custom
+            entity: input_text.washing_machine_custom_timer
+            icon: 'mdi:help-circle'
+            double_tap_action:
+              action: call-service
+              service: script.custom_timer
+              service_data:
+                timer: timer.washing_machine
+                entity: input_text.washing_machine_custom_timer
 
-      # - type: button
-      #   name: " "
-      #   icon: 'mdi:timer-outline'
-      #   action_name: Start
-      #   tap_action:
-      #     action: call-service
-      #     service: timer.start
-      #     service_data:
-      #       duration: "{{ states('input_text.washing_machine_custom_timer') }}"
-      #     target:
-      #       entity_id: timer.washing_machine
+          - type: button
+            name: Cancel timer
+            icon: 'mdi:close-octagon'
+            action_name: Cancel
+            tap_action:
+              action: call-service
+              service: timer.cancel
+              target:
+                entity_id: timer.washing_machine
 
   - title: Dryer
-    type: entities
-    state_color: true
-    entities:
-      - name: Mixed load
-        entity: timer.dryer
+    type: 'custom:vertical-stack-in-card'
+    cards:
+      - type: conditional
+        conditions:
+          - entity: timer.dryer
+            state_not: idle
+        card:
+          type: 'custom:timer-card'
+          entity: timer.dryer
+
+      - type: entities
+        state_color: true
+        entities:
+          - type: button
+            name: Mixed load
+            icon: 'mdi:tumble-dryer'
+            action_name: Start
+            tap_action:
+              action: call-service
+              service: timer.start
+              service_data:
+                duration: '1:05:00'
+              target:
+                entity_id: timer.dryer
+
+          - name: Custom
+            entity: input_text.dryer_custom_timer
+            icon: 'mdi:help-circle'
+            double_tap_action:
+              action: call-service
+              service: script.custom_timer
+              service_data:
+                timer: timer.dryer
+                entity: input_text.dryer_custom_timer
+
+          - type: button
+            name: Cancel timer
+            icon: 'mdi:close-octagon'
+            action_name: Cancel
+            tap_action:
+              action: call-service
+              service: timer.cancel
+              target:
+                entity_id: timer.dryer
 
   - title: Bath
-    type: entities
-    state_colour: true
-    entities:
-      - name: Bath filling
-        entity: timer.bath_fill
+    type: 'custom:vertical-stack-in-card'
+    cards:
+      - type: conditional
+        conditions:
+          - entity: timer.bath_fill
+            state_not: idle
+        card:
+          type: 'custom:timer-card'
+          entity: timer.bath_fill
+
+      - type: entities
+        state_color: true
+        entities:
+          - type: button
+            name: Bath filling
+            icon: 'mdi:water-pump'
+            action_name: Start
+            tap_action:
+              action: call-service
+              service: timer.start
+              service_data:
+                duration: '0:19:00'
+              target:
+                entity_id: timer.bath_fill
+
+          - type: button
+            name: Cancel timer
+            icon: 'mdi:close-octagon'
+            action_name: Cancel
+            tap_action:
+              action: call-service
+              service: timer.cancel
+              target:
+                entity_id: timer.bath_fill
