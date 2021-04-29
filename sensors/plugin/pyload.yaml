@@ -1,0 +1,6 @@
+---
+- platform: pyload
+  name: pyload
+  host: pyload.media.svc.cluster.local
+  username: !secret pyload_username
+  password: !secret pyload_password

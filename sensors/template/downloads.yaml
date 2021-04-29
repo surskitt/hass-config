@@ -1,0 +1,12 @@
+---
+- platform: template
+  sensors:
+    total_download_speed:
+      friendly_name: Total download speed
+      value_template: "{{ states('sensor.transmission_down_speed') + states('sensor.nzbget_speed') + states('sensor.pyload_speed') }}"
+      icon_template: 'mdi:download'
+
+    transmission_queue_size:
+      friendly_name: Transmission queue size
+      value_template: "{{ states('sensor.transmission_total_torrents')|int - states('sensor.transmission_completed_torrents')|int }}"
+      icon_template: 'mdi:download'

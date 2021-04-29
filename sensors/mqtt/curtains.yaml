@@ -1,0 +1,21 @@
+---
+- platform: mqtt
+  name: Office curtain battery
+  state_topic: switchbotMQTT/curtain/office_curtain
+  device_class: battery
+  value_template: "{{ value_json.batt }}"
+  unit_of_measurement: "%"
+
+- platform: mqtt
+  name: Bedroom curtains battery
+  state_topic: switchbotMQTT/curtain/bedroom_curtains
+  device_class: battery
+  value_template: "{{ value_json.batt }}"
+  unit_of_measurement: "%"
+
+- platform: mqtt
+  name: Living room curtains battery
+  state_topic: switchbotMQTT/curtain/living_room_curtains
+  device_class: battery
+  value_template: "{{ value_json.batt }}"
+  unit_of_measurement: "%"

@@ -1,0 +1,18 @@
+---
+- platform: integration
+  source: sensor.wigeon_plug_power
+  name: wigeon total power
+  unit_prefix: k
+  round: 2
+
+- platform: integration
+  source: sensor.paddlepond_plug_power
+  name: paddlepond total power
+  unit_prefix: k
+  round: 2
+
+- platform: integration
+  source: sensor.tv_plug_power
+  name: tv total power
+  unit_prefix: k
+  round: 2

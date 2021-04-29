@@ -43,7 +43,7 @@ script: !include_dir_merge_named scripts/
 camera: !include cameras.yaml
 notify: !include notify.yaml
 plant: !include plants.yaml
-sensor: !include sensors.yaml
+sensor: !include_dir_merge_list sensors
 switch: !include switches.yaml
 cover: !include covers.yaml
 timer: !include timers.yaml
