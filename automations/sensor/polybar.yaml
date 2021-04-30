@@ -1,0 +1,23 @@
+---
+- id: wigeon_polybar_mqtt
+  alias: Post current wigeon polybar sensor to mqtt
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id:
+        - sensor.wigeon_polybar
+    - platform: state
+      entity_id: switch.wigeon
+      to: 'on'
+
+  condition:
+    - condition: state
+      entity_id: switch.wigeon
+      state: 'on'
+
+  action:
+    - service: mqtt.publish
+      data:
+        topic: polybar/wigeon/hass
+        payload_template: "{{ states('sensor.wigeon_polybar') }}"

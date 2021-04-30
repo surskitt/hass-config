@@ -1,0 +1,10 @@
+---
+- platform: template
+  sensors:
+    wigeon_polybar:
+      friendly_name: Wigeon polybar
+      value_template: >
+         {{ state_attr('climate.office', 'temperature') }}°
+         {{ state_attr('climate.office', 'current_temperature') }}°
+         {{ states('sensor.office_humidity') }}
+      icon_template: 'mdi:dots-horizontal'
