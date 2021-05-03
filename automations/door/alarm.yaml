@@ -18,3 +18,18 @@
     - service: alarm_control_panel.alarm_trigger
       target:
         entity_id: alarm_control_panel.home_alarm
+
+- id: alarm_door_disarm
+  alias: Disarm alarm when upstairs doors are opened
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.office_door_contact
+        - binary_sensor.bedroom_door_contact
+
+  action:
+    - service: alarm_control_panel.alarm_disarm
+      target:
+        entity_id: alarm_control_panel.home_alarm
