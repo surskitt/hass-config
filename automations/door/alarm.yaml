@@ -7,6 +7,9 @@
     - platform: state
       entity_id:
         - binary_sensor.front_door_contact
+        - binary_sensor.back_door_r_contact
+      from: 'off'
+      to: 'on'
 
   condition:
     - condition: state
@@ -28,6 +31,8 @@
       entity_id:
         - binary_sensor.office_door_contact
         - binary_sensor.bedroom_door_contact
+      from: 'off'
+      to: 'on'
 
   action:
     - service: alarm_control_panel.alarm_disarm
