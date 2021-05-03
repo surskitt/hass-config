@@ -215,3 +215,11 @@ cards:
         icon: 'mdi:download'
     title: Media centre
     show_header_toggle: false
+
+  - type: alarm-panel
+    states:
+      - arm_home
+      - arm_away
+      - arm_night
+    entity: alarm_control_panel.home_alarm
+    name: Home alarm

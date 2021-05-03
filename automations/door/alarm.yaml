@@ -1,0 +1,20 @@
+---
+- id: alarm_door_trigger
+  alias: Trigger alarm when a door/window is opened
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.front_door_contact
+
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.home_alarm
+      state:
+        - armed_night
+
+  action:
+    - service: alarm_control_panel.alarm_trigger
+      target:
+        entity_id: alarm_control_panel.home_alarm

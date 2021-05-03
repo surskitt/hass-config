@@ -1,0 +1,29 @@
+---
+- id: alarm_triggered
+  alias: Fire alarm
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.home_alarm
+      to: triggered
+
+  action:
+    - service: notify.mobile_app_wren
+      data:
+        title: Alarm triggered
+        message: Alarm triggered by opened door
+
+    - service: switch.turn_on
+      entity_id:
+        - switch.living_room_light_switch
+        - switch.kitchen_light_switch
+        - switch.office_light_switch
+        - switch.bedroom_light_switch
+        - switch.bathroom_light_switch
+
+    - service: light.turn_on
+      entity_id:
+        - light.stairs_bulbs
+      data:
+        brightness_pct: 100

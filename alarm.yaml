@@ -1,0 +1,11 @@
+---
+- platform: manual
+  name: home alarm
+  arming_time: 30
+  delay_time: 15
+  code_arm_required: false
+  trigger_time: 120
+  disarmed:
+    trigger_time: 0
+  armed_night:
+    arming_time: 0

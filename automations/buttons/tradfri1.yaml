@@ -42,3 +42,7 @@
         - light.wled_bedroom
         - light.stairs_bulbs
         - light.attic_light
+
+    - service: alarm_control_panel.alarm_arm_night
+      target:
+        entity_id: alarm_control_panel.home_alarm

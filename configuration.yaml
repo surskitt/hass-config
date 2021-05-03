@@ -25,6 +25,7 @@ frontend:
 
 lovelace: !include lovelace/config.yaml
 
+alarm_control_panel: !include alarm.yaml
 calendar: !include component_config/calendar.yaml
 telegram_bot: !include component_config/telegram_bot.yaml
 plex: !include component_config/plex.yaml
