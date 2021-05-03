@@ -13,6 +13,7 @@ cards:
         card:
           type: 'custom:timer-card'
           entity: timer.fan_oven
+          name: false
 
       - type: entities
         state_color: true
@@ -47,6 +48,7 @@ cards:
         card:
           type: 'custom:timer-card'
           entity: timer.top_oven
+          name: false
 
       - type: entities
         state_color: true
@@ -81,6 +83,7 @@ cards:
         card:
           type: 'custom:timer-card'
           entity: timer.washing_machine
+          name: false
 
       - type: entities
         state_color: true
@@ -127,6 +130,7 @@ cards:
         card:
           type: 'custom:timer-card'
           entity: timer.dryer
+          name: false
 
       - type: entities
         state_color: true
@@ -173,6 +177,7 @@ cards:
         card:
           type: 'custom:timer-card'
           entity: timer.bath_fill
+          name: false
 
       - type: entities
         state_color: true
