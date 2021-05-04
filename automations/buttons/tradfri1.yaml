@@ -1,6 +1,6 @@
 ---
-- alias: Activate bedtime routine
-  description: Turn off all lights and heating when pressing tradfri 1 off button
+- id: bedtime_routine
+  alias: Turn off all lights and heating when pressing tradfri 1 off button
   mode: single
 
   trigger:
