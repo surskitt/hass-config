@@ -7,6 +7,7 @@ presence_lights:
     - service: script.office_lights
     - service: script.bathroom_lights
     - service: script.stairs_lights
+    - service: script.garden_lights
 
 living_room_lights:
   sequence:
@@ -160,3 +161,27 @@ stairs_lights:
       default:
         - service: light.turn_off
           entity_id: light.stairs_bulbs
+
+garden_lights:
+  sequence:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: input_boolean.garden_presence
+              state: 'on'
+
+            - condition: or
+              conditions:
+                - condition: sun
+                  after: sunset
+                  after_offset: "-00:45:00"
+                - condition: sun
+                  before: sunrise
+
+          sequence:
+            - service: light.turn_on
+              entity_id: light.shelly_garden
+
+      default:
+        - service: light.turn_off
+          entity_id: light.shelly_garden
