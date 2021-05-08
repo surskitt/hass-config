@@ -10,6 +10,7 @@
         - binary_sensor.bedroom_door_contact
         - binary_sensor.office_door_contact
         - binary_sensor.bathroom_door_contact
+        - binary_sensor.back_door_r_contact
       to: 'on'
 
   action:
@@ -43,6 +44,12 @@
           sequence:
             - service: input_boolean.turn_on
               entity_id: input_boolean.bathroom_presence
+
+        - conditions: >
+            {{ trigger.entity_id == 'binary_sensor.back_door_r_contact' }}
+          sequence:
+            - service: input_boolean.turn_on
+              entity_id: input_boolean.garden_presence
 
 - alias: Presence unset
   description: Unset presence(s) when door closes
@@ -101,6 +108,13 @@
                 - input_boolean.kitchen_presence
                 - input_boolean.office_presence
                 - input_boolean.bathroom_presence
+                - input_boolean.garden_presence
+
+        - conditions: >
+            {{ trigger.entity_id == 'binary_sensor.back_door_r_contact' }}
+          sequence:
+            - service: input_boolean.turn_off
+              entity_id:
                 - input_boolean.garden_presence
 
 - alias: Stairs presence set
