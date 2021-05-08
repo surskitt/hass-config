@@ -22,9 +22,11 @@ blueprint:
     presence_set:
       name: Presence set
       description: Presence entities to turn on
+      default: []
     presence_unset:
       name: Presence unset
       description: Presence entities to turn off
+      default: []
 
 mode: restart
 max_exceeded: silent
