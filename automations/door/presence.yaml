@@ -1,0 +1,79 @@
+---
+- id: living_room_presence_set
+  alias: Set living room presence when door is opened
+  use_blueprint:
+    path: mine/set_presence.yaml
+    input:
+      sensor: binary_sensor.living_room_door_contact
+      state: 'on'
+      presence_set: input_boolean.living_room_presence
+      presence_unset:
+        - input_boolean.office_presence
+        - input_boolean.kitchen_presence
+        - input_boolean.bedroom_presence
+        - input_boolean.bathroom_presence
+        - input_boolean.garden_presence
+
+- id: kitchen_presence_set
+  alias: Set kitchen presence when door is opened
+  use_blueprint:
+    path: mine/set_presence.yaml
+    input:
+      sensor: binary_sensor.kitchen_door_contact
+      state: 'on'
+      presence_set: input_boolean.kitchen_presence
+      presence_unset:
+        - input_boolean.bedroom_presence
+        - input_boolean.office_presence
+        - input_boolean.bathroom_presence
+        - input_boolean.garden_presence
+
+- id: bedroom_presence_set
+  alias: Set bedroom presence when door is opened
+  use_blueprint:
+    path: mine/set_presence.yaml
+    input:
+      sensor: binary_sensor.bedroom_door_contact
+      state: 'on'
+      presence_set: input_boolean.bedroom_presence
+      presence_unset:
+        - input_boolean.living_room_presence
+        - input_boolean.kitchen_presence
+        - input_boolean.office_presence
+        - input_boolean.bathroom_presence
+        - input_boolean.garden_presence
+
+- id: office_presence_set
+  alias: Set office presence when door is opened
+  use_blueprint:
+    path: mine/set_presence.yaml
+    input:
+      sensor: binary_sensor.office_door_contact
+      state: 'on'
+      presence_set: input_boolean.office_presence
+      presence_unset:
+        - input_boolean.living_room_presence
+        - input_boolean.kitchen_presence
+        - input_boolean.bedroom_presence
+        - input_boolean.bathroom_presence
+        - input_boolean.garden_presence
+
+- id: bathroom_presence_set
+  alias: Set bathroom presence when door is opened
+  use_blueprint:
+    path: mine/set_presence.yaml
+    input:
+      sensor: binary_sensor.bathroom_door_contact
+      state: 'on'
+      presence_set: input_boolean.bathroom_presence
+      presence_unset: []
+
+- id: garden_presence_set
+  alias: Set garden presence when door is opened
+  use_blueprint:
+    path: mine/set_presence.yaml
+    input:
+      sensor: binary_sensor.back_door_r_contact
+      state: 'on'
+      presence_set: input_boolean.garden_presence
+      presence_unset: []
