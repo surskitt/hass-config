@@ -28,6 +28,16 @@
         - input_boolean.bathroom_presence
         - input_boolean.garden_presence
 
+- id: kitchen_presence_unset
+  alias: Unset kitchen presence when door is closed
+  use_blueprint:
+    path: mine/set_presence.yaml
+    input:
+      sensor: binary_sensor.kitchen_door_contact
+      state: 'off'
+      presence_set: []
+      presence_unset: input_boolean.kitchen_presence
+
 - id: bedroom_presence_set
   alias: Set bedroom presence when door is opened
   use_blueprint:
