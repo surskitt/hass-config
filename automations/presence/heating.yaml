@@ -1,0 +1,88 @@
+---
+- id: living_room_presence_heating_on
+  alias: Turn on living room heating when presence is set
+  use_blueprint:
+    path: mine/presence_heating.yaml
+    input:
+      presence: input_boolean.living_room_presence
+      state: 'on'
+      climate: climate.living_room
+      temperature: 22
+      delay: 90
+
+- id: living_room_presence_heating_off
+  alias: Turn off living room heating when presence is unset
+  use_blueprint:
+    path: mine/presence_heating.yaml
+    input:
+      presence: input_boolean.living_room_presence
+      state: 'off'
+      climate: climate.living_room
+      temperature: 12
+      delay: 90
+
+- id: kitchen_presence_heating_on
+  alias: Turn on kitchen heating when presence is set
+  use_blueprint:
+    path: mine/presence_heating.yaml
+    input:
+      presence: input_boolean.kitchen_presence
+      state: 'on'
+      climate: climate.kitchen
+      temperature: 22
+      delay: 90
+
+- id: kitchen_presence_heating_off
+  alias: Turn off kitchen heating when presence is unset
+  use_blueprint:
+    path: mine/presence_heating.yaml
+    input:
+      presence: input_boolean.kitchen_presence
+      state: 'off'
+      climate: climate.kitchen
+      temperature: 12
+      delay: 90
+
+- id: bedroom_presence_heating_on
+  alias: Turn on bedroom heating when presence is set
+  use_blueprint:
+    path: mine/presence_heating.yaml
+    input:
+      presence: input_boolean.bedroom_presence
+      state: 'on'
+      climate: climate.bedroom
+      temperature: 22
+      delay: 90
+
+- id: bedroom_presence_heating_off
+  alias: Turn off bedroom heating when presence is unset
+  use_blueprint:
+    path: mine/presence_heating.yaml
+    input:
+      presence: input_boolean.bedroom_presence
+      state: 'off'
+      climate: climate.bedroom
+      temperature: 12
+      delay: 90
+
+- id: office_presence_heating_on
+  alias: Turn on office heating when presence is set
+  use_blueprint:
+    path: mine/presence_heating.yaml
+    input:
+      presence: input_boolean.office_presence
+      state: 'on'
+      climate: climate.office
+      temperature: 22
+      delay: 90
+
+- id: office_presence_heating_off
+  alias: Turn off office heating when presence is unset
+  use_blueprint:
+    path: mine/presence_heating.yaml
+    input:
+      presence: input_boolean.office_presence
+      state: 'off'
+      climate: climate.office
+      temperature: 12
+      delay: 90
