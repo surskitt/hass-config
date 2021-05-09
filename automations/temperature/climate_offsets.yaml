@@ -1,6 +1,6 @@
 ---
 # - id: kitchen_climate_temperature_offset
-#   alias: Set kitchen temperature offset on office tado climate
+#   alias: Set kitchen temperature offset on kitchen tado climate
 #   use_blueprint:
 #     path: sanderma/tado_temp_offset.yaml
 #     input:
@@ -8,7 +8,7 @@
 #       target_tado: climate.kitchen
 
 - id: bedroom_climate_temperature_offset
-  alias: Set bedroom temperature offset on office tado climate
+  alias: Set bedroom temperature offset on bedroom tado climate
   use_blueprint:
     path: sanderma/tado_temp_offset.yaml
     input:
