@@ -38,7 +38,7 @@ blueprint:
           max: 3600
           unit_of_measurement: seconds
           mode: box
-      default: 120
+      default: 90
 
 mode: restart
 max_exceeded: silent
