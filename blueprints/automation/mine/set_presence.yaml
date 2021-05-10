@@ -27,6 +27,10 @@ blueprint:
       name: Presence unset
       description: Presence entities to turn off
       default: []
+    presence_toggle:
+      name: Presence toggle
+      description: Presence entities to toggle
+      default: []
 
 mode: restart
 max_exceeded: silent
@@ -42,3 +46,6 @@ action:
 
   - service: input_boolean.turn_off
     entity_id: !input presence_unset
+
+  - service: input_boolean.toggle
+    entity_id: !input presence_toggle
