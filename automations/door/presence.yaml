@@ -95,6 +95,39 @@
         - binary_sensor.bedroom_door_contact
         - binary_sensor.office_door_contact
       state: 'on'
+      presence_set: input_boolean.bathroom_presence
+
+- id: garden_presence_set
+  alias: Set garden presence when door is opened
+  use_blueprint:
+    path: mine/set_presence.yaml
+    input:
+      sensor: binary_sensor.back_door_r_contact
+      state: 'on'
+      presence_set: input_boolean.garden_presence
+
+- id: stairs_presence_toggle
+  alias: Toggle stairs presence when doors are opened
+  use_blueprint:
+    path: mine/set_presence.yaml
+    input:
+      sensor:
+        - binary_sensor.living_room_door_contact
+        - binary_sensor.bedroom_door_contact
+        - binary_sensor.office_door_contact
+        - binary_sensor.bathroom_door_contact
+      state: 'on'
+      presence_toggle: input_boolean.stairs_presence
+
+- id: stairs_presence_set
+  alias: Set stairs presence when front door is opened
+  use_blueprint:
+    path: mine/set_presence.yaml
+    input:
+      sensor: binary_sensor.front_door_contact
+      state: 'on'
+      presence_set: input_boolean.stairs_presence
+      state: 'on'
       presence_toggle: input_boolean.stairs_presence
 
 - id: stairs_presence_set
