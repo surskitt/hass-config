@@ -127,8 +127,6 @@
       sensor: binary_sensor.front_door_contact
       state: 'on'
       presence_set: input_boolean.stairs_presence
-      state: 'on'
-      presence_toggle: input_boolean.stairs_presence
 
 - id: stairs_presence_set
   alias: Set stairs presence when front door is opened
@@ -138,3 +136,17 @@
       sensor: binary_sensor.front_door_contact
       state: 'on'
       presence_set: input_boolean.stairs_presence
+
+- id: stairs_presence_timeout
+  alias: Turn off stairs presence after timeout
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: input_boolean.stairs_presence
+      to: 'on'
+      for: '00:05:00'
+
+  action:
+    - service: binary_sensor.turn_off
+      entity_id: input_boolean.stairs_presence
