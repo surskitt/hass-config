@@ -118,5 +118,5 @@
       for: '00:05:00'
 
   action:
-    - service: binary_sensor.turn_off
+    - service: input_boolean.turn_off
       entity_id: input_boolean.stairs_presence
