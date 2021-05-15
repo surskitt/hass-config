@@ -11,6 +11,18 @@ cards:
       - entity: switch.living_room_light_switch
         name: Light switch
         icon: 'mdi:ceiling-light'
+      - type: 'custom:fold-entity-row'
+        head:
+          name: Not
+          type: 'custom:slider-entity-row'
+          entity: light.shelly_not_bulb_living_room
+          toggle: true
+          icon: 'mdi:floor-lamp'
+        entities:
+          - name: Colour temperature
+            type: 'custom:slider-entity-row'
+            entity: light.shelly_not_bulb_living_room
+            attribute: color_temp
       - entity: switch.tv
         name: TV
         icon: 'mdi:television'
