@@ -1,0 +1,26 @@
+---
+blueprint:
+  name: Restore scene
+  description: Restore scene heating when presence is switched on
+  domain: automation
+
+  input:
+    presence:
+      name: State
+      description: Presence boolean to watch
+    scene_id:
+      name: Scene ID
+      description: ID of scene to restore
+
+mode: restart
+max_exceeded: silent
+
+trigger:
+  platform: state
+  entity_id: !input presence
+  to: 'on'
+
+action:
+  - service: scene.turn_on
+    target:
+      entity_id: !input scene_id

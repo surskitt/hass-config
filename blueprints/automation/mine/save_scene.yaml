@@ -1,0 +1,34 @@
+---
+blueprint:
+  name: Save scene
+  description: Save scene when entities change
+  domain: automation
+
+  input:
+    scene_id:
+      name: Scene ID
+      description: ID of scene to save states into
+    entities:
+      name: Entities
+      description: Entities to save
+    presence:
+      name: Presence entity
+      description: Presence entity
+
+mode: restart
+max_exceeded: silent
+
+trigger:
+  platform: state
+  entity_id: !input entities
+
+condition:
+  condition: state
+  entity_id: !input presence
+  state: 'on'
+
+action:
+  - service: scene.create
+    data:
+      scene_id: !input scene_id
+      snapshot_entities: !input entities

@@ -1,0 +1,33 @@
+---
+blueprint:
+  name: Presence switches off
+  description: Turn off switches when presence is switched off
+  domain: automation
+
+  input:
+    presence:
+      name: State
+      description: Presence boolean to watch
+    switches:
+      name: Switches
+      description: Switch entities to turn off
+      default: []
+    lights:
+      name: Lights
+      description: Light entities to turn off
+      default: []
+
+mode: restart
+max_exceeded: silent
+
+trigger:
+  platform: state
+  entity_id: !input presence
+  to: 'off'
+
+action:
+  - service: switch.turn_off
+    entity_id: !input switches
+
+  - service: light.turn_off
+    entity_id: !input lights

@@ -1,0 +1,48 @@
+---
+- id: living_room_restore_state
+  alias: Restore state of entities in living room when presence is set to on
+  use_blueprint:
+    path: mine/restore_scene.yaml
+    input:
+      presence: input_boolean.living_room_presence
+      scene_id: scene.living_room_state
+
+- id: kitchen_restore_state
+  alias: Restore state of entities in kitchen when presence is set to on
+  use_blueprint:
+    path: mine/restore_scene.yaml
+    input:
+      presence: input_boolean.kitchen_presence
+      scene_id: scene.kitchen_state
+
+- id: bedroom_restore_state
+  alias: Restore state of entities in bedroom when presence is set to on
+  use_blueprint:
+    path: mine/restore_scene.yaml
+    input:
+      presence: input_boolean.bedroom_presence
+      scene_id: scene.bedroom_state
+
+- id: office_restore_state
+  alias: Restore state of entities in office when presence is set to on
+  use_blueprint:
+    path: mine/restore_scene.yaml
+    input:
+      presence: input_boolean.office_presence
+      scene_id: scene.office_state
+
+- id: bathroom_restore_state
+  alias: Restore state of entities in bathroom when presence is set to on
+  use_blueprint:
+    path: mine/restore_scene.yaml
+    input:
+      presence: input_boolean.bathroom_presence
+      scene_id: scene.bathroom_state
+
+- id: garden_restore_state
+  alias: Restore state of entities in garden when presence is set to on
+  use_blueprint:
+    path: mine/restore_scene.yaml
+    input:
+      presence: input_boolean.garden_presence
+      scene_id: scene.garden_state

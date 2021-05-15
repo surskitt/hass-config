@@ -1,0 +1,64 @@
+---
+- id: living_room_save_state
+  alias: Save state of entitites in living room when they change
+  use_blueprint:
+    path: mine/save_scene.yaml
+    input:
+      scene_id: living_room_state
+      entities:
+        - switch.living_room_light_switch
+        - light.shelly_not_bulb_living_room
+        - switch.tv
+      presence: input_boolean.living_room_presence
+
+- id: kitchen_save_state
+  alias: Save state of entitites in kitchen when they change
+  use_blueprint:
+    path: mine/save_scene.yaml
+    input:
+      scene_id: kitchen_state
+      entities:
+        - switch.kitchen_light_switch
+      presence: input_boolean.kitchen_presence
+
+- id: bedroom_save_state
+  alias: Save state of entitites in bedroom when they change
+  use_blueprint:
+    path: mine/save_scene.yaml
+    input:
+      scene_id: bedroom_state
+      entities:
+        - switch.bedroom_light_switch
+        - light.wled_bed
+      presence: input_boolean.bedroom_presence
+
+- id: office_save_state
+  alias: Save state of entities in office when they change
+  use_blueprint:
+    path: mine/save_scene.yaml
+    input:
+      scene_id: office_state
+      entities:
+        - switch.office_light_switch
+        - light.not_bulb
+      presence: input_boolean.office_presence
+
+- id: bathroom_save_state
+  alias: Save state of entities in bathroom when they change
+  use_blueprint:
+    path: mine/save_scene.yaml
+    input:
+      scene_id: bathroom_state
+      entities:
+        - switch.bathroom_light_switch
+      presence: input_boolean.bathroom_presence
+
+- id: garden_save_state
+  alias: Save state of entities in garden when they change
+  use_blueprint:
+    path: mine/save_scene.yaml
+    input:
+      scene_id: garden_state
+      entities:
+        - light.shelly_garden
+      presence: input_boolean.garden_presence

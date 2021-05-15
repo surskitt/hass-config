@@ -15,7 +15,6 @@
         - input_boolean.garden_presence
 
   action:
-    - service: script.presence_lights
     - service: script.presence_daapd
     - service: script.presence_wigeon
 

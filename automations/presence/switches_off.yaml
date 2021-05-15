@@ -1,0 +1,60 @@
+---
+- id: living_room_presence_switches_off
+  alias: Turn off living room switches when presence is switched off
+  use_blueprint:
+    path: mine/presence_switches_off.yaml
+    input:
+      presence: input_boolean.living_room_presence
+      switches:
+        - switch.living_room_light_switch
+      lights:
+        - light.shelly_not_bulb_living_room
+
+- id: kitchen_presence_switches_off
+  alias: Turn off kitchen switches when presence is switched off
+  use_blueprint:
+    path: mine/presence_switches_off.yaml
+    input:
+      presence: input_boolean.kitchen_presence
+      switches:
+        - switch.kitchen_light_switch
+
+- id: bedroom_presence_switches_off
+  alias: Turn off bedroom switches when presence is switched off
+  use_blueprint:
+    path: mine/presence_switches_off.yaml
+    input:
+      presence: input_boolean.bedroom_presence
+      switches:
+        - switch.bedroom_light_switch
+      lights:
+        - light.wled_bed
+
+- id: office_presence_switches_off
+  alias: Turn off office switches when presence is switched off
+  use_blueprint:
+    path: mine/presence_switches_off.yaml
+    input:
+      presence: input_boolean.office_presence
+      switches:
+        - switch.office_light_switch
+      lights:
+        - light.not_bulb
+
+- id: bathroom_presence_switches_off
+  alias: Turn off bathroom switches when presence is switched off
+  use_blueprint:
+    path: mine/presence_switches_off.yaml
+    input:
+      presence: input_boolean.bathroom_presence
+      switches:
+        - switch.bathroom_light_switch
+
+- id: garden_presence_switches_off
+  alias: Turn off garden switches when presence is switched off
+  use_blueprint:
+    path: mine/presence_switches_off.yaml
+    input:
+      presence: input_boolean.garden_presence
+      lights:
+        - light.shelly_garden
