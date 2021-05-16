@@ -62,3 +62,13 @@
       entities:
         - light.shelly_garden
       presence: input_boolean.garden_presence
+
+- id: stairs_save_state
+  alias: Save state of entities on stairs when they change
+  use_blueprint:
+    path: mine/save_scene.yaml
+    input:
+      scene_id: stairs_state
+      entities:
+        - light.stairs_bulbs
+      presence: input_boolean.stairs_state

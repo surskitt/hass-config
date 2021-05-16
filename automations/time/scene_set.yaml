@@ -47,6 +47,12 @@
         entities:
           light.shelly_garden: 'off'
 
+    - service: scene.create
+      data:
+        scene_id: stairs_state
+        entities:
+          light.stairs_bulbs: 'off'
+
 - id: state_scene_sunset
   alias: Set scene state at sunset
   mode: single
@@ -92,6 +98,14 @@
         entities:
           light.shelly_garden: 'on'
 
+    - service: scene.create
+      data:
+        scene_id: stairs_state
+        entities:
+          light.stairs_bulbs:
+            state: 'on'
+            brightness_pct: 100
+
 - id: state_scene_night
   alias: Set scene state at night
   mode: single
@@ -108,7 +122,7 @@
         entities:
           light.shelly_not_bulb_living_room:
             state: 'on'
-            brightness: 50
+            brightness_pct: 50
 
     - service: scene.create
       data:
@@ -116,4 +130,12 @@
         entities:
           light.wled_bed:
             state: 'on'
-            brightness: 50
+            brightness_pct: 50
+
+    - service: scene.create
+      data:
+        scene_id: stairs_state
+        entities:
+          light.stairs_bulbs:
+            state: 'on'
+            brightness_pct: 1

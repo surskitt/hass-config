@@ -46,3 +46,11 @@
     input:
       presence: input_boolean.garden_presence
       scene_id: scene.garden_state
+
+- id: stairs_restore_state
+  alias: Restore state of entities on stairs when presence is set to on
+  use_blueprint:
+    path: mine/restore_scene.yaml
+    input:
+      presence: input_boolean.stairs_presence
+      scene_id: scene.stairs_state
