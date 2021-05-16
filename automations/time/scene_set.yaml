@@ -1,0 +1,119 @@
+---
+- id: state_scene_reset
+  alias: Reset scene states at sunrise
+  mode: single
+
+  trigger:
+    - platform: sun
+      event: sunrise
+
+  action:
+    - service: scene.create
+      data:
+        scene_id: living_room_state
+        entities:
+          switch.living_room_light_switch: 'off'
+          light.shelly_not_bulb_living_room: 'off'
+
+    - service: scene.create
+      data:
+        scene_id: kitchen_state
+        entities:
+          switch.kitchen_light_switch: 'off'
+
+    - service: scene.create
+      data:
+        scene_id: bedroom_state
+        entities:
+          switch.bedroom_light_switch: 'off'
+          light.wled_bed: 'off'
+
+    - service: scene.create
+      data:
+        scene_id: office_state
+        entities:
+          switch.office_light_switch: 'off'
+          light.not_bulb: 'off'
+
+    - service: scene.create
+      data:
+        scene_id: bathroom_state
+        entities:
+          switch.bathroom_light_switch: 'off'
+
+    - service: scene.create
+      data:
+        scene_id: garden_state
+        entities:
+          light.shelly_garden: 'off'
+
+- id: state_scene_sunset
+  alias: Set scene state at sunset
+  mode: single
+
+  trigger:
+    - platform: sun
+      event: sunset
+
+  action:
+    - service: scene.create
+      data:
+        scene_id: living_room_state
+        entities:
+          switch.living_room_light_switch: 'on'
+
+    - service: scene.create
+      data:
+        scene_id: kitchen_state
+        entities:
+          switch.kitchen_light_switch: 'on'
+
+    - service: scene.create
+      data:
+        scene_id: bedroom_state
+        entities:
+          switch.bedroom_light_switch: 'on'
+
+    - service: scene.create
+      data:
+        scene_id: office_state
+        entities:
+          switch.office_light_switch: 'on'
+
+    - service: scene.create
+      data:
+        scene_id: bathroom_state
+        entities:
+          switch.bathroom_light_switch: 'on'
+
+    - service: scene.create
+      data:
+        scene_id: garden_state
+        entities:
+          light.shelly_garden: 'on'
+
+- id: state_scene_night
+  alias: Set scene state at night
+  mode: single
+
+  trigger:
+    - platform: time
+      at:
+        - "22:00"
+
+  action:
+    - service: scene.create
+      data:
+        scene_id: living_room_state
+        entities:
+          light.shelly_not_bulb_living_room:
+            state: 'on'
+            brightness: 50
+
+    - service: scene.create
+      data:
+        scene_id: bedroom_state
+        entities:
+          light.wled_bed:
+            state: 'on'
+            brightness: 50
