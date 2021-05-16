@@ -15,6 +15,10 @@
           automation.turn_on
         {% endif %}
       entity_id:
-        - automation.presence_set
-        - automation.presence_unset
-        - automation.stairs_presence_set
+        - automation.set_living_room_presence_when_door_is_opened
+        - automation.set_kitchen_presence_when_door_is_opened
+        - automation.unset_kitchen_presence_when_door_is_closed
+        - automation.set_bedroom_presence_when_door_is_opened
+        - automation.set_office_presence_when_door_is_opened
+        - automation.set_bathroom_presence_when_door_is_opened
+        - automation.set_garden_presence_when_door_is_opened
