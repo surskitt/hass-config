@@ -50,6 +50,15 @@
       switches:
         - switch.bathroom_light_switch
 
+- id: stairs_presence_switches_off
+  alias: Turn off stairs switches when presence is switched off
+  use_blueprint:
+    path: mine/presence_switches_off.yaml
+    input:
+      presence: input_boolean.stairs_presence
+      lights:
+        - light.stairs_bulbs
+
 - id: garden_presence_switches_off
   alias: Turn off garden switches when presence is switched off
   use_blueprint:
