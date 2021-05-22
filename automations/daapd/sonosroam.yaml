@@ -1,0 +1,13 @@
+---
+- id: sonos_roam_daapd_on
+  alias: Turn on sonos roam daapd when it is switched on
+  mode: queued
+
+  trigger:
+    - platform: state
+      entity_id: media_player.forked_daapd_output_sonos_roam
+      from: unavailable
+
+  action:
+    - service: media_player.turn_on
+      entity_id: media_player.forked_daapd_output_sonos_roam

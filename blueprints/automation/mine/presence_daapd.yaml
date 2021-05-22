@@ -1,0 +1,45 @@
+---
+blueprint:
+  name: Presence daapd
+  description: Turn on daapd speakers when presence changes
+  domain: automation
+
+  input:
+    presence:
+      name: Presence
+      description: Presence boolean to watch
+    speaker:
+      name: Speaker
+      description: Speaker to turn on
+    after:
+      name: After
+      description: List of speakers to prioritise
+      default: []
+
+mode: restart
+max_exceeded: silent
+
+trigger:
+  - platform: state
+    entity_id: !input presence
+  - platform: state
+    entity_id: !input speaker
+    from: unavailable
+  - platform: state
+    entity_id: !input after
+
+action:
+  - choose:
+      - conditions:
+          - condition: state
+            entity_id: !input presence
+            state: 'on'
+          - condition: state
+            entity_id: !input after
+            state: unavailable
+        sequence:
+          - service: media_player.turn_on
+            entity_id: !input speaker
+    default:
+      - service: media_player.turn_off
+        entity_id: !input speaker
