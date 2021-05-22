@@ -11,9 +11,13 @@ blueprint:
     speaker:
       name: Speaker
       description: Speaker to turn on
-    after:
-      name: After
-      description: List of speakers to prioritise
+    after_available:
+      name: After available
+      description: List of speakers to prioritise if they are available
+      default: []
+    after_on:
+      name: After on
+      description: List of speakers to prioritise if they are on
       default: []
 
 mode: restart
@@ -26,7 +30,9 @@ trigger:
     entity_id: !input speaker
     from: unavailable
   - platform: state
-    entity_id: !input after
+    entity_id: !input after_available
+  - platform: state
+    entity_id: !input after_on
 
 action:
   - choose:
@@ -35,8 +41,14 @@ action:
             entity_id: !input presence
             state: 'on'
           - condition: state
-            entity_id: !input after
-            state: unavailable
+            entity_id: !input after_available
+            state:
+              - 'unavailable'
+          - condition: state
+            entity_id: !input after_on
+            state:
+              - 'unavailable'
+              - 'off'
         sequence:
           - service: media_player.turn_on
             entity_id: !input speaker
