@@ -38,6 +38,7 @@
       speaker: media_player.forked_daapd_output_wigeon
       after_on:
         - media_player.forked_daapd_output_sonos_roam
+      volume: 1
 
 - id: office_home_mini_daapd_on
   alias: Turn on office google home mini daapd when presence is set

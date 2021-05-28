@@ -19,6 +19,10 @@ blueprint:
       name: After on
       description: List of speakers to prioritise if they are on
       default: []
+    volume:
+      name: Volume
+      description: Volume to set player to
+      default: 0.2
 
 mode: restart
 max_exceeded: silent
@@ -52,6 +56,10 @@ action:
         sequence:
           - service: media_player.turn_on
             entity_id: !input speaker
+          - service: media_player.volume_set
+            entity_id: !input speaker
+            data:
+              volume_level: !input volume
     default:
       - service: media_player.turn_off
         entity_id: !input speaker
