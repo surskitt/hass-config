@@ -76,3 +76,5 @@
         data:
           entity_id: fan.living_room_diffuser
           speed: 'off'
+
+- platform: bhyve
