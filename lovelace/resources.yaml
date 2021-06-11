@@ -27,3 +27,7 @@
   type: module
 - url: /hacsfiles/numberbox-card/numberbox-card.js
   type: module
+- url: /hacsfiles/banner-card/banner-card.js
+  type: module
+- url: /hacsfiles/extended-banner-card/extended-banner-card.js
+  type: module

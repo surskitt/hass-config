@@ -1,3 +1,2 @@
 ---
-views:
-  - !include views/health.yaml
+views: []

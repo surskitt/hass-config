@@ -34,7 +34,7 @@ cards:
     show_state: false
 
   - type: picture-entity
-    entity: camera.backyard
-    camera_image: camera.backyard
+    entity: camera.garden
+    camera_image: camera.garden
     show_name: true
     show_state: false

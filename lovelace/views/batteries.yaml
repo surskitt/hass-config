@@ -116,3 +116,11 @@ cards:
         entity: sensor.boiler_room_light_switch_bot_battery
       - name: Oven fan switch
         entity: sensor.oven_fan_switch_bot_battery
+
+  - title: Speakers
+    type: entities
+    show_header_toggle: false
+    state_color: true
+    entities:
+      - name: Sonos Roam
+        entity: sensor.sonos_roam_battery

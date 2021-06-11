@@ -1,0 +1,53 @@
+---
+- id: living_room_home_mini_daapd_on
+  alias: Turn on living room google home mini daapd when presence is set
+  use_blueprint:
+    path: mine/presence_daapd.yaml
+    input:
+      presence: input_boolean.living_room_presence
+      speaker: media_player.forked_daapd_output_living_room_speaker
+      after_on:
+        - media_player.forked_daapd_output_sonos_roam
+
+- id: kitchen_home_mini_daapd_on
+  alias: Turn on kitchen google home mini daapd when presence is set
+  use_blueprint:
+    path: mine/presence_daapd.yaml
+    input:
+      presence: input_boolean.kitchen_presence
+      speaker: media_player.forked_daapd_output_kitchen_speaker
+      after_on:
+        - media_player.forked_daapd_output_sonos_roam
+
+- id: bedroom_home_mini_daapd_on
+  alias: Turn on bedroom google home mini daapd when presence is set
+  use_blueprint:
+    path: mine/presence_daapd.yaml
+    input:
+      presence: input_boolean.bedroom_presence
+      speaker: media_player.forked_daapd_output_bedroom_speaker
+      after_on:
+        - media_player.forked_daapd_output_sonos_roam
+
+- id: office_wigeon_daapd_on
+  alias: Turn on wigeon daapd when presence is set
+  use_blueprint:
+    path: mine/presence_daapd.yaml
+    input:
+      presence: input_boolean.office_presence
+      speaker: media_player.forked_daapd_output_wigeon
+      after_on:
+        - media_player.forked_daapd_output_sonos_roam
+      volume: 1
+
+- id: office_home_mini_daapd_on
+  alias: Turn on office google home mini daapd when presence is set
+  use_blueprint:
+    path: mine/presence_daapd.yaml
+    input:
+      presence: input_boolean.office_presence
+      speaker: media_player.forked_daapd_output_office_speaker
+      after_available:
+        - media_player.forked_daapd_output_wigeon
+      after_on:
+        - media_player.forked_daapd_output_sonos_roam

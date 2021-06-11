@@ -30,7 +30,7 @@ cards:
           controls: true
 
       - type: 'custom:mini-media-player'
-        entity: media_player.forked_daapd_output_front_room_tv
+        entity: media_player.forked_daapd_output_lg_webos_tv_um7450pla
         name: TV
         group: true
         hide:
@@ -53,6 +53,13 @@ cards:
       - type: 'custom:mini-media-player'
         entity: media_player.forked_daapd_output_office_speaker
         name: Office speaker
+        group: true
+        hide:
+          controls: true
+
+      - type: 'custom:mini-media-player'
+        entity: media_player.forked_daapd_output_sonos_roam
+        name: Sonos Roam
         group: true
         hide:
           controls: true

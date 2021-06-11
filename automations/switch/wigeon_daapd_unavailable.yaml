@@ -1,0 +1,15 @@
+---
+- id: wigeon_daapd_unavailable
+  alias: Make wigeon daapd unavailable when wigeon is switched off
+  mode: queued
+
+  trigger:
+    - platform: state
+      entity_id: switch.wigeon
+      to: 'off'
+
+  action:
+    - service: python_script.set_state
+      data:
+        entity_id: media_player.forked_daapd_output_wigeon
+        state: unavailable
