@@ -16,3 +16,21 @@
   name: tv total power
   unit_prefix: k
   round: 2
+
+- platform: integration
+  source: sensor.dishwasher_plug_power
+  name: dishwasher total power
+  unit_prefix: k
+  round: 2
+
+- platform: integration
+  source: sensor.washing_machine_plug_power
+  name: washing machine total power
+  unit_prefix: k
+  round: 2
+
+- platform: integration
+  source: sensor.dryer_plug_power
+  name: dryer total power
+  unit_prefix: k
+  round: 2

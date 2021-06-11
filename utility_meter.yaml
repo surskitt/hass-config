@@ -46,3 +46,51 @@ tv_weekly_energy:
 tv_monthly_energy:
   source: sensor.tv_total_power
   cycle: monthly
+
+dishwasher_hourly_energy:
+  source: sensor.dishwasher_total_power
+  cycle: hourly
+
+dishwasher_daily_energy:
+  source: sensor.dishwasher_total_power
+  cycle: daily
+
+dishwasher_weekly_energy:
+  source: sensor.dishwasher_total_power
+  cycle: weekly
+
+dishwasher_monthly_energy:
+  source: sensor.dishwasher_total_power
+  cycle: monthly
+
+washing_machine_hourly_energy:
+  source: sensor.washing_machine_total_power
+  cycle: hourly
+
+washing_machine_daily_energy:
+  source: sensor.washing_machine_total_power
+  cycle: daily
+
+washing_machine_weekly_energy:
+  source: sensor.washing_machine_total_power
+  cycle: weekly
+
+washing_machine_monthly_energy:
+  source: sensor.washing_machine_total_power
+  cycle: monthly
+
+dryer_hourly_energy:
+  source: sensor.dryer_total_power
+  cycle: hourly
+
+dryer_daily_energy:
+  source: sensor.dryer_total_power
+  cycle: daily
+
+dryer_weekly_energy:
+  source: sensor.dryer_total_power
+  cycle: weekly
+
+dryer_monthly_energy:
+  source: sensor.dryer_total_power
+  cycle: monthly

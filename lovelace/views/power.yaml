@@ -155,3 +155,156 @@ cards:
             line_color: "#BF616A"
             line_width: 8
             font_size: 75
+
+  - type: vertical-stack
+    title: Dishwasher
+    cards:
+      - name: Hourly energy
+        type: 'custom:mini-graph-card'
+        entities:
+          - entity: sensor.dishwasher_hourly_energy
+        line_color: "#88C0D0"
+        hours_to_show: 24
+        aggregate_func: max
+        group_by: hour
+        show:
+          graph: bar
+
+      - name: Daily energy
+        type: 'custom:mini-graph-card'
+        entities:
+          - entity: sensor.dishwasher_daily_energy
+        line_color: "#88C0D0"
+        hours_to_show: 168
+        aggregate_func: max
+        group_by: date
+        show:
+          graph: bar
+
+      - type: horizontal-stack
+        cards:
+          - name: power
+            type: 'custom:mini-graph-card'
+            entities:
+              - sensor.dishwasher_plug_power
+            line_color: "#A3BE8C"
+            line_width: 8
+            font_size: 75
+
+          - name: current
+            type: 'custom:mini-graph-card'
+            entities:
+              - sensor.dishwasher_plug_current
+            line_color: "#5E81AC"
+            line_width: 8
+            font_size: 75
+
+          - name: voltage
+            type: 'custom:mini-graph-card'
+            entities:
+              - sensor.dishwasher_plug_voltage
+            line_color: "#BF616A"
+            line_width: 8
+            font_size: 75
+
+  - type: vertical-stack
+    title: Washing machine
+    cards:
+      - name: Hourly energy
+        type: 'custom:mini-graph-card'
+        entities:
+          - entity: sensor.washing_machine_hourly_energy
+        line_color: "#88C0D0"
+        hours_to_show: 24
+        aggregate_func: max
+        group_by: hour
+        show:
+          graph: bar
+
+      - name: Daily energy
+        type: 'custom:mini-graph-card'
+        entities:
+          - entity: sensor.washing_machine_daily_energy
+        line_color: "#88C0D0"
+        hours_to_show: 168
+        aggregate_func: max
+        group_by: date
+        show:
+          graph: bar
+
+      - type: horizontal-stack
+        cards:
+          - name: power
+            type: 'custom:mini-graph-card'
+            entities:
+              - sensor.washing_machine_plug_power
+            line_color: "#A3BE8C"
+            line_width: 8
+            font_size: 75
+
+          - name: current
+            type: 'custom:mini-graph-card'
+            entities:
+              - sensor.washing_machine_plug_current
+            line_color: "#5E81AC"
+            line_width: 8
+            font_size: 75
+
+          - name: voltage
+            type: 'custom:mini-graph-card'
+            entities:
+              - sensor.washing_machine_plug_voltage
+            line_color: "#BF616A"
+            line_width: 8
+            font_size: 75
+
+  - type: vertical-stack
+    title: Dryer
+    cards:
+      - name: Hourly energy
+        type: 'custom:mini-graph-card'
+        entities:
+          - entity: sensor.dryer_hourly_energy
+        line_color: "#88C0D0"
+        hours_to_show: 24
+        aggregate_func: max
+        group_by: hour
+        show:
+          graph: bar
+
+      - name: Daily energy
+        type: 'custom:mini-graph-card'
+        entities:
+          - entity: sensor.dryer_daily_energy
+        line_color: "#88C0D0"
+        hours_to_show: 168
+        aggregate_func: max
+        group_by: date
+        show:
+          graph: bar
+
+      - type: horizontal-stack
+        cards:
+          - name: power
+            type: 'custom:mini-graph-card'
+            entities:
+              - sensor.dryer_plug_power
+            line_color: "#A3BE8C"
+            line_width: 8
+            font_size: 75
+
+          - name: current
+            type: 'custom:mini-graph-card'
+            entities:
+              - sensor.dryer_plug_current
+            line_color: "#5E81AC"
+            line_width: 8
+            font_size: 75
+
+          - name: voltage
+            type: 'custom:mini-graph-card'
+            entities:
+              - sensor.dryer_plug_voltage
+            line_color: "#BF616A"
+            line_width: 8
+            font_size: 75
