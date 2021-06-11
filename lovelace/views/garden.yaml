@@ -10,8 +10,14 @@ cards:
         icon: 'mdi:sprinkler-variant'
       - entity: switch.garden_sprinkler_rain_delay
         icon: 'mdi:weather-rainy'
-      - name: Morning and evening program
-        entity: switch.garden_sprinkler_morning_and_evening_program
+      - name: Morning program
+        entity: switch.garden_sprinkler_morning_program
+        icon: 'mdi:bulletin-board'
+      - name: Afternoon program
+        entity: switch.garden_sprinkler_afternoon_program
+        icon: 'mdi:bulletin-board'
+      - name: Evening program
+        entity: switch.garden_sprinkler_evening_program
         icon: 'mdi:bulletin-board'
       - entity: light.shelly_garden
         name: Lamp
