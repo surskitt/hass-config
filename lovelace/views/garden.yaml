@@ -23,6 +23,13 @@ cards:
         name: Lamp
         icon: 'mdi:coach-lamp'
 
+  - title: Timer
+    type: 'custom:vertical-stack-in-card'
+    cards:
+      - type: 'custom:timer-card'
+        entity: timer.sprinkler
+        name: false
+
   - type: logbook
     entities:
       - switch.garden_zone

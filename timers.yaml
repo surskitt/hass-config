@@ -43,3 +43,8 @@ bedroom_humidifier_active:
   name: Bedroom humidifier active
   duration: '01:00:00'
   icon: 'mdi:air-humidifier'
+
+sprinkler:
+  name: Sprinkler
+  duration: '00:10:00'
+  icon: 'mdi:sprinkler-variant'
