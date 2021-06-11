@@ -219,6 +219,9 @@ cards:
       - entity: light.shelly_garden
         name: Lamp
         icon: 'mdi:coach-lamp'
+      - entity: switch.garden_zone
+        name: Sprinkler
+        icon: 'mdi:sprinkler-variant'
 
   - type: entities
     entities:
