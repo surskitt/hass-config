@@ -1,0 +1,52 @@
+---
+title: Garden
+path: garden
+icon: 'mdi:grass'
+cards:
+  - type: entities
+    entities:
+      - entity: switch.garden_zone
+        name: Sprinkler
+        icon: 'mdi:sprinkler-variant'
+      - entity: switch.garden_sprinkler_rain_delay
+        icon: 'mdi:weather-rainy'
+      - name: Morning and evening program
+        entity: switch.garden_sprinkler_morning_and_evening_program
+        icon: 'mdi:bulletin-board'
+      - entity: light.shelly_garden
+        name: Lamp
+        icon: 'mdi:coach-lamp'
+
+  - type: logbook
+    entities:
+      - switch.garden_zone
+    hours_to_show: 24
+
+  - type: weather-forecast
+    entity: weather.home
+    secondary_info_attribute: wind_speed
+    show_forecast: true
+  
+  - name: Temperature
+    type: 'custom:mini-graph-card'
+    entities:
+      - name: Temperature
+        entity: sensor.paddlepond_home_assistant_apparent_temperature
+    line_color: "#D08770"
+    line_width: 2
+    hours_to_show: 48
+
+  - name: Sprinkler battery
+    type: 'custom:mini-graph-card'
+    entities:
+      - name: Battery
+        entity: sensor.garden_sprinkler_battery_level
+    line_color: "#A3BE8C"
+    line_width: 2
+    hours_to_show: 48
+
+  - type: picture-entity
+    entity: camera.garden
+    camera_image: camera.garden
+    show_name: true
+    show_state: false
