@@ -124,3 +124,11 @@ cards:
     entities:
       - name: Sonos Roam
         entity: sensor.sonos_roam_battery
+
+  - title: Sprinklers
+    type: entities
+    show_header_toggle: false
+    state_color: true
+    entities:
+      - name: Garden sprinkler
+        entity: sensor.garden_sprinkler_battery_level
