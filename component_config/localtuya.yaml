@@ -169,3 +169,114 @@
       device_class: voltage
       unit_of_measurement: V
       scaling: 0.1
+
+- host: 192.168.10.6
+  device_id: 6000521070039fce5c2d
+  local_key: 3da9410333280d69
+  friendly_name: dishwasher plug
+  protocol_version: "3.3"
+  entities:
+    - platform: binary_sensor
+      friendly_name: dishwasher plug status
+      id: 1
+      device_class: power
+      state_on: "true"
+      state_off: "false"
+
+    - platform: switch
+      friendly_name: dishwasher plug
+      id: 1
+
+    - platform: sensor
+      friendly_name: dishwasher plug current
+      id: 18
+      device_class: current
+      unit_of_measurement: mA
+
+    - platform: sensor
+      friendly_name: dishwasher plug power
+      id: 19
+      device_class: power
+      unit_of_measurement: W
+      scaling: 0.1
+
+    - platform: sensor
+      friendly_name: dishwasher plug voltage
+      id: 20
+      device_class: voltage
+      unit_of_measurement: V
+      scaling: 0.1
+
+- host: 192.168.10.7
+  device_id: 6000521070039fd09a47
+  local_key: db039e8fd396688d
+  friendly_name: washing machine plug
+  protocol_version: "3.3"
+  entities:
+    - platform: binary_sensor
+      friendly_name: washing machine plug status
+      id: 1
+      device_class: power
+      state_on: "true"
+      state_off: "false"
+
+    - platform: switch
+      friendly_name: washing machine plug
+      id: 1
+
+    - platform: sensor
+      friendly_name: washing machine plug current
+      id: 18
+      device_class: current
+      unit_of_measurement: mA
+
+    - platform: sensor
+      friendly_name: washing machine plug power
+      id: 19
+      device_class: power
+      unit_of_measurement: W
+      scaling: 0.1
+
+    - platform: sensor
+      friendly_name: washing machine plug voltage
+      id: 20
+      device_class: voltage
+      unit_of_measurement: V
+      scaling: 0.1
+
+- host: 192.168.10.8
+  device_id: 6000521024a160040086
+  local_key: 0b17e1b7e600d997
+  friendly_name: dryer plug
+  protocol_version: "3.3"
+  entities:
+    - platform: binary_sensor
+      friendly_name: dryer plug status
+      id: 1
+      device_class: power
+      state_on: "true"
+      state_off: "false"
+
+    - platform: switch
+      friendly_name: dryer plug
+      id: 1
+
+    - platform: sensor
+      friendly_name: dryer plug current
+      id: 18
+      device_class: current
+      unit_of_measurement: mA
+
+    - platform: sensor
+      friendly_name: dryer plug power
+      id: 19
+      device_class: power
+      unit_of_measurement: W
+      scaling: 0.1
+
+    - platform: sensor
+      friendly_name: dryer plug voltage
+      id: 20
+      device_class: voltage
+      unit_of_measurement: V
+      scaling: 0.1
