@@ -1,0 +1,15 @@
+---
+- alias: fridge_turn_on
+  description: Turn on fridge when leaving living room
+  mode: restart
+  
+  trigger:
+    - platform: state
+      entity_id:
+        - input_boolean.living_room_presence
+      to: 'off'
+
+  action:
+    - service: switch.turn_on
+      entity_id:
+        - switch.fridge
