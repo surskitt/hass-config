@@ -9,6 +9,9 @@
         - input_boolean.living_room_presence
       to: 'off'
 
+    - platform: template
+      value_template: "{{ is_state_attr('media_player.tv', 'sound_output', 'bt_soundbar') }}"
+
   action:
     - service: switch.turn_on
       entity_id:
