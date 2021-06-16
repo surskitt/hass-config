@@ -1,98 +1,82 @@
 ---
+openplantbook:
+  client_id: !secret openplantbook_client_id
+  secret: !secret openplantbook_secret
+
 ben:
+  name: Ben
+  species: ficus retusa
   sensors:
     moisture: sensor.ben_moisture
     battery: sensor.ben_mqtt_battery
     temperature: sensor.ben_temperature
     conductivity: sensor.ben_soil_conductivity
     brightness: sensor.ben_illuminance
-  min_moisture: 20
-  max_moisture: 60
-  min_conductivity: 350
-  max_conductivity: 2000
-  min_temperature: 8
-  max_temperature: 32
   min_battery: 10
 
-eric:
-  sensors:
-    moisture: sensor.eric_soil
-    battery: sensor.eric_battery
-    temperature: sensor.eric_temperature
-    conductivity: sensor.eric_fertilizer
-    brightness: sensor.eric_lux
-
 ryu:
+  name: Ryu
+  species: dracaena draco
   sensors:
     moisture: sensor.ryu_moisture
     battery: sensor.ryu_mqtt_battery
     temperature: sensor.ryu_temperature
     conductivity: sensor.ryu_soil_conductivity
     brightness: sensor.ryu_illuminance
-  min_moisture: 15
-  max_moisture: 60
-  min_conductivity: 350
-  max_conductivity: 2000
-  min_temperature: 10
-  max_temperature: 32
+  min_battery: 10
+
+eric:
+  name: Eric
+  species: dypsis lutescens
+  sensors:
+    moisture: sensor.eric_soil
+    battery: sensor.eric_battery
+    temperature: sensor.eric_temperature
+    conductivity: sensor.eric_fertilizer
+    brightness: sensor.eric_lux
   min_battery: 10
 
 jaesuk:
+  name: Jaesuk
+  species: sedum adolphii green
   sensors:
     moisture: sensor.jaesuk_moisture
     battery: sensor.jaesuk_mqtt_battery
     temperature: sensor.jaesuk_temperature
     conductivity: sensor.jaesuk_soil_conductivity
     brightness: sensor.jaesuk_illuminance
-  min_moisture: 7
-  max_moisture: 50
-  min_conductivity: 300
-  max_conductivity: 1000
-  min_temperature: 5
-  max_temperature: 32
   min_battery: 10
 
 gustaf:
+  name: Gustaf
+  species: vriesea poelmannii
+  image: /local/images/plants/vriesea poelmannii yellow.jpg
   sensors:
     moisture: sensor.gustaf_moisture
     battery: sensor.gustaf_mqtt_battery
     temperature: sensor.gustaf_temperature
     conductivity: sensor.gustaf_soil_conductivity
     brightness: sensor.gustaf_illuminance
-  min_moisture: 15
-  max_moisture: 60
-  min_conductivity: 300
-  max_conductivity: 1000
-  min_temperature: 10
-  max_temperature: 37
   min_battery: 10
 
 beric:
+  name: Beric
+  species: vriesea poelmannii
   sensors:
     moisture: sensor.beric_moisture
     battery: sensor.beric_mqtt_battery
     temperature: sensor.beric_temperature
     conductivity: sensor.beric_soil_conductivity
     brightness: sensor.beric_illuminance
-  min_moisture: 15
-  max_moisture: 60
-  min_conductivity: 300
-  max_conductivity: 1000
-  min_temperature: 10
-  max_temperature: 37
   min_battery: 10
 
 paisley:
+  name: Paisley
+  species: petroselinum crispum
   sensors:
     moisture: sensor.paisley_moisture
     battery: sensor.paisley_mqtt_battery
     temperature: sensor.paisley_temperature
     conductivity: sensor.paisley_soil_conductivity
     brightness: sensor.paisley_illuminance
-  min_moisture: 25
-  max_moisture: 65
-  min_conductivity: 100
-  max_conductivity: 2000
-  min_temperature: 5
-  max_temperature: 35
   min_battery: 10

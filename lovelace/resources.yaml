@@ -31,3 +31,8 @@
   type: module
 - url: /hacsfiles/extended-banner-card/extended-banner-card.js
   type: module
+- url: /hacsfiles/lovelace-card-tools/card-tools.js
+  type: module
+# https://github.com/Olen/lovelace-flower-card
+- url: /hacsfiles/lovelace-flower-card/flower-card.js
+  type: module

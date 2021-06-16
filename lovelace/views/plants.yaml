@@ -3,79 +3,23 @@ title: Plants
 path: plants
 icon: 'mdi:sprout'
 cards:
-  - type: plant-status
-    name: Ben
+  - type: 'custom:flower-card'
     entity: plant.ben
-    card_mod:
-      style: |
-        ha-card {
-          background: url("/local/static/plants/ben.jpg");
-          background-size: 100%;
-          background-position: center;
-        }
 
-  - type: plant-status
-    name: Eric
-    entity: plant.eric
-    card_mod:
-      style: |
-        ha-card {
-          background: url("/local/static/plants/eric.jpg");
-          background-size: 100%;
-          background-position: center;
-        }
-
-  - type: plant-status
-    name: Ryu
+  - type: 'custom:flower-card'
     entity: plant.ryu
-    card_mod:
-      style: |
-        ha-card {
-          background: url("/local/static/plants/ryu.jpg");
-          background-size: 100%;
-          background-position: center;
-        }
 
-  - type: plant-status
-    name: Jaesuk
+  - type: 'custom:flower-card'
+    entity: plant.eric
+
+  - type: 'custom:flower-card'
     entity: plant.jaesuk
-    card_mod:
-      style: |
-        ha-card {
-          background: url("/local/static/plants/jaesuk.jpg");
-          background-size: 100%;
-          background-position: center;
-        }
 
-  - type: plant-status
-    name: Gustaf
+  - type: 'custom:flower-card'
     entity: plant.gustaf
-    card_mod:
-      style: |
-        ha-card {
-          background: url("/local/static/plants/gustaf.jpg");
-          background-size: 100%;
-          background-position: center;
-        }
 
-  - type: plant-status
-    name: Beric
+  - type: 'custom:flower-card'
     entity: plant.beric
-    card_mod:
-      style: |
-        ha-card {
-          background: url("/local/static/plants/beric.jpg");
-          background-size: 100%;
-          background-position: center;
-        }
 
-  - type: plant-status
-    name: Paisley
+  - type: 'custom:flower-card'
     entity: plant.paisley
-    card_mod:
-      style: |
-        ha-card {
-          background: url("/local/static/plants/paisley.jpg");
-          background-size: 100%;
-          background-position: center;
-        }
