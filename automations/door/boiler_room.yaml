@@ -1,7 +1,7 @@
 ---
 - id: boiler_room_light_switch
   alias: Turn on boiler room light switch when door is opened
-  mode: restart
+  mode: queue
 
   trigger:
     - platform: state
