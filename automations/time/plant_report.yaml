@@ -14,7 +14,7 @@
     - service: telegram_bot.send_message
       data:
         message: |
-          {% set plants = expand('plant.ben', 'plant.eric', 'plant.ryu', 'plant.jaesuk', 'plant.gustaf', 'plant.beric', 'plant.paisley') -%}
+          {% set plants = expand('plant.ben', 'plant.ryu', 'plant.edgar', 'plant.courtney', 'plant.eric', 'plant.jaesuk', 'plant.gustaf', 'plant.beric', 'plant.paisley') -%}
 
           🪴 Plant report 🌱
 
