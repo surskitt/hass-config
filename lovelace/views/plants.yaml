@@ -10,6 +10,12 @@ cards:
     entity: plant.ryu
 
   - type: 'custom:flower-card'
+    entity: plant.edgar
+
+  - type: 'custom:flower-card'
+    entity: plant.courtney
+
+  - type: 'custom:flower-card'
     entity: plant.eric
 
   - type: 'custom:flower-card'

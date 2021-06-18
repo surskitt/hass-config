@@ -25,15 +25,37 @@ ryu:
     brightness: sensor.ryu_illuminance
   min_battery: 10
 
+edgar:
+  name: Edgar
+  species: muehlenbeckia complexa
+  sensors:
+    moisture: sensor.edgar_moisture
+    battery: sensor.edgar_mqtt_battery
+    temperature: sensor.edgar_temperature
+    conductivity: sensor.edgar_soil_conductivity
+    brightness: sensor.edgar_illuminance
+  min_battery: 10
+
+courtney:
+  name: Courtney
+  species: castanospermum australe
+  sensors:
+    moisture: sensor.courtney_moisture
+    battery: sensor.courtney_mqtt_battery
+    temperature: sensor.courtney_temperature
+    conductivity: sensor.courtney_soil_conductivity
+    brightness: sensor.courtney_illuminance
+  min_battery: 10
+
 eric:
   name: Eric
   species: dypsis lutescens
   sensors:
-    moisture: sensor.eric_soil
-    battery: sensor.eric_battery
-    temperature: sensor.eric_temperature
-    conductivity: sensor.eric_fertilizer
-    brightness: sensor.eric_lux
+    moisture: sensor.eric_moisture
+    battery: sensor.eric_mqtt_battery
+    temperature: sensor.eric_temperature_2
+    conductivity: sensor.eric_soil_conductivity
+    brightness: sensor.eric_illuminance
   min_battery: 10
 
 jaesuk:
