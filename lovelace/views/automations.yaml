@@ -3,6 +3,9 @@ title: Automations
 path: automations
 icon: 'mdi:robot'
 cards:
+  - type: markdown
+    content: '# [All Automations](/config/automation/dashboard)'
+
   - type: calendar
     initial_view: dayGridMonth
     entities:
