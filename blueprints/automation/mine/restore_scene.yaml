@@ -11,6 +11,16 @@ blueprint:
     scene_id:
       name: Scene ID
       description: ID of scene to restore
+    delay:
+      name: Delay
+      description: Delay in seconds to wait before setting temperature
+      selector:
+        number:
+          min: 0
+          max: 3600
+          unit_of_measurement: seconds
+          mode: box
+      default: 0
 
 mode: restart
 max_exceeded: silent
@@ -21,6 +31,8 @@ trigger:
   to: 'on'
 
 action:
+  - delay: !input delay
+
   - service: scene.turn_on
     target:
       entity_id: !input scene_id

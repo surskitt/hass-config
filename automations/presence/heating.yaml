@@ -62,12 +62,17 @@
 - id: office_presence_heating_on
   alias: Turn on office heating when presence is set
   use_blueprint:
-    path: mine/presence_heating.yaml
+    path: mine/restore_scene.yaml
     input:
       presence: input_boolean.office_presence
-      state: 'on'
-      climate: climate.office
-      temperature: 22
+      scene_id: scene.office_heating
+      delay: 90
+    # path: mine/presence_heating.yaml
+    # input:
+    #   presence: input_boolean.office_presence
+    #   state: 'on'
+    #   climate: climate.office
+    #   temperature: 22
 
 - id: office_presence_heating_off
   alias: Turn off office heating when presence is unset

@@ -1,0 +1,44 @@
+---
+- id: heating_scene_hass_start
+  alias: Create heating scenes on home assistant startup
+  mode: single
+
+  trigger:
+    - platform: homeassistant
+      event: start
+
+    - platform: state
+      entity_id: input_number.heating_maximum
+
+  action:
+    - service: scene.create
+      data:
+        scene_id: living_room_heating
+        entities:
+          climate.living_room:
+            state: heat
+            temperature: "{{ states('input_number.heating_maximum') | int }}"
+
+    - service: scene.create
+      data:
+        scene_id: kitchen_heating
+        entities:
+          climate.kitchen:
+            state: heat
+            temperature: "{{ states('input_number.heating_maximum') | int }}"
+
+    - service: scene.create
+      data:
+        scene_id: bedroom_heating
+        entities:
+          climate.bedroom:
+            state: heat
+            temperature: "{{ states('input_number.heating_maximum') | int }}"
+
+    - service: scene.create
+      data:
+        scene_id: office_heating
+        entities:
+          climate.office:
+            state: heat
+            temperature: "{{ states('input_number.heating_maximum') | int }}"
