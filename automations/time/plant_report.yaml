@@ -14,46 +14,60 @@
     - service: telegram_bot.send_message
       data:
         message: |
-          {% set plants = expand('plant.ben', 'plant.ryu', 'plant.edgar', 'plant.courtney', 'plant.eric', 'plant.jaesuk', 'plant.gustaf', 'plant.beric', 'plant.paisley') -%}
+          {% set plants = expand('plant.ben',
+                                 'plant.ryu',
+                                 'plant.edgar',
+                                 'plant.courtney',
+                                 'plant.eric',
+                                 'plant.jaesuk',
+                                 'plant.gustaf',
+                                 'plant.beric',
+                                 'plant.paisley') -%}
 
           🪴 Plant report 🌱
+
+          {% set found = false -%}
 
           {% for p in plants -%}
 
           {% set name = state_attr(p.entity_id, 'friendly_name')|title -%}
-          {% set problem = state_attr(p.entity_id, 'problem') -%}
+          {% set problems = state_attr(p.entity_id, 'problem').split(',') -%}
 
-          {% if problem != 'none' -%}
-
-          {%- if 'moisture high' in problem -%}
+          {%- if 'moisture high' in problems -%}
           🌊 {{ name }} has too much water
+          {% set found = true -%}
           {% endif %}
 
-          {%- if 'moisture low' in problem -%}
+          {%- if 'moisture low' in problems -%}
           🌵 {{ name }} needs more water
+          {% set found = true -%}
           {% endif %}
 
-          {%- if 'temperature high' in problem -%}
+          {%- if 'temperature high' in problems -%}
           😰 {{ name }} is too hot
+          {% set found = true -%}
           {% endif %}
 
-          {%- if 'temperature high' in problem -%}
+          {%- if 'temperature high' in problems -%}
           ☃️ {{ name }} is too cold
+          {% set found = true -%}
           {% endif %}
 
-          {%- if 'conductivity high' in problem -%}
+          {%- if 'conductivity high' in problems -%}
           💩{{ name }} has too much food
+          {% set found = true -%}
           {% endif %}
 
-          {%- if 'conductivity low' in problem -%}
+          {%- if 'conductivity low' in problems -%}
           😋 {{ name }} needs food
-          {% endif -%}
-
-          {%- else -%}
-          😊 {{ name}} is fine
+          {% set found = true -%}
           {% endif -%}
 
           {%- endfor -%}
+
+          {% if found is false -%}
+          ⭐ No problems found ⭐
+          {% endif -%}
 
           {%- if now() | as_timestamp | timestamp_custom('%A') == 'Saturday' %}
           🌵 You should water the small plants today 🍃
