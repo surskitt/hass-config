@@ -6,7 +6,7 @@
   trigger:
     - platform: time
       at:
-        - input_datetime.alarm_clock
+        - "09:00"
         # - "12:00"
         # - "17:00"
 
