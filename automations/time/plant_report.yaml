@@ -26,7 +26,7 @@
 
           🪴 Plant report 🌱
 
-          {% set found = false -%}
+          {% set ns = namespace(found=false) -%}
 
           {% for p in plants -%}
 
@@ -35,37 +35,37 @@
 
           {%- if 'moisture high' in problems -%}
           🌊 {{ name }} has too much water
-          {% set found = false -%}
+          {% set ns.found = false -%}
           {% endif %}
 
           {%- if 'moisture low' in problems -%}
           🌵 {{ name }} needs more water
-          {% set found = true -%}
+          {% set ns.found = true -%}
           {% endif %}
 
           {%- if 'temperature high' in problems -%}
           😰 {{ name }} is too hot
-          {% set found = true -%}
+          {% set ns.found = true -%}
           {% endif %}
 
           {%- if 'temperature high' in problems -%}
           ☃️ {{ name }} is too cold
-          {% set found = true -%}
+          {% set ns.found = true -%}
           {% endif %}
 
           {%- if 'conductivity high' in problems -%}
           💩{{ name }} has too much food
-          {% set found = true -%}
+          {% set ns.found = true -%}
           {% endif %}
 
           {%- if 'conductivity low' in problems -%}
           😋 {{ name }} needs food
-          {% set found = true -%}
+          {% set ns.found = true -%}
           {% endif -%}
 
           {%- endfor -%}
 
-          {% if found is false -%}
+          {% if ns.found is false -%}
           ⭐ No problems found ⭐
           {% endif -%}
 
