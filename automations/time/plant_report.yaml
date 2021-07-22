@@ -35,7 +35,7 @@
 
           {%- if 'moisture high' in problems -%}
           🌊 {{ name }} has too much water
-          {% set found = true -%}
+          {% set found = false -%}
           {% endif %}
 
           {%- if 'moisture low' in problems -%}
