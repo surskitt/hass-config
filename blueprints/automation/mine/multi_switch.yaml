@@ -1,0 +1,42 @@
+---
+blueprint:
+  name: Multi switch toggle
+  description: Control the state of multiple switches together
+  domain: automation
+
+  input:
+    input_switch:
+      name: Input
+      description: Input boolean to watch for changes
+    on_switches:
+      name: On switches
+      default: []
+    off_switches:
+      name: Off switches
+      default: []
+
+mode: single
+max_exceeded: silent
+
+trigger:
+  - platform: state
+    entity_id: !input input_switch
+
+action:
+  - service: >
+      {% if trigger.to_state.state == "on" %}
+        homeassistant.turn_on
+      {% else %}
+        homeassistant.turn_off
+      {% endif %}
+    target:
+      entity_id: !input on_switches
+
+  - service: >
+      {% if trigger.to_state.state == "off" %}
+        homeassistant.turn_on
+      {% else %}
+        homeassistant.turn_off
+      {% endif %}
+    target:
+      entity_id: !input off_switches
