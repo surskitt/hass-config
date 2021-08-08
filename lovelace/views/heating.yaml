@@ -16,13 +16,6 @@ cards:
       - name: Valve
         entity: sensor.living_room_heating
         icon: 'mdi:radiator'
-      - type: 'custom:fold-entity-row'
-        head:
-          type: section
-          label: Alternate readings
-        entities:
-          - entity: sensor.living_room_bt_temperature
-          - entity: sensor.living_room_bt_humidity
 
   - title: Kitchen
     type: entities
@@ -37,6 +30,13 @@ cards:
       - name: Valve
         entity: sensor.kitchen_heating
         icon: 'mdi:radiator'
+      - type: 'custom:fold-entity-row'
+        head:
+          type: section
+          label: Alternate readings
+        entities:
+          - entity: sensor.fridge_bt_temperature
+          - entity: sensor.fridge_bt_humidity
 
   - title: Bedroom
     type: entities
