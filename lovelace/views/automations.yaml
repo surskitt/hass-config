@@ -20,6 +20,16 @@ cards:
       - entity: sensor.dusk_time
 
   - type: entities
+    title: Presence
+    show_header_toggle: false
+    state_color: true
+    entities:
+      - entity: automation.tv_auto_pause
+        name: Pause tv when leaving room
+        icon: 'mdi:television'
+        secondary_info: last-triggered
+
+  - type: entities
     title: Notifications
     show_header_toggle: false
     state_color: true
