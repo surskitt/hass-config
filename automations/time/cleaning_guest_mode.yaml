@@ -1,0 +1,23 @@
+---
+- id: cleaning_guest_mode
+  alias: Turn on guest mode when cleaner arrives
+  mode: single
+
+  trigger:
+    - platform: time
+      at:
+        - "14:00"
+
+  condition:
+    - "{{ now().weekday() == 2 }}"
+
+  action:
+    - wait_for_trigger:
+        - platform: state
+          entity_id:
+            - binary_sensor.doorbell_doorbell_pressed
+          to: 'on'
+
+    - service: input_boolean.turn_on
+      target:
+        entity_id: input_boolean.guest_mode
