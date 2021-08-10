@@ -69,18 +69,6 @@ jaesuk:
     brightness: sensor.jaesuk_illuminance
   min_battery: 10
 
-gustaf:
-  name: Gustaf
-  species: vriesea poelmannii
-  image: /local/images/plants/vriesea poelmannii yellow.jpg
-  sensors:
-    moisture: sensor.gustaf_moisture
-    battery: sensor.gustaf_mqtt_battery
-    temperature: sensor.gustaf_temperature
-    conductivity: sensor.gustaf_soil_conductivity
-    brightness: sensor.gustaf_illuminance
-  min_battery: 10
-
 beric:
   name: Beric
   species: vriesea poelmannii
@@ -101,4 +89,40 @@ paisley:
     temperature: sensor.paisley_temperature
     conductivity: sensor.paisley_soil_conductivity
     brightness: sensor.paisley_illuminance
+  min_battery: 10
+
+minju:
+  name: Minju
+  species: nepeta cataria
+  image: /local/images/plants/nepeta cataria.jpg
+  sensors:
+    moisture: sensor.minju_moisture
+    battery: sensor.minju_mqtt_battery
+    temperature: sensor.minju_temperature
+    conductivity: sensor.minju_soil_conductivity
+    brightness: sensor.minju_illuminance
+  min_battery: 10
+
+ali:
+  name: Ali
+  species: allium schoenoprasum
+  image: /local/images/plants/allium schoenoprasum.jpg
+  sensors:
+    moisture: sensor.ali_moisture
+    battery: sensor.ali_mqtt_battery
+    temperature: sensor.ali_temperature
+    conductivity: sensor.ali_soil_conductivity
+    brightness: sensor.ali_illuminance
+  min_battery: 10
+
+karina:
+  name: Karina
+  species: calathea concinna
+  image: /local/images/plants/calathea concinna.jpg
+  sensors:
+    moisture: sensor.karina_moisture
+    battery: sensor.karina_mqtt_battery
+    temperature: sensor.karina_temperature
+    conductivity: sensor.karina_soil_conductivity
+    brightness: sensor.karina_illuminance
   min_battery: 10

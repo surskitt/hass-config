@@ -22,10 +22,16 @@ cards:
     entity: plant.jaesuk
 
   - type: 'custom:flower-card'
-    entity: plant.gustaf
-
-  - type: 'custom:flower-card'
     entity: plant.beric
 
   - type: 'custom:flower-card'
     entity: plant.paisley
+
+  - type: 'custom:flower-card'
+    entity: plant.minju
+
+  - type: 'custom:flower-card'
+    entity: plant.ali
+
+  - type: 'custom:flower-card'
+    entity: plant.karina

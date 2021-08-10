@@ -1,0 +1,54 @@
+---
+title: Windows
+path: windows
+icon: 'mdi:window-closed-variant'
+cards:
+  - title: Living room
+    type: entities
+    entities:
+      - entity: binary_sensor.living_room_window_left_contact
+        name: Left window
+      - entity: binary_sensor.living_room_window_right_contact
+        name: Right window
+    show_header_toggle: false
+    state_color: true
+
+  - title: Kitchen
+    type: entities
+    entities:
+      - entity: binary_sensor.kitchen_window_main_contact
+        name: Main window
+      - entity: binary_sensor.kitchen_window_top_contact
+        name: Top window
+      - entity: binary_sensor.back_door_left_contact
+        name: Back door left
+      - entity: binary_sensor.back_door_right_contact
+        name: Back door right
+    show_header_toggle: false
+    state_color: true
+
+  - title: Office
+    type: entities
+    entities:
+      - entity: binary_sensor.office_window_contact
+        name: Window
+    show_header_toggle: false
+    state_color: true
+
+  - title: Bedroom
+    type: entities
+    entities:
+      - entity: binary_sensor.bedroom_window_left_contact
+        name: Left window
+      - entity: binary_sensor.bedroom_window_right_contact
+        name: Right window
+    show_header_toggle: false
+    state_color: true
+
+  - title: Bathroom
+    type: entities
+    entities:
+      - entity: binary_sensor.bathroom_window_contact
+        name: Window
+    show_header_toggle: false
+    state_color: true

@@ -36,3 +36,7 @@
 # https://github.com/Olen/lovelace-flower-card
 - url: /hacsfiles/lovelace-flower-card/flower-card.js
   type: module
+- url: /hacsfiles/button-card/button-card.js
+  type: module
+- url: /hacsfiles/slider-button-card/slider-button-card.js
+  type: module
