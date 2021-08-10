@@ -27,7 +27,6 @@
 
     - service: switch.turn_off
       entity_id:
-        - input_boolean.stairs_presence
         - switch.living_room_light_switch
         - switch.tv
         - switch.kitchen_light_switch
@@ -35,6 +34,11 @@
         - switch.office_light_switch
         - switch.wigeon
         - switch.bathroom_light_switch
+
+    - service: input_boolean.turn_off
+      target:
+        entity_id:
+          - input_boolean.stairs_presence
 
     - service: light.turn_off
       entity_id:
@@ -46,3 +50,7 @@
     - service: alarm_control_panel.alarm_arm_night
       target:
         entity_id: alarm_control_panel.home_alarm
+
+    - service: switch.turn_on
+      entity_id: 
+        - switch.transmission_switch
