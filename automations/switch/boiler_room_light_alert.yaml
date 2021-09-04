@@ -15,7 +15,7 @@
         title: Boiler room light is on
         message: Boiler room light has been on for 10 minutes
 
-    - service: notify.mobile_app_wren
+    - service: notify.mobile_app_rook
       data:
         title: Boiler room light is on
         message: Boiler room light has been on for 10 minutes

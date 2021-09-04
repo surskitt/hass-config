@@ -27,7 +27,7 @@
         title: Drink some water!
         message: "{{ message }}"
 
-    - service: notify.mobile_app_wren
+    - service: notify.mobile_app_rook
       data:
         title: Drink some water!
         message: "{{ message }}"

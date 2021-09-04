@@ -6,6 +6,8 @@ cards:
   - title: Handheld
     type: entities
     entities:
+      - entity: sensor.rook_battery_level
+        name: rook
       - entity: sensor.moto_g6_battery_level
         name: wren
     show_header_toggle: false

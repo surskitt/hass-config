@@ -49,7 +49,7 @@
       data:
         message: "{{ timer_dict.summary }}"
 
-    - service: notify.mobile_app_wren
+    - service: notify.mobile_app_rook
       data:
         title: Timer finished
         message: "{{ timer_dict.summary }}"

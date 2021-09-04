@@ -30,7 +30,7 @@
       data:
         entity_id: "{{ timer_id }}"
 
-    - service: notify.mobile_app_wren
+    - service: notify.mobile_app_rook
       data:
         title: NFC tag scanned
         message: "{{ message }}"

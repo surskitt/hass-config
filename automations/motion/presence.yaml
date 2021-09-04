@@ -1,0 +1,63 @@
+---
+- id: bedroom_presence_set_motion
+  alias: Set bedroom presence when motion is detected
+  use_blueprint:
+    path: mine/set_presence_motion.yaml
+    input:
+      sensor: binary_sensor.bed_motion_occupancy
+      presence_set: input_boolean.bedroom_presence
+      sensor_off:
+        - binary_sensor.living_room_motion_occupancy
+        - binary_sensor.kitchen_motion_occupancy
+        - binary_sensor.office_motion_occupancy
+        - binary_sensor.bathroom_motion_occupancy
+        - binary_sensor.stairs_motion_occupancy
+      presence_unset:
+        - input_boolean.living_room_presence
+        - input_boolean.kitchen_presence
+        - input_boolean.office_presence
+        - input_boolean.bathroom_presence
+        - input_boolean.stairs_presence
+        - input_boolean.garden_presence
+
+- id: office_presence_set_motion
+  alias: Set office presence when motion is detected
+  use_blueprint:
+    path: mine/set_presence_motion.yaml
+    input:
+      sensor: binary_sensor.office_motion_occupancy
+      presence_set: input_boolean.office_presence
+      sensor_off:
+        - binary_sensor.living_room_motion_occupancy
+        - binary_sensor.kitchen_motion_occupancy
+        - binary_sensor.bed_motion_occupancy
+        - binary_sensor.bathroom_motion_occupancy
+        - binary_sensor.stairs_motion_occupancy
+      presence_unset:
+        - input_boolean.living_room_presence
+        - input_boolean.kitchen_presence
+        - input_boolean.bedroom_presence
+        - input_boolean.bathroom_presence
+        - input_boolean.stairs_presence
+        - input_boolean.garden_presence
+
+- id: stairs_presence_set_motion
+  alias: Set stairs presence when motion is detected
+  use_blueprint:
+    path: mine/set_presence_motion.yaml
+    input:
+      sensor: binary_sensor.stairs_motion_occupancy
+      presence_set: input_boolean.stairs_presence
+      sensor_off:
+        - binary_sensor.living_room_motion_occupancy
+        - binary_sensor.kitchen_motion_occupancy
+        - binary_sensor.office_motion_occupancy
+        - binary_sensor.bed_motion_occupancy
+        - binary_sensor.bathroom_motion_occupancy
+      presence_unset:
+        - input_boolean.living_room_presence
+        - input_boolean.kitchen_presence
+        - input_boolean.office_presence
+        - input_boolean.bedroom_presence
+        - input_boolean.bathroom_presence
+        - input_boolean.garden_presence

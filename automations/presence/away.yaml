@@ -5,7 +5,7 @@
 
   trigger:
     - platform: state
-      entity_id: sensor.moto_g6_wifi_connection
+      entity_id: sensor.rook_wifi_connection
       from: Beetroot
 
   action:
