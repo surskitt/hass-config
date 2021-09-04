@@ -9,7 +9,7 @@
       to: triggered
 
   action:
-    - service: notify.mobile_app_wren
+    - service: notify.mobile_app_rook
       data:
         title: Alarm triggered
         message: Alarm triggered by opened door
