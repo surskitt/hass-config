@@ -1,0 +1,54 @@
+---
+- platform: miflora
+  name: Ben
+  mac: "C4:7C:8D:6C:01:F3"
+  monitored_conditions:
+    - battery
+
+- platform: miflora
+  name: Ryu
+  mac: "C4:7C:8D:6C:87:BD"
+  monitored_conditions:
+    - battery
+
+- platform: miflora
+  name: Courtney
+  mac: "C4:7C:8D:6C:9C:3B"
+  monitored_conditions:
+    - battery
+
+- platform: miflora
+  name: Eric
+  mac: "C4:7C:8D:6C:9B:D4"
+  monitored_conditions:
+    - battery
+
+- platform: miflora
+  name: Jaesuk
+  mac: "C4:7C:8D:6C:95:4B"
+  monitored_conditions:
+    - battery
+
+- platform: miflora
+  name: Karina
+  mac: "C4:7C:8D:6C:9E:4A"
+  monitored_conditions:
+    - battery
+
+- platform: miflora
+  name: Beric
+  mac: "C4:7C:8D:6C:87:E7"
+  monitored_conditions:
+    - battery
+
+- platform: miflora
+  name: Paisley
+  mac: "C4:7C:8D:6C:85:D5"
+  monitored_conditions:
+    - battery
+
+- platform: miflora
+  name: Ali
+  mac: "C4:7C:8D:6C:9C:7E"
+  monitored_conditions:
+    - battery
