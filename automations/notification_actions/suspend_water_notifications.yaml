@@ -7,7 +7,7 @@
     - platform: event
       event_type: mobile_app_notification_action
       event_data:
-        action: suspend_water_notifications
+        action: suspend_water_notifications_action
 
   action:
     - service: automation.turn_off
