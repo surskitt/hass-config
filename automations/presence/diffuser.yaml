@@ -43,4 +43,4 @@
       entity_id: switch.living_room_diffuser
 
     - service: light.turn_off
-      entity_id: light.living_room_diffuser_light
+      entity_id: light.living_room_diffuser
