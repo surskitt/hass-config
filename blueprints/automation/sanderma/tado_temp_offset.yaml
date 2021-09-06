@@ -49,6 +49,7 @@ action:
         '
       level: info
       logger: blueprints.tado.offset
+
   - service: system_log.write
     data:
       message: 'target: {{ target_tado }}  source: {{ source_temp_sensor }} temp difference:
@@ -58,7 +59,8 @@ action:
         '
       level: debug
       logger: blueprints.tado.offset
+
   - service: tado.set_climate_temperature_offset
     data:
-      offset: '{{ calculated_offset }}'
+      offset: '{{ calculated_offset | float }}'
       entity_id: '{{ target_tado }}'
