@@ -34,4 +34,4 @@
         data:
           actions:
             - title: Suspend notifications
-              action: suspend_water_notifications
+              action: suspend_water_notifications_action
