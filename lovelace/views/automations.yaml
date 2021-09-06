@@ -28,6 +28,10 @@ cards:
         name: Pause tv when leaving room
         icon: 'mdi:television'
         secondary_info: last-triggered
+      - entity: automation.music_no_speaker_pause
+        name: Pause music when in room without speakers
+        icon: 'mdi:music'
+        secondary_info: last-triggered
 
   - type: entities
     title: Notifications
