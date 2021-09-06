@@ -1,0 +1,44 @@
+---
+blueprint:
+  name: Set presence
+  description: Set presence when state of sensor changes
+  domain: automation
+
+  input:
+    sensor:
+      name: Sensor
+      description: The sensor to use as the automation trigger
+      selector:
+        entity:
+          domain: binary_sensor
+    presence_set:
+      name: Presence set
+      description: Presence entities to turn on
+      default: []
+    sensor_off:
+      name: Sensor
+      description: The sensor to use as the automation trigger
+      default: []
+    presence_unset:
+      name: Presence unset
+      description: Presence entities to turn off
+      default: []
+
+mode: restart
+max_exceeded: silent
+
+trigger:
+  platform: state
+  entity_id: !input sensor
+  to: 'on'
+
+action:
+  - service: input_boolean.turn_on
+    entity_id: !input presence_set
+
+  - condition: state
+    entity_id: !input sensor_off
+    state: 'off'
+
+  - service: input_boolean.turn_off
+    entity_id: !input presence_unset
