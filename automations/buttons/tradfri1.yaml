@@ -38,7 +38,12 @@
     - service: input_boolean.turn_off
       target:
         entity_id:
+          - input_boolean.living_room_presence
+          - input_boolean.kitchen_presence
+          - input_boolean.office_presence
+          - input_boolean.bathroom_presence
           - input_boolean.stairs_presence
+          - input_boolean.garden_presence
 
     - service: light.turn_off
       entity_id:
