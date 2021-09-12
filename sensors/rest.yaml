@@ -1,0 +1,57 @@
+---
+- platform: rest
+  name: Living room curtain position
+  resource: !secret switchbot_living_room_curtains_status_url
+  method: GET
+  scan_interval: 600
+  headers:
+    Authorization: !secret switchbot_api_key
+    Content-Type: "application/json"
+  value_template: "{{ value_json.body.slidePosition }}"
+  json_attributes_path: "$.body"
+  json_attributes:
+    - deviceId
+    - deviceType
+    - hubDeviceId
+    - calibrate
+    - group
+    - moving
+    - slidePosition
+
+- platform: rest
+  name: Bedroom curtain position
+  resource: !secret switchbot_bedroom_curtains_status_url
+  method: GET
+  scan_interval: 600
+  headers:
+    Authorization: !secret switchbot_api_key
+    Content-Type: "application/json"
+  value_template: "{{ value_json.body.slidePosition }}"
+  json_attributes_path: "$.body"
+  json_attributes:
+    - deviceId
+    - deviceType
+    - hubDeviceId
+    - calibrate
+    - group
+    - moving
+    - slidePosition
+
+- platform: rest
+  name: Office curtain position
+  resource: !secret switchbot_office_curtains_status_url
+  method: GET
+  scan_interval: 600
+  headers:
+    Authorization: !secret switchbot_api_key
+    Content-Type: "application/json"
+  value_template: "{{ value_json.body.slidePosition }}"
+  json_attributes_path: "$.body"
+  json_attributes:
+    - deviceId
+    - deviceType
+    - hubDeviceId
+    - calibrate
+    - group
+    - moving
+    - slidePosition

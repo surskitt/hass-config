@@ -10,3 +10,11 @@ teal_notify:
   method: post
   payload: '{"summary": "{{ summary }}", "body": "{{ body }}", "icon": "{{ icon }}", "urgency": "{{ urgency }}", "timeout": {{ timeout|default(10000) }}}'
   content_type: 'application/json; charset=utf-8'
+
+switchbot_device_command:
+  url: "https://api.switch-bot.com/v1.0/devices/{{ device_id }}/commands"
+  method: post
+  content_type: "application/json"
+  headers:
+    Authorization: !secret switchbot_api_key
+  payload: '{"command": "{{ command }}", "parameter": "{{ parameter }}"}'

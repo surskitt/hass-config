@@ -37,3 +37,83 @@
   position_template: "{{ 100-((value_json['pos']|int) if 'pos' in value_json else (value_json['status']|int)) }}"
   set_position_topic: switchbotMQTT/control
   set_position_template: "{\"id\":\"living_room_curtains\",\"value\":\"{{ 100 - (position|int) }}\"}"
+
+- platform: template
+  covers:
+    living_room_curtains_hub:
+      device_class: curtain
+      friendly_name: "Living room curtains"
+      position_template: "{{ states('sensor.living_room_curtain_position') }}"
+      open_cover:
+        service: rest_command.switchbot_device_command
+        data:
+          device_id: !secret switchbot_living_room_curtains_device_id
+          command: "turnOn"
+      close_cover:
+        service: rest_command.switchbot_device_command
+        data:
+          device_id: !secret switchbot_living_room_curtains_device_id
+          command: "turnOff"
+      stop_cover:
+        service: rest_command.switchbot_device_command
+        data:
+          device_id: !secret switchbot_living_room_curtains_device_id
+          command: "turnOff"
+      set_cover_position:
+        service: rest_command.switchbot_device_command
+        data:
+          device_id: !secret switchbot_living_room_curtains_device_id
+          command: "setPosition"
+          parameter: "0,ff,{{ position }}"
+
+    bedroom_curtains_hub:
+      device_class: curtain
+      friendly_name: "Bedroom curtains"
+      position_template: "{{ states('sensor.bedroom_curtain_position') }}"
+      open_cover:
+        service: rest_command.switchbot_device_command
+        data:
+          device_id: !secret switchbot_bedroom_curtains_device_id
+          command: "turnOn"
+      close_cover:
+        service: rest_command.switchbot_device_command
+        data:
+          device_id: !secret switchbot_bedroom_curtains_device_id
+          command: "turnOff"
+      stop_cover:
+        service: rest_command.switchbot_device_command
+        data:
+          device_id: !secret switchbot_bedroom_curtains_device_id
+          command: "turnOff"
+      set_cover_position:
+        service: rest_command.switchbot_device_command
+        data:
+          device_id: !secret switchbot_bedroom_curtains_device_id
+          command: "setPosition"
+          parameter: "0,ff,{{ position }}"
+
+    office_curtains_hub:
+      device_class: curtain
+      friendly_name: "Office curtains"
+      position_template: "{{ 100 - (states('sensor.office_curtain_position')|int) }}"
+      open_cover:
+        service: rest_command.switchbot_device_command
+        data:
+          device_id: !secret switchbot_office_curtains_device_id
+          command: "turnOn"
+      close_cover:
+        service: rest_command.switchbot_device_command
+        data:
+          device_id: !secret switchbot_office_curtains_device_id
+          command: "turnOff"
+      stop_cover:
+        service: rest_command.switchbot_device_command
+        data:
+          device_id: !secret switchbot_office_curtains_device_id
+          command: "turnOff"
+      set_cover_position:
+        service: rest_command.switchbot_device_command
+        data:
+          device_id: !secret switchbot_office_curtains_device_id
+          command: "setPosition"
+          parameter: "0,ff,{{ 100 - (position|int) }}"
