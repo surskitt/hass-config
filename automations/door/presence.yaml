@@ -45,7 +45,7 @@
       presence_set: input_boolean.bathroom_presence
 
 - id: stairs_presence_toggle
-  alias: Toggle stairs presence when doors are opened
+  alias: Set stairs presence when doors are opened
   use_blueprint:
     path: mine/set_presence.yaml
     input:
