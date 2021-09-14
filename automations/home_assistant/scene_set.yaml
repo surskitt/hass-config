@@ -1,0 +1,34 @@
+---
+- id: scene_set_hass_start
+  alias: Set scenes at startup
+  mode: single
+
+  trigger:
+    - platform: homeassistant
+      event: start
+
+  action:
+    - service: automation.trigger
+      target:
+        entity_id: automation.reset_scene_states_at_sunrise
+      data:
+        skip_condition: true
+
+    - condition: state
+      entity_id: sun.sun
+      state: "below_horizon"
+
+    - service: automation.trigger
+      target:
+        entity_id: automation.set_scene_state_at_sunset
+      data:
+        skip_condition: true
+
+    - condition: time
+      after: "22:00"
+
+    - service: automation.trigger
+      target:
+        entity_id: automation.set_scene_state_at_night
+      data:
+        skip_condition: true
