@@ -9,17 +9,29 @@ cards:
     name: Doorbell
     show_state: false
 
-  - type: picture-entity
+  - type: 'custom:webrtc-camera'
     entity: camera.living_room_cam
-    camera_image: camera.living_room_cam
-    show_name: true
-    show_state: false
+    title: Living room
+    ui: true
 
-  - type: picture-entity
+  - type: 'custom:webrtc-camera'
     entity: camera.kitchen_cam_hd
-    camera_image: camera.kitchen_cam_hd
-    show_name: true
-    show_state: false
+    title: Kitchen
+    ui: true
+    ptz:
+      service: tapo_control.ptz
+      data_left:
+        entity_id: camera.kitchen_cam_hd
+        pan: LEFT
+      data_right:
+        entity_id: camera.kitchen_cam_hd
+        pan: RIGHT
+      data_up:
+        entity_id: camera.kitchen_cam_hd
+        tilt: UP
+      data_down:
+        entity_id: camera.kitchen_cam_hd
+        tilt: DOWN
 
   - type: picture-entity
     entity: camera.office_camera
