@@ -13,3 +13,11 @@ office_lights:
     - not_blue_100
     - not_orange_50
   icon: 'mdi:lightbulb-group-outline'
+
+kitchen_cam_presets:
+  name: Kitchen camera presets
+  options:
+    - Oven
+    - Back door
+    - Table
+  icon: 'mdi:camera'

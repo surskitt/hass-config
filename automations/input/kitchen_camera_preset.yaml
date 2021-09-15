@@ -1,0 +1,15 @@
+---
+- id: kitchen_camera_preset_select
+  alias: Change kitchen camera preset using input select
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: input_select.kitchen_cam_presets
+
+  action:
+    - service: tapo_control.ptz
+      target:
+        entity_id: camera.kitchen_cam_hd
+      data:
+        preset: "{{ trigger.to_state.state }}"

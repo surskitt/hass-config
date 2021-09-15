@@ -14,24 +14,32 @@ cards:
     title: Living room
     ui: true
 
-  - type: 'custom:webrtc-camera'
-    entity: camera.kitchen_cam_hd
-    title: Kitchen
-    ui: true
-    ptz:
-      service: tapo_control.ptz
-      data_left:
-        entity_id: camera.kitchen_cam_hd
-        pan: LEFT
-      data_right:
-        entity_id: camera.kitchen_cam_hd
-        pan: RIGHT
-      data_up:
-        entity_id: camera.kitchen_cam_hd
-        tilt: UP
-      data_down:
-        entity_id: camera.kitchen_cam_hd
-        tilt: DOWN
+  - type: 'custom:vertical-stack-in-card'
+    cards:
+      - type: 'custom:webrtc-camera'
+        entity: camera.kitchen_cam_hd
+        title: Kitchen
+        ui: true
+        ptz:
+          service: tapo_control.ptz
+          data_left:
+            entity_id: camera.kitchen_cam_hd
+            pan: LEFT
+            distance: 0.05
+          data_right:
+            entity_id: camera.kitchen_cam_hd
+            pan: RIGHT
+            distance: 0.05
+          data_up:
+            entity_id: camera.kitchen_cam_hd
+            tilt: UP
+          data_down:
+            entity_id: camera.kitchen_cam_hd
+            tilt: DOWN
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: input_select.kitchen_cam_presets
 
   - type: picture-entity
     entity: camera.office_camera
