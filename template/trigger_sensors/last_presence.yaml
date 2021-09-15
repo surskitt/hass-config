@@ -1,0 +1,22 @@
+---
+- trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.living_room_motion_occupancy
+        - binary_sensor.kitchen_motion_occupancy
+        - binary_sensor.bed_motion_occupancy
+        - binary_sensor.office_motion_occupancy
+        - binary_sensor.bathroom_motion_occupancy
+        - binary_sensor.stairs_motion_occupancy
+      to: 'on'
+  sensor:
+    - name: Last motion detection
+      state: >
+        {{
+          (
+            trigger.to_state.name |
+            regex_replace(find="motion_occupancy", replace="") |
+            regex_replace(find="_", replace=" ") |
+            capitalize
+          )
+        }}

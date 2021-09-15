@@ -10,7 +10,7 @@ cards:
       - entity: input_boolean.presence_heating
         state_color: true
 
-  - title: Shane
+  - title: Presence
     type: entities
 
     entities:
@@ -36,3 +36,4 @@ cards:
             entity: input_boolean.bathroom_presence
           - name: Garden
             entity: input_boolean.garden_presence
+      - entity: sensor.last_motion_detection
