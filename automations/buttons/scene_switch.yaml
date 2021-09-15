@@ -1,0 +1,15 @@
+---
+- alias: stairs bulbs buttons
+  description: Control stairs bulbs using tradfri buttons
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id:
+        - sensor.stairs_downstairs_bulb_switch_action
+      to: ""
+
+  action:
+    - service: light.toggle
+      target:
+        entity_id: light.stairs_bulbs
