@@ -18,11 +18,11 @@ ryu:
   name: Ryu
   species: dracaena draco
   sensors:
-    moisture: sensor.ryu_moisture
+    moisture: sensor.ble_moisture_ryu
     battery: sensor.ryu_battery
-    temperature: sensor.ryu_temperature
-    conductivity: sensor.ryu_soil_conductivity
-    brightness: sensor.ryu_illuminance
+    temperature: sensor.ble_temperature_ryu
+    conductivity: sensor.ble_conductivity_ryu
+    brightness: sensor.ble_illuminance_ryu
   min_battery: 10
 
 edgar:
@@ -40,11 +40,11 @@ courtney:
   name: Courtney
   species: castanospermum australe
   sensors:
-    moisture: sensor.courtney_moisture
+    moisture: sensor.ble_moisture_courtney
     battery: sensor.courtney_battery
-    temperature: sensor.courtney_temperature
-    conductivity: sensor.courtney_soil_conductivity
-    brightness: sensor.courtney_illuminance
+    temperature: sensor.ble_temperature_courtney
+    conductivity: sensor.ble_conductivity_courtney
+    brightness: sensor.ble_illuminance_courtney
   min_battery: 10
 
 eric:

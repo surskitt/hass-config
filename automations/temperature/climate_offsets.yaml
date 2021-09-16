@@ -12,7 +12,7 @@
   use_blueprint:
     path: sanderma/tado_temp_offset.yaml
     input:
-      source_temp_sensor: sensor.bedroom_bt_temperature
+      source_temp_sensor: sensor.ble_temperature_bedroom_thermometer
       target_tado: climate.bedroom
 
 - id: office_climate_temperature_offset

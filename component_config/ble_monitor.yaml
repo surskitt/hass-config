@@ -37,3 +37,9 @@ devices:
 
   - mac: "A4:C1:38:BD:31:51"
     name: Fridge
+
+  - mac: "A4:C1:38:C1:7E:9A"
+    name: Office thermometer
+
+  - mac: "A4:C1:38:FE:77:3E"
+    name: Bedroom thermometer

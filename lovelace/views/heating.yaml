@@ -56,8 +56,8 @@ cards:
           type: section
           label: Alternate readings
         entities:
-          - entity: sensor.bedroom_bt_temperature
-          - entity: sensor.bedroom_bt_humidity
+          - entity: sensor.ble_temperature_bedroom_thermometer
+          - entity: sensor.ble_humidity_bedroom_thermometer
           - type: attribute
             name: Offset
             entity: climate.bedroom
