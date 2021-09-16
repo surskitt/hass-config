@@ -8,7 +8,7 @@ ben:
   species: ficus retusa
   sensors:
     moisture: sensor.ben_moisture
-    battery: sensor.ben_mqtt_battery
+    battery: sensor.ben_battery
     temperature: sensor.ben_temperature
     conductivity: sensor.ben_soil_conductivity
     brightness: sensor.ben_illuminance
@@ -19,7 +19,7 @@ ryu:
   species: dracaena draco
   sensors:
     moisture: sensor.ryu_moisture
-    battery: sensor.ryu_mqtt_battery
+    battery: sensor.ryu_battery
     temperature: sensor.ryu_temperature
     conductivity: sensor.ryu_soil_conductivity
     brightness: sensor.ryu_illuminance
@@ -30,7 +30,7 @@ edgar:
   species: muehlenbeckia complexa
   sensors:
     moisture: sensor.edgar_moisture
-    battery: sensor.edgar_mqtt_battery
+    battery: sensor.edgar_battery
     temperature: sensor.edgar_temperature
     conductivity: sensor.edgar_soil_conductivity
     brightness: sensor.edgar_illuminance
@@ -41,7 +41,7 @@ courtney:
   species: castanospermum australe
   sensors:
     moisture: sensor.courtney_moisture
-    battery: sensor.courtney_mqtt_battery
+    battery: sensor.courtney_battery
     temperature: sensor.courtney_temperature
     conductivity: sensor.courtney_soil_conductivity
     brightness: sensor.courtney_illuminance
@@ -51,44 +51,44 @@ eric:
   name: Eric
   species: dypsis lutescens
   sensors:
-    moisture: sensor.eric_moisture
-    battery: sensor.eric_mqtt_battery
-    temperature: sensor.eric_temperature_2
-    conductivity: sensor.eric_soil_conductivity
-    brightness: sensor.eric_illuminance
+    moisture: sensor.ble_moisture_eric
+    battery: sensor.eric_battery
+    temperature: sensor.ble_temperature_eric
+    conductivity: sensor.ble_conductivity_eric
+    brightness: sensor.ble_illuminance_eric
   min_battery: 10
 
 jaesuk:
   name: Jaesuk
   species: sedum adolphii green
   sensors:
-    moisture: sensor.jaesuk_moisture
-    battery: sensor.jaesuk_mqtt_battery
-    temperature: sensor.jaesuk_temperature
-    conductivity: sensor.jaesuk_soil_conductivity
-    brightness: sensor.jaesuk_illuminance
+    moisture: sensor.ble_moisture_jaesuk
+    battery: sensor.jaesuk_battery
+    temperature: sensor.ble_temperature_jaesuk
+    conductivity: sensor.ble_conductivity_jaesuk
+    brightness: sensor.ble_illuminance_jaesuk
   min_battery: 10
 
 beric:
   name: Beric
   species: vriesea poelmannii
   sensors:
-    moisture: sensor.beric_moisture
-    battery: sensor.beric_mqtt_battery
-    temperature: sensor.beric_temperature
-    conductivity: sensor.beric_soil_conductivity
-    brightness: sensor.beric_illuminance
+    moisture: sensor.ble_moisture_beric
+    battery: sensor.beric_battery
+    temperature: sensor.ble_temperature_beric
+    conductivity: sensor.ble_conductivity_beric
+    brightness: sensor.ble_illuminance_beric
   min_battery: 10
 
 paisley:
   name: Paisley
   species: petroselinum crispum
   sensors:
-    moisture: sensor.paisley_moisture
-    battery: sensor.paisley_mqtt_battery
-    temperature: sensor.paisley_temperature
-    conductivity: sensor.paisley_soil_conductivity
-    brightness: sensor.paisley_illuminance
+    moisture: sensor.ble_moisture_paisley
+    battery: sensor.paisley_battery
+    temperature: sensor.ble_temperature_paisley
+    conductivity: sensor.ble_conductivity_paisley
+    brightness: sensor.ble_illuminance_paisley
   min_battery: 10
 
 minju:
@@ -96,11 +96,11 @@ minju:
   species: nepeta cataria
   image: /local/images/plants/nepeta cataria.jpg
   sensors:
-    moisture: sensor.minju_moisture
-    battery: sensor.minju_mqtt_battery
-    temperature: sensor.minju_temperature
-    conductivity: sensor.minju_soil_conductivity
-    brightness: sensor.minju_illuminance
+    moisture: sensor.ble_moisture_minju
+    battery: sensor.minju_battery
+    temperature: sensor.ble_temperature_minju
+    conductivity: sensor.ble_conductivity_minju
+    brightness: sensor.ble_illuminance_minju
   min_battery: 10
 
 ali:
@@ -108,11 +108,11 @@ ali:
   species: allium schoenoprasum
   image: /local/images/plants/allium schoenoprasum.jpg
   sensors:
-    moisture: sensor.ali_moisture
-    battery: sensor.ali_mqtt_battery
-    temperature: sensor.ali_temperature
-    conductivity: sensor.ali_soil_conductivity
-    brightness: sensor.ali_illuminance
+    moisture: sensor.ble_moisture_ali
+    battery: sensor.ali_battery
+    temperature: sensor.ble_temperature_ali
+    conductivity: sensor.ble_conductivity_ali
+    brightness: sensor.ble_illuminance_ali
   min_battery: 10
 
 karina:
@@ -120,9 +120,9 @@ karina:
   species: calathea concinna
   image: /local/images/plants/calathea concinna.jpg
   sensors:
-    moisture: sensor.karina_moisture
-    battery: sensor.karina_mqtt_battery
-    temperature: sensor.karina_temperature
-    conductivity: sensor.karina_soil_conductivity
-    brightness: sensor.karina_illuminance
+    moisture: sensor.ble_moisture_karina
+    battery: sensor.karina_battery
+    temperature: sensor.ble_temperature_karina
+    conductivity: sensor.ble_conductivity_karina
+    brightness: sensor.ble_illuminance_karina
   min_battery: 10

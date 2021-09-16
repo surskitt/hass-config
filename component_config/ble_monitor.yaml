@@ -1,0 +1,39 @@
+---
+discovery: false
+restore_state: true
+devices:
+  - mac: "C4:7C:8D:6C:95:4B"
+    name: Jaesuk
+
+  - mac: "C4:7C:8D:6C:9B:D4"
+    name: Eric
+
+  - mac: "C4:7C:8D:6C:9E:4A"
+    name: Karina
+
+  - mac: "C4:7C:8D:6C:7F:89"
+    name: Minju
+  
+  - mac: "C4:7C:8D:6C:87:E7"
+    name: Beric
+
+  - mac: "C4:7C:8D:6C:85:D5"
+    name: Paisley
+
+  - mac: "C4:7C:8D:6C:9C:7E"
+    name: Ali
+
+  - mac: "C4:7C:8D:6C:01:F3"
+    name: Ben
+
+  - mac: "C4:7C:8D:6C:87:BD"
+    name: Ryu
+
+  - mac: "C4:7C:8D:6C:9F:9D"
+    name: Edgar
+
+  - mac: "C4:7C:8D:6C:9C:3B"
+    name: Courtney
+
+  - mac: "A4:C1:38:BD:31:51"
+    name: Fridge
