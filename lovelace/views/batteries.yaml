@@ -105,7 +105,7 @@ cards:
     state_color: true
     entities:
       - name: Fridge
-        entity: sensor.fridge_bt_battery_level
+        entity: sensor.ble_battery_fridge
       - name: Bedroom
         entity: sensor.bedroom_bt_battery_level
       - name: Office

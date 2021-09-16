@@ -35,8 +35,8 @@ cards:
           type: section
           label: Alternate readings
         entities:
-          - entity: sensor.fridge_bt_temperature
-          - entity: sensor.fridge_bt_humidity
+          - entity: sensor.ble_temperature_fridge
+          - entity: sensor.ble_humidity_fridge
 
   - title: Bedroom
     type: entities
