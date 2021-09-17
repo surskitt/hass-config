@@ -77,3 +77,10 @@ cards:
           graph: line
           name: false
           icon: false
+
+  - type: history-graph
+    entities:
+      - entity: sensor.sleepasandroid_rook
+    refresh_interval: 0
+    hours_to_show: 24
+    title: Sleep
