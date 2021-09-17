@@ -78,11 +78,23 @@ cards:
           name: false
           icon: false
 
-  - type: history-graph
-    entities:
-      - entity: sensor.sleepasandroid_rook
-        name: saa
-      - entity: binary_sensor.sleeping
-    refresh_interval: 0
-    hours_to_show: 24
-    title: Sleep
+  - type: vertical-stack
+    cards:
+      - type: history-graph
+        entities:
+          - entity: sensor.sleepasandroid_rook
+            name: saa
+          - entity: binary_sensor.sleeping
+        refresh_interval: 0
+        hours_to_show: 24
+        title: Sleep
+
+      - type: 'custom:mini-graph-card'
+        entities:
+          - entity: sensor.sleeping_hours
+        line_color: "#88C0D0"
+        hours_to_show: 168
+        aggregate_func: max
+        group_by: date
+        show:
+          graph: bar
