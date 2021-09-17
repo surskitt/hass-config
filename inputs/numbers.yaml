@@ -41,3 +41,12 @@ water_drinking_daily:
   max: 10000
   step: 10
   unit_of_measurement: ml
+
+weight_in_kg:
+  name: Weight
+  mode: box
+  icon: "mdi:scale-bathroom"
+  min: 0
+  max: 200
+  step: 10
+  unit_of_measurement: kg

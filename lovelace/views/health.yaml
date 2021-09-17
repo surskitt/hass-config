@@ -3,52 +3,77 @@ title: Health
 path: health
 icon: mdi:heart
 cards:
-  - title: Water
-    type: entities
-    entities:
-      - name: Drunk today
-        entity: input_number.water_drinking_daily
-
-      - type: button
-        name: 1 litre
-        icon: 'mdi:glass-mug'
-        action_name: Add
-        tap_action:
-          action: call-service
-          service: script.input_number_inc_val
-          service_data:
+  - type: vertical-stack
+    cards:
+      - title: Water
+        type: entities
+        entities:
+          - name: Drunk today
             entity: input_number.water_drinking_daily
-            steps: 100
 
-      - type: button
-        name: 1 pint
-        icon: 'mdi:beer'
-        action_name: Add
-        tap_action:
-          action: call-service
-          service: script.input_number_inc_val
-          service_data:
-            entity: input_number.water_drinking_daily
-            steps: 56
+          - type: button
+            name: 1 litre
+            icon: 'mdi:glass-mug'
+            action_name: Add
+            tap_action:
+              action: call-service
+              service: script.input_number_inc_val
+              service_data:
+                entity: input_number.water_drinking_daily
+                steps: 100
 
-      - type: button
-        name: 1/2 pint
-        icon: 'mdi:cup'
-        action_name: Add
-        tap_action:
-          action: call-service
-          service: script.input_number_inc_val
-          service_data:
-            entity: input_number.water_drinking_daily
-            steps: 28
+          - type: button
+            name: 1 pint
+            icon: 'mdi:beer'
+            action_name: Add
+            tap_action:
+              action: call-service
+              service: script.input_number_inc_val
+              service_data:
+                entity: input_number.water_drinking_daily
+                steps: 56
 
-  - name: Daily water drunk
-    type: 'custom:mini-graph-card'
-    entities:
-      - entity: input_number.water_drinking_daily
-    line_color: "#88C0D0"
-    hours_to_show: 168
-    aggregate_func: max
-    group_by: date
-    show:
-      graph: bar
+          - type: button
+            name: 1/2 pint
+            icon: 'mdi:cup'
+            action_name: Add
+            tap_action:
+              action: call-service
+              service: script.input_number_inc_val
+              service_data:
+                entity: input_number.water_drinking_daily
+                steps: 28
+
+      - name: Daily water drunk
+        type: 'custom:mini-graph-card'
+        entities:
+          - entity: input_number.water_drinking_daily
+        line_color: "#88C0D0"
+        hours_to_show: 168
+        aggregate_func: max
+        group_by: date
+        show:
+          graph: bar
+          name: false
+          icon: false
+
+  - type: vertical-stack
+    cards:
+      - title: Weight
+        type: entities
+        entities:
+          - name: Current weight
+            entity: input_number.weight_in_kg
+
+      - name: Daily water drunk
+        type: 'custom:mini-graph-card'
+        entities:
+          - entity: input_number.weight_in_kg
+        line_color: "#88C0D0"
+        hours_to_show: 720
+        aggregate_func: max
+        group_by: date
+        show:
+          graph: line
+          name: false
+          icon: false
