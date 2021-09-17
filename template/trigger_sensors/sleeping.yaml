@@ -13,3 +13,4 @@
         {{
           is_state('sensor.sleepasandroid_rook', 'sleep_tracking_started')
         }}
+      icon: "mdi:sleep"
