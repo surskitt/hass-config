@@ -1,0 +1,15 @@
+---
+- trigger:
+    - platform: state
+      entity_id:
+        - sensor.sleepasandroid_rook
+      to:
+        - "sleep_tracking_started"
+        - "sleep_tracking_stopped"
+
+  binary_sensor:
+    - name: Sleeping
+      state: >
+        {{
+          is_state('sensor.sleepasandroid_rook', 'sleep_tracking_started')
+        }}

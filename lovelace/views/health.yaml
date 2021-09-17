@@ -81,6 +81,8 @@ cards:
   - type: history-graph
     entities:
       - entity: sensor.sleepasandroid_rook
+        name: saa
+      - entity: binary_sensor.sleeping
     refresh_interval: 0
     hours_to_show: 24
     title: Sleep
