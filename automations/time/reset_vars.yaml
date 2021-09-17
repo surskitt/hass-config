@@ -1,11 +1,10 @@
 ---
-- id: reset_vars
-  alias: Reset variables in the morning
-  mode: single
+- id: reset_vars_midnight
+  alias: Reset variables at midnight
 
   trigger:
     - platform: time
-      at: "09:00:00"
+      at: "00:00:00"
 
   action:
     - service: input_number.set_value

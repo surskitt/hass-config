@@ -41,3 +41,14 @@ cards:
           service_data:
             entity: input_number.water_drinking_daily
             steps: 28
+
+  - name: Daily water drunk
+    type: 'custom:mini-graph-card'
+    entities:
+      - entity: input_number.water_drinking_daily
+    line_color: "#88C0D0"
+    hours_to_show: 168
+    aggregate_func: max
+    group_by: date
+    show:
+      graph: bar
