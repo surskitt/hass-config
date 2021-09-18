@@ -41,15 +41,31 @@ cards:
         entities:
           - entity: input_select.kitchen_cam_presets
 
-  - type: 'custom:webrtc-camera'
-    entity: camera.office_camera_hd
-    title: Office
-    ui: true
+  - type: 'custom:vertical-stack-in-card'
+    cards:
+      - type: 'custom:webrtc-camera'
+        entity: camera.bedroom_camera_hd
+        title: Bedroom
+        ui: true
 
-  - type: 'custom:webrtc-camera'
-    entity: camera.bedroom_camera_hd
-    title: Bedroom
-    ui: true
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: input_boolean.bedroom_camera_privacy_mode
+            name: Privacy mode
+
+  - type: 'custom:vertical-stack-in-card'
+    cards:
+      - type: 'custom:webrtc-camera'
+        entity: camera.office_camera_hd
+        title: Office
+        ui: true
+
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: input_boolean.office_camera_privacy_mode
+            name: Privacy mode
 
   - type: picture-entity
     entity: camera.driveway

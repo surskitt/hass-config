@@ -1,0 +1,37 @@
+---
+- id: camera_privacy_mode_on
+  alias: Turn on camera privacy mode
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: input_boolean.bedroom_camera_privacy_mode
+      id: "bedroom_camera"
+
+    - platform: state
+      entity_id: input_boolean.office_camera_privacy_mode
+      id: "office_camera"
+
+  action:
+    - choose:
+        - conditions:
+            - condition: trigger
+              id: "bedroom_camera"
+
+          sequence:
+            - service: tapo_control.set_privacy_mode
+              target:
+                entity_id: camera.bedroom_camera_hd
+              data:
+                privacy_mode: "{{ trigger.to_state.state }}"
+
+        - conditions:
+            - condition: trigger
+              id: "office_camera"
+
+          sequence:
+            - service: tapo_control.set_privacy_mode
+              target:
+                entity_id: camera.office_camera_hd
+              data:
+                privacy_mode: "{{ trigger.to_state.state }}"

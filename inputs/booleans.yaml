@@ -68,3 +68,11 @@ bedroom_humidifier_active:
 music_auto_pause:
   name: Music automatically paused
   icon: 'mdi:play-pause'
+
+bedroom_camera_privacy_mode:
+  name: Bedroom camera privacy mode
+  icon: "mdi:eye-off"
+
+office_camera_privacy_mode:
+  name: Office camera privacy mode
+  icon: "mdi:eye-off"
