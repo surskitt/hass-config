@@ -50,7 +50,7 @@ cards:
           - entity: input_number.water_drinking_daily
         line_color: "#88C0D0"
         hours_to_show: 168
-        aggregate_func: max
+        aggregate_func: last
         group_by: date
         show:
           graph: bar
@@ -65,7 +65,7 @@ cards:
           - name: Current weight
             entity: input_number.weight_in_kg
 
-      - name: Daily water drunk
+      - name: Weight
         type: 'custom:mini-graph-card'
         entities:
           - entity: input_number.weight_in_kg
