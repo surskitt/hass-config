@@ -9,7 +9,7 @@
       sensor_off:
         - binary_sensor.kitchen_motion_occupancy
         - binary_sensor.bed_motion_occupancy
-        - binary_sensor.office_motion_occupancy
+        - binary_sensor.office_camera_motion
         - binary_sensor.bathroom_motion_occupancy
         - binary_sensor.stairs_motion_occupancy
       presence_unset:
@@ -30,7 +30,7 @@
       sensor_off:
         - binary_sensor.living_room_motion_occupancy
         - binary_sensor.bed_motion_occupancy
-        - binary_sensor.office_motion_occupancy
+        - binary_sensor.office_camera_motion
         - binary_sensor.bathroom_motion_occupancy
         - binary_sensor.stairs_motion_occupancy
       presence_unset:
@@ -51,7 +51,7 @@
       sensor_off:
         - binary_sensor.living_room_motion_occupancy
         - binary_sensor.kitchen_motion_occupancy
-        - binary_sensor.office_motion_occupancy
+        - binary_sensor.office_camera_motion
         - binary_sensor.bathroom_motion_occupancy
         - binary_sensor.stairs_motion_occupancy
       presence_unset:
@@ -67,7 +67,7 @@
   use_blueprint:
     path: mine/set_presence_motion.yaml
     input:
-      sensor: binary_sensor.office_motion_occupancy
+      sensor: binary_sensor.office_camera_motion
       presence_set: input_boolean.office_presence
       sensor_off:
         - binary_sensor.living_room_motion_occupancy
@@ -93,7 +93,7 @@
       sensor_off:
         - binary_sensor.living_room_motion_occupancy
         - binary_sensor.kitchen_motion_occupancy
-        - binary_sensor.office_motion_occupancy
+        - binary_sensor.office_camera_motion
         - binary_sensor.bed_motion_occupancy
         - binary_sensor.stairs_motion_occupancy
       presence_unset:
@@ -114,7 +114,7 @@
       sensor_off:
         - binary_sensor.living_room_motion_occupancy
         - binary_sensor.kitchen_motion_occupancy
-        - binary_sensor.office_motion_occupancy
+        - binary_sensor.office_camera_motion
         - binary_sensor.bed_motion_occupancy
         - binary_sensor.bathroom_motion_occupancy
       presence_unset:

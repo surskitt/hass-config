@@ -41,15 +41,19 @@ cards:
         entities:
           - entity: input_select.kitchen_cam_presets
 
-  - type: picture-entity
-    entity: camera.office_camera
-    camera_image: camera.office_camera
-    show_name: true
-    show_state: false
+  - type: 'custom:webrtc-camera'
+    entity: camera.office_camera_hd
+    title: Office
+    ui: true
+
+  - type: 'custom:webrtc-camera'
+    entity: camera.bedroom_camera_hd
+    title: Bedroom
+    ui: true
 
   - type: picture-entity
-    entity: camera.bedroom_camera
-    camera_image: camera.bedroom_camera
+    entity: camera.driveway
+    camera_image: camera.driveway
     show_name: true
     show_state: false
 
