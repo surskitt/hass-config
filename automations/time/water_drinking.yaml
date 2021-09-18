@@ -32,6 +32,7 @@
         title: Drink some water!
         message: "{{ message }}"
         data:
+          clickAction: "/lovelace/health"
           actions:
             - title: Suspend notifications
               action: suspend_water_notifications_action
