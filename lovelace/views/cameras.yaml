@@ -67,14 +67,14 @@ cards:
           - entity: input_boolean.office_camera_privacy_mode
             name: Privacy mode
 
-  - type: picture-entity
+  - type: 'custom:webrtc-camera'
     entity: camera.driveway
-    camera_image: camera.driveway
-    show_name: true
-    show_state: false
+    title: Driveway
+    ui: true
+    mse: false
 
-  - type: picture-entity
+  - type: 'custom:webrtc-camera'
     entity: camera.garden
-    camera_image: camera.garden
-    show_name: true
-    show_state: false
+    title: Garden
+    ui: true
+    mse: false
