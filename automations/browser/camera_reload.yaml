@@ -1,0 +1,45 @@
+---
+- id: camera_view_reload
+  alias: reload cameras when on view
+  mode: restart
+
+  trigger:
+    - platform: state
+      entity_id: sensor.ea34ea9b_3de2915a
+      attribute: path
+      to: "/lovelace/cameras"
+
+  action:
+    - service: eufy_security.stop_rtsp
+      target:
+        entity_id:
+          - camera.garden
+          - camera.driveway
+
+    - service: eufy_security.start_rtsp
+      target:
+        entity_id:
+          - camera.garden
+          - camera.driveway
+
+    - service: browser_mod.window_reload
+      data:
+        deviceID:
+          - ea34ea9b-3de2915a
+
+- id: camera_view_stop
+  alias: stop cameras when off view
+  mode: restart
+
+  trigger:
+    - platform: state
+      entity_id: sensor.ea34ea9b_3de2915a
+      attribute: path
+      from: "/lovelace/cameras"
+
+  action:
+    - service: eufy_security.stop_rtsp
+      target:
+        entity_id:
+          - camera.garden
+          - camera.driveway

@@ -1,0 +1,19 @@
+---
+- id: camera_stop_timeout
+  alias: stop camera after active for period
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id:
+        - camera.garden
+        - camera.driveway
+      to: "Streaming - rtsp"
+      for: "00:02:30"
+
+  action:
+    - service: eufy_security.stop_rtsp
+      target:
+        entity_id:
+          - camera.garden
+          - camera.driveway
