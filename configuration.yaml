@@ -12,6 +12,9 @@ homeassistant:
         - 192.168.1.0/24
       allow_bypass_login: true
   # customize: !include customize.yaml
+  allowlist_external_dirs:
+    - "/config/camera_snapshots"
+
 
 http:
   use_x_forwarded_for: true
