@@ -9,6 +9,9 @@ cards:
     state_color: true
     show_header_toggle: false
     entities:
+      - name: wigeon
+        entity: switch.wigeon
+        icon: 'mdi:desktop-tower-monitor'
       - entity: switch.wigeon_headphones_connected
         name: Headphones
       - entity: switch.wigeon_shairport_sync
