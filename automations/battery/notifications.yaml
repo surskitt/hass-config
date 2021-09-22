@@ -1,0 +1,26 @@
+---
+- alias: Send notification when device is fully charged
+  id: curtains_open_sunrise
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id:
+        - sensor.doorbell_battery_percentage
+        - sensor.garden_battery
+        - sensor.driveway_battery
+        - sensor.living_room_curtains_battery
+        - sensor.bedroom_curtains_battery
+        - sensor.office_curtain_battery
+        - sensor.sonos_roam_battery
+
+  action:
+    - service: notify.gotify
+      data:
+        title: Battery charged
+        message: "{{ trigger.to_state.name }} is fully charged"
+
+    - service: notify.mobile_app_rook
+      data:
+        title: Battery charged
+        message: "{{ trigger.to_state.name }} is fully charged"
