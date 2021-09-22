@@ -44,6 +44,8 @@ cards:
                 entity: input_number.water_drinking_daily
                 steps: 28
 
+          - entity: sensor.expected_water_drunk
+
       - name: Daily water drunk
         type: 'custom:mini-graph-card'
         entities:

@@ -1,0 +1,11 @@
+---
+- sensor:
+    - name: Expected water drunk
+      unit_of_measurement: ml
+      state: >
+        {% set hour = now().hour - 9 %}
+        {%- if hour < 0 -%}
+        0
+        {%- else -%}
+        {{ (hour // 3) * 400 }}
+        {%- endif -%}
