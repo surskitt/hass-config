@@ -19,8 +19,12 @@
   id: curtains_close_sunset
 
   trigger:
-    platform: sun
-    event: sunset
+    # platform: sun
+    # event: sunset
+    - platform: numeric_state
+      entity_id: sun.sun
+      attribute: elevation
+      below: -3
 
   action:
     # add random delays if possible to look more natural
