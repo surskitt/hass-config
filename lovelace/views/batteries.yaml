@@ -20,8 +20,10 @@ cards:
     entities:
       - entity: sensor.doorbell_battery_percentage
         name: Doorbell
-      - entity: sensor.garden_battery_percentage
+      - entity: sensor.garden_battery
         name: Garden
+      - entity: sensor.driveway_battery
+        name: Driveway
 
   - title: Sensors
     type: entities
