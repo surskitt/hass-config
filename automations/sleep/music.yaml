@@ -1,0 +1,30 @@
+---
+- alias: Play music with alarm
+  id: alarm_play_music
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: sensor.sleepasandroid_rook
+      to:
+        - alarm_alert_start
+
+  action:
+    - service: media_player.media_play
+      target:
+        entity_id: media_player.forked_daapd_server
+
+- alias: Pause music when snoozing
+  id: alarm_pause_music
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: sensor.sleepasandroid_rook
+      to:
+        - alarm_snooze_clicked
+
+  action:
+    - service: media_player.media_pause
+      target:
+        entity_id: media_player.forked_daapd_server
