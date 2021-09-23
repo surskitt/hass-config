@@ -4,19 +4,56 @@ path: pc
 icon: 'mdi:desktop-classic'
 panel: false
 cards:
-  - title: wigeon
+  # - type: 'custom:vertical-stack-in-card'
+  - type: vertical-stack
+    cards:
+      - title: wigeon
+        type: entities
+        state_color: true
+        show_header_toggle: false
+        entities:
+          - name: wigeon
+            entity: switch.wigeon
+            icon: 'mdi:desktop-tower-monitor'
+
+      - type: conditional
+        conditions:
+          - entity: switch.wigeon
+            state: "on"
+        card:
+          type: entities
+          state_color: true
+          show_header_toggle: false
+          entities:
+            - entity: switch.wigeon_headphones_connected
+              name: Headphones
+            - entity: switch.wigeon_shairport_sync
+              name: Shairport sync
+            - entity: sensor.wigeon_tsp_queue_length
+              name: tsp queue length
+            - entity: sensor.wigeon_ytsp_queue_length
+              name: ytsp queue length
+
+  - title: teal
     type: entities
     state_color: true
     show_header_toggle: false
     entities:
-      - name: wigeon
-        entity: switch.wigeon
-        icon: 'mdi:desktop-tower-monitor'
-      - entity: switch.wigeon_headphones_connected
-        name: Headphones
-      - entity: switch.wigeon_shairport_sync
-        name: Shairport sync
-      - entity: sensor.wigeon_tsp_queue_length
-        name: tsp queue length
-      - entity: sensor.wigeon_ytsp_queue_length
-        name: ytsp queue length
+      - name: teal
+        entity: binary_sensor.ping_teal_lan
+
+  - title: gadwall
+    type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+      - name: gadwall
+        entity: binary_sensor.ping_gadwall_lan
+
+  - title: macbook
+    type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+      - name: macbook
+        entity: device_tracker.a0_ce_c8_da_91_df
