@@ -1,0 +1,9 @@
+---
+- platform: ping
+  host: teal.lan
+
+- platform: ping
+  host: gadwall.lan
+
+- platform: ping
+  host: macbook.lan
