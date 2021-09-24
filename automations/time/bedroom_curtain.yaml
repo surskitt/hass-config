@@ -17,6 +17,6 @@
 
     - service: cover.set_cover_position
       target:
-        entity_id: cover.bedroom_curtains
+        entity_id: cover.bedroom_curtains_curtain
       data:
         position: 100

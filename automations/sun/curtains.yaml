@@ -12,8 +12,8 @@
     - service: cover.open_cover
       target:
         entity_id:
-          - cover.office_curtain
-          - cover.living_room_curtains
+          - cover.office_curtain_curtain
+          - cover.living_room_curtains_curtain
 
 - alias: Close curtains at sunset
   id: curtains_close_sunset
@@ -31,6 +31,6 @@
     - service: cover.close_cover
       target:
         entity_id:
-          - cover.bedroom_curtains
-          - cover.office_curtain
-          - cover.living_room_curtains
+          - cover.bedroom_curtains_curtain
+          - cover.office_curtain_curtain
+          - cover.living_room_curtains_curtain
