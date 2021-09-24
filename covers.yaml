@@ -1,39 +1,39 @@
 ---
 - platform: mqtt
-  name: Office curtain
-  command_topic: switchbotMQTT/control
+  name: Bedroom curtains
+  command_topic: "switchbot/sb_upstairs/curtain/bedroom_curtains/set"
   qos: 0
   retain: true
-  payload_open: "{\"id\":\"office_curtain\",\"value\":\"open\"}"
-  payload_close: "{\"id\":\"office_curtain\",\"value\":\"close\"}"
-  payload_stop: "{\"id\":\"office_curtain\",\"value\":\"pause\"}"
-  position_topic: switchbotMQTT/curtain/office_curtain
-  position_template: "{{ 100-((value_json['pos']|int) if 'pos' in value_json else (value_json['status']|int)) }}"
-  set_position_topic: switchbotMQTT/control
-  set_position_template: "{\"id\":\"office_curtain\",\"value\":\"{{ 100 - (position|int) }}\"}"
+  payload_open: "OPEN"
+  payload_close: "CLOSE"
+  payload_stop: "PAUSE"
+  position_topic: "switchbot/sb_upstairs/curtain/bedroom_curtains/position"
+  position_template: "{{ value_json.pos }}"
+  set_position_topic: "switchbot/sb_upstairs/curtain/bedroom_curtains/set"
+  set_position_template: "{{ position }}"
 
 - platform: mqtt
-  name: Bedroom curtains
-  command_topic: switchbotMQTT/control
+  name: Office curtain
+  command_topic: "switchbot/sb_upstairs/curtain/office_curtain/set"
   qos: 0
   retain: true
-  payload_open: "{\"id\":\"bedroom_curtains\",\"value\":\"open\"}"
-  payload_close: "{\"id\":\"bedroom_curtains\",\"value\":\"close\"}"
-  payload_stop: "{\"id\":\"bedroom_curtains\",\"value\":\"pause\"}"
-  position_topic: switchbotMQTT/curtain/bedroom_curtains
-  position_template: "{{ 100-((value_json['pos']|int) if 'pos' in value_json else (value_json['status']|int)) }}"
-  set_position_topic: switchbotMQTT/control
-  set_position_template: "{\"id\":\"bedroom_curtains\",\"value\":\"{{ 100 - (position|int) }}\"}"
+  payload_open: "OPEN"
+  payload_close: "CLOSE"
+  payload_stop: "PAUSE"
+  position_topic: "switchbot/sb_upstairs/curtain/office_curtain/position"
+  position_template: "{{ value_json.pos }}"
+  set_position_topic: "switchbot/sb_upstairs/curtain/office_curtain/set"
+  set_position_template: "{{ position }}"
 
 - platform: mqtt
   name: Living room curtains
-  command_topic: switchbotMQTT/control
+  command_topic: "switchbot/sb_downstairs/curtain/living_room_curtains/set"
   qos: 0
   retain: true
-  payload_open: "{\"id\":\"living_room_curtains\",\"value\":\"open\"}"
-  payload_close: "{\"id\":\"living_room_curtains\",\"value\":\"close\"}"
-  payload_stop: "{\"id\":\"living_room_curtains\",\"value\":\"pause\"}"
-  position_topic: switchbotMQTT/curtain/living_room_curtains
-  position_template: "{{ 100-((value_json['pos']|int) if 'pos' in value_json else (value_json['status']|int)) }}"
-  set_position_topic: switchbotMQTT/control
-  set_position_template: "{\"id\":\"living_room_curtains\",\"value\":\"{{ 100 - (position|int) }}\"}"
+  payload_open: "OPEN"
+  payload_close: "CLOSE"
+  payload_stop: "PAUSE"
+  position_topic: "switchbot/sb_downstairs/curtain/living_room_curtains/position"
+  position_template: "{{ value_json.pos }}"
+  set_position_topic: "switchbot/sb_downstairs/curtain/living_room_curtains/set"
+  set_position_template: "{{ position }}"
