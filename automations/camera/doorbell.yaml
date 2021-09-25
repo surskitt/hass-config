@@ -36,3 +36,24 @@
     - service: notify.tv
       data:
         message: Someone is at the door
+
+- alias: play camera on tv when doorbell is pressed
+  id: tv_camera_doorbell_press
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.doorbell_doorbell_pressed
+      to: 'on'
+
+  conditions:
+    - platform: state
+      entity_id: switch.tv
+      state: 'on'
+
+  action:
+    - service: camera.play_stream
+      target:
+        entity_id: camera.driveway
+      data:
+        media_player: media_player.front_room_tv
