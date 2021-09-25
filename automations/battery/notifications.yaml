@@ -1,7 +1,7 @@
 ---
 - alias: Send notification when device is fully charged
   id: battery_charged_notification
-  mode: single
+  mode: queued
 
   trigger:
     - platform: state
@@ -13,7 +13,7 @@
         - sensor.bedroom_curtains_battery
         - sensor.office_curtain_battery
         - sensor.sonos_roam_battery
-      to: 100
+      to: "100"
 
   action:
     - service: notify.gotify
