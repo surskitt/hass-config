@@ -1,6 +1,6 @@
 ---
 - alias: Send notification when device is fully charged
-  id: curtains_open_sunrise
+  id: battery_charged_notification
   mode: single
 
   trigger:
