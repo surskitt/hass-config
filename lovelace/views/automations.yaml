@@ -18,6 +18,11 @@ cards:
       - entity: sensor.sunrise_time
       - entity: sensor.sunset_time
       - entity: sensor.dusk_time
+      - type: attribute
+        entity: sun.sun
+        attribute: elevation
+        name: Sun elevation
+        icon: mdi:weather-sunset-down
 
   - type: entities
     title: Presence
