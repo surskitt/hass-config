@@ -6,5 +6,11 @@
       value_template: >
          {{ state_attr('climate.office', 'temperature') }}°
          {{ state_attr('climate.office', 'current_temperature') }}°
-         {{ states('sensor.office_humidity') }}
+        ﲋ {{ states('sensor.office_humidity') }}
+        {% if (states('input_number.water_drinking_daily')|int) < (states('sensor.expected_water_drunk')|int) -%}
+        戴
+        {% else -%}
+        懲
+        {% endif -%}
+        {{ (states('input_number.water_drinking_daily')|int)/1000 }}
       icon_template: 'mdi:dots-horizontal'
