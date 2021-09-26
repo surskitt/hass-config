@@ -73,7 +73,7 @@ cards:
           - entity: input_number.weight_in_kg
         line_color: "#88C0D0"
         hours_to_show: 720
-        aggregate_func: max
+        aggregate_func: last
         group_by: date
         show:
           graph: line
