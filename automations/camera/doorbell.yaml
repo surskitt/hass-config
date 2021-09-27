@@ -37,8 +37,8 @@
       data:
         message: Someone is at the door
 
-- alias: play camera on tv when doorbell is pressed
-  id: tv_camera_doorbell_press
+- alias: Stream driveway when doorbell is pressed
+  id: 'doorbell_camera_stream'
   mode: single
 
   trigger:
@@ -46,8 +46,8 @@
       entity_id: binary_sensor.doorbell_doorbell_pressed
       to: 'on'
 
-  conditions:
-    - platform: state
+  condition:
+    - condition: state
       entity_id: switch.tv
       state: 'on'
 
