@@ -130,7 +130,10 @@
         entities:
           light.wled_bed:
             state: 'on'
-            brightness_pct: 50
+            brightness_pct: 100
+          light.wled_bedroom_dresser:
+            state: 'on'
+            brightness_pct: 100
 
     - service: scene.create
       data:
