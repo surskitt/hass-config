@@ -21,6 +21,8 @@
                                  'plant.eric',
                                  'plant.jaesuk',
                                  'plant.beric',
+                                 'plant.basil',
+                                 'plant.cory',
                                  'plant.paisley',
                                  'plant.minju',
                                  'plant.ali',
@@ -37,7 +39,6 @@
 
           {%- if 'moisture high' in problems -%}
           🌊 {{ name }} has too much water
-          {% set ns.found = false -%}
           {% endif %}
 
           {%- if 'moisture low' in problems -%}
