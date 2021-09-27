@@ -11,9 +11,6 @@ devices:
   - mac: "C4:7C:8D:6C:9E:4A"
     name: Karina
 
-  - mac: "C4:7C:8D:6C:7F:89"
-    name: Minju
-
   - mac: "C4:7C:8D:6C:87:E7"
     name: Beric
 
@@ -30,10 +27,13 @@ devices:
     name: Ryu
 
   - mac: "C4:7C:8D:6C:9F:9D"
-    name: Edgar
+    name: Basil
 
   - mac: "C4:7C:8D:6C:9C:3B"
     name: Courtney
+
+  - mac: "C4:7C:8D:6C:A3:F9"
+    name: Cory
 
   - mac: "A4:C1:38:BD:31:51"
     name: Fridge

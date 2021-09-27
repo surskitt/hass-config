@@ -10,28 +10,28 @@ cards:
     entity: plant.ryu
 
   - type: 'custom:flower-card'
-    entity: plant.edgar
-
-  - type: 'custom:flower-card'
     entity: plant.courtney
-
-  - type: 'custom:flower-card'
-    entity: plant.eric
 
   - type: 'custom:flower-card'
     entity: plant.jaesuk
 
   - type: 'custom:flower-card'
+    entity: plant.eric
+
+  - type: 'custom:flower-card'
+    entity: plant.karina
+
+  - type: 'custom:flower-card'
     entity: plant.beric
 
   - type: 'custom:flower-card'
-    entity: plant.paisley
+    entity: plant.basil
 
   - type: 'custom:flower-card'
-    entity: plant.minju
+    entity: plant.cory
 
   - type: 'custom:flower-card'
     entity: plant.ali
 
   - type: 'custom:flower-card'
-    entity: plant.karina
+    entity: plant.paisley

@@ -25,15 +25,26 @@ ryu:
     brightness: sensor.ble_illuminance_ryu
   min_battery: 10
 
-edgar:
-  name: Edgar
-  species: muehlenbeckia complexa
+basil:
+  name: Basil
+  species: ocimum basilicum
   sensors:
-    moisture: sensor.edgar_moisture
-    battery: sensor.edgar_battery
-    temperature: sensor.edgar_temperature
-    conductivity: sensor.edgar_soil_conductivity
-    brightness: sensor.edgar_illuminance
+    moisture: sensor.ble_moisture_basil
+    battery: sensor.basil_battery
+    temperature: sensor.ble_temperature_basil
+    conductivity: sensor.ble_conductivity_basil
+    brightness: sensor.ble_illuminance_basil
+  min_battery: 10
+
+cory:
+  name: Cory
+  species: coriandrum sativum l.
+  sensors:
+    moisture: sensor.ble_moisture_cory
+    battery: sensor.battery
+    temperature: sensor.ble_temperature_cory
+    conductivity: sensor.ble_conductivity_cory
+    brightness: sensor.ble_illuminance_cory
   min_battery: 10
 
 courtney:
@@ -89,18 +100,6 @@ paisley:
     temperature: sensor.ble_temperature_paisley
     conductivity: sensor.ble_conductivity_paisley
     brightness: sensor.ble_illuminance_paisley
-  min_battery: 10
-
-minju:
-  name: Minju
-  species: nepeta cataria
-  image: /local/images/plants/nepeta cataria.jpg
-  sensors:
-    moisture: sensor.ble_moisture_minju
-    battery: sensor.minju_battery
-    temperature: sensor.ble_temperature_minju
-    conductivity: sensor.ble_conductivity_minju
-    brightness: sensor.ble_illuminance_minju
   min_battery: 10
 
 ali:
