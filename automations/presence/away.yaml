@@ -1,6 +1,6 @@
 ---
-- alias: Set away
-  description: Clear presence when not on wifi
+- alias: Clear presence when not on wifi
+  id: away_no_wifi
   mode: queued
 
   trigger:
