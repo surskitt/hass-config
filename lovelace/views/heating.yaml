@@ -6,9 +6,22 @@ cards:
   - title: Living room
     type: entities
     entities:
-      - name: Thermostat
-        type: 'custom:slider-entity-row'
-        entity: climate.living_room
+      - type: conditional
+        conditions:
+          - entity: climate.living_room
+            state: heat
+        row:
+          name: Thermostat
+          type: 'custom:slider-entity-row'
+          entity: climate.living_room
+          hide_state: false
+      - type: conditional
+        conditions:
+          - entity: climate.living_room
+            state_not: heat
+        row:
+          name: Thermostat
+          entity: climate.living_room
       - name: Current temperature
         entity: sensor.living_room_temperature
       - name: Humidity
@@ -20,9 +33,22 @@ cards:
   - title: Kitchen
     type: entities
     entities:
-      - name: Thermostat
-        type: 'custom:slider-entity-row'
-        entity: climate.kitchen
+      - type: conditional
+        conditions:
+          - entity: climate.kitchen
+            state: heat
+        row:
+          name: Thermostat
+          type: 'custom:slider-entity-row'
+          entity: climate.kitchen
+          hide_state: false
+      - type: conditional
+        conditions:
+          - entity: climate.kitchen
+            state_not: heat
+        row:
+          name: Thermostat
+          entity: climate.kitchen
       - name: Current temperature
         entity: sensor.kitchen_temperature
       - name: Humidity
@@ -41,9 +67,22 @@ cards:
   - title: Bedroom
     type: entities
     entities:
-      - name: Thermostat
-        type: 'custom:slider-entity-row'
-        entity: climate.bedroom
+      - type: conditional
+        conditions:
+          - entity: climate.bedroom
+            state: heat
+        row:
+          name: Thermostat
+          type: 'custom:slider-entity-row'
+          entity: climate.bedroom
+          hide_state: false
+      - type: conditional
+        conditions:
+          - entity: climate.bedroom
+            state_not: heat
+        row:
+          name: Thermostat
+          entity: climate.bedroom
       - name: Current temperature
         entity: sensor.bedroom_temperature
       - name: Humidity
@@ -67,9 +106,22 @@ cards:
   - title: Office
     type: entities
     entities:
-      - name: Thermostat
-        type: 'custom:slider-entity-row'
-        entity: climate.office
+      - type: conditional
+        conditions:
+          - entity: climate.office
+            state: heat
+        row:
+          name: Thermostat
+          type: 'custom:slider-entity-row'
+          entity: climate.office
+          hide_state: false
+      - type: conditional
+        conditions:
+          - entity: climate.office
+            state_not: heat
+        row:
+          name: Thermostat
+          entity: climate.office
       - name: Current temperature
         entity: sensor.office_temperature
       - name: Humidity
@@ -101,9 +153,22 @@ cards:
   - title: Stairs
     type: entities
     entities:
-      - name: Thermostat
-        type: 'custom:slider-entity-row'
-        entity: climate.stairs
+      - type: conditional
+        conditions:
+          - entity: climate.stairs
+            state: heat
+        row:
+          name: Thermostat
+          type: 'custom:slider-entity-row'
+          entity: climate.stairs
+          hide_state: false
+      - type: conditional
+        conditions:
+          - entity: climate.stairs
+            state_not: heat
+        row:
+          name: Thermostat
+          entity: climate.stairs
       - name: Current temperature
         entity: sensor.stairs_temperature
       - name: Humidity
