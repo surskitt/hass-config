@@ -42,6 +42,13 @@ cards:
         row:
           entity: sensor.wigeon_ytsp_queue_length
           name: ytsp queue length
+      - type: conditional
+        conditions:
+          - entity: switch.wigeon
+            state: 'on'
+        row:
+          entity: sensor.qutebrowser_download_queue_length
+          name: qutebrowser download queue length
 
   - title: teal
     type: entities
