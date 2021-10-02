@@ -33,7 +33,7 @@ cards:
           - name: power
             type: 'custom:mini-graph-card'
             entities:
-              - sensor.wigeon_plug_power
+              - sensor.wigeon_current_consumption
             line_color: "#A3BE8C"
             line_width: 8
             font_size: 75
@@ -41,7 +41,7 @@ cards:
           - name: current
             type: 'custom:mini-graph-card'
             entities:
-              - sensor.wigeon_plug_current
+              - sensor.wigeon_current
             line_color: "#5E81AC"
             line_width: 8
             font_size: 75
@@ -49,7 +49,7 @@ cards:
           - name: voltage
             type: 'custom:mini-graph-card'
             entities:
-              - sensor.wigeon_plug_voltage
+              - sensor.wigeon_voltage
             line_color: "#BF616A"
             line_width: 8
             font_size: 75
