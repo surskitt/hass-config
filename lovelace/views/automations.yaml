@@ -55,3 +55,6 @@ cards:
       - entity: automation.turn_on_guest_mode_when_cleaner_arrives
         icon: 'mdi:account-multiple-plus'
         secondary_info: last-triggered
+      - entity: automation.send_reminder_to_drink_water
+        icon: 'mdi:cup'
+        secondary_info: last-triggered
