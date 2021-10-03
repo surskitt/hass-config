@@ -47,9 +47,8 @@
 
 - id: bedroom_presence_heating_off
   alias: Turn off bedroom heating when presence is unset
-    path: mine/presence_heating_off.yaml
   use_blueprint:
-    path: mine/presence_heating.yaml
+    path: mine/presence_heating_off.yaml
     input:
       presence: input_boolean.bedroom_presence
       climate: climate.bedroom
