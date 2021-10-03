@@ -1,0 +1,54 @@
+---
+blueprint:
+  name: Presence heating off
+  description: Turn off heating when presence changes
+  domain: automation
+
+  input:
+    presence:
+      name: State
+      description: Presence boolean to watch
+    state:
+      name: State
+      description: Sensor state to match (on/off)
+      selector:
+        select:
+          options:
+            - 'on'
+            - 'off'
+      default: 'off'
+    climate:
+      name: Climate
+      description: Climate entity to control
+      selector:
+        entity:
+          domain: climate
+    delay:
+      name: Delay
+      description: Delay in seconds to wait before setting temperature
+      selector:
+        number:
+          min: 0
+          max: 3600
+          unit_of_measurement: seconds
+          mode: box
+      default: 0
+
+mode: restart
+max_exceeded: silent
+
+trigger:
+  platform: state
+  entity_id: !input presence
+  to: !input state
+
+action:
+  - delay: !input delay
+
+  - condition: state
+    entity_id: !input presence
+    state: !input state
+
+  - service: climate.turn_off
+    target:
+      entity_id: !input climate
