@@ -14,10 +14,10 @@
         sequence:
           - service: switch.turn_on
             entity_id:
-              - switch.boiler_room_light_switch
+              - switch.boiler_room_light_switch_switch
 
       - conditions: "{{ trigger.from_state.state == 'on' and trigger.to_state.state == 'off' }}"
         sequence:
           - service: switch.turn_off
             entity_id:
-              - switch.boiler_room_light_switch
+              - switch.boiler_room_light_switch_switch

@@ -131,7 +131,7 @@ cards:
     state_color: true
     entities:
       - name: Boiler room light switch
-        entity: sensor.boiler_room_light_switch_bot_battery
+        entity: sensor.boiler_room_light_switch_battery
       - name: Oven fan switch
         entity: sensor.oven_fan_switch_bot_battery
 

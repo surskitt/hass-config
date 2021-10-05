@@ -30,7 +30,7 @@ cards:
         type: 'custom:slider-entity-row'
         name: Curtain
         icon: 'mdi:window-open-variant'
-      - entity: switch.boiler_room_light_switch
+      - entity: switch.boiler_room_light_switch_switch
         name: Boiler room light switch
       - type: 'custom:fold-entity-row'
         head:
