@@ -7,6 +7,7 @@
     - platform: state
       entity_id:
         - sensor.stairs_downstairs_bulb_switch_action
+        - sensor.stairs_upstairs_bulb_switch_action
       to: ""
 
   action:
