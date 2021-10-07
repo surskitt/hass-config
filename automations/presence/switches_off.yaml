@@ -7,6 +7,7 @@
       presence: input_boolean.living_room_presence
       switches:
         - switch.living_room_light_switch
+        - switch.ttgo_display_backlight
       lights:
         - light.shelly_not_bulb_living_room
 

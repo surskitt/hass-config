@@ -1,0 +1,26 @@
+---
+- id: stairs bulbs buttons
+  alias: Control fridge using tradfri3
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id:
+        - sensor.tradfri3_action
+      to:
+        - "on"
+        - "off"
+
+  action:
+    - choose:
+        - conditions: "{{ trigger.to_state.state == 'on' }}"
+          sequence:
+            - service: switch.turn_on
+              entity_id:
+                - switch.fridge
+
+        - conditions: "{{ trigger.to_state.state == 'off' }}"
+          sequence:
+            - service: switch.turn_off
+              entity_id:
+                - switch.fridge

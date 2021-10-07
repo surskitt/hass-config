@@ -1,0 +1,14 @@
+---
+- id: living_room_presence_plant_display_on
+  alias: turn on plant display when in living room
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: input_boolean.living_room_presence
+      to: 'on'
+
+  action:
+    - service: switch.turn_on
+      entity_id:
+        - switch.ttgo_display_backlight
