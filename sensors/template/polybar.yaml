@@ -13,5 +13,5 @@
         懲
         {% endif -%}
         {{ (states('input_number.water_drinking_daily')|int)/1000 }}
-         {{ states('sensor.wigeon_current_consumption') }}
+         {{ states('sensor.wigeon_current_consumption') }}W
       icon_template: 'mdi:dots-horizontal'
