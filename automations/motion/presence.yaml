@@ -21,7 +21,7 @@
         - input_boolean.garden_presence
 
 - id: kitchen_presence_set_motion
-  alias: Set living room presence when motion is detected
+  alias: Set kitchen presence when motion is detected
   use_blueprint:
     path: mine/set_presence_motion.yaml
     input:
