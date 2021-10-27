@@ -1,0 +1,56 @@
+---
+- id: washing_machine_power_notification
+  alias: Send notification when washing machine finishes
+  mode: queued
+
+  trigger:
+    - platform: numeric_state
+      entity_id:
+        - sensor.washing_machine_plug_power
+      below: 5
+      for: "00:03:00"
+
+  condition: "{{ trigger.from_state.state != 'unavailable' }}"
+
+  action:
+    - service: notify.gotify_high
+      data:
+        title: Washing machine
+        message: The washing machine has finished
+
+    - service: notify.tv
+      data:
+        message: The washing machine has finished
+
+    - service: notify.mobile_app_rook
+      data:
+        title: Washing machine
+        message: The washing machine has finished
+
+- id: dryer_power_notification
+  alias: Send notification when dryer finishes
+  mode: queued
+
+  trigger:
+    - platform: numeric_state
+      entity_id:
+        - sensor.dryer_plug_power
+      below: 5
+      for: "00:03:00"
+
+  condition: "{{ trigger.from_state.state != 'unavailable' }}"
+
+  action:
+    - service: notify.gotify
+      data:
+        title: Dryer
+        message: The dryer has finished
+
+    - service: notify.tv
+      data:
+        message: The dryer has finished
+
+    - service: notify.mobile_app_rook
+      data:
+        title: Dryer
+        message: The dryer has finished

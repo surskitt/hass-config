@@ -52,6 +52,12 @@ cards:
       - entity: automation.reenable_water_notifications
         icon: 'mdi:cup'
         secondary_info: last-triggered
+      - entity: automation.send_notification_when_washing_machine_finishes
+        icon: 'mdi:washing-machine'
+        secondary_info: last-triggered
+      - entity: automation.send_notification_when_dryer_finishes
+        icon: 'mdi:tumble-dryer'
+        secondary_info: last-triggered
 
   - type: entities
     title: Other
