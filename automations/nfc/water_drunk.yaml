@@ -1,0 +1,21 @@
+---
+- id: water_drunk_nfc_add_pint
+  alias: Add pint of water to water drunk when scanning tag
+  mode: queued
+
+  trigger:
+    - platform: tag
+      tag_id:
+        - water_pint_drunk_coaster
+
+  action:
+    - service: input_number.set_value
+      target:
+        entity_id: input_number.water_drinking_daily
+      data:
+        value: "{{ states('input_number.water_drinking_daily')|int + 560 }}"
+
+    - service: notify.gotify
+      data:
+        title: NFC tag scanned
+        message: 1 pint drunk

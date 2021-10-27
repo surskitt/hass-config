@@ -3,11 +3,40 @@ title: Cameras
 path: cameras
 icon: 'mdi:camera'
 cards:
-  - type: picture-entity
-    entity: camera.doorbell
-    camera_image: camera.doorbell
-    name: Doorbell
-    show_state: false
+  # - type: picture-entity
+  #   entity: camera.doorbell
+  #   camera_image: camera.doorbell
+  #   name: Doorbell
+  #   show_state: false
+
+  - type: 'custom:vertical-stack-in-card'
+    cards:
+      - type: conditional
+        conditions:
+          - entity: binary_sensor.doorbell_streaming_sensor
+            state: 'False'
+        card:
+          type: picture-entity
+          entity: camera.doorbell
+          show_name: true
+          show_state: false
+          tap_action:
+            action: call-service
+            service: camera.turn_on
+            service_data: {}
+            target:
+              entity_id: camera.doorbell
+
+      - type: conditional
+        conditions:
+          - entity: binary_sensor.doorbell_streaming_sensor
+            state: 'True'
+        card:
+          type: 'custom:webrtc-camera'
+          entity: camera.doorbell
+          title: Doorbell
+          ui: true
+          mse: false
 
   - type: 'custom:webrtc-camera'
     entity: camera.living_room_cam
@@ -67,14 +96,93 @@ cards:
           - entity: input_boolean.office_camera_privacy_mode
             name: Privacy mode
 
-  - type: 'custom:webrtc-camera'
-    entity: camera.driveway
-    title: Driveway
-    ui: true
-    mse: false
+  # - type: picture-entity
+  #   entity: camera.garden
+  #   show_name: true
+  #   show_state: false
 
-  - type: 'custom:webrtc-camera'
-    entity: camera.garden
-    title: Garden
-    ui: true
-    mse: false
+  - type: 'custom:vertical-stack-in-card'
+    cards:
+      - type: conditional
+        conditions:
+          - entity: binary_sensor.garden_streaming_sensor
+            state: 'False'
+        card:
+          type: picture-entity
+          entity: camera.garden
+          show_name: true
+          show_state: false
+          tap_action:
+            action: call-service
+            service: camera.turn_on
+            service_data: {}
+            target:
+              entity_id: camera.garden
+
+      - type: conditional
+        conditions:
+          - entity: binary_sensor.garden_streaming_sensor
+            state: 'True'
+        card:
+          type: 'custom:webrtc-camera'
+          entity: camera.garden
+          title: Garden
+          ui: true
+          mse: false
+
+  # - type: 'custom:vertical-stack-in-card'
+  #   cards:
+  #     - type: conditional
+  #       conditions:
+  #         - entity: camera.garden
+  #           state_not: Streaming - rtsp
+  #       card:
+  #         type: picture-entity
+  #         entity: camera.garden
+  #         show_name: true
+  #         show_state: false
+
+  #     - type: conditional
+  #       conditions:
+  #         - entity: camera.garden
+  #           state: Streaming - rtsp
+  #       card:
+  #         type: 'custom:webrtc-camera'
+  #         entity: camera.garden
+  #         title: Garden
+  #         ui: true
+  #         mse: false
+
+  # - type: picture-entity
+  #   entity: camera.driveway
+  #   show_name: true
+  #   show_state: false
+
+  - type: 'custom:vertical-stack-in-card'
+    cards:
+      - type: conditional
+        conditions:
+          - entity: binary_sensor.driveway_streaming_sensor
+            state: 'False'
+        card:
+          type: picture-entity
+          entity: camera.driveway
+          show_name: true
+          show_state: false
+          tap_action:
+            action: call-service
+            service: camera.turn_on
+            service_data: {}
+            target:
+              entity_id: camera.driveway
+
+      - type: conditional
+        conditions:
+          - entity: binary_sensor.driveway_streaming_sensor
+            state: 'True'
+        card:
+          type: 'custom:webrtc-camera'
+          entity: camera.driveway
+          title: Driveway
+          ui: true
+          mse: false
