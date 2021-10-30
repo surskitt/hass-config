@@ -1,0 +1,60 @@
+---
+- id: living_room_double_switch_light_switch
+  alias: Toggle living room light switch when pressing left living room double button
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: sensor.living_room_double_switch_action
+      to: 'left'
+
+  action:
+    - service: switch.toggle
+      entity_id:
+        - switch.living_room_light_switch
+
+- id: living_room_double_switch_not_lamp
+  alias: Toggle not lamp when pressing right living room double button
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: sensor.living_room_double_switch_action
+      to: 'right'
+
+  action:
+    - service: light.toggle
+      entity_id:
+        - light.shelly_not_bulb_living_room
+
+- id: living_room_double_switch_not_decrease_brightness
+  alias: Decrease not lamp brightness when double pressing left living room double button
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: sensor.living_room_double_switch_action
+      to: 'left_double'
+
+  action:
+    - service: light.turn_on
+      data:
+        brightness_step_pct: -10
+      target:
+        entity_id: light.shelly_not_bulb_living_room
+
+- id: living_room_double_switch_not_increase_brightness
+  alias: Increase not lamp brightness when double pressing right living room double button
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: sensor.living_room_double_switch_action
+      to: 'right_double'
+
+  action:
+    - service: light.turn_on
+      data:
+        brightness_step_pct: 10
+      target:
+        entity_id: light.shelly_not_bulb_living_room
