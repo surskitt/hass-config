@@ -8,6 +8,18 @@
 
 - platform: template
   switches:
+    rouen:
+      value_template: "{{ states('sensor.dryer_plug_power')|int > 5 }}"
+      turn_on:
+        service: switch.turn_on
+        data:
+          entity_id: switch.dryer_plug_status
+      turn_off:
+        service: shell_command.rouen_off
+      icon_template: 'mdi:gamepad-square'
+
+- platform: template
+  switches:
     tv:
       value_template: "{{ is_state('media_player.tv', 'on') }}"
       turn_on:

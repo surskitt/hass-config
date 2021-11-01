@@ -1,0 +1,36 @@
+---
+- id: rouen_no_power_plug_off
+  alias: Turn off rouen plug when power usage stops
+  mode: queued
+
+  trigger:
+    - platform: numeric_state
+      entity_id:
+        - sensor.dryer_plug_power
+      below: 5
+      for: "00:00:03"
+
+  condition: "{{ trigger.from_state.state != 'unavailable' }}"
+
+  action:
+    - service: switch.turn_off
+      entity_id: switch.dryer_plug_status
+
+- id: rouen_failed_on_turn_off
+  alias: Turn off rouen plug if machine does not power on
+  mode: queued
+
+  trigger:
+    - platform: state
+      entity_id: switch.dryer_plug_status
+      to: 'on'
+
+  action:
+    - delay: 5
+
+    - condition: numeric_state
+      entity_id: sensor.dryer_plug_power
+      below: 5
+
+    - service: switch.turn_off
+      entity_id: switch.dryer_plug_status

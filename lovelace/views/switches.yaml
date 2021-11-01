@@ -39,6 +39,8 @@ cards:
         entities:
           - name: Diffuser light
             entity: light.living_room_diffuser
+      - name: rouen
+        entity: switch.rouen
       # - entity: vacuum.robovac
 
   - title: Kitchen
