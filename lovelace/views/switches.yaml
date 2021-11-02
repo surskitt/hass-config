@@ -32,6 +32,7 @@ cards:
         icon: 'mdi:window-open-variant'
       - entity: switch.boiler_room_light_switch_switch
         name: Boiler room light switch
+        icon: 'mdi:dome-light'
       - type: 'custom:fold-entity-row'
         head:
           name: Diffuser
