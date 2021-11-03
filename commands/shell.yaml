@@ -2,4 +2,4 @@
 sleep_wigeon: 'ssh -o "StrictHostKeyChecking=no" hass@192.168.1.1 sudo systemctl suspend'
 
 # video game pc, nothing sensitive here!
-rouen_off: '/config/helpers/sshpass.py --password 35Hlzd9S ssh root@rouen.lan poweroff'
+rouen_off: '/config/helpers/sshpass.py --password linux ssh root@rouen.lan poweroff'
