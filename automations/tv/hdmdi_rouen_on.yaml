@@ -1,0 +1,72 @@
+---
+- id: hdmi_rouen_on
+  alias: turn on rouen when switching to hdmi 3 on tv
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id:
+        - media_player.tv
+      attribute: source
+      to: "HDMI 3"
+
+  condition:
+    - condition: state
+      entity_id: switch.rouen
+      state: "off"
+
+  action:
+    - service: switch.turn_on
+      entity_id: switch.rouen
+
+    - service: notify.tv
+      data:
+        message: Turning on rouen
+
+- id: hdmi_rouen_notify
+  alias: Notify rouen still on when switching from hdmi 3 on tv
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id:
+        - media_player.tv
+      attribute: source
+      from: "HDMI 3"
+      for: "00:02:00"
+
+  condition:
+    - condition: state
+      entity_id: switch.rouen
+      state: "on"
+
+
+  action:
+    - service: notify.tv
+      data:
+        message: rouen is still on
+
+    - variables:
+        action_rouen_off: "{{ 'ROUEN_OFF_' ~ context.id }}"
+
+    - service: notify.mobile_app_rook
+      data:
+        title: rouen is still on
+        message: "tv is not on hdmi 3 but rook is still on"
+        data:
+          clickAction: "/lovelace/0"
+          actions:
+            - title: "Turn off"
+              action: "{{ action_rouen_off }}"
+
+    - wait_for_trigger:
+        - platform: event
+          event_type: mobile_app_notification_action
+          event_data:
+            action: "{{ action_rouen_off }}"
+      timeout:
+        minutes: 5
+      continue_on_timeout: false
+
+    - service: switch.turn_off
+      entity_id: switch.rouen
