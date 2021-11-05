@@ -40,8 +40,25 @@ cards:
         entities:
           - name: Diffuser light
             entity: light.living_room_diffuser
-      - name: rouen
-        entity: switch.rouen
+      - type: 'custom:fold-entity-row'
+        head:
+          name: rouen
+          entity: switch.rouen
+        entities:
+          - type: button
+            name: Kill steam
+            icon: 'mdi:skull-crossbones-outline'
+            action_name: Kill
+            tap_action:
+              action: call-service
+              service: shell_command.batocera_kill_steam
+          - type: button
+            name: Force kill steam
+            icon: 'mdi:skull-crossbones'
+            action_name: Kill
+            tap_action:
+              action: call-service
+              service: shell_command.batocera_force_kill_steam
       # - entity: vacuum.robovac
 
   - title: Kitchen
