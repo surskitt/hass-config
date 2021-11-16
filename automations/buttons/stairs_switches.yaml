@@ -14,3 +14,5 @@
     - service: light.toggle
       target:
         entity_id: light.stairs_bulbs
+      data:
+        brightness_pct: 100
