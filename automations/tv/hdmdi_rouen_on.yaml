@@ -8,7 +8,7 @@
       entity_id:
         - media_player.tv
       attribute: source
-      to: "HDMI 3"
+      to: "PC"
 
   condition:
     - condition: state
@@ -32,7 +32,7 @@
       entity_id:
         - media_player.tv
       attribute: source
-      from: "HDMI 3"
+      from: "PC"
       for: "00:02:00"
 
   condition:
