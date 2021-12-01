@@ -18,3 +18,9 @@ switchbot_device_command:
   headers:
     Authorization: !secret switchbot_api_key
   payload: '{"command": "{{ command }}", "parameter": "{{ parameter }}"}'
+
+rouen_steam_start:
+  url: "http://rouen.lan:1234/launch"
+  method: post
+  content_type: "text/plain"
+  payload: "/userdata/roms/flatpak/Steam.flatpak"

@@ -46,6 +46,13 @@ cards:
           entity: switch.rouen
         entities:
           - type: button
+            name: Start steam
+            icon: 'mdi:steam'
+            action_name: Start
+            tap_action:
+              action: call-service
+              service: rest_command.rouen_steam_start
+          - type: button
             name: Kill steam
             icon: 'mdi:skull-crossbones-outline'
             action_name: Kill
