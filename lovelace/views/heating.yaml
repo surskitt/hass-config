@@ -61,8 +61,14 @@ cards:
           type: section
           label: Alternate readings
         entities:
-          - entity: sensor.ble_temperature_fridge
-          - entity: sensor.ble_humidity_fridge
+          - name: Fridge temperature
+            entity: sensor.ble_temperature_fridge_thermometer
+          - name: Fridge humidity
+            entity: sensor.ble_humidity_fridge_thermometer
+          - name: Freezer temperature
+            entity: sensor.ble_temperature_freezer_thermometer
+          - name: Freezer humidity
+            entity: sensor.ble_humidity_freezer_thermometer
 
   - title: Bedroom
     type: entities
@@ -90,18 +96,18 @@ cards:
       - name: Valve
         entity: sensor.bedroom_heating
         icon: 'mdi:radiator'
-      - type: 'custom:fold-entity-row'
-        head:
-          type: section
-          label: Alternate readings
-        entities:
-          - entity: sensor.ble_temperature_bedroom_thermometer
-          - entity: sensor.ble_humidity_bedroom_thermometer
-          - type: attribute
-            name: Offset
-            entity: climate.bedroom
-            attribute: offset_celsius
-            suffix: °C
+      # - type: 'custom:fold-entity-row'
+      #   head:
+      #     type: section
+      #     label: Alternate readings
+      #   entities:
+      #     - entity: sensor.ble_temperature_bedroom_thermometer
+      #     - entity: sensor.ble_humidity_bedroom_thermometer
+      #     - type: attribute
+      #       name: Offset
+      #       entity: climate.bedroom
+      #       attribute: offset_celsius
+      #       suffix: °C
 
   - title: Office
     type: entities
