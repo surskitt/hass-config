@@ -7,11 +7,11 @@ ben:
   name: Ben
   species: ficus retusa
   sensors:
-    moisture: sensor.ben_moisture
+    moisture: sensor.ble_moisture_ben
     battery: sensor.ben_battery
-    temperature: sensor.ben_temperature
-    conductivity: sensor.ben_soil_conductivity
-    brightness: sensor.ben_illuminance
+    temperature: sensor.ble_temperature_ben
+    conductivity: sensor.ble_conductivity_ben
+    brightness: sensor.ble_illuminance_ben
   min_battery: 10
 
 ryu:
