@@ -84,7 +84,7 @@ cards:
           - name: power
             type: 'custom:mini-graph-card'
             entities:
-              - sensor.paddlepond_plug_power
+              - sensor.paddlepond_current_consumption
             line_color: "#A3BE8C"
             line_width: 8
             font_size: 75
@@ -92,7 +92,7 @@ cards:
           - name: current
             type: 'custom:mini-graph-card'
             entities:
-              - sensor.paddlepond_plug_current
+              - sensor.paddlepond_current
             line_color: "#5E81AC"
             line_width: 8
             font_size: 75
@@ -100,7 +100,7 @@ cards:
           - name: voltage
             type: 'custom:mini-graph-card'
             entities:
-              - sensor.paddlepond_plug_voltage
+              - sensor.paddlepond_voltage
             line_color: "#BF616A"
             line_width: 8
             font_size: 75
@@ -305,6 +305,57 @@ cards:
             type: 'custom:mini-graph-card'
             entities:
               - sensor.dryer_plug_voltage
+            line_color: "#BF616A"
+            line_width: 8
+            font_size: 75
+
+  - type: vertical-stack
+    title: Fridge
+    cards:
+      - name: Hourly energy
+        type: 'custom:mini-graph-card'
+        entities:
+          - entity: sensor.fridge_hourly_energy
+        line_color: "#88C0D0"
+        hours_to_show: 24
+        aggregate_func: max
+        group_by: hour
+        show:
+          graph: bar
+
+      - name: Daily energy
+        type: 'custom:mini-graph-card'
+        entities:
+          - entity: sensor.fridge_daily_energy
+        line_color: "#88C0D0"
+        hours_to_show: 168
+        aggregate_func: max
+        group_by: date
+        show:
+          graph: bar
+
+      - type: horizontal-stack
+        cards:
+          - name: power
+            type: 'custom:mini-graph-card'
+            entities:
+              - sensor.fridge_current_consumption
+            line_color: "#A3BE8C"
+            line_width: 8
+            font_size: 75
+
+          - name: current
+            type: 'custom:mini-graph-card'
+            entities:
+              - sensor.fridge_current
+            line_color: "#5E81AC"
+            line_width: 8
+            font_size: 75
+
+          - name: voltage
+            type: 'custom:mini-graph-card'
+            entities:
+              - sensor.fridge_voltage
             line_color: "#BF616A"
             line_width: 8
             font_size: 75

@@ -16,19 +16,19 @@ wigeon_monthly_energy:
   cycle: monthly
 
 paddlepond_hourly_energy:
-  source: sensor.paddlepond_total_power
+  source: sensor.paddlepond_total_consumption
   cycle: hourly
 
 paddlepond_daily_energy:
-  source: sensor.paddlepond_total_power
+  source: sensor.paddlepond_total_consumption
   cycle: daily
 
 paddlepond_weekly_energy:
-  source: sensor.paddlepond_total_power
+  source: sensor.paddlepond_total_consumption
   cycle: weekly
 
 paddlepond_monthly_energy:
-  source: sensor.paddlepond_total_power
+  source: sensor.paddlepond_total_consumption
   cycle: monthly
 
 tv_hourly_energy:
@@ -93,4 +93,20 @@ dryer_weekly_energy:
 
 dryer_monthly_energy:
   source: sensor.dryer_total_power
+  cycle: monthly
+
+fridge_hourly_energy:
+  source: sensor.fridge_total_consumption
+  cycle: hourly
+
+fridge_daily_energy:
+  source: sensor.fridge_total_consumption
+  cycle: daily
+
+fridge_weekly_energy:
+  source: sensor.fridge_total_consumption
+  cycle: weekly
+
+fridge_monthly_energy:
+  source: sensor.fridge_total_consumption
   cycle: monthly

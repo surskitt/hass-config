@@ -76,7 +76,7 @@ cards:
       - entity: switch.kitchen_light_switch
         name: Light switch
         icon: 'mdi:ceiling-light'
-      - entity: switch.fridge
+      - entity: switch.fridge_2
         name: Fridge
         icon: 'mdi:fridge'
 
