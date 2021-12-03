@@ -107,11 +107,11 @@ cards:
     state_color: true
     entities:
       - name: Fridge
-        entity: sensor.ble_battery_fridge
+        entity: sensor.ble_battery_fridge_thermometer
       - name: Bedroom
-        entity: sensor.ble_battery_bedroom_thermometer
+        entity: sensor.ble_battery_freezer_thermometer
       - name: Office
-        entity: sensor.office_bt_battery_level
+        entity: sensor.ble_battery_office_thermometer
         
   - title: Curtains
     type: entities

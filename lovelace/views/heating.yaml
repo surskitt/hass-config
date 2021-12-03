@@ -140,8 +140,10 @@ cards:
           type: section
           label: Alternate readings
         entities:
-          - entity: sensor.office_bt_temperature
-          - entity: sensor.office_bt_humidity
+          - name: Bluetooth thermometer temperature
+            entity: sensor.ble_temperature_office_thermometer
+          - name: Bluetooth thermometer humidity
+            entity: sensor.ble_humidity_office_thermometer
           - type: attribute
             name: Offset
             entity: climate.office
