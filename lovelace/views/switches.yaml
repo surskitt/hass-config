@@ -66,6 +66,9 @@ cards:
             tap_action:
               action: call-service
               service: shell_command.batocera_force_kill_steam
+      - entity: light.wled_living_room_window
+        name: Window LEDs
+        icon: 'mdi:led-strip-variant'
       # - entity: vacuum.robovac
 
   - title: Kitchen
