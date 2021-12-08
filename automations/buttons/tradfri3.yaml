@@ -17,10 +17,10 @@
           sequence:
             - service: switch.turn_on
               entity_id:
-                - switch.fridge
+                - switch.fridge_2
 
         - conditions: "{{ trigger.to_state.state == 'off' }}"
           sequence:
             - service: switch.turn_off
               entity_id:
-                - switch.fridge
+                - switch.fridge_2
