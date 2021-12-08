@@ -199,9 +199,14 @@ cards:
         name: Window LEDs
         icon: 'mdi:led-strip-variant'
 
-      # - entity: switch.bedroom_humidifier
-      #   name: Humidifier
-      #   icon: 'mdi:air-humidifier'
+      - type: conditional
+        conditions:
+          - entity: switch.bedroom_humidifier
+            state_not: unavailable
+        row:
+          entity: switch.bedroom_humidifier
+          name: Humidifier
+          icon: 'mdi:led-strip-variant'
 
   - title: Bathroom
     type: entities
