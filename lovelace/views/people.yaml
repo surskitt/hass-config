@@ -7,6 +7,9 @@ cards:
     entities:
       - entity: input_boolean.guest_mode
         state_color: true
+      - entity: switch.presence_simulation
+        icon: 'mdi:robot-happy'
+        state_color: true
       - entity: input_boolean.presence_heating
         state_color: true
 

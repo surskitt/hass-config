@@ -21,3 +21,21 @@
         - input_boolean.bedroom_presence
         - input_boolean.bathroom_presence
         - input_boolean.garden_presence
+
+    - service: switch.turn_on
+      target:
+        entity_id: switch.presence_simulation
+
+- alias: Stop presence simulation when back
+  id: turn_off_presence_simulation
+  mode: queued
+
+  trigger:
+    - platform: state
+      entity_id: sensor.rook_wifi_connection
+      to: Beetroot
+
+  action:
+    - service: switch.turn_off
+      target:
+        entity_id: switch.presence_simulation
