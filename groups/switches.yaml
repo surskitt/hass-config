@@ -9,3 +9,16 @@ room_presence:
     - input_boolean.bathroom_presence
     - input_boolean.stairs_presence
     - input_boolean.garden_presence
+
+away_lights:
+  name: Away lights
+  entities:
+    - switch.living_room_light_switch
+    - light.shelly_not_bulb_living_room
+    - switch.kitchen_light_switch
+    - switch.office_light_switch
+    - light.not_bulb
+    - switch.bedroom_light_switch
+    - light.wled_bed
+    - light.wled_bedroom_dresser
+    - switch.bathroom_light_switch

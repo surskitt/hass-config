@@ -60,10 +60,26 @@ cards:
         secondary_info: last-triggered
 
   - type: entities
+    title: Seasonal
+    show_header_toggle: false
+    state_color: true
+    entities:
+      - entity: automation.turn_off_window_led_strips_later_at_night
+        icon: 'mdi:led-strip-variant'
+        secondary_info: last-triggered
+      - entity: automation.turn_on_window_led_strips_at_sunset
+        icon: 'mdi:led-strip-variant'
+        secondary_info: last-triggered
+
+  - type: entities
     title: Other
     show_header_toggle: false
     state_color: true
     entities:
       - entity: automation.turn_on_guest_mode_when_cleaner_arrives
         icon: 'mdi:account-multiple-plus'
+        secondary_info: last-triggered
+      - entity: automation.tv_wigeon_sleep
+        name: Put wigeon to sleep when turning on the tv
+        icon: 'mdi:television'
         secondary_info: last-triggered

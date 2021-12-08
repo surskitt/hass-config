@@ -6,7 +6,7 @@
   trigger:
     - platform: numeric_state
       entity_id:
-        - sensor.washing_machine_plug_power
+        - sensor.washing_machine_current_consumption
       below: 5
       for: "00:03:00"
 
@@ -34,7 +34,7 @@
   trigger:
     - platform: numeric_state
       entity_id:
-        - sensor.dryer_plug_power
+        - sensor.dryer_current_consumption
       below: 5
       for: "00:03:00"
 

@@ -30,6 +30,7 @@
         - switch.bedroom_light_switch
       lights:
         - light.wled_bed
+        - light.wled_bedroom_dresser
 
 - id: office_presence_switches_off
   alias: Turn off office switches when presence is switched off

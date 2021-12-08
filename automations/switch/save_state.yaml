@@ -30,6 +30,7 @@
       entities:
         - switch.bedroom_light_switch
         - light.wled_bed
+        - light.wled_bedroom_dresser
       presence: input_boolean.bedroom_presence
 
 - id: office_save_state

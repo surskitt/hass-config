@@ -27,6 +27,7 @@
         entities:
           switch.bedroom_light_switch: 'off'
           light.wled_bed: 'off'
+          light.wled_bedroom_dresser: 'off'
 
     - service: scene.create
       data:
