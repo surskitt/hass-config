@@ -195,9 +195,13 @@ cards:
         name: Curtain
         icon: 'mdi:window-open-variant'
 
-      - entity: switch.bedroom_humidifier
-        name: Humidifier
-        icon: 'mdi:air-humidifier'
+      - entity: light.wled_bedroom_window
+        name: Window LEDs
+        icon: 'mdi:led-strip-variant'
+
+      # - entity: switch.bedroom_humidifier
+      #   name: Humidifier
+      #   icon: 'mdi:air-humidifier'
 
   - title: Bathroom
     type: entities
