@@ -54,6 +54,7 @@ script: !include_dir_merge_named scripts/
 
 binary_sensor: !include_dir_merge_list binary_sensors
 camera: !include cameras.yaml
+media_player: !include media_player.yaml
 notify: !include notify.yaml
 plant: !include plants.yaml
 sensor: !include_dir_merge_list sensors
