@@ -3,10 +3,22 @@ title: Video
 path: video
 icon: 'mdi:theater'
 cards:
-  - type: 'custom:mini-media-player'
+  - type: 'custom:lg-remote-control'
     entity: media_player.tv
-    name: TV
-    source: full
-    artwork: material
-    sound_mode: icon
-    info: scroll 
+    sources:
+      - name: Youtube
+        icon: 'mdi:youtube'
+
+  - title: Living room
+    type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+      - entity: switch.tv
+        name: TV
+        icon: 'mdi:television'
+
+  - type: 'custom:webos-keyboard-card'
+    target: media_player.tv
+    title: TV text input
+    label: Input text here
