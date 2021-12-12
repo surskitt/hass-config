@@ -1,4 +1,6 @@
 ---
+bt_interface:
+  - "A0:9F:10:C1:9B:CC"
 discovery: false
 restore_state: true
 devices:
