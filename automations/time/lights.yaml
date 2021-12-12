@@ -1,4 +1,22 @@
 ---
+- alias: Turn down window led strips brightness at night
+  id: window_leds_brightness_down
+
+  trigger:
+    - platform: time
+      at:
+        - "20:30"
+
+  action:
+    - service: light.turn_on
+      target:
+        entity_id:
+          - light.wled_living_room_window
+          - light.wled_bedroom_window
+      data:
+        brightness_pct: 50
+
+
 - alias: Turn off window led strips later at night
   id: window_leds_off
 
