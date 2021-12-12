@@ -1,0 +1,55 @@
+---
+- alias: notify when presence detected when away
+  id: notify_presence_away
+  mode: queued
+
+  trigger:
+    - platform: state
+      entity_id:
+        - input_boolean.living_room_presence
+        - input_boolean.kitchen_presence
+        - input_boolean.stairs_presence
+        - input_boolean.office_presence
+        - input_boolean.bedroom_presence
+        - input_boolean.bathroom_presence
+      to: "on"
+
+  condition:
+    - condition: not
+      conditions:
+        - condition: state
+          entity_id: sensor.rook_wifi_connection
+          state: Beetroot
+
+  action:
+    - service: telegram_bot.send_message
+      data:
+        message: Presence detected in {{ trigger.to_state.attributes.friendly_name }}
+
+    - service: telegram_bot.send_photo
+      data:
+        url: https://hass.shane.run{{ state_attr('camera.living_room_cam', 'entity_picture') }}
+
+    - service: telegram_bot.send_photo
+      data:
+        url: https://hass.shane.run{{ state_attr('camera.kitchen_cam_hd', 'entity_picture') }}
+
+    - service: telegram_bot.send_photo
+      data:
+        url: https://hass.shane.run{{ state_attr('camera.bedroom_camera_hd', 'entity_picture') }}
+
+    - service: telegram_bot.send_photo
+      data:
+        url: https://hass.shane.run{{ state_attr('camera.office_camera_hd', 'entity_picture') }}
+
+    - service: telegram_bot.send_photo
+      data:
+        url: https://hass.shane.run{{ state_attr('camera.doorbell_last_event', 'entity_picture') }}
+
+    - service: telegram_bot.send_photo
+      data:
+        url: https://hass.shane.run{{ state_attr('camera.driveway_last_event', 'entity_picture') }}
+
+    - service: telegram_bot.send_photo
+      data:
+        url: https://hass.shane.run{{ state_attr('camera.garden_last_event', 'entity_picture') }}
