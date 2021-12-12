@@ -186,7 +186,7 @@ cards:
           - name: power
             type: 'custom:mini-graph-card'
             entities:
-              - sensor.dishwasher_plug_power
+              - sensor.dishwasher_current_consumption
             line_color: "#A3BE8C"
             line_width: 8
             font_size: 75
@@ -194,7 +194,7 @@ cards:
           - name: current
             type: 'custom:mini-graph-card'
             entities:
-              - sensor.dishwasher_plug_current
+              - sensor.dishwasher_current_2
             line_color: "#5E81AC"
             line_width: 8
             font_size: 75
@@ -202,7 +202,7 @@ cards:
           - name: voltage
             type: 'custom:mini-graph-card'
             entities:
-              - sensor.dishwasher_plug_voltage
+              - sensor.dishwasher_voltage_2
             line_color: "#BF616A"
             line_width: 8
             font_size: 75

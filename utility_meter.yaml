@@ -48,19 +48,19 @@ tv_monthly_energy:
   cycle: monthly
 
 dishwasher_hourly_energy:
-  source: sensor.dishwasher_total_power
+  source: sensor.dishwasher_total_consumption
   cycle: hourly
 
 dishwasher_daily_energy:
-  source: sensor.dishwasher_total_power
+  source: sensor.dishwasher_total_consumption
   cycle: daily
 
 dishwasher_weekly_energy:
-  source: sensor.dishwasher_total_power
+  source: sensor.dishwasher_total_consumption
   cycle: weekly
 
 dishwasher_monthly_energy:
-  source: sensor.dishwasher_total_power
+  source: sensor.dishwasher_total_consumption
   cycle: monthly
 
 washing_machine_hourly_energy:
