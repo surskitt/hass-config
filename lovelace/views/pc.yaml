@@ -73,3 +73,35 @@ cards:
     entities:
       - name: macbook
         entity: device_tracker.a0_ce_c8_da_91_df
+
+  - title: paddlepond
+    type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+      - name: bazarr
+        entity: switch.bazarr_deployment
+      - name: calibre-web
+        entity: switch.calibre_web_deployment
+      - name: flood
+        entity: switch.flood_deployment
+      - name: forked-daapd
+        entity: switch.forked_daapd_deployment
+      - name: jackett
+        entity: switch.jackett_deployment
+      - name: komga
+        entity: switch.komga_deployment
+      - name: mylar
+        entity: switch.mylar_deployment
+      - name: nzbget
+        entity: switch.nzbget_deployment
+      - name: plex
+        entity: switch.plex_deployment
+      - name: pyload
+        entity: switch.pyload_deployment
+      - name: radarr
+        entity: switch.radarr_deployment
+      - name: sonarr
+        entity: switch.sonarr_deployment
+      - name: transmission
+        entity: switch.transmission_deployment

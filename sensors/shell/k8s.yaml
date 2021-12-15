@@ -1,0 +1,65 @@
+---
+- platform: command_line
+  name: bazarr deployment replicas
+  command: "/config/helpers/deployment_get_replicas.sh media bazarr /config/k8s_token /config/k8s_ca.crt"
+  scan_interval: 15
+
+- platform: command_line
+  name: calibre-web deployment replicas
+  command: "/config/helpers/deployment_get_replicas.sh media calibre-web /config/k8s_token /config/k8s_ca.crt"
+  scan_interval: 15
+
+- platform: command_line
+  name: flood deployment replicas
+  command: "/config/helpers/deployment_get_replicas.sh media flood /config/k8s_token /config/k8s_ca.crt"
+  scan_interval: 15
+
+- platform: command_line
+  name: forked-daapd deployment replicas
+  command: "/config/helpers/deployment_get_replicas.sh media forked-daapd /config/k8s_token /config/k8s_ca.crt"
+  scan_interval: 15
+
+- platform: command_line
+  name: jackett deployment replicas
+  command: "/config/helpers/deployment_get_replicas.sh media jackett /config/k8s_token /config/k8s_ca.crt"
+  scan_interval: 15
+
+- platform: command_line
+  name: komga deployment replicas
+  command: "/config/helpers/deployment_get_replicas.sh media komga /config/k8s_token /config/k8s_ca.crt"
+  scan_interval: 15
+
+- platform: command_line
+  name: mylar deployment replicas
+  command: "/config/helpers/deployment_get_replicas.sh media mylar /config/k8s_token /config/k8s_ca.crt"
+  scan_interval: 15
+
+- platform: command_line
+  name: nzbget deployment replicas
+  command: "/config/helpers/deployment_get_replicas.sh media nzbget /config/k8s_token /config/k8s_ca.crt"
+  scan_interval: 15
+
+- platform: command_line
+  name: plex deployment replicas
+  command: "/config/helpers/deployment_get_replicas.sh media plex /config/k8s_token /config/k8s_ca.crt"
+  scan_interval: 15
+
+- platform: command_line
+  name: pyload deployment replicas
+  command: "/config/helpers/deployment_get_replicas.sh media pyload /config/k8s_token /config/k8s_ca.crt"
+  scan_interval: 15
+
+- platform: command_line
+  name: radarr deployment replicas
+  command: "/config/helpers/deployment_get_replicas.sh media radarr /config/k8s_token /config/k8s_ca.crt"
+  scan_interval: 15
+
+- platform: command_line
+  name: sonarr deployment replicas
+  command: "/config/helpers/deployment_get_replicas.sh media sonarr /config/k8s_token /config/k8s_ca.crt"
+  scan_interval: 15
+
+- platform: command_line
+  name: transmission deployment replicas
+  command: "/config/helpers/deployment_get_replicas.sh media transmission /config/k8s_token /config/k8s_ca.crt"
+  scan_interval: 15
