@@ -22,3 +22,4 @@ away_lights:
     - light.wled_bed
     - light.wled_bedroom_dresser
     - switch.bathroom_light_switch
+    - light.stairs_bulbs
