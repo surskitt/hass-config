@@ -31,6 +31,17 @@
         data:
           entity_id: media_player.tv
 
+    google_tv:
+      value_template: "{{ not is_state('media_player.google_tv', 'off') }}"
+      turn_on:
+        service: media_player.turn_on
+        data:
+          entity_id: media_player.google_tv
+      turn_off:
+        service: media_player.turn_off
+        data:
+          entity_id: media_player.google_tv
+
 - platform: template
   switches:
     office_diffuser:

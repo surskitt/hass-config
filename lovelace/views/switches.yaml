@@ -23,9 +23,27 @@ cards:
             type: 'custom:slider-entity-row'
             entity: light.shelly_not_bulb_living_room
             attribute: color_temp
-      - entity: switch.tv
-        name: TV
-        icon: 'mdi:television'
+      - type: 'custom:fold-entity-row'
+        head:
+          entity: switch.tv
+          name: TV
+          icon: 'mdi:television'
+        entities:
+          - name: Google TV
+            entity: switch.google_tv
+            icon: 'mdi:google'
+          - name: Hyperion
+            entity: light.tv_leds
+            icon: 'mdi:television-ambient-light'
+          - name: LEDs
+            entity: switch.tv_leds_component_led_device
+            icon: 'mdi:led-strip-variant'
+          - name: Hyperion USB Capture
+            entity: switch.tv_leds_component_usb_capture
+            icon: 'mdi:usb'
+          - name: Hyperion smoothing
+            entity: switch.tv_leds_component_smoothing
+            icon: 'mdi:blur'
       - entity: cover.living_room_curtains_curtain
         type: 'custom:slider-entity-row'
         name: Curtain
