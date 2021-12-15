@@ -9,6 +9,9 @@
         - switch.living_room_light_switch
         - light.shelly_not_bulb_living_room
         - switch.tv
+        - switch.google_tv
+        - light.tv_leds
+        - switch.tv_leds_component_usb_capture
       presence: input_boolean.living_room_presence
 
 - id: kitchen_save_state
