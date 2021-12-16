@@ -82,4 +82,110 @@
           entity_id: fan.living_room_diffuser
           speed: 'off'
 
+- platform: template
+  switches:
+    bazarr_deployment:
+      icon_template: 'mdi:kubernetes'
+      value_template: "{{ states('sensor.bazarr_deployment_replicas')|int > 0 }}"
+      turn_on:
+        service: shell_command.bazarr_scale_up
+      turn_off:
+        service: shell_command.bazarr_scale_down
+
+    calibre_web_deployment:
+      icon_template: 'mdi:kubernetes'
+      value_template: "{{ states('sensor.calibre_web_deployment_replicas')|int > 0 }}"
+      turn_on:
+        service: shell_command.calibre_web_scale_up
+      turn_off:
+        service: shell_command.calibre_web_scale_down
+
+    flood_deployment:
+      icon_template: 'mdi:kubernetes'
+      value_template: "{{ states('sensor.flood_deployment_replicas')|int > 0 }}"
+      turn_on:
+        service: shell_command.flood_scale_up
+      turn_off:
+        service: shell_command.flood_scale_down
+
+    forked_daapd_deployment:
+      icon_template: 'mdi:kubernetes'
+      value_template: "{{ states('sensor.forked_daapd_deployment_replicas')|int > 0 }}"
+      turn_on:
+        service: shell_command.forked_daapd_scale_up
+      turn_off:
+        service: shell_command.forked_daapd_scale_down
+
+    komga_deployment:
+      icon_template: 'mdi:kubernetes'
+      value_template: "{{ states('sensor.komga_deployment_replicas')|int > 0 }}"
+      turn_on:
+        service: shell_command.komga_scale_up
+      turn_off:
+        service: shell_command.komga_scale_down
+
+    jackett_deployment:
+      icon_template: 'mdi:kubernetes'
+      value_template: "{{ states('sensor.jackett_deployment_replicas')|int > 0 }}"
+      turn_on:
+        service: shell_command.jackett_scale_up
+      turn_off:
+        service: shell_command.jackett_scale_down
+
+    mylar_deployment:
+      icon_template: 'mdi:kubernetes'
+      value_template: "{{ states('sensor.mylar_deployment_replicas')|int > 0 }}"
+      turn_on:
+        service: shell_command.mylar_scale_up
+      turn_off:
+        service: shell_command.mylar_scale_down
+
+    nzbget_deployment:
+      icon_template: 'mdi:kubernetes'
+      value_template: "{{ states('sensor.nzbget_deployment_replicas')|int > 0 }}"
+      turn_on:
+        service: shell_command.nzbget_scale_up
+      turn_off:
+        service: shell_command.nzbget_scale_down
+
+    plex_deployment:
+      icon_template: 'mdi:kubernetes'
+      value_template: "{{ states('sensor.plex_deployment_replicas')|int > 0 }}"
+      turn_on:
+        service: shell_command.plex_scale_up
+      turn_off:
+        service: shell_command.plex_scale_down
+
+    pyload_deployment:
+      icon_template: 'mdi:kubernetes'
+      value_template: "{{ states('sensor.pyload_deployment_replicas')|int > 0 }}"
+      turn_on:
+        service: shell_command.pyload_scale_up
+      turn_off:
+        service: shell_command.pyload_scale_down
+
+    radarr_deployment:
+      icon_template: 'mdi:kubernetes'
+      value_template: "{{ states('sensor.radarr_deployment_replicas')|int > 0 }}"
+      turn_on:
+        service: shell_command.radarr_scale_up
+      turn_off:
+        service: shell_command.radarr_scale_down
+
+    sonarr_deployment:
+      icon_template: 'mdi:kubernetes'
+      value_template: "{{ states('sensor.sonarr_deployment_replicas')|int > 0 }}"
+      turn_on:
+        service: shell_command.sonarr_scale_up
+      turn_off:
+        service: shell_command.sonarr_scale_down
+
+    transmission_deployment:
+      icon_template: 'mdi:kubernetes'
+      value_template: "{{ states('sensor.transmission_deployment_replicas')|int > 0 }}"
+      turn_on:
+        service: shell_command.transmission_scale_up
+      turn_off:
+        service: shell_command.transmission_scale_down
+
 - platform: bhyve
