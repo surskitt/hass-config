@@ -3,359 +3,71 @@ title: Power
 icon: 'mdi:power-plug'
 panel: false
 cards:
-  - type: vertical-stack
-    title: wigeon
-    cards:
-      - name: Hourly energy
-        type: 'custom:mini-graph-card'
-        entities:
-          - entity: sensor.wigeon_hourly_energy
-        line_color: "#88C0D0"
-        hours_to_show: 24
-        aggregate_func: max
-        group_by: hour
-        show:
-          graph: bar
+  - type: 'custom:apexcharts-card'
+    config_templates:
+      - default
+      - stacked_area
+      - last_three_hours
+    header:
+      title: Current energy
+    series:
+      - entity: sensor.wigeon_current_consumption
+        name: wigeon
+      - entity: sensor.paddlepond_current_consumption
+        name: paddlepond
+      - entity: sensor.tv_plug_power
+        name: TV
+      - entity: sensor.fridge_current_consumption
+        name: Fridge
+      - entity: sensor.dishwasher_current_consumption
+        name: Dishwasher
+      - entity: sensor.washing_machine_current_consumption
+        name: Washing machine
+      - entity: sensor.dryer_current_consumption
+        name: Dryer
 
-      - name: Daily energy
-        type: 'custom:mini-graph-card'
-        entities:
-          - entity: sensor.wigeon_daily_energy
-        line_color: "#88C0D0"
-        hours_to_show: 168
-        aggregate_func: max
-        group_by: date
-        show:
-          graph: bar
+  - type: 'custom:apexcharts-card'
+    config_templates:
+      - default
+      - stacked_bar
+      - hourly_day
+    header:
+      title: Hourly energy usage
+    series:
+      - entity: sensor.wigeon_hourly_energy
+        name: wigeon
+      - entity: sensor.paddlepond_hourly_energy
+        name: paddlepond
+      - entity: sensor.tv_hourly_energy
+        name: TV
+      - entity: sensor.fridge_hourly_energy
+        name: Fridge
+      - entity: sensor.dishwasher_hourly_energy
+        name: Dishwasher
+      - entity: sensor.washing_machine_hourly_energy
+        name: Washing machine
+      - entity: sensor.dryer_hourly_energy
+        name: Dryer
 
-      - type: horizontal-stack
-        cards:
-          - name: power
-            type: 'custom:mini-graph-card'
-            entities:
-              - sensor.wigeon_current_consumption
-            line_color: "#A3BE8C"
-            line_width: 8
-            font_size: 75
-
-          - name: current
-            type: 'custom:mini-graph-card'
-            entities:
-              - sensor.wigeon_current
-            line_color: "#5E81AC"
-            line_width: 8
-            font_size: 75
-
-          - name: voltage
-            type: 'custom:mini-graph-card'
-            entities:
-              - sensor.wigeon_voltage
-            line_color: "#BF616A"
-            line_width: 8
-            font_size: 75
-
-  - type: vertical-stack
-    title: paddlepond
-    cards:
-      - name: Hourly energy
-        type: 'custom:mini-graph-card'
-        entities:
-          - entity: sensor.paddlepond_hourly_energy
-        line_color: "#88C0D0"
-        hours_to_show: 24
-        aggregate_func: max
-        group_by: hour
-        show:
-          graph: bar
-
-      - name: Daily energy
-        type: 'custom:mini-graph-card'
-        entities:
-          - entity: sensor.paddlepond_daily_energy
-        line_color: "#88C0D0"
-        hours_to_show: 168
-        aggregate_func: max
-        group_by: date
-        show:
-          graph: bar
-
-      - type: horizontal-stack
-        cards:
-          - name: power
-            type: 'custom:mini-graph-card'
-            entities:
-              - sensor.paddlepond_current_consumption
-            line_color: "#A3BE8C"
-            line_width: 8
-            font_size: 75
-
-          - name: current
-            type: 'custom:mini-graph-card'
-            entities:
-              - sensor.paddlepond_current
-            line_color: "#5E81AC"
-            line_width: 8
-            font_size: 75
-
-          - name: voltage
-            type: 'custom:mini-graph-card'
-            entities:
-              - sensor.paddlepond_voltage
-            line_color: "#BF616A"
-            line_width: 8
-            font_size: 75
-
-  - type: vertical-stack
-    title: TV
-    cards:
-      - name: Hourly energy
-        type: 'custom:mini-graph-card'
-        entities:
-          - entity: sensor.tv_hourly_energy
-        line_color: "#88C0D0"
-        hours_to_show: 24
-        aggregate_func: max
-        group_by: hour
-        show:
-          graph: bar
-
-      - name: Daily energy
-        type: 'custom:mini-graph-card'
-        entities:
-          - entity: sensor.tv_daily_energy
-        line_color: "#88C0D0"
-        hours_to_show: 168
-        aggregate_func: max
-        group_by: date
-        show:
-          graph: bar
-
-      - type: horizontal-stack
-        cards:
-          - name: power
-            type: 'custom:mini-graph-card'
-            entities:
-              - sensor.tv_plug_power
-            line_color: "#A3BE8C"
-            line_width: 8
-            font_size: 75
-
-          - name: current
-            type: 'custom:mini-graph-card'
-            entities:
-              - sensor.tv_plug_current
-            line_color: "#5E81AC"
-            line_width: 8
-            font_size: 75
-
-          - name: voltage
-            type: 'custom:mini-graph-card'
-            entities:
-              - sensor.tv_plug_voltage
-            line_color: "#BF616A"
-            line_width: 8
-            font_size: 75
-
-  - type: vertical-stack
-    title: Dishwasher
-    cards:
-      - name: Hourly energy
-        type: 'custom:mini-graph-card'
-        entities:
-          - entity: sensor.dishwasher_hourly_energy
-        line_color: "#88C0D0"
-        hours_to_show: 24
-        aggregate_func: max
-        group_by: hour
-        show:
-          graph: bar
-
-      - name: Daily energy
-        type: 'custom:mini-graph-card'
-        entities:
-          - entity: sensor.dishwasher_daily_energy
-        line_color: "#88C0D0"
-        hours_to_show: 168
-        aggregate_func: max
-        group_by: date
-        show:
-          graph: bar
-
-      - type: horizontal-stack
-        cards:
-          - name: power
-            type: 'custom:mini-graph-card'
-            entities:
-              - sensor.dishwasher_current_consumption
-            line_color: "#A3BE8C"
-            line_width: 8
-            font_size: 75
-
-          - name: current
-            type: 'custom:mini-graph-card'
-            entities:
-              - sensor.dishwasher_current_2
-            line_color: "#5E81AC"
-            line_width: 8
-            font_size: 75
-
-          - name: voltage
-            type: 'custom:mini-graph-card'
-            entities:
-              - sensor.dishwasher_voltage_2
-            line_color: "#BF616A"
-            line_width: 8
-            font_size: 75
-
-  - type: vertical-stack
-    title: Washing machine
-    cards:
-      - name: Hourly energy
-        type: 'custom:mini-graph-card'
-        entities:
-          - entity: sensor.washing_machine_hourly_energy
-        line_color: "#88C0D0"
-        hours_to_show: 24
-        aggregate_func: max
-        group_by: hour
-        show:
-          graph: bar
-
-      - name: Daily energy
-        type: 'custom:mini-graph-card'
-        entities:
-          - entity: sensor.washing_machine_daily_energy
-        line_color: "#88C0D0"
-        hours_to_show: 168
-        aggregate_func: max
-        group_by: date
-        show:
-          graph: bar
-
-      - type: horizontal-stack
-        cards:
-          - name: power
-            type: 'custom:mini-graph-card'
-            entities:
-              - sensor.washing_machine_current_consumption
-            line_color: "#A3BE8C"
-            line_width: 8
-            font_size: 75
-
-          - name: current
-            type: 'custom:mini-graph-card'
-            entities:
-              - sensor.washing_machine_current_2
-            line_color: "#5E81AC"
-            line_width: 8
-            font_size: 75
-
-          - name: voltage
-            type: 'custom:mini-graph-card'
-            entities:
-              - sensor.washing_machine_voltage_2
-            line_color: "#BF616A"
-            line_width: 8
-            font_size: 75
-
-  - type: vertical-stack
-    title: Dryer
-    cards:
-      - name: Hourly energy
-        type: 'custom:mini-graph-card'
-        entities:
-          - entity: sensor.dryer_hourly_energy
-        line_color: "#88C0D0"
-        hours_to_show: 24
-        aggregate_func: max
-        group_by: hour
-        show:
-          graph: bar
-
-      - name: Daily energy
-        type: 'custom:mini-graph-card'
-        entities:
-          - entity: sensor.dryer_daily_energy
-        line_color: "#88C0D0"
-        hours_to_show: 168
-        aggregate_func: max
-        group_by: date
-        show:
-          graph: bar
-
-      - type: horizontal-stack
-        cards:
-          - name: power
-            type: 'custom:mini-graph-card'
-            entities:
-              - sensor.dryer_current_consumption
-            line_color: "#A3BE8C"
-            line_width: 8
-            font_size: 75
-
-          - name: current
-            type: 'custom:mini-graph-card'
-            entities:
-              - sensor.dryer_current_2
-            line_color: "#5E81AC"
-            line_width: 8
-            font_size: 75
-
-          - name: voltage
-            type: 'custom:mini-graph-card'
-            entities:
-              - sensor.dryer_voltage_2
-            line_color: "#BF616A"
-            line_width: 8
-            font_size: 75
-
-  - type: vertical-stack
-    title: Fridge
-    cards:
-      - name: Hourly energy
-        type: 'custom:mini-graph-card'
-        entities:
-          - entity: sensor.fridge_hourly_energy
-        line_color: "#88C0D0"
-        hours_to_show: 24
-        aggregate_func: max
-        group_by: hour
-        show:
-          graph: bar
-
-      - name: Daily energy
-        type: 'custom:mini-graph-card'
-        entities:
-          - entity: sensor.fridge_daily_energy
-        line_color: "#88C0D0"
-        hours_to_show: 168
-        aggregate_func: max
-        group_by: date
-        show:
-          graph: bar
-
-      - type: horizontal-stack
-        cards:
-          - name: power
-            type: 'custom:mini-graph-card'
-            entities:
-              - sensor.fridge_current_consumption
-            line_color: "#A3BE8C"
-            line_width: 8
-            font_size: 75
-
-          - name: current
-            type: 'custom:mini-graph-card'
-            entities:
-              - sensor.fridge_current
-            line_color: "#5E81AC"
-            line_width: 8
-            font_size: 75
-
-          - name: voltage
-            type: 'custom:mini-graph-card'
-            entities:
-              - sensor.fridge_voltage
-            line_color: "#BF616A"
-            line_width: 8
-            font_size: 75
+  - type: 'custom:apexcharts-card'
+    config_templates:
+      - default
+      - stacked_bar
+      - daily_week
+    header:
+      title: Daily energy usage
+    series:
+      - entity: sensor.wigeon_daily_energy
+        name: wigeon
+      - entity: sensor.paddlepond_daily_energy
+        name: paddlepond
+      - entity: sensor.tv_daily_energy
+        name: TV
+      - entity: sensor.fridge_daily_energy
+        name: Fridge
+      - entity: sensor.dishwasher_daily_energy
+        name: Dishwasher
+      - entity: sensor.washing_machine_daily_energy
+        name: Washing machine
+      - entity: sensor.dryer_daily_energy
+        name: Dryer

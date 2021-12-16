@@ -1,0 +1,66 @@
+---
+default:
+  header:
+    show: true
+  color_list:
+    - '#d08770'
+    - '#ebcb8b'
+    - '#a3be8c'
+    - '#b48ead'
+    - '#bf616a'
+    - '#8fbcbb'
+    - '#81a1c1'
+    - '#5e81ac'
+  show:
+    last_updated: true
+
+stacked_bar:
+  stacked: true
+  all_series_config:
+    type: column
+
+line:
+  all_series_config:
+    stroke_width: 2
+
+stacked_area:
+  stacked: true
+  all_series_config:
+    type: area
+    stroke_width: 2
+
+last_six_hours:
+  graph_span: 6h
+  all_series_config:
+    group_by:
+      func: avg
+      duration: 5m
+  update_interval: 10s
+
+last_three_hours:
+  graph_span: 3h
+  all_series_config:
+    group_by:
+      func: avg
+      duration: 5m
+  update_interval: 10s
+
+hourly_day:
+  graph_span: 24h
+  span:
+    end: hour
+  all_series_config:
+    group_by:
+      func: last
+      duration: 1h
+  update_interval: 10m
+
+daily_week:
+  graph_span: 7d
+  span:
+    end: day
+  all_series_config:
+    group_by:
+      func: last
+      duration: 1d
+  update_interval: 1h

@@ -1,4 +1,6 @@
 ---
+apexcharts_card_templates: !include lovelace/apexcharts_cards_templates.yaml
+
 views:
   - !include lovelace/views/switches.yaml
   - !include lovelace/views/heating.yaml

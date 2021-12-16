@@ -47,3 +47,5 @@
   type: module
 - url: /hacsfiles/lovelace-webos-keyboard-card/webos-keyboard-card.js
   type: module
+- url: /hacsfiles/apexcharts-card/apexcharts-card.js
+  type: module
