@@ -52,6 +52,8 @@ cards:
         name: Dryer
       - entity: sensor.lights_hourly_energy
         name: Lights
+    all_series_config:
+      float_precision: 2
 
   - type: 'custom:apexcharts-card'
     config_templates:
@@ -77,6 +79,8 @@ cards:
         name: Dryer
       - entity: sensor.lights_daily_energy
         name: Lights
+    all_series_config:
+      float_precision: 2
 
   - type: 'custom:apexcharts-card'
     config_templates:
