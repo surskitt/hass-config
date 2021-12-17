@@ -121,8 +121,32 @@ lights_daily_energy:
 
 lights_weekly_energy:
   source: sensor.lights_total_power
-  cycle: daily
+  cycle: weekly
 
 lights_monthly_energy:
   source: sensor.lights_total_power
+  cycle: monthly
+
+shelly_office_not_hourly_energy:
+  source: sensor.not_bulb_energy
+  cycle: hourly
+
+shelly_office_not_daily_energy:
+  source: sensor.not_bulb_energy
+  cycle: daily
+
+shelly_living_room_not_hourly_energy:
+  source: sensor.shelly_not_bulb_living_room_energy
+  cycle: hourly
+
+shelly_living_room_not_daily_energy:
+  source: sensor.shelly_not_bulb_living_room_energy
+  cycle: daily
+
+shelly_garden_not_hourly_energy:
+  source: sensor.shelly_garden_energy
+  cycle: hourly
+
+shelly_garden_not_daily_energy:
+  source: sensor.shelly_garden_energy
   cycle: daily

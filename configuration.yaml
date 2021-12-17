@@ -40,6 +40,7 @@ browser_mod: !include component_config/browser_mod.yaml
 calendar: !include component_config/calendar.yaml
 telegram_bot: !include component_config/telegram_bot.yaml
 plex: !include component_config/plex.yaml
+powercalc: !include component_config/powercalc.yaml
 saver:
 spotify: !include component_config/spotify.yaml
 # spotcast: !include component_config/spotcast.yaml

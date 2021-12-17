@@ -9,7 +9,7 @@ cards:
       - stacked_area
       - last_three_hours
     header:
-      title: Current energy
+      title: Current power
     series:
       - entity: sensor.wigeon_current_consumption
         name: wigeon
@@ -77,3 +77,92 @@ cards:
         name: Dryer
       - entity: sensor.lights_daily_energy
         name: Lights
+
+  - type: 'custom:apexcharts-card'
+    config_templates:
+      - default
+      - stacked_area
+      - last_three_hours
+    header:
+      title: Current lights power
+    series:
+      - entity: sensor.living_room_light_switch_power_2 
+        name: Living room lights
+      - entity: sensor.shelly_not_bulb_living_room_power
+        name: Living room not
+      - entity: sensor.kitchen_light_switch_power
+        name: Kitchen lights
+      - entity: sensor.bedroom_light_switch_power
+        name: Bedroom lights
+      - entity: sensor.wled_bedroom_power
+        name: WLED bedroom
+      - entity: sensor.office_light_switch_power
+        name: Office lights
+      - entity: sensor.office_light_switch_power
+        name: Office not
+      - entity: sensor.bathroom_light_switch_power
+        name: Bathroom lights
+      - entity: sensor.stairs_bulbs_power
+        name: Stairs bulbs
+
+  - type: 'custom:apexcharts-card'
+    config_templates:
+      - default
+      - stacked_bar
+      - hourly_day
+    header:
+      title: Hourly lights energy usage
+    series:
+      - entity: sensor.living_room_light_switch_energy_hourly
+        name: Living room lights
+      - entity: sensor.shelly_living_room_not_hourly_energy
+        name: Living room not
+      - entity: sensor.kitchen_light_switch_energy_hourly
+        name: Kitchen lights
+      - entity: sensor.bedroom_light_switch_energy_hourly
+        name: Bedroom lights
+      - entity: sensor.wled_bedroom_energy_hourly
+        name: WLED bedroom
+      - entity: sensor.office_light_switch_energy_hourly
+        name: Office lights
+      - entity: sensor.shelly_office_not_hourly_energy
+        name: Office not
+      - entity: sensor.bathroom_light_switch_energy_hourly
+        name: Bathroom lights
+      - entity: sensor.stairs_bulbs_energy_hourly
+        name: Stairs bulbs
+    all_series_config:
+      float_precision: 3
+    yaxis:
+      - decimals: 3
+
+  - type: 'custom:apexcharts-card'
+    config_templates:
+      - default
+      - stacked_bar
+      - daily_week
+    header:
+      title: Daily lights energy usage
+    series:
+      - entity: sensor.living_room_light_switch_energy_daily
+        name: Living room lights
+      - entity: sensor.shelly_living_room_not_daily_energy
+        name: Living room not
+      - entity: sensor.kitchen_light_switch_energy_daily
+        name: Kitchen lights
+      - entity: sensor.bedroom_light_switch_energy_daily
+        name: Bedroom lights
+      - entity: sensor.wled_bedroom_energy_daily
+        name: WLED bedroom
+      - entity: sensor.office_light_switch_energy_daily
+        name: Office lights
+      - entity: sensor.shelly_office_not_daily_energy
+        name: Office not
+      - entity: sensor.bathroom_light_switch_energy_daily
+        name: Bathroom lights
+      - entity: sensor.stairs_bulbs_energy_daily
+        name: Stairs bulbs
+    all_series_config:
+      float_precision: 3
+    yaxis:
+      - decimals: 3
