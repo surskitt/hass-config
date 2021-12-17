@@ -1,0 +1,26 @@
+---
+- platform: template
+  sensors:
+    lights_power:
+      friendly_name: Lights power
+      value_template: >-
+        {{ 
+          states('sensor.not_bulb_power')|float +
+          states('sensor.shelly_not_bulb_living_room_power')|float +
+          states('sensor.shelly_garden_power')|float +
+
+          states('sensor.wled_bed_power')|float +
+          states('sensor.wled_bedroom_dresser_power')|float +
+          states('sensor.wled_living_room_window_power')|float +
+          states('sensor.wled_bedroom_window_power')|float +
+
+          states('light.stairs_upstairs_bulb')|float +
+          states('light.stairs_downstairs_bulb')|float +
+
+          states('sensor.living_room_light_switch_power_2')|float +
+          states('sensor.bedroom_light_switch_power')|float +
+          states('sensor.office_light_switch_power')|float +
+          states('sensor.bathroom_light_switch_power')|float
+        }}
+      icon_template: 'mdi:lightbulb-on-outline'
+      unit_of_measurement: W

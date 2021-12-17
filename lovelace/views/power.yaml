@@ -25,6 +25,8 @@ cards:
         name: Washing machine
       - entity: sensor.dryer_current_consumption
         name: Dryer
+      - entity: sensor.lights_power
+        name: Lights
 
   - type: 'custom:apexcharts-card'
     config_templates:
@@ -48,6 +50,8 @@ cards:
         name: Washing machine
       - entity: sensor.dryer_hourly_energy
         name: Dryer
+      - entity: sensor.lights_hourly_energy
+        name: Lights
 
   - type: 'custom:apexcharts-card'
     config_templates:
@@ -71,3 +75,5 @@ cards:
         name: Washing machine
       - entity: sensor.dryer_daily_energy
         name: Dryer
+      - entity: sensor.lights_daily_energy
+        name: Lights

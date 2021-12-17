@@ -110,3 +110,19 @@ fridge_weekly_energy:
 fridge_monthly_energy:
   source: sensor.fridge_total_consumption
   cycle: monthly
+
+lights_hourly_energy:
+  source: sensor.lights_total_power
+  cycle: hourly
+
+lights_daily_energy:
+  source: sensor.lights_total_power
+  cycle: daily
+
+lights_weekly_energy:
+  source: sensor.lights_total_power
+  cycle: daily
+
+lights_monthly_energy:
+  source: sensor.lights_total_power
+  cycle: daily

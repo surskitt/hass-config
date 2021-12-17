@@ -1,0 +1,20 @@
+---
+- platform: powercalc
+  entity_id: light.wled_bed
+  wled:
+    voltage: 5
+
+- platform: powercalc
+  entity_id: light.wled_bedroom_dresser
+  wled:
+    voltage: 5
+
+- platform: powercalc
+  entity_id: light.wled_living_room_window
+  wled:
+    voltage: 5
+
+- platform: powercalc
+  entity_id: light.wled_bedroom_window
+  wled:
+    voltage: 5

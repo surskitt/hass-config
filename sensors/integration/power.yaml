@@ -10,3 +10,9 @@
   name: dishwasher total power
   unit_prefix: k
   round: 2
+
+- platform: integration
+  source: sensor.lights_power
+  name: lights total power
+  unit_prefix: k
+  round: 2

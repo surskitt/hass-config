@@ -1,0 +1,35 @@
+---
+- platform: powercalc
+  entity_id: switch.living_room_light_switch
+  fixed:
+    power: 37
+
+- platform: powercalc
+  entity_id: switch.kitchen_light_switch
+  fixed:
+    power: 54
+
+- platform: powercalc
+  entity_id: switch.bedroom_light_switch
+  fixed:
+    power: 45
+
+- platform: powercalc
+  entity_id: switch.office_light_switch
+  fixed:
+    power: 84
+
+- platform: powercalc
+  entity_id: switch.bathroom_light_switch
+  fixed:
+    power: 84
+
+- platform: powercalc
+  entity_id: light.stairs_upstairs_bulb
+  manufacturer: ikea
+  model: LED1836G9
+
+- platform: powercalc
+  entity_id: light.stairs_downstairs_bulb
+  manufacturer: ikea
+  model: LED1836G9
