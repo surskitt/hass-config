@@ -102,7 +102,7 @@ cards:
         name: WLED bedroom
       - entity: sensor.office_light_switch_power
         name: Office lights
-      - entity: sensor.office_light_switch_power
+      - entity: sensor.not_bulb_power
         name: Office not
       - entity: sensor.bathroom_light_switch_power
         name: Bathroom lights
