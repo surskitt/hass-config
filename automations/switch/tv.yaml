@@ -1,6 +1,6 @@
 ---
-- alias: tv_wigeon_sleep
-  description: Put wigeon to sleep when tv is turned on
+- id: tv_wigeon_sleep
+  alias: Put wigeon to sleep when tv is turned on
   mode: queued
 
   trigger:

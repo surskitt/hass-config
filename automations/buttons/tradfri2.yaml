@@ -1,6 +1,6 @@
 ---
-- alias: Cycle office lights
-  description: Cycle office lights when tradfri2 on is pressed
+- id: Cycle office lights
+  alias: Cycle office lights when tradfri2 on is pressed
   mode: single
 
   trigger:

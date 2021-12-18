@@ -1,6 +1,6 @@
 ---
-- alias: tv_auto_pause
-  description: Pause tv when leaving room
+- alias: Pause tv when leaving room
+  id: tv_auto_pause
   mode: queued
 
   trigger:

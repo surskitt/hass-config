@@ -1,6 +1,6 @@
 ---
-- alias: fridge_turn_on
-  description: Turn on fridge when leaving living room
+- id: fridge_turn_on
+  alias: Turn on fridge when leaving living room
   mode: restart
   
   trigger:

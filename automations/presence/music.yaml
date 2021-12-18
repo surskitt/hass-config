@@ -1,6 +1,7 @@
 ---
-- alias: music_no_speaker_pause
-  description: Pause music when in room without speakers
+- alias: Pause music when in room without speakers
+  id: music_no_speaker_pause
+
   mode: queued
 
   trigger:

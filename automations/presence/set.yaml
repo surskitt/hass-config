@@ -1,6 +1,6 @@
 ---
-- alias: Presence set
-  description: Set presence when door opens
+- id: Presence set
+  alias: Set presence when door opens
 
   trigger:
     - platform: state
@@ -51,8 +51,8 @@
             - service: input_boolean.turn_on
               entity_id: input_boolean.garden_presence
 
-- alias: Presence unset
-  description: Unset presence(s) when door closes
+- id: Presence unset
+  alias: Unset presence(s) when door closes
   mode: queued
 
   trigger:
@@ -117,8 +117,8 @@
               entity_id:
                 - input_boolean.garden_presence
 
-- alias: Stairs presence set
-  description: Set stairs presence when doors open
+- id: Stairs presence set
+  alias: Set stairs presence when doors open
   mode: single
 
   trigger:

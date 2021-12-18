@@ -1,6 +1,6 @@
 ---
-- alias: stairs bulbs buttons
-  description: Control stairs bulbs using wireless switches
+- id: stairs bulbs buttons
+  alias: Control stairs bulbs using wireless switches
   mode: single
 
   trigger:

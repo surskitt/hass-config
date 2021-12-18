@@ -1,6 +1,6 @@
 ---
-- alias: media_centre_presence
-  description: Pause media centre downloads when in living room
+- id: media_centre_presence
+  alias: Pause media centre downloads when in living room
   mode: restart
 
   trigger:

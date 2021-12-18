@@ -1,6 +1,6 @@
 ---
-- alias: office lights input
-  description: Change office lights using input select
+- id: office lights input
+  alias: Change office lights using input select
   mode: single
 
   trigger:

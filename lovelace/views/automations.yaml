@@ -29,11 +29,11 @@ cards:
     show_header_toggle: false
     state_color: true
     entities:
-      - entity: automation.tv_auto_pause
+      - entity: automation.pause_tv_when_leaving_room
         name: Pause tv when leaving room
         icon: 'mdi:television'
         secondary_info: last-triggered
-      - entity: automation.music_no_speaker_pause
+      - entity: automation.pause_music_when_in_room_without_speakers
         name: Pause music when in room without speakers
         icon: 'mdi:music'
         secondary_info: last-triggered
@@ -79,7 +79,7 @@ cards:
       - entity: automation.turn_on_guest_mode_when_cleaner_arrives
         icon: 'mdi:account-multiple-plus'
         secondary_info: last-triggered
-      - entity: automation.tv_wigeon_sleep
+      - entity: automation.put_wigeon_to_sleep_when_tv_is_turned_on
         name: Put wigeon to sleep when turning on the tv
         icon: 'mdi:television'
         secondary_info: last-triggered

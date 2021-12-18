@@ -1,6 +1,6 @@
 ---
-- alias: office daapd switcher
-  description: Enable or disable office speakers based on availability
+- id: office daapd switcher
+  alias: Enable or disable office speakers based on availability
   mode: queued
 
   trigger:

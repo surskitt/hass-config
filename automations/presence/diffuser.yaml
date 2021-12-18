@@ -1,6 +1,6 @@
 ---
-- alias: office_diffuser_off
-  description: Turn off office diffuser when leaving room
+- id: office_diffuser_off
+  alias: Turn off office diffuser when leaving room
   mode: restart
 
   trigger:
@@ -22,8 +22,8 @@
     - service: light.turn_off
       entity_id: light.office_diffuser_light
 
-- alias: living_room_diffuser_off
-  description: Turn off living room diffuser when leaving room
+- id: living_room_diffuser_off
+  alias: Turn off living room diffuser when leaving room
   mode: restart
 
   trigger:
