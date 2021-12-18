@@ -1,0 +1,24 @@
+---
+- id: hyperion_usb_capture
+  alias: fix usb capture when enabled
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: switch.tv_leds_component_usb_capture
+      to: 'on'
+
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.tv_leds
+      data:
+        effect: USB Capture
+
+    - service: switch.turn_off
+      entity_id: switch.google_tv
+
+    - delay: 1
+
+    - service: switch.turn_on
+      entity_id: switch.google_tv
