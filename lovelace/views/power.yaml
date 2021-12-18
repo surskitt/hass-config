@@ -108,6 +108,8 @@ cards:
         name: Bathroom lights
       - entity: sensor.stairs_bulbs_power
         name: Stairs bulbs
+      - entity: sensor.wled_windows_power
+        name: WLED windows
 
   - type: 'custom:apexcharts-card'
     config_templates:
@@ -135,6 +137,8 @@ cards:
         name: Bathroom lights
       - entity: sensor.stairs_bulbs_energy_hourly
         name: Stairs bulbs
+      - entity: sensor.wled_windows_energy_hourly
+        name: WLED windows
     all_series_config:
       float_precision: 3
     yaxis:
@@ -166,6 +170,8 @@ cards:
         name: Bathroom lights
       - entity: sensor.stairs_bulbs_energy_daily
         name: Stairs bulbs
+      - entity: sensor.wled_windows_energy_daily
+        name: WLED windows
     all_series_config:
       float_precision: 3
     yaxis:
