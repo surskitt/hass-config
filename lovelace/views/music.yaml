@@ -15,20 +15,29 @@ cards:
           volume: true
           power: true
 
-      - type: 'custom:mini-media-player'
-        entity: media_player.forked_daapd_output_wigeon
-        name: wigeon
-        group: true
-        hide:
-          controls: true
+      - type: conditional
+        conditions:
+          - entity: media_player.forked_daapd_output_wigeon
+            state_not: unavailable
+        row:
+          type: 'custom:mini-media-player'
+          entity: media_player.forked_daapd_output_wigeon
+          name: wigeon
+          group: true
+          hide:
+            controls: true
 
-
-      - type: 'custom:mini-media-player'
-        entity: media_player.forked_daapd_output_teal
-        name: teal
-        group: true
-        hide:
-          controls: true
+      - type: conditional
+        conditions:
+          - entity: media_player.forked_daapd_output_teal
+            state_not: unavailable
+        row:
+          type: 'custom:mini-media-player'
+          entity: media_player.forked_daapd_output_teal
+          name: teal
+          group: true
+          hide:
+            controls: true
 
       - type: 'custom:mini-media-player'
         entity: media_player.forked_daapd_output_living_room_speaker
@@ -44,12 +53,17 @@ cards:
         hide:
           controls: true
 
-      - type: 'custom:mini-media-player'
-        entity: media_player.forked_daapd_output_lg_webos_tv_um7450pla
-        name: TV
-        group: true
-        hide:
-          controls: true
+      - type: conditional
+        conditions:
+          - entity: media_player.forked_daapd_output_lg_webos_tv_um7450pla
+            state_not: unavailable
+        row:
+          type: 'custom:mini-media-player'
+          entity: media_player.forked_daapd_output_lg_webos_tv_um7450pla
+          name: TV
+          group: true
+          hide:
+            controls: true
 
       - type: 'custom:mini-media-player'
         entity: media_player.forked_daapd_output_kitchen_speaker
