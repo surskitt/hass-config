@@ -23,6 +23,7 @@ cards:
           type: 'custom:mini-media-player'
           entity: media_player.forked_daapd_output_wigeon
           name: wigeon
+          icon: 'mdi:desktop-tower-monitor'
           group: true
           hide:
             controls: true
@@ -35,6 +36,7 @@ cards:
           type: 'custom:mini-media-player'
           entity: media_player.forked_daapd_output_teal
           name: teal
+          icon: 'mdi:laptop'
           group: true
           hide:
             controls: true
@@ -49,6 +51,7 @@ cards:
       - type: 'custom:mini-media-player'
         entity: media_player.forked_daapd_output_muscovy
         name: LG sound bar
+        icon: 'mdi:soundbar'
         group: true
         hide:
           controls: true
@@ -61,6 +64,7 @@ cards:
           type: 'custom:mini-media-player'
           entity: media_player.forked_daapd_output_lg_webos_tv_um7450pla
           name: TV
+          icon: 'mdi:television'
           group: true
           hide:
             controls: true
@@ -89,6 +93,7 @@ cards:
       - type: 'custom:mini-media-player'
         entity: media_player.forked_daapd_output_sonos_roam
         name: Sonos Roam
+        icon: 'mdi:cast-audio'
         group: true
         hide:
           controls: true
