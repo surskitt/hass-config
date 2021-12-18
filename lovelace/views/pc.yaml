@@ -74,10 +74,19 @@ cards:
       - name: macbook
         entity: device_tracker.a0_ce_c8_da_91_df
 
-  - title: paddlepond
+  - title: serpentine
     type: entities
     state_color: true
     show_header_toggle: false
+    entities:
+      - name: serpentine
+        entity: switch.serpentine
+        icon: 'mdi:nas'
+
+  - title: paddlepond
+    type: entities
+    state_color: true
+    show_header_toggle: true
     entities:
       - name: bazarr
         entity: switch.bazarr_deployment

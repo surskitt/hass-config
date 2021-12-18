@@ -6,6 +6,13 @@
   turn_off:
     service: shell_command.sleep_wigeon
 
+- name: serpentine
+  platform: wake_on_lan
+  mac: '6C:BF:B5:01:96:C0'
+  host: 192.168.2.8
+  turn_off:
+    service: shell_command.sleep_serpentine
+
 - platform: template
   switches:
     rouen:
