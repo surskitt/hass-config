@@ -56,7 +56,29 @@
       target:
         entity_id: alarm_control_panel.home_alarm
 
-    - service: switch.turn_on
-      entity_id: 
-        - switch.transmission_switch
-        - switch.nzbget_download
+    # - service: switch.turn_on
+    #   entity_id: 
+    #     - switch.transmission_switch
+    #     - switch.nzbget_download
+
+    - service: switch.turn_off
+      entity_id:
+        - switch.bazarr_deployment
+        - switch.calibre_web_deployment
+        - switch.flood_deployment
+        - switch.forked_daapd_deployment
+        - switch.jackett_deployment
+        - switch.komga_deployment
+        - switch.mylar_deployment
+        - switch.nzbget_deployment
+        - switch.plex_deployment
+        - switch.pyload_deployment
+        - switch.radarr_deployment
+        - switch.sonarr_deployment
+        - switch.transmission_deployment
+
+    - delay: 30
+
+    - service: switch.turn_off
+      entity_id:
+        - switch.serpentine
