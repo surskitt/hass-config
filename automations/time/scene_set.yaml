@@ -129,6 +129,7 @@
       data:
         scene_id: bedroom_state
         entities:
+          switch.bedroom_light_switch: 'off'
           light.wled_bed:
             state: 'on'
             brightness_pct: 100
