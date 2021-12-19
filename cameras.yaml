@@ -3,3 +3,11 @@
   name: living room cam
   input: !secret living_room_cam_cmd
   extra_arguments: -pred 1 -q:v 2
+
+- platform: local_file
+  name: Driveway snapshot
+  file_path: /config/www/snapshots/driveway.jpg
+
+- platform: local_file
+  name: Garden snapshot
+  file_path: /config/www/snapshots/garden.jpg

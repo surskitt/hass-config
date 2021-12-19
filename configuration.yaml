@@ -14,6 +14,7 @@ homeassistant:
   # customize: !include customize.yaml
   allowlist_external_dirs:
     - "/config/camera_snapshots"
+    - "/config/www/snapshots"
 
 
 http:

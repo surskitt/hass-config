@@ -1,0 +1,122 @@
+---
+- id: camera_snapshots_garden
+  alias: Take periodic garden camera snapshot
+  mode: single
+
+  trigger:
+    - platform: time_pattern
+      minutes: 0
+
+  action:
+    - repeat:
+        sequence:
+          - service: camera.turn_on
+            target:
+              entity_id:
+                - camera.garden
+
+          - delay: 5
+
+        until:
+          - condition: or
+            conditions:
+              - condition: state
+                entity_id: camera.garden
+                state: "Streaming - rtsp"
+
+              - condition: template
+                value_template: "{{ repeat.index > 12 }}"
+
+    - condition: state
+      entity_id: camera.garden
+      state: "Streaming - rtsp"
+
+    - delay: 10
+
+    - service: camera.snapshot
+      target:
+        entity_id: camera.garden
+      data:
+        filename: /config/www/snapshots/garden.jpg
+
+    - repeat:
+        sequence:
+          - service: camera.turn_off
+            target:
+              entity_id:
+                - camera.garden
+
+          - delay: 5
+
+        until:
+          - condition: not
+            conditions:
+              - condition: or
+                conditions:
+                  - condition: state
+                    entity_id: camera.garden
+                    state: "Streaming - rtsp"
+
+                  - condition: template
+                    value_template: "{{ repeat.index > 12 }}"
+
+- id: camera_snapshots_driveway
+  alias: Take periodic driveway camera snapshot
+  mode: single
+
+  trigger:
+    - platform: time_pattern
+      minutes: 30
+
+  action:
+    - repeat:
+        sequence:
+          - service: camera.turn_on
+            target:
+              entity_id:
+                - camera.driveway
+
+          - delay: 5
+
+        until:
+          - condition: or
+            conditions:
+              - condition: state
+                entity_id: camera.driveway
+                state: "Streaming - rtsp"
+
+              - condition: template
+                value_template: "{{ repeat.index > 12 }}"
+
+    - condition: state
+      entity_id: camera.driveway
+      state: "Streaming - rtsp"
+
+    - delay: 10
+
+    - service: camera.snapshot
+      target:
+        entity_id: camera.driveway
+      data:
+        filename: /config/www/snapshots/driveway.jpg
+
+    - repeat:
+        sequence:
+          - service: camera.turn_off
+            target:
+              entity_id:
+                - camera.driveway
+
+          - delay: 5
+
+        until:
+          - condition: not
+            conditions:
+              - condition: or
+                conditions:
+                  - condition: state
+                    entity_id: camera.driveway
+                    state: "Streaming - rtsp"
+
+                  - condition: template
+                    value_template: "{{ repeat.index > 12 }}"
