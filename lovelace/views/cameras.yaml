@@ -3,92 +3,86 @@ title: Cameras
 path: cameras
 icon: 'mdi:camera'
 cards:
-  - type: 'custom:vertical-stack-in-card'
-    cards:
-      - type: conditional
-        conditions:
-          - entity: binary_sensor.doorbell_streaming_sensor
-            state: 'False'
-        card:
-          type: picture-entity
-          entity: camera.doorbell
-          show_name: true
-          show_state: false
-          tap_action:
-            action: call-service
-            service: camera.turn_on
-            service_data: {}
-            target:
-              entity_id: camera.doorbell
-
-      - type: conditional
-        conditions:
-          - entity: binary_sensor.doorbell_streaming_sensor
-            state: 'True'
-        card:
-          type: 'custom:webrtc-camera'
-          entity: camera.doorbell
-          title: Doorbell
-          ui: true
-          mse: false
-
   - type: 'custom:webrtc-camera'
     entity: camera.living_room_cam
     title: Living room
     ui: true
 
-  - type: 'custom:vertical-stack-in-card'
-    cards:
-      - type: 'custom:webrtc-camera'
-        entity: camera.kitchen_cam_hd
-        title: Kitchen
-        ui: true
-        ptz:
-          service: tapo_control.ptz
-          data_left:
-            entity_id: camera.kitchen_cam_hd
-            pan: LEFT
-            distance: 0.05
-          data_right:
-            entity_id: camera.kitchen_cam_hd
-            pan: RIGHT
-            distance: 0.05
-          data_up:
-            entity_id: camera.kitchen_cam_hd
-            tilt: UP
-          data_down:
-            entity_id: camera.kitchen_cam_hd
-            tilt: DOWN
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - entity: input_select.kitchen_cam_presets
+  - type: 'custom:webrtc-camera'
+    entity: camera.kitchen_cam_hd
+    # title: Kitchen
+    ui: true
+    shortcuts:
+      - name: Oven
+        icon: 'mdi:stove'
+        service: tapo_control.ptz
+        service_data:
+          preset: Oven
+          entity_id: camera.kitchen_cam_hd
+      - name: Back door
+        icon: 'mdi:door'
+        service: tapo_control.ptz
+        service_data:
+          preset: Back door
+          entity_id: camera.kitchen_cam_hd
+      - name: Table
+        icon: 'mdi:table-furniture'
+        service: tapo_control.ptz
+        service_data:
+          preset: Table
+          entity_id: camera.kitchen_cam_hd
+    ptz:
+      service: tapo_control.ptz
+      data_left:
+        entity_id: camera.kitchen_cam_hd
+        pan: LEFT
+        distance: 0.05
+      data_right:
+        entity_id: camera.kitchen_cam_hd
+        pan: RIGHT
+        distance: 0.05
+      data_up:
+        entity_id: camera.kitchen_cam_hd
+        tilt: UP
+      data_down:
+        entity_id: camera.kitchen_cam_hd
+        tilt: DOWN
 
-  - type: 'custom:vertical-stack-in-card'
-    cards:
-      - type: 'custom:webrtc-camera'
-        entity: camera.bedroom_camera_hd
-        title: Bedroom
-        ui: true
+  - type: conditional
+    conditions:
+      - entity: camera.bedroom_camera_hd
+        state_not: unavailable
+    card:
+      type: 'custom:vertical-stack-in-card'
+      cards:
+        - type: 'custom:webrtc-camera'
+          entity: camera.bedroom_camera_hd
+          title: Bedroom
+          ui: true
 
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - entity: input_boolean.bedroom_camera_privacy_mode
-            name: Privacy mode
+        - type: entities
+          show_header_toggle: false
+          entities:
+            - entity: input_boolean.bedroom_camera_privacy_mode
+              name: Privacy mode
 
-  - type: 'custom:vertical-stack-in-card'
-    cards:
-      - type: 'custom:webrtc-camera'
-        entity: camera.office_camera_hd
-        title: Office
-        ui: true
+  - type: conditional
+    conditions:
+      - entity: camera.office_camera_hd
+        state_not: unavailable
+    card:
+      type: 'custom:vertical-stack-in-card'
+      cards:
+        - type: 'custom:webrtc-camera'
+          entity: camera.office_camera_hd
+          title: Office
+          ui: true
 
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - entity: input_boolean.office_camera_privacy_mode
-            name: Privacy mode
+        - type: entities
+          show_header_toggle: false
+          entities:
+            - entity: input_boolean.office_camera_privacy_mode
+              name: Privacy mode
 
   - type: 'custom:vertical-stack-in-card'
     cards:
@@ -98,7 +92,7 @@ cards:
             state: 'False'
         card:
           type: picture-entity
-          entity: camera.garden
+          entity: camera.garden_snapshot
           show_name: true
           show_state: false
           tap_action:
@@ -115,9 +109,15 @@ cards:
         card:
           type: 'custom:webrtc-camera'
           entity: camera.garden
-          title: Garden
+          # title: Garden
           ui: true
           mse: false
+          shortcuts:
+            - name: Stop stream
+              icon: 'mdi:stop'
+              service: camera.turn_off
+              service_data:
+                entity_id: camera.garden
 
   - type: 'custom:vertical-stack-in-card'
     cards:
@@ -127,7 +127,7 @@ cards:
             state: 'False'
         card:
           type: picture-entity
-          entity: camera.driveway
+          entity: camera.driveway_snapshot
           show_name: true
           show_state: false
           tap_action:
@@ -144,6 +144,12 @@ cards:
         card:
           type: 'custom:webrtc-camera'
           entity: camera.driveway
-          title: Driveway
+          # title: Driveway
           ui: true
           mse: false
+          shortcuts:
+            - name: Stop stream
+              icon: 'mdi:stop'
+              service: camera.turn_off
+              service_data:
+                entity_id: camera.driveway
