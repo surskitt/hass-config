@@ -8,7 +8,6 @@
       switches:
         - switch.living_room_light_switch
         - switch.ttgo_display_backlight
-        - switch.google_tv
         - switch.tv_leds_component_usb_capture
       lights:
         - light.shelly_not_bulb_living_room
