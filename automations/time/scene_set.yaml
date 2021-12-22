@@ -67,7 +67,8 @@
       data:
         scene_id: living_room_state
         entities:
-          light.shelly_not_bulb_living_room: 'on'
+          light.shelly_not_bulb_living_room:
+            state: 'on'
 
     - service: scene.create
       data:
@@ -85,7 +86,8 @@
       data:
         scene_id: office_state
         entities:
-          light.not_bulb: 'on'
+          light.not_bulb:
+            state: 'on'
 
     - service: scene.create
       data:
