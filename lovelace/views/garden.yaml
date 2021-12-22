@@ -58,8 +58,37 @@ cards:
     line_width: 2
     hours_to_show: 48
 
-  - type: picture-entity
-    entity: camera.garden
-    camera_image: camera.garden
-    show_name: true
-    show_state: false
+  - type: 'custom:vertical-stack-in-card'
+    cards:
+      - type: conditional
+        conditions:
+          - entity: binary_sensor.garden_streaming_sensor
+            state: 'False'
+        card:
+          type: picture-entity
+          entity: camera.garden_snapshot
+          show_name: true
+          show_state: false
+          tap_action:
+            action: call-service
+            service: camera.turn_on
+            service_data: {}
+            target:
+              entity_id: camera.garden
+
+      - type: conditional
+        conditions:
+          - entity: binary_sensor.garden_streaming_sensor
+            state: 'True'
+        card:
+          type: 'custom:webrtc-camera'
+          entity: camera.garden
+          # title: Garden
+          ui: true
+          mse: false
+          shortcuts:
+            - name: Stop stream
+              icon: 'mdi:stop'
+              service: camera.turn_off
+              service_data:
+                entity_id: camera.garden
