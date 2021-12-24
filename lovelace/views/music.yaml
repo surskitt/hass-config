@@ -90,10 +90,15 @@ cards:
         hide:
           controls: true
 
-      - type: 'custom:mini-media-player'
-        entity: media_player.forked_daapd_output_sonos_roam
-        name: Sonos Roam
-        icon: 'mdi:cast-audio'
-        group: true
-        hide:
-          controls: true
+      - type: conditional
+        conditions:
+          - entity: media_player.forked_daapd_output_sonos_roam
+            state_not: unavailable
+        row:
+          type: 'custom:mini-media-player'
+          entity: media_player.forked_daapd_output_sonos_roam
+          name: Sonos Roam
+          icon: 'mdi:cast-audio'
+          group: true
+          hide:
+            controls: true
