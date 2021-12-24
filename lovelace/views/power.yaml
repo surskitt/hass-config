@@ -100,6 +100,8 @@ cards:
         name: Bedroom lights
       - entity: sensor.wled_bedroom_power
         name: WLED bedroom
+      - entity: sensor.wled_kitchen_power
+        name: WLED kitchen
       - entity: sensor.office_light_switch_power
         name: Office lights
       - entity: sensor.not_bulb_power
@@ -129,6 +131,8 @@ cards:
         name: Bedroom lights
       - entity: sensor.wled_bedroom_energy_hourly
         name: WLED bedroom
+      - entity: sensor.wled_kitchen_energy_hourly
+        name: WLED kitchen
       - entity: sensor.office_light_switch_energy_hourly
         name: Office lights
       - entity: sensor.shelly_office_not_hourly_energy
@@ -162,6 +166,8 @@ cards:
         name: Bedroom lights
       - entity: sensor.wled_bedroom_energy_daily
         name: WLED bedroom
+      - entity: sensor.wled_kitchen_energy_daily
+        name: WLED kitchen
       - entity: sensor.office_light_switch_energy_daily
         name: Office lights
       - entity: sensor.shelly_office_not_daily_energy

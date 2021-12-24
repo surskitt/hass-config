@@ -20,6 +20,7 @@
         scene_id: kitchen_state
         entities:
           switch.kitchen_light_switch: 'off'
+          light.wled_kitchen: 'off'
 
     - service: scene.create
       data:
@@ -73,7 +74,8 @@
       data:
         scene_id: kitchen_state
         entities:
-          switch.kitchen_light_switch: 'on'
+          switch.kitchen_light_switch: 'off'
+          light.wled_kitchen: 'on'
 
     - service: scene.create
       data:
@@ -124,6 +126,13 @@
           light.shelly_not_bulb_living_room:
             state: 'on'
             brightness_pct: 50
+
+    - service: scene.create
+      data:
+        scene_id: kitchen_state
+        entities:
+          switch.kitchen_light_switch: 'off'
+          light.wled_kitchen: 'on'
 
     - service: scene.create
       data:

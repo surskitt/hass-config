@@ -22,6 +22,7 @@
       scene_id: kitchen_state
       entities:
         - switch.kitchen_light_switch
+        - light.wled_kitchen
       presence: input_boolean.kitchen_presence
 
 - id: bedroom_save_state

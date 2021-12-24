@@ -18,3 +18,10 @@
     - entity_id: light.wled_bedroom_window
       wled:
         voltage: 5
+
+- platform: powercalc
+  entity_id: light.wled_kitchen
+  wled:
+    voltage: 5
+    # states_power:
+    #   "off": 0.5

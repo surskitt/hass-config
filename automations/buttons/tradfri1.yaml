@@ -49,6 +49,7 @@
       entity_id:
         - light.not_bulb
         - light.wled_bedroom
+        - light.wled_kitchen
         - light.stairs_bulbs
         - light.attic_light
 
