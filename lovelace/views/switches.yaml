@@ -97,6 +97,9 @@ cards:
       - entity: switch.kitchen_light_switch
         name: Light switch
         icon: 'mdi:ceiling-light'
+      - entity: light.wled_kitchen
+        name: Cabinet LEDs
+        icon: 'mdi:led-strip-variant'
       - entity: switch.fridge_2
         name: Fridge
         icon: 'mdi:fridge'
