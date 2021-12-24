@@ -68,7 +68,7 @@ cards:
             icon: 'mdi:steam'
             action_name: Start
             tap_action:
-              action: call-service
+              action: call-serv
               service: rest_command.rouen_steam_start
           - type: button
             name: Kill steam
@@ -97,9 +97,37 @@ cards:
       - entity: switch.kitchen_light_switch
         name: Light switch
         icon: 'mdi:ceiling-light'
-      - entity: light.wled_kitchen
-        name: Cabinet LEDs
-        icon: 'mdi:led-strip-variant'
+      # - entity: light.wled_kitchen
+      #   name: Cabinet LEDs
+      #   icon: 'mdi:led-strip-variant'
+      - type: 'custom:fold-entity-row'
+        head:
+          name: LEDs
+          type: 'custom:slider-entity-row'
+          entity: light.wled_kitchen
+          toggle: true
+          icon: 'mdi:led-strip-variant'
+        group_config:
+          state_color: true
+          secondary_info: last-changed
+        entities:
+          - type: 'custom:rgb-light-card'
+            entity: light.wled_kitchen
+            colors:
+              - color_name: white
+                white_value: 255
+                brightness_pct: 100
+                effect: solid
+                transition: 1
+                label: white
+
+              - effect: pacifica
+                brightness_pct: 100
+                color_temp: 1
+                transition: 1
+                icon_color: 'linear-gradient(15deg, #aaee99, #1387c4)'
+                label: pacifica
+
       - entity: switch.fridge_2
         name: Fridge
         icon: 'mdi:fridge'
