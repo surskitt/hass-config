@@ -8,9 +8,9 @@
       entity_id: sensor.rook_wifi_connection
       from: Beetroot
 
-    - platform: state
-      entity_id: device_tracker.4c_f2_02_ab_58_f5
-      from: home
+    # - platform: state
+    #   entity_id: device_tracker.4c_f2_02_ab_58_f5
+    #   from: home
 
   action:
     - service: input_boolean.turn_off
