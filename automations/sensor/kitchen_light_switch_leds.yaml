@@ -1,9 +1,23 @@
 ---
 - id: guest_mode_set
   alias: guest mode
-  use_blueprint:
-    path: mine/multi_switch.yaml
-    input:
-      input_switch: binary_sensor.kitchen_light_switch_channel_2_input 
-      on_switches:
-        - light.wled_kitchen
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.kitchen_light_switch_channel_2_input 
+      to:
+        - "on"
+        - "off"
+
+  action:
+    - service: light.toggle
+      target:
+        entity_id: light.wled_kitchen
+
+  # use_blueprint:
+  #   path: mine/multi_switch.yaml
+  #   input:
+  #     input_switch: binary_sensor.kitchen_light_switch_channel_2_input 
+  #     on_switches:
+  #       - light.wled_kitchen
