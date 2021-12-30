@@ -21,7 +21,6 @@
 
 - platform: powercalc
   entity_id: light.wled_kitchen
+  standby_power: 0.5
   wled:
     voltage: 5
-    # states_power:
-    #   "off": 0.5
