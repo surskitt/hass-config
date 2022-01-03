@@ -9,13 +9,12 @@
       to: 'off'
 
   action:
-    - service: climate.set_temperature
+    - service: climate.turn_off
       entity_id:
         - climate.living_room
         - climate.kitchen
         - climate.office
-      data:
-        temperature: 12
+        - climate.stairs
 
     - service: timer.start
       data:
@@ -67,7 +66,7 @@
         - switch.bazarr_deployment
         - switch.calibre_web_deployment
         - switch.flood_deployment
-        - switch.forked_daapd_deployment
+        # - switch.forked_daapd_deployment
         - switch.jackett_deployment
         - switch.komga_deployment
         - switch.mylar_deployment
