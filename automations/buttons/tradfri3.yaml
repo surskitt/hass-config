@@ -15,32 +15,42 @@
     - choose:
         - conditions: "{{ trigger.to_state.state == 'on' }}"
           sequence:
-            - service: media_player.volume_set
-              target:
-                entity_id: media_player.kitchen_speaker
-              data:
-                volume_level: 0.35
+            - choose:
+                - conditions: "{{ not is_state('media_player.forked_daapd_server', 'playing') }}"
+                  sequence:
+                    - service: media_player.volume_set
+                      target:
+                        entity_id: media_player.kitchen_speaker
+                      data:
+                        volume_level: 0.35
 
-            - service: media_player.media_play
-              target:
-                entity_id: media_player.forked_daapd_server
+                    - service: media_player.media_play
+                      target:
+                        entity_id: media_player.forked_daapd_server
+
+              default:
+                - service: media_player.media_pause
+                  target:
+                    entity_id: 
+                      - media_player.forked_daapd_server
+
+                - service: media_player.play_media
+                  target:
+                    entity_id: media_player.kitchen_speaker
+                  data:
+                    media_content_id: https://www.gstatic.com/voice_delight/sounds/long/rain.mp3
+                    media_content_type: music
+
+                - service: media_player.volume_set
+                  target:
+                    entity_id: media_player.kitchen_speaker
+                  data:
+                    volume_level: 0.7
 
         - conditions: "{{ trigger.to_state.state == 'off' }}"
           sequence:
             - service: media_player.media_pause
               target:
-                entity_id: media_player.forked_daapd_server
-
-            - service: media_player.play_media
-              target:
-                entity_id: media_player.kitchen_speaker
-              data:
-                media_content_id: https://www.gstatic.com/voice_delight/sounds/long/rain.mp3
-                media_content_type: music
-
-            - service: media_player.volume_set
-              target:
-                entity_id: media_player.kitchen_speaker
-              data:
-                volume_level: 0.7
-
+                entity_id: 
+                  - media_player.forked_daapd_server
+                  - media_player.kitchen_speaker
