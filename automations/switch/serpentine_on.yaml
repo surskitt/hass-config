@@ -1,0 +1,15 @@
+---
+- id: serpentine_pc_on
+  alias: turn on serpentine when pc is turned on
+  mode: queued
+
+  trigger:
+    - platform: state
+      entity_id:
+        - switch.wigeon
+        - binary_sensor.ping_teal_lan
+      to: 'on'
+
+  action:
+    - service: switch.turn_on
+      entity_id: switch.serpentine
