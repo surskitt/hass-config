@@ -1,6 +1,6 @@
 ---
-- id: stairs bulbs buttons
-  alias: Control fridge using tradfri3
+- id: fridge google home buttons
+  alias: Control forked-daapd using tradfri3
   mode: single
 
   trigger:
@@ -15,12 +15,32 @@
     - choose:
         - conditions: "{{ trigger.to_state.state == 'on' }}"
           sequence:
-            - service: switch.turn_on
-              entity_id:
-                - switch.fridge_2
+            - service: media_player.volume_set
+              target:
+                entity_id: media_player.kitchen_speaker
+              data:
+                volume_level: 0.35
+
+            - service: media_player.media_play
+              target:
+                entity_id: media_player.forked_daapd_server
 
         - conditions: "{{ trigger.to_state.state == 'off' }}"
           sequence:
-            - service: switch.turn_off
-              entity_id:
-                - switch.fridge_2
+            - service: media_player.media_pause
+              target:
+                entity_id: media_player.forked_daapd_server
+
+            - service: media_player.play_media
+              target:
+                entity_id: media_player.kitchen_speaker
+              data:
+                media_content_id: https://www.gstatic.com/voice_delight/sounds/long/rain.mp3
+                media_content_type: music
+
+            - service: media_player.volume_set
+              target:
+                entity_id: media_player.kitchen_speaker
+              data:
+                volume_level: 0.7
+
