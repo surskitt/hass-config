@@ -82,3 +82,17 @@
     - service: switch.turn_off
       entity_id:
         - switch.serpentine
+
+- id: tradfri1_lights
+  alias: Toggle bedroom leds when pressing tradfri 1 on button
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: sensor.tradfri1_action
+      to: 'on'
+
+  action:
+    - service: light.toggle
+      entity_id:
+        - light.wled_bedroom
