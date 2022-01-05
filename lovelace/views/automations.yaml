@@ -64,10 +64,10 @@ cards:
     show_header_toggle: false
     state_color: true
     entities:
-      - entity: automation.turn_off_window_led_strips_later_at_night
+      - entity: automation.turn_on_window_led_strips_at_sunset
         icon: 'mdi:led-strip-variant'
         secondary_info: last-triggered
-      - entity: automation.turn_on_window_led_strips_at_sunset
+      - entity: automation.turn_off_window_led_strips_later_at_night
         icon: 'mdi:led-strip-variant'
         secondary_info: last-triggered
 
