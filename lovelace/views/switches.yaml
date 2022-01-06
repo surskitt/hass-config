@@ -128,10 +128,6 @@ cards:
                 icon_color: 'linear-gradient(15deg, #aaee99, #1387c4)'
                 label: pacifica
 
-      - entity: switch.fridge_2
-        name: Fridge
-        icon: 'mdi:fridge'
-
   - title: Office
     type: entities
     state_color: true
