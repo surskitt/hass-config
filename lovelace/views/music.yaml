@@ -102,3 +102,89 @@ cards:
           group: true
           hide:
             controls: true
+
+  - title: LG soundbar
+    type: entities
+    entities:
+      - type: buttons
+        entities:
+          - type: button
+            icon: 'mdi:power'
+            name: Power
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.broadlink_mini_remote
+                device: lg soundbar
+                command: power
+
+          - type: button
+            icon: 'mdi:volume-plus'
+            name: Volume up
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.broadlink_mini_remote
+                device: lg soundbar
+                command: volume up
+                num_repeats: 5
+                delay_secs: 0.1
+
+          - type: button
+            icon: 'mdi:volume-minus'
+            name: Volume down
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.broadlink_mini_remote
+                device: lg soundbar
+                command: volume down
+                num_repeats: 5
+                delay_secs: 0.1
+
+          - type: button
+            icon: 'mdi:volume-mute'
+            name: Mute
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.broadlink_mini_remote
+                device: lg soundbar
+                command: mute
+
+          - type: button
+            icon: 'mdi:audio-input-stereo-minijack'
+            name: Function
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.broadlink_mini_remote
+                device: lg soundbar
+                command: function
+
+          - type: button
+            icon: 'mdi:speaker-wireless'
+            name: Sound effect
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.broadlink_mini_remote
+                device: lg soundbar
+                command: sound effect
+
+          - type: button
+            icon: 'mdi:speaker-multiple'
+            name: DRC
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.broadlink_mini_remote
+                device: lg soundbar
+                command: drc

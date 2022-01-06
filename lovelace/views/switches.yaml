@@ -84,6 +84,17 @@ cards:
             tap_action:
               action: call-service
               service: shell_command.batocera_force_kill_steam
+      - type: button
+        icon: 'mdi:soundbar'
+        name: Soundbar
+        action_name: Power
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.broadlink_mini_remote
+            device: lg soundbar
+            command: power
       - entity: light.wled_living_room_window
         name: Window LEDs
         icon: 'mdi:led-strip-variant'
