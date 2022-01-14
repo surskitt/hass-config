@@ -1,0 +1,32 @@
+---
+- id: kitchen_light_switch_shelly_detached
+  alias: toggle kitchen leds with shelly second switch
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.kitchen_light_switch_channel_2_input 
+      to:
+        - "on"
+        - "off"
+
+  action:
+    - service: light.toggle
+      target:
+        entity_id: light.wled_kitchen
+
+- id: living_room_light_switch_shelly_detached
+  alias: toggle living room lamp with shelly second switch
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.living_room_light_switch_channel_2_input 
+      to:
+        - "on"
+        - "off"
+
+  action:
+    - service: light.toggle
+      target:
+        entity_id: light.shelly_not_bulb_living_room
