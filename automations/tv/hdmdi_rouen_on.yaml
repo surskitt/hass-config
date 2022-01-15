@@ -8,7 +8,7 @@
       entity_id:
         - media_player.tv
       attribute: source
-      to: "roeun"
+      to: "rouen"
 
   condition:
     - condition: state
@@ -24,7 +24,7 @@
         message: Turning on rouen
 
 - id: hdmi_rouen_notify
-  alias: Notify rouen still on when switching from hdmi 3 on tv
+  alias: Notify rouen still on when switching from hdmi 1 on tv
   mode: single
 
   trigger:
