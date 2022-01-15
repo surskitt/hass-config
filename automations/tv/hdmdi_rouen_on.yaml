@@ -1,6 +1,6 @@
 ---
 - id: hdmi_rouen_on
-  alias: turn on rouen when switching to hdmi 3 on tv
+  alias: turn on rouen when switching to hdmi 1 on tv
   mode: single
 
   trigger:
@@ -8,7 +8,7 @@
       entity_id:
         - media_player.tv
       attribute: source
-      to: "PC"
+      to: "roeun"
 
   condition:
     - condition: state
@@ -32,7 +32,7 @@
       entity_id:
         - media_player.tv
       attribute: source
-      from: "PC"
+      from: "rouen"
       for: "00:02:00"
 
   condition:
