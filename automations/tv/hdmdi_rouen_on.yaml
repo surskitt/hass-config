@@ -44,15 +44,14 @@
   action:
     - service: notify.tv
       data:
-        message: rouen is still on
+        message: "rouen is still on"
 
     - variables:
         action_rouen_off: "{{ 'ROUEN_OFF_' ~ context.id }}"
 
     - service: notify.mobile_app_rook
       data:
-        title: rouen is still on
-        message: "tv is not on hdmi 3 but rook is still on"
+        title: "rouen is still on"
         data:
           clickAction: "/lovelace/0"
           actions:
