@@ -95,9 +95,14 @@ cards:
             entity_id: remote.broadlink_mini_remote
             device: lg soundbar
             command: power
-      - entity: light.wled_living_room_window
-        name: Window LEDs
-        icon: 'mdi:led-strip-variant'
+      - type: conditional
+        conditions:
+          - entity: light.wled_living_room_window
+            state_not: unavailable
+        row:
+          entity: light.wled_living_room_window
+          name: Window LEDs
+          icon: 'mdi:led-strip-variant'
       # - entity: vacuum.robovac
 
   - title: Kitchen
@@ -251,9 +256,14 @@ cards:
         name: Curtain
         icon: 'mdi:window-open-variant'
 
-      - entity: light.wled_bedroom_window
-        name: Window LEDs
-        icon: 'mdi:led-strip-variant'
+      - type: conditional
+        conditions:
+          - entity: light.wled_bedroom_window
+            state_not: unavailable
+        row:
+          entity: light.wled_bedroom_window
+          name: Window LEDs
+          icon: 'mdi:led-strip-variant'
 
       - type: conditional
         conditions:
