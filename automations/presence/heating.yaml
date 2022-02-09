@@ -7,7 +7,7 @@
       presence: input_boolean.living_room_presence
       state: 'on'
       climate: climate.living_room
-      temperature: 22
+      temperature: 25
 
 - id: living_room_presence_heating_off
   alias: Turn off living room heating when presence is unset
@@ -25,7 +25,7 @@
       presence: input_boolean.kitchen_presence
       state: 'on'
       climate: climate.kitchen
-      temperature: 22
+      temperature: 25
 
 - id: kitchen_presence_heating_off
   alias: Turn off kitchen heating when presence is unset
@@ -43,7 +43,7 @@
       presence: input_boolean.bedroom_presence
       state: 'on'
       climate: climate.bedroom
-      temperature: 22
+      temperature: 25
 
 - id: bedroom_presence_heating_off
   alias: Turn off bedroom heating when presence is unset
