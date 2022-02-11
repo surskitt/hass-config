@@ -18,3 +18,49 @@
 
     - service: media_player.media_pause
       entity_id: media_player.forked_daapd_server
+
+- id: tv_google_tv_on
+  alias: turn on google tv when tv is turned on
+  mode: queued
+
+  trigger:
+    - platform: state
+      entity_id: switch.tv
+      to: 'on'
+
+  action:
+    - service: switch.turn_on
+      entity_id: switch.google_tv
+
+- id: tv_google_tv_off
+  alias: turn off google tv when tv is turned off
+  mode: queued
+
+  trigger:
+    - platform: state
+      entity_id: switch.tv
+      to: 'off'
+
+  action:
+    - service: switch.turn_off
+      entity_id: switch.google_tv
+
+- id: tv_leds_on
+  alias: turn on leds when tv is turned on
+  mode: queued
+
+  trigger:
+    - platform: state
+      entity_id: switch.tv
+      to: 'on'
+
+  condition:
+    - condition: numeric_state
+      entity_id: sun.sun
+      attribute: elevation
+      below: 0
+
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.tv_leds

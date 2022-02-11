@@ -9,7 +9,7 @@ morning_routine:
     - service: climate.set_temperature
       entity_id: climate.office
       data:
-        temperature: 22
+        temperature: 25
 
     - service: input_boolean.turn_off
       entity_id: input_boolean.bedroom_humidifier_active
