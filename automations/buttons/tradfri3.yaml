@@ -22,7 +22,7 @@
                       target:
                         entity_id: media_player.kitchen_speaker
                       data:
-                        volume_level: 0.35
+                        volume_level: 0.7
 
                     - service: media_player.media_play
                       target:
