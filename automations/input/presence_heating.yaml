@@ -1,0 +1,16 @@
+---
+- id: presence_heating_set
+  alias: presence heating
+  use_blueprint:
+    path: mine/multi_switch.yaml
+    input:
+      input_switch: input_boolean.presence_heating
+      on_switches:
+        - automation.turn_off_bedroom_heating_when_presence_is_set
+        - automation.turn_off_kitchen_heating_when_presence_is_unset
+        - automation.turn_off_living_room_heating_when_presence_is_unset
+        - automation.turn_off_office_heating_when_presence_is_unset
+        - automation.turn_on_bedroom_heating_when_presence_is_set
+        - automation.turn_on_kitchen_heating_when_presence_is_set
+        - automation.turn_on_living_room_heating_when_presence_is_set
+        - automation.turn_on_office_heating_when_presence_is_set
