@@ -1,23 +1,24 @@
 ---
-- host: 192.168.10.1
-  device_id: 020488303c6105cc8a44
-  local_key: 19cdcdc11f92a76a
-  friendly_name: Office diffuser
-  protocol_version: "3.3"
-  entities:
-    - platform: fan
-      friendly_name: Office diffuser
-      id: 1
-      fan_speed_control: 103
-      fan_speed_low: small
-      fan_speed_high: big
-    - platform: light
-      friendly_name: Office diffuser
-      id: 11
-      brightness: 111
-      brightness_lower: 0
-      brightness_upper: 255
-      color: 108
+# - host: 192.168.10.1
+#   device_id: 020488303c6105cc8a44
+#   local_key: 19cdcdc11f92a76a
+#   friendly_name: Office diffuser
+#   protocol_version: "3.3"
+#   entities:
+#     - platform: fan
+#       friendly_name: Office diffuser
+#       id: 1
+#       fan_speed_control: 103
+#       fan_speed_low: small
+#       fan_speed_high: big
+
+#     - platform: light
+#       friendly_name: Office diffuser
+#       id: 11
+#       brightness: 111
+#       brightness_lower: 0
+#       brightness_upper: 255
+#       color: 108
 
 # - host: 192.168.10.2
 #   device_id: 706440278cce4ee0d4d4
@@ -113,25 +114,25 @@
     #   friendly_name: Paddlepond plug
     #   id: 1
 
-    - platform: sensor
-      friendly_name: Paddlepond plug current
-      id: 18
-      device_class: current
-      unit_of_measurement: mA
+    # - platform: sensor
+    #   friendly_name: Paddlepond plug current
+    #   id: 18
+    #   device_class: current
+    #   unit_of_measurement: mA
 
-    - platform: sensor
-      friendly_name: Paddlepond plug power
-      id: 19
-      device_class: power
-      unit_of_measurement: W
-      scaling: 0.1
+    # - platform: sensor
+    #   friendly_name: Paddlepond plug power
+    #   id: 19
+    #   device_class: power
+    #   unit_of_measurement: W
+    #   scaling: 0.1
 
-    - platform: sensor
-      friendly_name: Paddlepond plug voltage
-      id: 20
-      device_class: voltage
-      unit_of_measurement: V
-      scaling: 0.1
+    # - platform: sensor
+    #   friendly_name: Paddlepond plug voltage
+    #   id: 20
+    #   device_class: voltage
+    #   unit_of_measurement: V
+    #   scaling: 0.1
 
 - host: 192.168.10.5
   device_id: 6000521024a160044f2f
