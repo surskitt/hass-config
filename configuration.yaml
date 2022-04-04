@@ -39,6 +39,7 @@ bhyve: !include component_config/bhyve.yaml
 browser_mod: !include component_config/browser_mod.yaml
 # ble_monitor: !include component_config/ble_monitor.yaml
 calendar: !include component_config/calendar.yaml
+conversation:
 telegram_bot: !include component_config/telegram_bot.yaml
 plex: !include component_config/plex.yaml
 powercalc: !include component_config/powercalc.yaml
