@@ -14,17 +14,15 @@
     - service: telegram_bot.send_message
       data:
         message: |
-          {% set plants = expand('plant.ben',
+          {% set plants = expand('plant.angus',
                                  'plant.ryu',
-                                 'plant.edgar',
                                  'plant.courtney',
                                  'plant.eric',
                                  'plant.jaesuk',
                                  'plant.beric',
                                  'plant.basil',
-                                 'plant.cory',
+                                 'plant.nicki',
                                  'plant.paisley',
-                                 'plant.minju',
                                  'plant.ali',
                                  'plant.karina') -%}
 
