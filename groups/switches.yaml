@@ -23,3 +23,28 @@ away_lights:
     - light.wled_bedroom_dresser
     - switch.bathroom_light_switch
     - light.stairs_bulbs
+
+living_room_lights:
+  name: Living room lights
+  entities:
+    - switch.living_room_light_switch
+    - light.shelly_not_bulb_living_room
+
+kitchen_lights:
+  name: Kitchen lights
+  entities:
+    - switch.kitchen_light_switch
+    - light.wled_kitchen
+
+bedroom_lights:
+  name: Bedroom lights
+  entities:
+    - switch.bedroom_light_switch
+    - light.wled_bed
+    - light.wled_bedroom_dresser
+
+office_lights:
+  name: Office lights
+  entities:
+    - switch.office_light_switch
+    - light.not_bulb
