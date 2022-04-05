@@ -120,3 +120,24 @@
 
                   - condition: template
                     value_template: "{{ repeat.index > 12 }}"
+
+- id: camera_snapshots_indoors
+  alias: Take periodic indoor camera snapshots
+  mode: single
+
+  trigger:
+    - platform: time_pattern
+      minutes: "/15"
+
+  action:
+    - service: camera.snapshot
+      target:
+        entity_id: camera.living_room_cam
+      data:
+        filename: /config/www/snapshots/living_room.jpg
+
+    - service: camera.snapshot
+      target:
+        entity_id: camera.kitchen_cam_hd
+      data:
+        filename: /config/www/snapshots/kitchen.jpg
