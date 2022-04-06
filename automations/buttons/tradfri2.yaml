@@ -1,18 +1,6 @@
 ---
-- id: Cycle office lights
-  alias: Cycle office lights when tradfri2 on is pressed
-  mode: single
-
-  trigger:
-    - platform: state
-      entity_id: sensor.tradfri2_action
-      to: 'on'
-
-  action:
-    - service: input_select.select_next
-      entity_id: input_select.office_lights
-
-- alias: Turn off office lights when tradfri2 off is pressed
+- id: bedtime_routine
+  alias: Turn off all lights and heating when pressing tradfri 2 off button
   mode: single
 
   trigger:
@@ -21,8 +9,63 @@
       to: 'off'
 
   action:
+    - service: climate.turn_off
+      entity_id:
+        - climate.living_room
+        - climate.kitchen
+        - climate.office
+        - climate.stairs
+
+    - service: timer.start
+      data:
+        entity_id: timer.bedtime_heating
+
+    - service: timer.start
+      data:
+        entity_id: timer.bedroom_humidifier_active
+
     - service: switch.turn_off
-      entity_id: switch.office_light_switch
+      entity_id:
+        - switch.living_room_light_switch
+        - switch.tv
+        - switch.kitchen_light_switch
+        - switch.bedroom_light_switch
+        - switch.office_light_switch
+        - switch.wigeon
+        - switch.bathroom_light_switch
+
+    - service: input_boolean.turn_off
+      target:
+        entity_id:
+          - input_boolean.living_room_presence
+          - input_boolean.kitchen_presence
+          - input_boolean.office_presence
+          - input_boolean.bathroom_presence
+          - input_boolean.stairs_presence
+          - input_boolean.garden_presence
 
     - service: light.turn_off
-      entity_id: light.not_bulb
+      entity_id:
+        - light.not_bulb
+        - light.wled_bedroom
+        - light.wled_kitchen
+        - light.stairs_bulbs
+        - light.attic_light
+
+    - service: alarm_control_panel.alarm_arm_night
+      target:
+        entity_id: alarm_control_panel.home_alarm
+
+- id: tradfri2_lights
+  alias: Toggle bedroom leds when pressing tradfri 1 on button
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: sensor.tradfri2_action
+      to: 'on'
+
+  action:
+    - service: light.toggle
+      entity_id:
+        - light.wled_bedroom
