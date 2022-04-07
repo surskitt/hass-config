@@ -11,3 +11,11 @@
 - platform: local_file
   name: Garden snapshot
   file_path: /config/www/snapshots/garden.jpg
+
+- platform: local_file
+  name: Living room snapshot
+  file_path: /config/www/snapshots/living_room.jpg
+
+- platform: local_file
+  name: Kitchen snapshot
+  file_path: /config/www/snapshots/kitchen.jpg
