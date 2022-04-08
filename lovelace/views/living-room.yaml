@@ -1,0 +1,160 @@
+---
+title: Living room
+icon: 'mdi:sofa'
+path: living-room
+type: 'custom:vertical-layout'
+cards:
+  - type: vertical-stack
+    title: Presence
+    cards:
+      - type: custom:mushroom-entity-card
+        entity: input_boolean.living_room_presence
+        tap_action:
+          action: toggle
+
+  - type: vertical-stack
+    title: Devices
+    cards:
+      - square: false
+        columns: 3
+        type: grid
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: switch.living_room_light_switch
+            layout: horizontal
+            name: Main light
+            icon: mdi:ceiling-light
+            icon_color: amber
+            tap_action:
+              action: toggle
+
+          - type: custom:mushroom-entity-card
+            entity: switch.tv
+            layout: horizontal
+            icon: mdi:television
+            name: TV
+            icon_color: light-blue
+            tap_action:
+              action: toggle
+
+          - type: custom:mushroom-template-card
+            primary: TV LEDs
+            secondary: >
+              {% if is_state('light.tv_leds', 'on') %}
+                {{ state_attr('light.tv_leds', 'effect') }}
+              {% else %}
+                off
+              {% endif %}
+            icon: mdi:television-ambient-light
+            icon_color: >
+              {% if is_state('light.tv_leds', 'on') %}
+                cyan
+              {% else %}
+                none
+              {% endif %}
+            tap_action:
+              action: toggle
+            entity: light.tv_leds
+            double_tap_action:
+              action: call-service
+              service: switch.toggle
+              service_data: {}
+              target:
+                entity_id: switch.tv_leds_component_usb_capture
+
+          - type: custom:mushroom-entity-card
+            entity: switch.rouen
+            layout: horizontal
+            tap_action:
+              action: toggle
+
+          - type: custom:mushroom-template-card
+            primary: Soundbar
+            icon: mdi:soundbar
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                device: lg soundbar
+                command: power
+              target:
+                entity_id: remote.broadlink_mini_remote
+
+          - type: custom:mushroom-entity-card
+            entity: switch.living_room_diffuser
+            name: Diffuser
+            icon_color: light-blue
+            tap_action:
+              action: toggle
+            layout: horizontal
+
+          # boiler room light switch
+          # diffuser light
+          # start steam
+          # kill steam
+          # force kill steam
+
+      - type: custom:mushroom-light-card
+        entity: light.shelly_not_bulb_living_room
+        name: Not
+        icon: mdi:floor-lamp
+        show_brightness_control: true
+        layout: horizontal
+        show_color_control: false
+        show_color_temp_control: true
+        use_light_color: true
+
+      - type: custom:mushroom-cover-card
+        entity: cover.living_room_curtains_curtain
+        name: Curtains
+        show_buttons_control: true
+        show_position_control: true
+        layout: horizontal
+
+  - type: vertical-stack
+    title: Heating
+    cards:
+      - type: "custom:button-card"
+        template: my_thermostat
+        entity: climate.living_room
+        variables:
+          ulm_card_thermostat_name: Radiator
+          ulm_card_thermostat_icon: mdi:radiator
+          ulm_card_thermostat_enable_controls: true
+          ulm_card_thermostat_enable_popup: true
+          ulm_card_thermostat_enable_display_temperature: true
+          ulm_card_thermostat_enable_background_color: false
+          ulm_card_thermostat_enable_collapse: true
+          ulm_card_thermostat_enable_horizontal: true
+          ulm_card_thermostat_enable_popup: true
+
+      - type: grid
+        columns: 3
+        square: false
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: sensor.living_room_heating
+            name: Valve
+            layout: horizontal
+            icon: mdi:pipe-valve
+            icon_color: white
+
+          - type: custom:mushroom-entity-card
+            entity: sensor.living_room_temperature
+            name: Temp
+            layout: horizontal
+            icon: mdi:thermometer
+            icon_color: orange
+
+          - type: custom:mushroom-entity-card
+            entity: sensor.living_room_humidity
+            name: Humidity
+            layout: horizontal
+            icon: mdi:waves-arrow-up
+            icon_color: light-blue
+
+  - type: vertical-stack
+    title: Camera
+    cards:
+      - type: custom:webrtc-camera
+        entity: camera.living_room_cam

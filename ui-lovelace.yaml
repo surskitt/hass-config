@@ -1,21 +1,43 @@
 ---
 apexcharts_card_templates: !include lovelace/apexcharts_cards_templates.yaml
+button_card_templates: !include_dir_merge_named custom_components/ui_lovelace_minimalist/__ui_minimalist__/ulm_templates/
 
 views:
-  - !include lovelace/views/switches.yaml
+  - !include lovelace/views/main.yaml
+
+  - !include lovelace/views/living-room.yaml
+  - !include lovelace/views/kitchen.yaml
+  - !include lovelace/views/stairs.yaml
+  - !include lovelace/views/bedroom.yaml
+  - !include lovelace/views/office.yaml
+  - !include lovelace/views/bathroom.yaml
+
   - !include lovelace/views/heating.yaml
-  - !include lovelace/views/people.yaml
-  - !include lovelace/views/windows.yaml
-  - !include lovelace/views/cameras.yaml
+  - !include lovelace/views/automations.yaml
   - !include lovelace/views/batteries.yaml
   - !include lovelace/views/power.yaml
-  - !include lovelace/views/pc.yaml
-  - !include lovelace/views/plants.yaml
   - !include lovelace/views/garden.yaml
-  - !include lovelace/views/automations.yaml
-  - !include lovelace/views/time.yaml
+  - !include lovelace/views/plants.yaml
+  - !include lovelace/views/computers.yaml
   - !include lovelace/views/timers.yaml
-  - !include lovelace/views/music.yaml
-  - !include lovelace/views/video.yaml
-  - !include lovelace/views/downloads.yaml
+  - !include lovelace/views/media.yaml
+  - !include lovelace/views/alarms.yaml
   - !include lovelace/views/health.yaml
+  - !include lovelace/views/windows.yaml
+
+  - !include lovelace/views/switches.yaml
+  # - !include lovelace/views/heating.yaml
+  # - !include lovelace/views/people.yaml
+  # - !include lovelace/views/windows.yaml
+  # - !include lovelace/views/cameras.yaml
+  # - !include lovelace/views/batteries.yaml
+  # - !include lovelace/views/power.yaml
+  - !include lovelace/views/pc.yaml
+  # - !include lovelace/views/garden.yaml
+  # - !include lovelace/views/automations.yaml
+  # - !include lovelace/views/time.yaml
+  # - !include lovelace/views/timers.yaml
+  # - !include lovelace/views/music.yaml
+  # - !include lovelace/views/video.yaml
+  # - !include lovelace/views/downloads.yaml
+  # - !include lovelace/views/health.yaml

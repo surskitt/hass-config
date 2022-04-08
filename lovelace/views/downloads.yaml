@@ -1,7 +1,8 @@
 ---
 title: Downloads
-path: downloads
 icon: 'mdi:download'
+path: downloads
+type: 'custom:vertical-layout'
 cards:
   - name: Download speeds
     type: 'custom:mini-graph-card'

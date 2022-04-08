@@ -1,7 +1,8 @@
 ---
 title: People
-path: people
 icon: 'mdi:account-multiple'
+path: people
+type: 'custom:vertical-layout'
 cards:
   - type: entities
     entities:

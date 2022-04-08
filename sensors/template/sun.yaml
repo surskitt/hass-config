@@ -20,3 +20,7 @@
       friendly_name: Dusk time
       value_template: "{{ as_timestamp(states.sun.sun.attributes.next_dusk) | timestamp_custom(' %I:%M %p') | replace(' 0', '') }}"
       icon_template: 'mdi:weather-sunset-down'
+
+    sun_elevation:
+      friendly_name: Sun elevation
+      value_template: "{{ state_attr('sun.sun', 'elevation') }}"

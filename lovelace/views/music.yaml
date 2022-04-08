@@ -1,7 +1,8 @@
 ---
 title: Music
-path: music
 icon: 'mdi:music'
+path: music
+type: 'custom:vertical-layout'
 cards:
   - title: forked-daapd
     type: entities

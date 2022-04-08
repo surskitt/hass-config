@@ -1,8 +1,8 @@
 ---
 title: PC
-path: pc
 icon: 'mdi:desktop-classic'
-panel: false
+path: pc
+type: 'custom:vertical-layout'
 cards:
   - title: wigeon
     type: entities

@@ -1,7 +1,8 @@
 ---
 title: Video
-path: video
 icon: 'mdi:theater'
+path: video
+type: 'custom:vertical-layout'
 cards:
   - type: 'custom:lg-remote-control'
     entity: media_player.tv

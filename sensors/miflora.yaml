@@ -58,3 +58,9 @@
   mac: "C4:7C:8D:6C:A3:F9"
   monitored_conditions:
     - battery
+
+- platform: miflora
+  name: Basil
+  mac: "C4:7C:8D:6C:9F:9D"
+  monitored_conditions:
+    - battery

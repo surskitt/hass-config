@@ -141,3 +141,47 @@
         entity_id: camera.kitchen_cam_hd
       data:
         filename: /config/www/snapshots/kitchen.jpg
+
+- id: camera_snapshots_office
+  alias: Take periodic office camera snapshots
+  mode: single
+
+  trigger:
+    - platform: time_pattern
+      minutes: "/15"
+
+  condition:
+    - condition: not
+      conditions:
+        - condition: state
+          entity_id: camera.office_camera_hd
+          state: unavailable
+
+  action:
+    - service: camera.snapshot
+      target:
+        entity_id: camera.office_camera_hd
+      data:
+        filename: /config/www/snapshots/office.jpg
+
+- id: camera_snapshots_bedroom
+  alias: Take periodic bedroom camera snapshots
+  mode: single
+
+  trigger:
+    - platform: time_pattern
+      minutes: "/15"
+
+  condition:
+    - condition: not
+      conditions:
+        - condition: state
+          entity_id: camera.bedroom_camera_hd
+          state: unavailable
+
+  action:
+    - service: camera.snapshot
+      target:
+        entity_id: camera.bedroom_camera_hd
+      data:
+        filename: /config/www/snapshots/bedroom.jpg

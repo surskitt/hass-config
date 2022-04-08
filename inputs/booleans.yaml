@@ -76,3 +76,19 @@ bedroom_camera_privacy_mode:
 office_camera_privacy_mode:
   name: Office camera privacy mode
   icon: "mdi:eye-off"
+
+living_room_camera_stream_main:
+  name: Living room camera stream on main view
+  icon: 'mdi:camera'
+
+kitchen_camera_stream_main:
+  name: Kitchen camera stream on main view
+  icon: 'mdi:camera'
+
+bedroom_camera_stream_main:
+  name: Bedroom camera stream on main view
+  icon: 'mdi:camera'
+
+office_camera_stream_main:
+  name: Office camera stream on main view
+  icon: 'mdi:camera'

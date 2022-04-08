@@ -1,0 +1,504 @@
+---
+title: Main
+icon: 'mdi:home'
+path: main
+type: 'custom:vertical-layout'
+cards:
+  - title: Rooms
+    square: false
+    columns: 3
+    type: grid
+    cards:
+      - type: custom:mushroom-template-card
+        icon: mdi:sofa
+        layout: vertical
+        entity: input_boolean.living_room_presence
+        primary: Living room
+        multiline_secondary: false
+        icon_color: >-
+          {% if is_state('input_boolean.living_room_presence', 'on') %}
+            blue
+          {% endif %}
+        secondary: "{{ states('sensor.living_room_status') }}"
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/living-room
+        hold_action:
+          action: toggle
+
+      - type: custom:mushroom-template-card
+        primary: Kitchen
+        icon: mdi:stove
+        layout: vertical
+        entity: input_boolean.kitchen_presence
+        secondary: "{{ states('sensor.kitchen_status') }}"
+        icon_color: >
+          {% if is_state('input_boolean.kitchen_presence', 'on') %}
+            red
+          {% endif %}
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/kitchen
+        hold_action:
+          action: toggle
+
+      - type: custom:mushroom-template-card
+        primary: Stairs
+        secondary: "{{ states('sensor.stairs_status') }}"
+        icon: mdi:stairs
+        entity: input_boolean.stairs_presence
+        layout: vertical
+        icon_color: >
+          {% if is_state('input_boolean.stairs_presence', 'on') %}
+            yellow
+          {% endif %}
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/stairs
+        hold_action:
+          action: toggle
+
+      - type: custom:mushroom-template-card
+        primary: Bedroom
+        secondary: "{{ states('sensor.bedroom_status') }}"
+        icon: mdi:bed
+        layout: vertical
+        icon_color: '{% if is_state(''input_boolean.bedroom_presence'', ''on'') %}amber{% endif %}'
+        entity: input_boolean.bedroom_presence
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/bedroom
+        hold_action:
+          action: toggle
+
+      - type: custom:mushroom-template-card
+        primary: Office
+        secondary: '{{ states(''sensor.office_status'') }}'
+        icon: mdi:desktop-classic
+        icon_color: '{% if is_state(''input_boolean.office_presence'', ''on'') %}green{% endif %}'
+        layout: vertical
+        entity: input_boolean.office_presence
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/office
+        hold_action:
+          action: toggle
+
+      - type: custom:mushroom-template-card
+        primary: Bathroom
+        secondary: '{{ states(''sensor.bathroom_status'') }}'
+        icon: mdi:toilet
+        layout: vertical
+        icon_color: '{% if is_state(''input_boolean.bathroom_presence'', ''on'') %}grey{% endif %}'
+        entity: input_boolean.bathroom_presence
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/bathroom
+        hold_action:
+          action: toggle
+
+  - square: true
+    columns: 4
+    type: grid
+    title: Navigation
+    cards:
+      - type: custom:mushroom-template-card
+        icon: mdi:radiator
+        icon_color: red
+        layout: vertical
+        primary: Heating
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/heating
+
+      - type: custom:mushroom-template-card
+        primary: Automations
+        icon: mdi:robot
+        icon_color: grey
+        layout: vertical
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/automations
+
+      - type: custom:mushroom-template-card
+        primary: Batteries
+        icon: mdi:battery
+        icon_color: green
+        layout: vertical
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/batteries
+
+      - type: custom:mushroom-template-card
+        primary: Power
+        icon: mdi:power-plug
+        icon_color: amber
+        layout: vertical
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/power
+
+      - type: custom:mushroom-template-card
+        primary: Garden
+        icon: mdi:grass
+        icon_color: light-green
+        layout: vertical
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/garden
+
+      - type: custom:mushroom-template-card
+        primary: Plants
+        icon: mdi:sprout
+        icon_color: light-green
+        layout: vertical
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/plants
+
+      - type: custom:mushroom-template-card
+        icon: mdi:desktop-classic
+        icon_color: white
+        primary: Computers
+        layout: vertical
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/computers
+
+      - type: custom:mushroom-template-card
+        icon: mdi:timer
+        icon_color: yellow
+        primary: Timers
+        layout: vertical
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/timers
+
+      - type: custom:mushroom-template-card
+        primary: Media
+        icon: mdi:music
+        icon_color: purple
+        layout: vertical
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/media
+
+      - type: custom:mushroom-template-card
+        primary: Alarms
+        icon: mdi:alarm
+        icon_color: blue
+        layout: vertical
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/alarms
+
+      - type: custom:mushroom-template-card
+        primary: Health
+        icon: mdi:heart
+        icon_color: pink
+        layout: vertical
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/health
+
+      - type: custom:mushroom-template-card
+        primary: Windows
+        icon: mdi:window-closed-variant
+        icon_color: grey
+        layout: vertical
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/windows
+
+  - title: Cameras
+    square: false
+    columns: 2
+    type: grid
+    cards:
+      - type: 'custom:vertical-stack-in-card'
+        cards:
+          - type: conditional
+            conditions:
+              - entity: input_boolean.living_room_camera_stream_main
+                state: 'off'
+            card:
+              type: picture-entity
+              entity: camera.living_room_snapshot
+              show_name: false
+              show_state: false
+              hold_action:
+                action: call-service
+                service: input_boolean.turn_on
+                service_data:
+                  entity_id: input_boolean.living_room_camera_stream_main
+
+          - type: conditional
+            conditions:
+              - entity: input_boolean.living_room_camera_stream_main
+                state: 'on'
+            card:
+              type: 'custom:webrtc-camera'
+              entity: camera.living_room_cam
+              ui: true
+              shortcuts:
+                - name: Stop stream
+                  icon: mdi:stop
+                  service: input_boolean.turn_off
+                  service_data:
+                    entity_id: input_boolean.living_room_camera_stream_main
+
+                - name: Snapshot
+                  icon: mdi:camera
+                  service: camera.snapshot
+                  service_data:
+                    entity_id: camera.living_room_cam
+                    filename: /config/www/snapshots/living_room.jpg
+
+      - type: 'custom:vertical-stack-in-card'
+        cards:
+          - type: conditional
+            conditions:
+              - entity: input_boolean.kitchen_camera_stream_main
+                state: 'off'
+            card:
+              type: picture-entity
+              entity: camera.kitchen_snapshot
+              show_name: false
+              show_state: false
+              hold_action:
+                action: call-service
+                service: input_boolean.turn_on
+                service_data:
+                  entity_id: input_boolean.kitchen_camera_stream_main
+
+          - type: conditional
+            conditions:
+              - entity: input_boolean.kitchen_camera_stream_main
+                state: 'on'
+            card:
+              type: 'custom:webrtc-camera'
+              entity: camera.kitchen_cam_hd
+              ui: true
+              shortcuts:
+                - name: Stop stream
+                  icon: mdi:stop
+                  service: input_boolean.turn_off
+                  service_data:
+                    entity_id: input_boolean.kitchen_camera_stream_main
+
+                - name: Snapshot
+                  icon: mdi:camera
+                  service: camera.snapshot
+                  service_data:
+                    entity_id: camera.kitchen_cam_hd
+                    filename: /config/www/snapshots/kitchen.jpg
+
+      - type: 'custom:vertical-stack-in-card'
+        cards:
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.driveway_streaming_sensor
+                state: 'False'
+            card:
+              type: picture-entity
+              entity: camera.driveway_snapshot
+              show_name: false
+              show_state: false
+              hold_action:
+                action: call-service
+                service: camera.turn_on
+                service_data: {}
+                target:
+                  entity_id: camera.driveway
+
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.driveway_streaming_sensor
+                state: 'True'
+            card:
+              type: 'custom:webrtc-camera'
+              entity: camera.driveway
+              ui: true
+              mse: false
+              shortcuts:
+                - name: Stop stream
+                  icon: 'mdi:stop'
+                  service: camera.turn_off
+                  service_data:
+                    entity_id: camera.driveway
+
+      - type: 'custom:vertical-stack-in-card'
+        cards:
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.garden_streaming_sensor
+                state: 'False'
+            card:
+              type: picture-entity
+              entity: camera.garden_snapshot
+              show_name: false
+              show_state: false
+              hold_action:
+                action: call-service
+                service: camera.turn_on
+                service_data: {}
+                target:
+                  entity_id: camera.garden
+
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.garden_streaming_sensor
+                state: 'True'
+            card:
+              type: 'custom:webrtc-camera'
+              entity: camera.garden
+              ui: true
+              mse: false
+              shortcuts:
+                - name: Stop stream
+                  icon: 'mdi:stop'
+                  service: camera.turn_off
+                  service_data:
+                    entity_id: camera.garden
+
+      - type: conditional
+        conditions:
+          - entity: camera.bedroom_camera_hd
+            state_not: unavailable
+        card:
+          type: 'custom:vertical-stack-in-card'
+          cards:
+            - type: conditional
+              conditions:
+                - entity: input_boolean.bedroom_camera_stream_main
+                  state: 'off'
+              card:
+                type: picture-entity
+                entity: camera.bedroom_snapshot
+                show_name: false
+                show_state: false
+                hold_action:
+                  action: call-service
+                  service: input_boolean.turn_on
+                  service_data:
+                    entity_id: input_boolean.bedroom_camera_stream_main
+
+            - type: conditional
+              conditions:
+                - entity: input_boolean.bedroom_camera_stream_main
+                  state: 'on'
+              card:
+                type: 'custom:webrtc-camera'
+                entity: camera.bedroom_camera_hd
+                ui: true
+                shortcuts:
+                  - name: Stop stream
+                    icon: mdi:stop
+                    service: input_boolean.turn_off
+                    service_data:
+                      entity_id: input_boolean.bedroom_camera_stream_main
+
+                  - name: Privacy mode
+                    icon: mdi:eye-off
+                    service: input_boolean.toggle
+                    service_data:
+                      entity_id: input_boolean.bedroom_camera_privacy_mode
+
+                  - name: Snapshot
+                    icon: mdi:camera
+                    service: camera.snapshot
+                    service_data:
+                      entity_id: camera.bedroom_camera_hd
+                      filename: /config/www/snapshots/bedroom.jpg
+
+              
+      - type: conditional
+        conditions:
+          - entity: camera.office_camera_hd
+            state_not: unavailable
+        card:
+          type: 'custom:vertical-stack-in-card'
+          cards:
+            - type: conditional
+              conditions:
+                - entity: input_boolean.office_camera_stream_main
+                  state: 'off'
+              card:
+                type: picture-entity
+                entity: camera.office_snapshot
+                show_name: false
+                show_state: false
+                hold_action:
+                  action: call-service
+                  service: input_boolean.turn_on
+                  service_data:
+                    entity_id: input_boolean.office_camera_stream_main
+
+            - type: conditional
+              conditions:
+                - entity: input_boolean.office_camera_stream_main
+                  state: 'on'
+              card:
+                type: 'custom:webrtc-camera'
+                entity: camera.office_camera_hd
+                ui: true
+                shortcuts:
+                  - name: Stop stream
+                    icon: mdi:stop
+                    service: input_boolean.turn_off
+                    service_data:
+                      entity_id: input_boolean.office_camera_stream_main
+
+                  - name: Privacy mode
+                    icon: mdi:eye-off
+                    service: input_boolean.toggle
+                    service_data:
+                      entity_id: input_boolean.office_camera_privacy_mode
+
+                  - name: Snapshot
+                    icon: mdi:camera
+                    service: camera.snapshot
+                    service_data:
+                      entity_id: camera.office_camera_hd
+                      filename: /config/www/snapshots/office.jpg
+
+              
+  - type: vertical-stack
+    title: Home
+    cards:
+      - square: false
+        columns: 3
+        type: grid
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: input_boolean.guest_mode
+            layout: vertical
+            tap_action:
+              action: toggle
+            icon_color: amber
+
+          - type: custom:mushroom-entity-card
+            entity: switch.presence_simulation
+            layout: vertical
+            icon: mdi:robot-happy
+            tap_action:
+              action: toggle
+            hide_icon: false
+            name: Presence sim
+            icon_color: teal
+
+          - type: custom:mushroom-entity-card
+            entity: input_boolean.presence_heating
+            layout: vertical
+            name: Presence heating
+            icon_color: red
+            tap_action:
+              action: toggle
+
+      - type: custom:mushroom-alarm-control-panel-card
+        entity: alarm_control_panel.home_alarm
+        states:
+          - armed_home
+          - armed_away
+        name: Home alarm
+        layout: horizontal

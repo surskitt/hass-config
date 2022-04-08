@@ -1,7 +1,7 @@
 ---
 title: Time
 icon: 'mdi:clock'
-panel: false
+type: 'custom:vertical-layout'
 cards:
   - title: Alarm clock
     type: entities

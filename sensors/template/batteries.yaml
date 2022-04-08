@@ -1,0 +1,56 @@
+---
+- platform: template
+  sensors:
+    thermostat_battery:
+      friendly_name: Thermostat battery
+      value_template: >
+        {% if is_state('binary_sensor.ru0831198208_battery_state', 'on') %}
+          20
+        {% else %}
+          100
+        {% endif %}
+
+    living_room_radiator_battery:
+      friendly_name: Living room radiator battery
+      value_template: >
+        {% if is_state('binary_sensor.va4254929920_battery_state', 'on') %}
+          20
+        {% else %}
+          100
+        {% endif %}
+
+    kitchen_radiator_battery:
+      friendly_name: Kitchen radiator battery
+      value_template: >
+        {% if is_state('binary_sensor.va0873074944_battery_state', 'on') %}
+          20
+        {% else %}
+          100
+        {% endif %}
+
+    bedroom_radiator_battery:
+      friendly_name: Bedroom radiator battery
+      value_template: >
+        {% if is_state('binary_sensor.va1661604096_battery_state', 'on') %}
+          20
+        {% else %}
+          100
+        {% endif %}
+
+    office_radiator_battery:
+      friendly_name: Office radiator battery
+      value_template: >
+        {% if is_state('binary_sensor.va2543522816_battery_state', 'on') %}
+          20
+        {% else %}
+          100
+        {% endif %}
+
+    stairs_radiator_battery:
+      friendly_name: Stairs radiator battery
+      value_template: >
+        {% if is_state('binary_sensor.va4232258816_battery_state', 'on') %}
+          20
+        {% else %}
+          100
+        {% endif %}

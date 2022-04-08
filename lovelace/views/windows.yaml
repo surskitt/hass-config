@@ -1,7 +1,8 @@
 ---
 title: Windows
-path: windows
 icon: 'mdi:window-closed-variant'
+path: windows
+type: 'custom:vertical-layout'
 cards:
   - title: Living room
     type: entities

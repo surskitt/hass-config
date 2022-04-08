@@ -1,0 +1,71 @@
+---
+title: Stairs
+icon: mdi:stairs
+path: stairs
+type: 'custom:vertical-layout'
+cards:
+  - type: vertical-stack
+    title: Presence
+    cards:
+      - type: custom:mushroom-entity-card
+        entity: input_boolean.stairs_presence
+        tap_action:
+          action: toggle
+
+  - type: vertical-stack
+    title: Devices
+    cards:
+      - type: custom:mushroom-light-card
+        entity: light.stairs_bulbs
+        icon: mdi:lightbulb-multiple
+        show_brightness_control: true
+        layout: horizontal
+        show_color_control: false
+
+      - type: custom:mushroom-light-card
+        entity: light.attic_light
+        icon: mdi:ceiling-light
+        show_brightness_control: true
+        layout: horizontal
+        show_color_control: false
+
+  - type: vertical-stack
+    title: Heating
+    cards:
+      - type: "custom:button-card"
+        template: my_thermostat
+        entity: climate.stairs
+        variables:
+          ulm_card_thermostat_name: Radiator
+          ulm_card_thermostat_icon: mdi:radiator
+          ulm_card_thermostat_enable_controls: true
+          ulm_card_thermostat_enable_popup: true
+          ulm_card_thermostat_enable_display_temperature: true
+          ulm_card_thermostat_enable_background_color: false
+          ulm_card_thermostat_enable_collapse: true
+          ulm_card_thermostat_enable_horizontal: true
+
+      - type: grid
+        columns: 3
+        square: false
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: sensor.stairs_heating
+            name: Valve
+            layout: horizontal
+            icon: mdi:pipe-valve
+            icon_color: white
+
+          - type: custom:mushroom-entity-card
+            entity: sensor.stairs_temperature
+            name: Temp
+            layout: horizontal
+            icon: mdi:thermometer
+            icon_color: orange
+
+          - type: custom:mushroom-entity-card
+            entity: sensor.stairs_humidity
+            name: Humidity
+            layout: horizontal
+            icon: mdi:waves-arrow-up
+            icon_color: light-blue

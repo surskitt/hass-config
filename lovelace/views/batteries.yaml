@@ -1,152 +1,563 @@
 ---
 title: Batteries
-path: batteries
 icon: 'mdi:battery'
+path: batteries
+type: 'custom:vertical-layout'
 cards:
-  - title: Handheld
-    type: entities
-    entities:
-      - entity: sensor.rook_battery_level
+  - type: grid
+    title: Phones
+    square: false
+    columns: 3
+    cards:
+      - type: 'custom:button-card'
         name: rook
-      - entity: sensor.moto_g6_battery_level
-        name: wren
-    show_header_toggle: false
-    state_color: true
+        template: card_battery
+        entity: sensor.rook_battery_level
+        variables:
+          ulm_card_battery_battery_state_entity_id: sensor.rook_battery_state
+          ulm_card_battery_charger_type_entity_id: sensor.rook_charger_type
+          ulm_card_battery_battery_level_danger: 10
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
 
-  - title: Cameras
-    type: entities
-    show_header_toggle: false
-    state_color: true
-    entities:
-      - entity: sensor.doorbell_battery_percentage
+  - type: grid
+    title: Cameras
+    square: false
+    columns: 3
+    cards:
+      - type: 'custom:button-card'
         name: Doorbell
-      - entity: sensor.garden_battery
+        template: card_battery
+        entity: sensor.doorbell_battery
+        variables:
+          ulm_card_battery_charger_type_entity_id: select.doorbell_charging_status
+          ulm_card_battery_battery_level_danger: 10
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+      - type: 'custom:button-card'
         name: Garden
-      - entity: sensor.driveway_battery
+        template: card_battery
+        entity: sensor.garden_battery
+        variables:
+          ulm_card_battery_charger_type_entity_id: select.garden_charging_status
+          ulm_card_battery_battery_level_danger: 10
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+      - type: 'custom:button-card'
         name: Driveway
+        template: card_battery
+        entity: sensor.driveway_battery
+        variables:
+          ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 10
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
 
-  - title: Sensors
-    type: entities
-    show_header_toggle: false
-    state_color: true
-    entities:
-      - name: Living room door sensor
+  - type: grid
+    title: Door sensors
+    square: false
+    columns: 3
+    cards:
+      - type: 'custom:button-card'
+        name: Living room
+        template: card_battery
         entity: sensor.living_room_door_battery
-      - name: Stairs motion sensor
-        entity: sensor.stairs_motion_battery
-      - name: Bedroom door sensor
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 10
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+      - type: 'custom:button-card'
+        name: Bedroom
+        template: card_battery
         entity: sensor.bedroom_door_battery
-      - name: Bed motion sensor
-        entity: sensor.bed_motion_battery
-      - name: Office door sensor
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 10
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+      - type: 'custom:button-card'
+        name: Office
+        template: card_battery
         entity: sensor.office_door_battery
-      - name: Office light sensor
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 10
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+  - type: grid
+    title: Motion sensors
+    square: false
+    columns: 3
+    cards:
+      - type: 'custom:button-card'
+        name: Stairs
+        template: card_battery
+        entity: sensor.stairs_motion_battery
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 10
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+      - type: 'custom:button-card'
+        name: Bed
+        template: card_battery
+        entity: sensor.bed_motion_battery
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 10
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+  - type: grid
+    title: Light sensors
+    square: false
+    columns: 3
+    cards:
+      - type: 'custom:button-card'
+        name: Office
+        template: card_battery
         entity: sensor.office_luminosity_battery
-      - name: Bathroom temperature sensor
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 10
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+  - type: grid
+    title: Thermometers
+    square: false
+    columns: 3
+    cards:
+      - type: 'custom:button-card'
+        name: Bathroom
+        template: card_battery
         entity: sensor.bathroom_temperature_battery
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 10
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
 
-  - title: Radiators
-    type: entities
-    show_header_toggle: false
-    state_color: true
-    entities:
-      - name: Thermostat
-        entity: binary_sensor.ru0831198208_battery_state
-      - name: Living room
-        entity: binary_sensor.va4254929920_battery_state
-      - name: Kitchen
-        entity: binary_sensor.va0873074944_battery_state
-      - name: Bedroom
-        entity: binary_sensor.va1661604096_battery_state
-      - name: Office
-        entity: binary_sensor.va2543522816_battery_state
-      - name: Stairs
-        entity: binary_sensor.va4232258816_battery_state
-
-  - title: Buttons
-    type: entities
-    show_header_toggle: false
-    state_color: true
-    entities:
-      - name: Tradfri button 1
-        entity: sensor.tradfri1_battery
-      - name: Tradfri button 2
-        entity: sensor.tradfri2_battery
-      - name: Tradfri button 3
-        entity: sensor.tradfri3_battery
-      - name: Tradfri button 4
-        entity: sensor.tradfri4_battery
-
-  - title: Plant monitors
-    type: entities
-    show_header_toggle: false
-    state_color: true
-    entities:
-      - name: Ben
-        entity: sensor.ben_battery
-      - name: Ryu
-        entity: sensor.ryu_battery
-      - name: Courtney
-        entity: sensor.courtney_battery
-      - name: Eric
-        entity: sensor.eric_battery_2
-      - name: Jaesuk
-        entity: sensor.jaesuk_battery
-      - name: Karina
-        entity: sensor.karina_battery
-      - name: Beric
-        entity: sensor.beric_battery
-      - name: Paisley
-        entity: sensor.paisley_battery
-      - name: Ali
-        entity: sensor.ali_battery
-
-  - title: Bluetooth thermometers
-    type: entities
-    show_header_toggle: false
-    state_color: true
-    entities:
-      - name: Fridge
+      - type: 'custom:button-card'
+        name: Fridge
+        template: card_battery
         entity: sensor.ble_battery_fridge_thermometer
-      - name: Bedroom
-        entity: sensor.ble_battery_freezer_thermometer
-      - name: Office
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 10
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+      - type: 'custom:button-card'
+        name: Office
+        template: card_battery
         entity: sensor.ble_battery_office_thermometer
-        
-  - title: Curtains
-    type: entities
-    show_header_toggle: false
-    state_color: true
-    entities:
-      - name: Living room
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 10
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+  - type: grid
+    title: Radiators
+    square: false
+    columns: 3
+    cards:
+      - type: 'custom:button-card'
+        name: Thermostat
+        template: card_battery
+        entity: sensor.thermostat_battery
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 20
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+      - type: 'custom:button-card'
+        name: Living room
+        template: card_battery
+        entity: sensor.living_room_radiator_battery
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 20
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+      - type: 'custom:button-card'
+        name: Kitchen
+        template: card_battery
+        entity: sensor.kitchen_radiator_battery
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 20
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+      - type: 'custom:button-card'
+        name: Bedroom
+        template: card_battery
+        entity: sensor.bedroom_radiator_battery
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 20
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+      - type: 'custom:button-card'
+        name: Office
+        template: card_battery
+        entity: sensor.office_radiator_battery
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 20
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+      - type: 'custom:button-card'
+        name: Stairs
+        template: card_battery
+        entity: sensor.stairs_radiator_battery
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 20
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+  - type: grid
+    title: Buttons
+    square: false
+    columns: 3
+    cards:
+      - type: 'custom:button-card'
+        name: Tradfri 1
+        template: card_battery
+        entity: sensor.tradfri1_battery
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 20
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+      - type: 'custom:button-card'
+        name: Tradfri 2
+        template: card_battery
+        entity: sensor.tradfri2_battery
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 20
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+      - type: 'custom:button-card'
+        name: Tradfri 3
+        template: card_battery
+        entity: sensor.tradfri3_battery
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 20
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+      - type: 'custom:button-card'
+        name: Tradfri 4
+        template: card_battery
+        entity: sensor.tradfri4_battery
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 20
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+  - type: grid
+    title: Plant monitors
+    square: false
+    columns: 3
+    cards:
+      - type: 'custom:button-card'
+        name: Jaesuk
+        template: card_battery
+        entity: sensor.jaesuk_battery
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 20
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+      - type: 'custom:button-card'
+        name: Eric
+        template: card_battery
+        entity: sensor.eric_battery_2
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 20
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+      - type: 'custom:button-card'
+        name: Karina
+        template: card_battery
+        entity: sensor.karina_battery
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 20
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+      - type: 'custom:button-card'
+        name: Basil
+        template: card_battery
+        entity: sensor.basil_battery
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 20
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+      - type: 'custom:button-card'
+        name: Ali
+        template: card_battery
+        entity: sensor.ali_battery
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 20
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+      - type: 'custom:button-card'
+        name: Courtney
+        template: card_battery
+        entity: sensor.courtney_battery
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 20
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+      - type: 'custom:button-card'
+        name: Paisley
+        template: card_battery
+        entity: sensor.paisley_battery
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 20
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+      - type: 'custom:button-card'
+        name: Beric
+        template: card_battery
+        entity: sensor.beric_battery
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 20
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+      - type: 'custom:button-card'
+        name: Ryu
+        template: card_battery
+        entity: sensor.ryu_battery
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 20
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+      - type: 'custom:button-card'
+        name: Nicki
+        template: card_battery
+        entity: sensor.nicki_battery
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 20
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+      - type: 'custom:button-card'
+        name: Angus
+        template: card_battery
+        entity: sensor.angus_battery
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 20
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+  - type: grid
+    title: Curtains
+    square: false
+    columns: 3
+    cards:
+      - type: 'custom:button-card'
+        name: Living room
+        template: card_battery
         entity: sensor.living_room_curtains_battery
-      - name: Bedroom
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 20
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+      - type: 'custom:button-card'
+        name: Bedroom
+        template: card_battery
         entity: sensor.bedroom_curtains_battery
-      - name: Office
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 20
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+      - type: 'custom:button-card'
+        name: Office
+        template: card_battery
         entity: sensor.office_curtain_battery
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 20
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
 
-  - title: Bots
-    type: entities
-    show_header_toggle: false
-    state_color: true
-    entities:
-      - name: Boiler room light switch
+  - type: grid
+    title: Switchbots
+    square: false
+    columns: 3
+    cards:
+      - type: 'custom:button-card'
+        name: Boiler room
+        template: card_battery
         entity: sensor.boiler_room_light_switch_battery
-      - name: Oven fan switch
-        entity: sensor.oven_fan_switch_bot_battery
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 20
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
 
-  - title: Speakers
-    type: entities
-    show_header_toggle: false
-    state_color: true
-    entities:
-      - name: Sonos Roam
+      # - type: 'custom:button-card'
+      #   name: Oven fan
+      #   template: card_battery
+      #   entity: sensor.oven_fan_switch_bot_battery
+      #   variables:
+      #     # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+      #     ulm_card_battery_battery_level_danger: 20
+      #     ulm_card_battery_battery_level_warning: 40
+      #     ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+      #     ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+      #     ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+  - type: grid
+    title: Speakers
+    square: false
+    columns: 3
+    cards:
+      - type: 'custom:button-card'
+        name: Sonos roam
+        template: card_battery
         entity: sensor.sonos_roam_battery
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 20
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
 
-  - title: Sprinklers
-    type: entities
-    show_header_toggle: false
-    state_color: true
-    entities:
-      - name: Garden sprinkler
+  - type: grid
+    title: Other
+    square: false
+    columns: 3
+    cards:
+      - type: 'custom:button-card'
+        name: Sprinkler
+        template: card_battery
         entity: sensor.garden_sprinkler_battery_level
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 20
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'

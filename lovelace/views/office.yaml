@@ -1,0 +1,130 @@
+---
+title: Office
+icon: mdi:desktop-tower-monitor
+path: office
+type: 'custom:vertical-layout'
+cards: 
+  - type: vertical-stack
+    title: Presence
+    cards:
+      - type: custom:mushroom-entity-card
+        entity: input_boolean.office_presence
+        tap_action:
+          action: toggle
+
+  - type: vertical-stack
+    title: Devices
+    cards:
+      - square: false
+        columns: 3
+        type: grid
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: switch.office_light_switch
+            layout: horizontal
+            name: Main light
+            icon: mdi:ceiling-light
+            icon_color: amber
+            tap_action:
+              action: toggle
+
+          - type: custom:mushroom-entity-card
+            entity: switch.wigeon
+            layout: horizontal
+            icon: mdi:desktop-tower-monitor
+            name: wigeon
+            icon_color: light-blue
+            tap_action:
+              action: toggle
+
+          - type: custom:mushroom-entity-card
+            entity: switch.office_diffuser
+            name: Diffuser
+            layout: horizontal
+            tap_action:
+              action: toggle
+
+      - type: custom:mushroom-light-card
+        entity: light.not_bulb
+        name: Not
+        icon: mdi:floor-lamp
+        show_brightness_control: true
+        layout: horizontal
+        show_color_control: false
+        show_color_temp_control: true
+        use_light_color: true
+
+      - type: custom:mushroom-cover-card
+        entity: cover.office_curtain_curtain
+        name: Curtain
+        show_buttons_control: true
+        show_position_control: true
+        layout: horizontal
+
+      # diffuser light
+
+  - type: vertical-stack
+    title: Heating
+    cards:
+      - type: "custom:button-card"
+        template: my_thermostat
+        entity: climate.office
+        variables:
+          ulm_card_thermostat_name: Radiator
+          ulm_card_thermostat_icon: mdi:radiator
+          ulm_card_thermostat_enable_controls: true
+          ulm_card_thermostat_enable_popup: true
+          ulm_card_thermostat_enable_display_temperature: true
+          ulm_card_thermostat_enable_background_color: true
+          ulm_card_thermostat_enable_collapse: true
+          ulm_card_thermostat_enable_horizontal: true
+
+      - type: grid
+        columns: 3
+        square: false
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: sensor.office_heating
+            name: Valve
+            layout: horizontal
+            icon: mdi:pipe-valve
+            icon_color: white
+
+          - type: custom:mushroom-entity-card
+            entity: sensor.office_temperature
+            name: Temp
+            layout: horizontal
+            icon: mdi:thermometer
+            icon_color: orange
+
+          - type: custom:mushroom-entity-card
+            entity: sensor.office_humidity
+            name: Humidity
+            layout: horizontal
+            icon: mdi:waves-arrow-up
+            icon_color: light-blue
+
+  - type: conditional
+    conditions:
+      - entity: camera.office_camera_hd
+        state_not: unavailable
+    card:
+      type: vertical-stack
+      title: Camera
+      cards:
+        - type: 'custom:webrtc-camera'
+          entity: camera.office_camera_hd
+          ui: true
+          shortcuts:
+            - name: Privacy mode
+              icon: mdi:eye-off
+              service: input_boolean.toggle
+              service_data:
+                entity_id: input_boolean.office_camera_privacy_mode
+
+            - name: Snapshot
+              icon: mdi:camera
+              service: camera.snapshot
+              service_data:
+                entity_id: camera.office_camera_hd
+                filename: /config/www/snapshots/office.jpg

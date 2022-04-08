@@ -1,7 +1,8 @@
 ---
 title: Health
-path: health
 icon: mdi:heart
+path: health
+type: 'custom:vertical-layout'
 cards:
   - type: vertical-stack
     cards:

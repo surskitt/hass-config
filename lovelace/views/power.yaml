@@ -1,7 +1,10 @@
 ---
 title: Power
 icon: 'mdi:power-plug'
-panel: false
+path: power
+type: 'custom:horizontal-layout'
+layout:
+  max_cols: 3
 cards:
   - type: 'custom:apexcharts-card'
     config_templates:

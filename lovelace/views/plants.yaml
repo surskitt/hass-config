@@ -1,7 +1,11 @@
 ---
 title: Plants
-path: plants
 icon: 'mdi:sprout'
+path: plants
+# type: 'custom:vertical-layout'
+type: 'custom:horizontal-layout'
+layout:
+  max_cols: 3
 cards:
   - type: 'custom:flower-card'
     entity: plant.angus

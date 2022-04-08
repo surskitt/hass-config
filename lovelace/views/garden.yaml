@@ -1,7 +1,8 @@
 ---
 title: Garden
-path: garden
 icon: 'mdi:grass'
+path: garden
+type: 'custom:vertical-layout'
 cards:
   - type: entities
     entities:

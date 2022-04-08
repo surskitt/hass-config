@@ -1,0 +1,7 @@
+# transmission and nzbget switches
+---
+title: Media
+icon: 'mdi:theater'
+path: media
+type: 'custom:vertical-layout'
+cards: []

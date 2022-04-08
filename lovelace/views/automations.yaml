@@ -1,88 +1,193 @@
 ---
 title: Automations
-path: automations
 icon: 'mdi:robot'
+path: automations
+type: 'custom:vertical-layout'
 cards:
-  - type: markdown
-    content: '# [All Automations](/config/automation/dashboard)'
-
-  - type: calendar
-    initial_view: dayGridMonth
-    entities:
-      - calendar.calendar
-
-  - type: entities
+  - type: vertical-stack
     title: Sun
-    entities:
-      - entity: sensor.dawn_time
-      - entity: sensor.sunrise_time
-      - entity: sensor.sunset_time
-      - entity: sensor.dusk_time
-      - type: attribute
-        entity: sun.sun
-        attribute: elevation
-        name: Sun elevation
-        icon: mdi:weather-sunset-down
+    cards:
+      - square: false
+        columns: 4
+        type: grid
+        cards:
+          - type: custom:mushroom-template-card
+            icon: mdi:weather-sunset-up
+            layout: vertical
+            icon_color: amber
+            primary: Dawn time
+            secondary: "{{ states('sensor.dawn_time') }}"
+            multiline_secondary: false
 
-  - type: entities
+          - type: custom:mushroom-template-card
+            icon: mdi:weather-sunset-up
+            layout: vertical
+            icon_color: yellow
+            primary: Sunrise time
+            secondary: "{{ states('sensor.sunrise_time') }}"
+            multiline_secondary: false
+
+          - type: custom:mushroom-template-card
+            icon: mdi:weather-sunset-down
+            layout: vertical
+            icon_color: yellow
+            primary: Sunset time
+            secondary: "{{ states('sensor.sunset_time') }}"
+            multiline_secondary: false
+
+          - type: custom:mushroom-template-card
+            icon: mdi:weather-sunset-down
+            layout: vertical
+            icon_color: amber
+            primary: Dusk time
+            secondary: "{{ states('sensor.dusk_time') }}"
+            multiline_secondary: false
+
+      - type: 'custom:button-card'
+        template: card_graph
+        variables:
+          ulm_card_graph_color: "#EBCB8B"
+          ulm_card_graph_name: Sun elevation
+          ulm_card_graph_entity: sensor.sun_elevation
+          ulm_card_graph_hours: 24
+
+
+      # - type: custom:mushroom-template-card
+      #   primary: Elevation
+      #   icon: mdi:weather-sunset-down
+      #   # icon_color: '{% if is_state('climate.living_room'', ''heat'' %}red{% endif %}'
+      #   icon_color: yellow
+      #   secondary: "{{ state_attr('sun.sun', 'elevation') }}"
+
+  - type: grid
     title: Presence
-    show_header_toggle: false
-    state_color: true
-    entities:
-      - entity: automation.pause_tv_when_leaving_room
-        name: Pause tv when leaving room
-        icon: 'mdi:television'
-        secondary_info: last-triggered
-      - entity: automation.pause_music_when_in_room_without_speakers
-        name: Pause music when in room without speakers
-        icon: 'mdi:music'
-        secondary_info: last-triggered
+    columns: 3
+    square: false
+    cards:
+      - type: custom:mushroom-entity-card
+        entity: input_boolean.presence_heating
+        layout: vertical
+        icon: mdi:radiator
+        name: Heating
+        icon_color: red
+        tap_action:
+          action: toggle
 
-  - type: entities
+      - type: custom:mushroom-entity-card
+        entity: automation.pause_tv_when_leaving_room
+        layout: vertical
+        icon: mdi:television
+        name: Pause tv
+        # secondary_info: "{{ state_attr('automation.pause_tv_when_leaving_room', 'last_triggered') }}"
+        icon_color: blue
+        tap_action:
+          action: toggle
+
+      - type: custom:mushroom-entity-card
+        entity: automation.pause_music_when_in_room_without_speakers
+        layout: vertical
+        icon: mdi:music
+        name: Pause music
+        # secondary_info: "{{ state_attr('automation.pause_tv_when_leaving_room', 'last_triggered') }}"
+        icon_color: purple
+        tap_action:
+          action: toggle
+
+  - type: grid
     title: Notifications
-    show_header_toggle: false
-    state_color: true
-    entities:
-      - entity: automation.doorbell_notification
-        icon: 'mdi:doorbell'
-        secondary_info: last-triggered
-      - entity: automation.send_reminder_to_drink_water
-        icon: 'mdi:cup'
-        secondary_info: last-triggered
-      - entity: automation.reenable_water_notifications
-        icon: 'mdi:cup'
-        secondary_info: last-triggered
-      - entity: automation.send_notification_when_washing_machine_finishes
-        icon: 'mdi:washing-machine'
-        secondary_info: last-triggered
-      - entity: automation.send_notification_when_dryer_finishes
-        icon: 'mdi:tumble-dryer'
-        secondary_info: last-triggered
+    columns: 3
+    square: false
+    cards:
+      - type: custom:mushroom-entity-card
+        entity: automation.doorbell_notification
+        layout: vertical
+        icon: mdi:doorbell
+        name: Doorbell
+        # secondary_info: "{{ state_attr('automation.pause_tv_when_leaving_room', 'last_triggered') }}"
+        icon_color: red
+        tap_action:
+          action: toggle
 
-  - type: entities
-    title: Seasonal
-    show_header_toggle: false
-    state_color: true
-    entities:
-      - entity: automation.turn_on_window_led_strips_at_sunset
-        icon: 'mdi:led-strip-variant'
-        secondary_info: last-triggered
-      - entity: automation.turn_down_window_led_strips_brightness_at_night
-        icon: 'mdi:led-strip-variant'
-        secondary_info: last-triggered
-      - entity: automation.turn_off_window_led_strips_later_at_night
-        icon: 'mdi:led-strip-variant'
-        secondary_info: last-triggered
+      - type: custom:mushroom-entity-card
+        entity: automation.send_reminder_to_drink_water
+        layout: vertical
+        icon: mdi:cup
+        name: Water
+        # secondary_info: "{{ state_attr('automation.pause_tv_when_leaving_room', 'last_triggered') }}"
+        icon_color: light-blue
+        tap_action:
+          action: toggle
 
-  - type: entities
+      - type: custom:mushroom-entity-card
+        entity: automation.send_notification_when_washing_machine_finishes
+        layout: vertical
+        icon: mdi:washing-machine
+        name: Washing machine
+        # secondary_info: "{{ state_attr('automation.pause_tv_when_leaving_room', 'last_triggered') }}"
+        icon_color: blue
+        tap_action:
+          action: toggle
+
+      - type: custom:mushroom-entity-card
+        entity: automation.send_notification_when_dryer_finishes
+        layout: vertical
+        icon: mdi:tumble-dryer
+        name: Dryer
+        icon_color: white
+        tap_action:
+          action: toggle
+
+  - type: grid
+    title: Window LEDs
+    columns: 3
+    square: false
+    cards:
+      - type: custom:mushroom-entity-card
+        entity: automation.turn_on_window_led_strips_at_sunset
+        layout: vertical
+        icon: mdi:led-strip-variant
+        name: Turn on at sunset
+        icon_color: green
+        tap_action:
+          action: toggle
+
+      - type: custom:mushroom-entity-card
+        entity: automation.turn_down_window_led_strips_brightness_at_night
+        layout: vertical
+        icon: mdi:led-strip-variant
+        name: Turn down at night
+        icon_color: green
+        tap_action:
+          action: toggle
+
+      - type: custom:mushroom-entity-card
+        entity: automation.turn_off_window_led_strips_later_at_night
+        layout: vertical
+        icon: mdi:led-strip-variant
+        name: Turn off at night
+        icon_color: green
+        tap_action:
+          action: toggle
+
+  - type: grid
     title: Other
-    show_header_toggle: false
-    state_color: true
-    entities:
-      - entity: automation.turn_on_guest_mode_when_cleaner_arrives
-        icon: 'mdi:account-multiple-plus'
-        secondary_info: last-triggered
-      - entity: automation.put_wigeon_to_sleep_when_tv_is_turned_on
-        name: Put wigeon to sleep when turning on the tv
-        icon: 'mdi:television'
-        secondary_info: last-triggered
+    columns: 3
+    square: false
+    cards:
+      - type: custom:mushroom-entity-card
+        entity: automation.turn_on_guest_mode_when_cleaner_arrives
+        layout: vertical
+        icon: mdi:account-multiple-plus
+        name: Cleaner guest mode
+        icon_color: light-green
+        tap_action:
+          action: toggle
+
+      - type: custom:mushroom-entity-card
+        entity: automation.put_wigeon_to_sleep_when_tv_is_turned_on
+        layout: vertical
+        icon: mdi:television
+        name: wigeon tv sleep
+        icon_color: cyan
+        tap_action:
+          action: toggle

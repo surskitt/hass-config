@@ -19,3 +19,11 @@
 - platform: local_file
   name: Kitchen snapshot
   file_path: /config/www/snapshots/kitchen.jpg
+
+- platform: local_file
+  name: Bedroom snapshot
+  file_path: /config/www/snapshots/bedroom.jpg
+
+- platform: local_file
+  name: Office snapshot
+  file_path: /config/www/snapshots/office.jpg

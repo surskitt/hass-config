@@ -1,206 +1,366 @@
 ---
+# include bluetooth thermometers
 title: Heating
-path: heating
 icon: 'mdi:radiator'
+path: heating
+type: 'custom:vertical-layout'
 cards:
-  - title: Living room
-    type: entities
-    entities:
-      - type: conditional
-        conditions:
-          - entity: climate.living_room
-            state: heat
-        row:
-          name: Thermostat
-          type: 'custom:slider-entity-row'
-          entity: climate.living_room
-          hide_state: false
-      - type: conditional
-        conditions:
-          - entity: climate.living_room
-            state_not: heat
-        row:
-          name: Thermostat
-          entity: climate.living_room
-      - name: Current temperature
-        entity: sensor.living_room_temperature
-      - name: Humidity
-        entity: sensor.living_room_humidity
-      - name: Valve
-        entity: sensor.living_room_heating
-        icon: 'mdi:radiator'
+  - type: vertical-stack
+    title: Living room
+    cards:
+      - type: "custom:button-card"
+        template: my_thermostat
+        entity: climate.living_room
+        variables:
+          ulm_card_thermostat_name: Radiator
+          ulm_card_thermostat_icon: mdi:radiator
+          ulm_card_thermostat_enable_controls: true
+          ulm_card_thermostat_enable_popup: true
+          ulm_card_thermostat_enable_display_temperature: true
+          ulm_card_thermostat_enable_background_color: false
+          ulm_card_thermostat_enable_collapse: true
+          ulm_card_thermostat_enable_horizontal: true
+          ulm_card_thermostat_enable_popup: true
 
-  - title: Kitchen
-    type: entities
-    entities:
-      - type: conditional
-        conditions:
-          - entity: climate.kitchen
-            state: heat
-        row:
-          name: Thermostat
-          type: 'custom:slider-entity-row'
-          entity: climate.kitchen
-          hide_state: false
-      - type: conditional
-        conditions:
-          - entity: climate.kitchen
-            state_not: heat
-        row:
-          name: Thermostat
-          entity: climate.kitchen
-      - name: Current temperature
-        entity: sensor.kitchen_temperature
-      - name: Humidity
-        entity: sensor.kitchen_humidity
-      - name: Valve
-        entity: sensor.kitchen_heating
-        icon: 'mdi:radiator'
-      - type: 'custom:fold-entity-row'
-        head:
-          type: section
-          label: Alternate readings
-        entities:
-          - name: Fridge temperature
-            entity: sensor.ble_temperature_fridge_thermometer
-          - name: Fridge humidity
-            entity: sensor.ble_humidity_fridge_thermometer
-          - name: Freezer temperature
-            entity: sensor.ble_temperature_freezer_thermometer
-          - name: Freezer humidity
-            entity: sensor.ble_humidity_freezer_thermometer
+      - type: grid
+        columns: 3
+        square: false
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: sensor.living_room_heating
+            name: Valve
+            layout: horizontal
+            icon: mdi:pipe-valve
+            icon_color: white
 
-  - title: Bedroom
-    type: entities
-    entities:
-      - type: conditional
-        conditions:
-          - entity: climate.bedroom
-            state: heat
-        row:
-          name: Thermostat
-          type: 'custom:slider-entity-row'
-          entity: climate.bedroom
-          hide_state: false
-      - type: conditional
-        conditions:
-          - entity: climate.bedroom
-            state_not: heat
-        row:
-          name: Thermostat
-          entity: climate.bedroom
-      - name: Current temperature
-        entity: sensor.bedroom_temperature
-      - name: Humidity
-        entity: sensor.bedroom_humidity
-      - name: Valve
-        entity: sensor.bedroom_heating
-        icon: 'mdi:radiator'
-      # - type: 'custom:fold-entity-row'
-      #   head:
-      #     type: section
-      #     label: Alternate readings
-      #   entities:
-      #     - entity: sensor.ble_temperature_bedroom_thermometer
-      #     - entity: sensor.ble_humidity_bedroom_thermometer
-      #     - type: attribute
-      #       name: Offset
-      #       entity: climate.bedroom
-      #       attribute: offset_celsius
-      #       suffix: °C
+          - type: custom:mushroom-entity-card
+            entity: sensor.living_room_temperature
+            name: Temp
+            layout: horizontal
+            icon: mdi:thermometer
+            icon_color: orange
 
-  - title: Office
-    type: entities
-    entities:
-      - type: conditional
-        conditions:
-          - entity: climate.office
-            state: heat
-        row:
-          name: Thermostat
-          type: 'custom:slider-entity-row'
-          entity: climate.office
-          hide_state: false
-      - type: conditional
-        conditions:
-          - entity: climate.office
-            state_not: heat
-        row:
-          name: Thermostat
-          entity: climate.office
-      - name: Current temperature
-        entity: sensor.office_temperature
-      - name: Humidity
-        entity: sensor.office_humidity
-      - name: Valve
-        entity: sensor.office_heating
-        icon: 'mdi:radiator'
-      - type: 'custom:fold-entity-row'
-        head:
-          type: section
-          label: Alternate readings
-        entities:
-          - name: Bluetooth thermometer temperature
-            entity: sensor.ble_temperature_office_thermometer
-          - name: Bluetooth thermometer humidity
-            entity: sensor.ble_humidity_office_thermometer
-          - type: attribute
-            name: Offset
-            entity: climate.office
-            attribute: offset_celsius
-            suffix: °C
+          - type: custom:mushroom-entity-card
+            entity: sensor.living_room_humidity
+            name: Humidity
+            layout: horizontal
+            icon: mdi:waves-arrow-up
+            icon_color: light-blue
 
-  - title: Bathroom
-    type: entities
-    entities:
-      - name: Current temperature
-        entity: sensor.bathroom_temperature_temperature
-      - name: Humidity
-        entity: sensor.bathroom_temperature_humidity
+  - type: vertical-stack
+    title: Kitchen
+    cards:
+      - type: "custom:button-card"
+        template: my_thermostat
+        entity: climate.kitchen
+        variables:
+          ulm_card_thermostat_name: Radiator
+          ulm_card_thermostat_icon: mdi:radiator
+          ulm_card_thermostat_enable_controls: true
+          ulm_card_thermostat_enable_popup: true
+          ulm_card_thermostat_enable_display_temperature: true
+          ulm_card_thermostat_enable_background_color: false
+          ulm_card_thermostat_enable_collapse: true
+          ulm_card_thermostat_enable_horizontal: true
+          ulm_card_thermostat_enable_popup: true
 
-  - title: Stairs
-    type: entities
-    entities:
-      - type: conditional
-        conditions:
-          - entity: climate.stairs
-            state: heat
-        row:
-          name: Thermostat
-          type: 'custom:slider-entity-row'
-          entity: climate.stairs
-          hide_state: false
-      - type: conditional
-        conditions:
-          - entity: climate.stairs
-            state_not: heat
-        row:
-          name: Thermostat
-          entity: climate.stairs
-      - name: Current temperature
-        entity: sensor.stairs_temperature
-      - name: Humidity
-        entity: sensor.stairs_humidity
-      - name: Valve
-        entity: sensor.stairs_heating
-        icon: 'mdi:radiator'
+      - type: grid
+        columns: 3
+        square: false
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: sensor.kitchen_heating
+            name: Valve
+            layout: horizontal
+            icon: mdi:pipe-valve
+            icon_color: white
 
-  - title: Boiler room
-    type: entities
-    entities:
-      - name: Current temperature
-        entity: sensor.shellyht_b895d2_temperature
-      - name: Humidity
-        entity: sensor.shellyht_b895d2_humidity
+          - type: custom:mushroom-entity-card
+            entity: sensor.kitchen_temperature
+            name: Temp
+            layout: horizontal
+            icon: mdi:thermometer
+            icon_color: orange
 
-  - title: Limits
-    type: entities
-    entities:
-      - name: Minimum
-        entity: input_number.heating_minimum
-      - name: Maximum
-        entity: input_number.heating_maximum
+          - type: custom:mushroom-entity-card
+            entity: sensor.kitchen_humidity
+            name: Humidity
+            layout: horizontal
+            icon: mdi:waves-arrow-up
+            icon_color: light-blue
 
-  - type: weather-forecast
-    entity: weather.home
-    show_forecast: false
+  - type: vertical-stack
+    title: Stairs
+    cards:
+      - type: "custom:button-card"
+        template: my_thermostat
+        entity: climate.stairs
+        variables:
+          ulm_card_thermostat_name: Radiator
+          ulm_card_thermostat_icon: mdi:radiator
+          ulm_card_thermostat_enable_controls: true
+          ulm_card_thermostat_enable_popup: true
+          ulm_card_thermostat_enable_display_temperature: true
+          ulm_card_thermostat_enable_background_color: false
+          ulm_card_thermostat_enable_collapse: true
+          ulm_card_thermostat_enable_horizontal: true
+          ulm_card_thermostat_enable_popup: true
+
+      - type: grid
+        columns: 3
+        square: false
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: sensor.stairs_heating
+            name: Valve
+            layout: horizontal
+            icon: mdi:pipe-valve
+            icon_color: white
+
+          - type: custom:mushroom-entity-card
+            entity: sensor.stairs_temperature
+            name: Temp
+            layout: horizontal
+            icon: mdi:thermometer
+            icon_color: orange
+
+          - type: custom:mushroom-entity-card
+            entity: sensor.stairs_humidity
+            name: Humidity
+            layout: horizontal
+            icon: mdi:waves-arrow-up
+            icon_color: light-blue
+
+  - type: vertical-stack
+    title: Bedroom
+    cards:
+      - type: "custom:button-card"
+        template: my_thermostat
+        entity: climate.bedroom
+        variables:
+          ulm_card_thermostat_name: Radiator
+          ulm_card_thermostat_icon: mdi:radiator
+          ulm_card_thermostat_enable_controls: true
+          ulm_card_thermostat_enable_popup: true
+          ulm_card_thermostat_enable_display_temperature: true
+          ulm_card_thermostat_enable_background_color: false
+          ulm_card_thermostat_enable_collapse: true
+          ulm_card_thermostat_enable_horizontal: true
+          ulm_card_thermostat_enable_popup: true
+
+      - type: grid
+        columns: 3
+        square: false
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: sensor.bedroom_heating
+            name: Valve
+            layout: horizontal
+            icon: mdi:pipe-valve
+            icon_color: white
+
+          - type: custom:mushroom-entity-card
+            entity: sensor.bedroom_temperature
+            name: Temp
+            layout: horizontal
+            icon: mdi:thermometer
+            icon_color: orange
+
+          - type: custom:mushroom-entity-card
+            entity: sensor.bedroom_humidity
+            name: Humidity
+            layout: horizontal
+            icon: mdi:waves-arrow-up
+            icon_color: light-blue
+
+  - type: vertical-stack
+    title: Office
+    cards:
+      - type: "custom:button-card"
+        template: my_thermostat
+        entity: climate.office
+        variables:
+          ulm_card_thermostat_name: Radiator
+          ulm_card_thermostat_icon: mdi:radiator
+          ulm_card_thermostat_enable_controls: true
+          ulm_card_thermostat_enable_popup: true
+          ulm_card_thermostat_enable_display_temperature: true
+          ulm_card_thermostat_enable_background_color: false
+          ulm_card_thermostat_enable_collapse: true
+          ulm_card_thermostat_enable_horizontal: true
+          ulm_card_thermostat_enable_popup: true
+
+      - type: grid
+        columns: 3
+        square: false
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: sensor.office_heating
+            name: Valve
+            layout: horizontal
+            icon: mdi:pipe-valve
+            icon_color: white
+
+          - type: custom:mushroom-entity-card
+            entity: sensor.office_temperature
+            name: Temp
+            layout: horizontal
+            icon: mdi:thermometer
+            icon_color: orange
+
+          - type: custom:mushroom-entity-card
+            entity: sensor.office_humidity
+            name: Humidity
+            layout: horizontal
+            icon: mdi:waves-arrow-up
+            icon_color: light-blue
+
+  - type: vertical-stack
+    title: Bathroom
+    cards:
+      - type: grid
+        columns: 2
+        square: false
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: sensor.bathroom_temperature_temperature
+            name: Temperature
+            layout: horizontal
+            icon: mdi:thermometer
+            icon_color: orange
+
+          - type: custom:mushroom-entity-card
+            entity: sensor.bathroom_temperature_humidity
+            name: Humidity
+            layout: horizontal
+            icon: mdi:waves-arrow-up
+            icon_color: light-blue
+
+  - type: vertical-stack
+    title: Boiler room
+    cards:
+      - type: grid
+        columns: 2
+        square: false
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: sensor.shellyht_b895d2_temperature
+            name: Temperature
+            layout: horizontal
+            icon: mdi:thermometer
+            icon_color: orange
+
+          - type: custom:mushroom-entity-card
+            entity: sensor.shellyht_b895d2_humidity
+            name: Humidity
+            layout: horizontal
+            icon: mdi:waves-arrow-up
+            icon_color: light-blue
+
+  - type: vertical-stack
+    title: Limits
+    cards:
+      - type: grid
+        columns: 2
+        square: false
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: input_number.heating_minimum
+            name: Heating minimum
+            layout: horizontal
+            icon: mdi:radiator
+            icon_color: light-blue
+
+          - type: grid
+            columns: 2
+            square: false
+            cards:
+              - type: custom:button-card
+                icon: mdi:arrow-down-bold
+                size: "30%"
+                styles:
+                  card:
+                    - height: 66.25px
+                tap_action:
+                  action: call-service
+                  service: input_number.decrement
+                  service_data:
+                    entity_id: input_number.heating_minimum
+
+              - type: custom:button-card
+                icon: mdi:arrow-up-bold
+                size: "30%"
+                styles:
+                  card:
+                    - height: 66.25px
+                tap_action:
+                  action: call-service
+                  service: input_number.increment
+                  service_data:
+                    entity_id: input_number.heating_minimum
+
+      - type: grid
+        columns: 2
+        square: false
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: input_number.heating_maximum
+            name: Heating maximum
+            layout: horizontal
+            icon: mdi:radiator
+            icon_color: light-blue
+
+          - type: grid
+            columns: 2
+            square: false
+            cards:
+              - type: custom:button-card
+                icon: mdi:arrow-down-bold
+                size: "30%"
+                styles:
+                  card:
+                    - height: 66.25px
+                tap_action:
+                  action: call-service
+                  service: input_number.decrement
+                  service_data:
+                    entity_id: input_number.heating_maximum
+
+              - type: custom:button-card
+                icon: mdi:arrow-up-bold
+                size: "30%"
+                styles:
+                  card:
+                    - height: 66.25px
+                tap_action:
+                  action: call-service
+                  service: input_number.increment
+                  service_data:
+                    entity_id: input_number.heating_maximum
+
+  - type: vertical-stack
+    title: Weather
+    cards:
+      - type: grid
+        columns: 3
+        square: false
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: weather.home
+            name: Condition
+            layout: horizontal
+            icon_color: teal
+
+          - type: custom:mushroom-template-card
+            icon: mdi:thermometer
+            icon_color: red
+            primary: Temp
+            secondary: "{{ state_attr('weather.home', 'temperature') }}°C"
+            layout: horizontal
+
+          - type: custom:mushroom-template-card
+            icon: mdi:weather-pouring
+            icon_color: light-blue
+            primary: Rain
+            secondary: "{{ state_attr('weather.home', 'forecast')[0].precipitation }}mm"
+            layout: horizontal
