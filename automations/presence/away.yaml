@@ -35,6 +35,14 @@
       entity_id: sensor.rook_wifi_connection
       to: Beetroot
 
+    - platform: state
+      entity_id: device_tracker.4c_f2_02_ab_58_f5
+      to: home
+
+    - platform: state
+      entity_id: input_boolean.guest_mode
+      to: 'on'
+
   action:
     - service: switch.turn_off
       target:
