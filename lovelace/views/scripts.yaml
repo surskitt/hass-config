@@ -1,0 +1,6 @@
+---
+title: Scripts
+icon: 'mdi:script'
+path: scripts
+type: 'custom:vertical-layout'
+cards: []

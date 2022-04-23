@@ -1,0 +1,18 @@
+---
+title: Main
+icon: 'mdi:tablet-dashboard'
+path: kindle1
+type: 'custom:vertical-layout'
+cards:
+  - square: false
+    columns: 2
+    type: grid
+    cards:
+      - type: custom:mushroom-template-card
+        icon: mdi:reload
+        # icon_color: white
+        primary: "Last refreshed at {{ now().strftime('%H:%M') }}"
+
+      - type: custom:mushroom-template-card
+        icon: mdi:battery
+        primary: "Current battery: {{ states('input_number.kindle1_battery_level') | int }}%"

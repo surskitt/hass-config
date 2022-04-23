@@ -74,3 +74,9 @@ dryer_custom_timer:
   min: 0
   max: 10800
   step: 60
+
+kindle1_battery_level:
+  name: Kindle1 battery level
+  icon: mdi:tablet-dashboard
+  min: 0
+  max: 100

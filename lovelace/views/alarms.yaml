@@ -1,6 +1,0 @@
----
-title: Alarms
-icon: 'mdi:alarm'
-path: alarms
-type: 'custom:vertical-layout'
-cards: []

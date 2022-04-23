@@ -21,7 +21,7 @@ views:
   - !include lovelace/views/computers.yaml
   - !include lovelace/views/timers.yaml
   - !include lovelace/views/media.yaml
-  - !include lovelace/views/alarms.yaml
+  - !include lovelace/views/scripts.yaml
   - !include lovelace/views/health.yaml
   - !include lovelace/views/windows.yaml
 
@@ -41,3 +41,5 @@ views:
   # - !include lovelace/views/video.yaml
   # - !include lovelace/views/downloads.yaml
   # - !include lovelace/views/health.yaml
+  
+  - !include lovelace/views/kindle1.yaml

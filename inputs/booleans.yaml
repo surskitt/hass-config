@@ -31,6 +31,10 @@ guest_mode:
   name: Guest mode
   icon: mdi:account-multiple-plus
 
+kindle1_battery_charging:
+  name: Kindle1_battery_charging
+  icon: mdi:battery
+
 # fakes
 
 fake_living_room_door:

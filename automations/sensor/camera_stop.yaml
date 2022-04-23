@@ -17,3 +17,30 @@
         entity_id:
           - camera.garden
           - camera.driveway
+
+- id: camera_alert_timeout
+  alias: notification after camera active for period
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id:
+        - camera.garden
+        - camera.driveway
+      to: "Streaming - rtsp"
+      for: "00:05:00"
+
+  action:
+    - service: notify.gotify
+      data:
+        title: Camera is on
+        message: Camera has been on for more than 5 minutes
+
+    - service: notify.mobile_app_rook
+      data:
+        title: Camera is on
+        message: Camera has been on for more than 5 minutes
+
+    - service: notify.tv
+      data:
+        message: Camera has been on for more than 5 minutes

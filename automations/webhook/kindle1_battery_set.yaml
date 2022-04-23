@@ -1,0 +1,10 @@
+---
+- id: kindle1_battery_level
+  alias: Kindle 1 Screensaver Battery Level
+  description: 'Set battery values for kindle 1'
+  use_blueprint:
+    path: sibbl/battery_sensor_blueprint.yaml
+    input:
+      webhook_id: ca091e220478f9a86b5d3e089298bee7
+      battery_level: input_number.kindle1_battery_level
+      battery_charging: input_boolean.kindle1_battery_charging
