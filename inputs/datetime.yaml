@@ -3,3 +3,29 @@ alarm_clock:
   name: Alarm clock time
   has_time: true
   icon: 'mdi:alarm'
+
+fan_oven_custom_timer:
+  name: Fan oven custom timer
+  has_time: true
+  icon: mdi:oven
+
+top_oven_custom_timer:
+  name: Top oven custom timer
+  has_time: true
+  icon: mdi:oven
+
+washing_machine_custom_timer:
+  name: Washing machine custom timer
+  has_time: true
+  icon: mdi:washing-machine
+
+dryer_custom_timer:
+  name: Dryer custom timer
+  has_time: true
+  icon: mdi:dryer
+
+bath_custom_timer:
+  name: Bath custom timer
+  has_time: true
+  icon: mdi:bath
+  initial: "00:19"

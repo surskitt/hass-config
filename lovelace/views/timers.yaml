@@ -4,261 +4,351 @@ icon: 'mdi:timer'
 path: timers
 type: 'custom:vertical-layout'
 cards:
-  - title: Fan oven
-    type: entities
-    state_color: true
-    entities:
-      - type: conditional
-        conditions:
-          - entity: timer.fan_oven
-            state_not: idle
-        row:
-          type: custom:timer-bar-card
-          entity: timer.fan_oven
-          name: Timer
+  - type: vertical-stack
+    title: Fan oven
+    cards:
+      - type: custom:button-card
+        template: mushroom_timer
+        name: Timer
+        entity: timer.fan_oven
+        variables:
+          input_datetime_id: input_datetime.fan_oven_custom_timer
 
-      - type: custom:numberbox-card
-        name: Duration
-        entity: input_number.fan_oven_custom_timer
-        icon: 'mdi:stove'
-        unit: time
+      - type: grid
+        columns: 2
+        square: false
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: input_datetime.fan_oven_custom_timer
+            name: Duration
+            layout: horizontal
+            icon: mdi:timer
+            icon_color: light-blue
 
-      - type: buttons
-        card_mod:
-          style:
-            hui-buttons-base $: |
-              .ha-scrollbar {
-                justify-content: center;
-              }
-        entities:
-          - type: button
-            name: Start
-            icon: 'mdi:timer'
+          - type: grid
+            columns: 2
+            square: false
+            cards:
+              - type: custom:button-card
+                icon: mdi:arrow-down-bold
+                size: "30%"
+                styles:
+                  card:
+                    - height: 66.25px
+                tap_action:
+                  action: call-service
+                  service: script.datetime_increment
+                  service_data:
+                    datetime: input_datetime.fan_oven_custom_timer
+                    hours: 0
+                    minutes: -1
+
+              - type: custom:button-card
+                icon: mdi:arrow-up-bold
+                size: "30%"
+                styles:
+                  card:
+                    - height: 66.25px
+                tap_action:
+                  action: call-service
+                  service: script.datetime_increment
+                  service_data:
+                    datetime: input_datetime.fan_oven_custom_timer
+                    hours: 0
+                    minutes: 1
+
+      - type: grid
+        columns: 2
+        square: false
+        cards:
+          - type: custom:mushroom-template-card
+            primary: Oven chips
+            secondary: "00:30"
+            icon: mdi:french-fries
+            icon_color: yellow
             tap_action:
               action: call-service
-              service: script.custom_timer
+              service: input_datetime.set_datetime
               service_data:
-                timer: timer.fan_oven
-                entity: input_number.fan_oven_custom_timer
+                entity_id: input_datetime.fan_oven_custom_timer
+                time: "00:30:00"
 
-          - type: button
-            name: Cancel
-            icon: 'mdi:close-octagon'
+          - type: custom:mushroom-template-card
+            primary: Oven fries
+            secondary: "00:16"
+            icon: mdi:french-fries
+            icon_color: yellow
             tap_action:
               action: call-service
-              service: timer.cancel
-              target:
-                entity_id: timer.fan_oven
-
-  - title: Top oven
-    type: entities
-    state_color: true
-    entities:
-      - type: conditional
-        conditions:
-          - entity: timer.top_oven
-            state_not: idle
-        row:
-          type: custom:timer-bar-card
-          entity: timer.top_oven
-          name: Timer
-
-      - type: custom:numberbox-card
-        name: Duration
-        entity: input_number.top_oven_custom_timer
-        icon: 'mdi:stove'
-        unit: time
-
-      - type: buttons
-        card_mod:
-          style:
-            hui-buttons-base $: |
-              .ha-scrollbar {
-                justify-content: center;
-              }
-        entities:
-          - type: button
-            name: Start
-            icon: 'mdi:timer'
-            tap_action:
-              action: call-service
-              service: script.custom_timer
+              service: input_datetime.set_datetime
               service_data:
-                timer: timer.top_oven
-                entity: input_number.top_oven_custom_timer
+                entity_id: input_datetime.fan_oven_custom_timer
+                time: "00:16:00"
 
-          - type: button
-            name: Cancel
-            icon: 'mdi:close-octagon'
+  - type: vertical-stack
+    title: Top oven
+    cards:
+      - type: custom:button-card
+        template: mushroom_timer
+        name: Timer
+        entity: timer.top_oven
+        variables:
+          input_datetime_id: input_datetime.top_oven_custom_timer
+
+      - type: grid
+        columns: 2
+        square: false
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: input_datetime.top_oven_custom_timer
+            name: Duration
+            layout: horizontal
+            icon: mdi:timer
+            icon_color: light-blue
+
+          - type: grid
+            columns: 2
+            square: false
+            cards:
+              - type: custom:button-card
+                icon: mdi:arrow-down-bold
+                size: "30%"
+                styles:
+                  card:
+                    - height: 66.25px
+                tap_action:
+                  action: call-service
+                  service: script.datetime_increment
+                  service_data:
+                    datetime: input_datetime.top_oven_custom_timer
+                    hours: 0
+                    minutes: -1
+
+              - type: custom:button-card
+                icon: mdi:arrow-up-bold
+                size: "30%"
+                styles:
+                  card:
+                    - height: 66.25px
+                tap_action:
+                  action: call-service
+                  service: script.datetime_increment
+                  service_data:
+                    datetime: input_datetime.top_oven_custom_timer
+                    hours: 0
+                    minutes: 1
+
+      - type: grid
+        columns: 2
+        square: false
+        cards:
+          - type: custom:mushroom-template-card
+            primary: Oven chips
+            secondary: "00:30"
+            icon: mdi:french-fries
+            icon_color: yellow
             tap_action:
               action: call-service
-              service: timer.cancel
-              target:
-                entity_id: timer.top_oven
-
-  - title: Washing machine
-    type: entities
-    state_color: true
-    entities:
-      - type: conditional
-        conditions:
-          - entity: timer.washing_machine
-            state_not: idle
-        row:
-          type: custom:timer-bar-card
-          entity: timer.washing_machine
-          name: Timer
-
-      - type: custom:numberbox-card
-        name: Duration
-        entity: input_number.washing_machine_custom_timer
-        icon: 'mdi:washing-machine'
-        unit: time
-
-      - type: buttons
-        card_mod:
-          style:
-            hui-buttons-base $: |
-              .ha-scrollbar {
-                justify-content: center;
-              }
-        entities:
-          - type: button
-            name: 60°C cottons
-            icon: 'mdi:thermometer'
-            tap_action:
-              action: call-service
-              service: input_number.set_value
+              service: input_datetime.set_datetime
               service_data:
-                entity_id: input_number.washing_machine_custom_timer
-                value: 9660
+                entity_id: input_datetime.top_oven_custom_timer
+                time: "00:30:00"
 
-      - type: buttons
-        card_mod:
-          style:
-            hui-buttons-base $: |
-              .ha-scrollbar {
-                justify-content: center;
-              }
-        entities:
-          - type: button
-            name: Start
-            icon: 'mdi:timer'
+          - type: custom:mushroom-template-card
+            primary: Oven fries
+            secondary: "00:16"
+            icon: mdi:french-fries
+            icon_color: yellow
             tap_action:
               action: call-service
-              service: script.custom_timer
+              service: input_datetime.set_datetime
               service_data:
-                timer: timer.washing_machine
-                entity: input_number.washing_machine_custom_timer
+                entity_id: input_datetime.top_oven_custom_timer
+                time: "00:16:00"
 
-          - type: button
-            name: Cancel
-            icon: 'mdi:close-octagon'
+  - type: vertical-stack
+    title: Washing machine
+    cards:
+      - type: custom:button-card
+        template: mushroom_timer
+        name: Timer
+        entity: timer.washing_machine
+        variables:
+          input_datetime_id: input_datetime.washing_machine_custom_timer
+
+      - type: grid
+        columns: 2
+        square: false
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: input_datetime.washing_machine_custom_timer
+            name: Duration
+            layout: horizontal
+            icon: mdi:timer
+            icon_color: light-blue
+
+          - type: grid
+            columns: 2
+            square: false
+            cards:
+              - type: custom:button-card
+                icon: mdi:arrow-down-bold
+                size: "30%"
+                styles:
+                  card:
+                    - height: 66.25px
+                tap_action:
+                  action: call-service
+                  service: script.datetime_increment
+                  service_data:
+                    datetime: input_datetime.washing_machine_custom_timer
+                    hours: 0
+                    minutes: -1
+
+              - type: custom:button-card
+                icon: mdi:arrow-up-bold
+                size: "30%"
+                styles:
+                  card:
+                    - height: 66.25px
+                tap_action:
+                  action: call-service
+                  service: script.datetime_increment
+                  service_data:
+                    datetime: input_datetime.washing_machine_custom_timer
+                    hours: 0
+                    minutes: 1
+
+      - type: grid
+        columns: 1
+        square: false
+        cards:
+          - type: custom:mushroom-template-card
+            primary: 60°C cottons
+            secondary: "02:40"
+            icon: mdi:thermometer
+            icon_color: orange
             tap_action:
               action: call-service
-              service: timer.cancel
-              target:
-                entity_id: timer.washing_machine
-
-  - title: Dryer
-    type: entities
-    state_color: true
-    entities:
-      - type: conditional
-        conditions:
-          - entity: timer.dryer
-            state_not: idle
-        row:
-          type: custom:timer-bar-card
-          entity: timer.dryer
-          name: Timer
-
-      - type: custom:numberbox-card
-        name: Duration
-        entity: input_number.dryer_custom_timer
-        icon: 'mdi:tumble-dryer'
-        unit: time
-
-      - type: buttons
-        card_mod:
-          style:
-            hui-buttons-base $: |
-              .ha-scrollbar {
-                justify-content: center;
-              }
-        entities:
-          - type: button
-            name: Mixed load
-            icon: 'mdi:thermometer'
-            tap_action:
-              action: call-service
-              service: input_number.set_value
+              service: input_datetime.set_datetime
               service_data:
-                entity_id: input_number.dryer_custom_timer
-                value: 3900
+                entity_id: input_datetime.washing_machine_custom_timer
+                time: "02:40:00"
 
-      - type: buttons
-        card_mod:
-          style:
-            hui-buttons-base $: |
-              .ha-scrollbar {
-                justify-content: center;
-              }
-        entities:
-          - type: button
-            name: Start
-            icon: 'mdi:timer'
+  - type: vertical-stack
+    title: Dryer
+    cards:
+      - type: custom:button-card
+        template: mushroom_timer
+        name: Timer
+        entity: timer.dryer
+        variables:
+          input_datetime_id: input_datetime.dryer_custom_timer
+
+      - type: grid
+        columns: 2
+        square: false
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: input_datetime.dryer_custom_timer
+            name: Duration
+            layout: horizontal
+            icon: mdi:timer
+            icon_color: light-blue
+
+          - type: grid
+            columns: 2
+            square: false
+            cards:
+              - type: custom:button-card
+                icon: mdi:arrow-down-bold
+                size: "30%"
+                styles:
+                  card:
+                    - height: 66.25px
+                tap_action:
+                  action: call-service
+                  service: script.datetime_increment
+                  service_data:
+                    datetime: input_datetime.dryer_custom_timer
+                    hours: 0
+                    minutes: -1
+
+              - type: custom:button-card
+                icon: mdi:arrow-up-bold
+                size: "30%"
+                styles:
+                  card:
+                    - height: 66.25px
+                tap_action:
+                  action: call-service
+                  service: script.datetime_increment
+                  service_data:
+                    datetime: input_datetime.dryer_custom_timer
+                    hours: 0
+                    minutes: 1
+
+      - type: grid
+        columns: 1
+        square: false
+        cards:
+          - type: custom:mushroom-template-card
+            primary: Mixed load
+            secondary: "01:05"
+            icon: mdi:thermometer
+            icon_color: orange
             tap_action:
               action: call-service
-              service: script.custom_timer
+              service: input_datetime.set_datetime
               service_data:
-                timer: timer.dryer
-                entity: input_number.dryer_custom_timer
+                entity_id: input_datetime.dryer_custom_timer
+                time: "01:05:00"
 
-          - type: button
-            name: Cancel
-            icon: 'mdi:close-octagon'
-            tap_action:
-              action: call-service
-              service: timer.cancel
-              target:
-                entity_id: timer.dryer
+  - type: vertical-stack
+    title: Bath
+    cards:
+      - type: custom:button-card
+        template: mushroom_timer
+        name: Timer
+        entity: timer.bath_fill
+        variables:
+          input_datetime_id: input_datetime.bath_custom_timer
 
-  - title: Bath
-    type: entities
-    state_color: true
-    entities:
-      - type: conditional
-        conditions:
-          - entity: timer.bath_fill
-            state_not: idle
-        row:
-          type: custom:timer-bar-card
-          entity: timer.bath_fill
-          name: Timer
+  # - title: Bath
+  #   type: entities
+  #   state_color: true
+  #   entities:
+  #     - type: conditional
+  #       conditions:
+  #         - entity: timer.bath_fill
+  #           state_not: idle
+  #       row:
+  #         type: custom:timer-bar-card
+  #         entity: timer.bath_fill
+  #         name: Timer
 
-      - type: buttons
-        card_mod:
-          style:
-            hui-buttons-base $: |
-              .ha-scrollbar {
-                justify-content: center;
-              }
-        entities:
-          - type: button
-            name: Start
-            icon: 'mdi:timer'
-            tap_action:
-              action: call-service
-              service: timer.start
-              target:
-                entity_id: timer.bath_fill
+  #     - type: buttons
+  #       card_mod:
+  #         style:
+  #           hui-buttons-base $: |
+  #             .ha-scrollbar {
+  #               justify-content: center;
+  #             }
+  #       entities:
+  #         - type: button
+  #           name: Start
+  #           icon: 'mdi:timer'
+  #           tap_action:
+  #             action: call-service
+  #             service: timer.start
+  #             target:
+  #               entity_id: timer.bath_fill
 
-          - type: button
-            name: Cancel
-            icon: 'mdi:close-octagon'
-            tap_action:
-              action: call-service
-              service: timer.cancel
-              target:
-                entity_id: timer.bath_fill
+  #         - type: button
+  #           name: Cancel
+  #           icon: 'mdi:close-octagon'
+  #           tap_action:
+  #             action: call-service
+  #             service: timer.cancel
+  #             target:
+  #               entity_id: timer.bath_fill

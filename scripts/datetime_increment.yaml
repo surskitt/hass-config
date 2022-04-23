@@ -1,0 +1,16 @@
+---
+datetime_increment:
+  fields:
+    datetime:
+      description: datetime object to increment
+    hours:
+      description: hours to increment by
+    minutes:
+      description: minutes to increment by
+
+  sequence:
+    - service: input_datetime.set_datetime
+      target:
+        entity_id: "{{ datetime }}"
+      data:
+        timestamp: "{{ state_attr(datetime, 'timestamp') + (hours * 3600) + (minutes * 60) - 3600 }}"
