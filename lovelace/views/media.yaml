@@ -124,6 +124,18 @@ cards:
               action: toggle
 
   - type: vertical-stack
+    title: Plugs
+    cards:
+      - type: custom:mushroom-entity-card
+        entity: switch.vinyl
+        layout: horizontal
+        name: Vinyl
+        icon: mdi:power-socket-uk
+        icon_color: orange
+        tap_action:
+          action: toggle
+
+  - type: vertical-stack
     title: Edifier speakers
     cards:
       - type: grid
