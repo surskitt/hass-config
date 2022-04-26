@@ -4,4 +4,302 @@ title: Media
 icon: 'mdi:theater'
 path: media
 type: 'custom:vertical-layout'
-cards: []
+cards:
+  - type: vertical-stack
+    title: Forked-daapd
+    cards:
+      - type: custom:mushroom-media-player-card
+        entity: media_player.forked_daapd_server
+        layout: horizontal
+        use_media_info: true
+        use_media_artwork: true
+        media_controls:
+          - next
+          - play_pause_stop
+          - previous
+
+      - type: grid
+        square: false
+        columns: 3
+        cards:
+          - type: custom:mushroom-template-card
+            primary: Living room
+            secondary: >
+              {% set m = 'media_player.forked_daapd_output_living_room_speaker' %}
+              {{ 'Volume: ' ~ (state_attr(m, 'volume_level')*100)|int if is_state(m, 'on') else states(m)|title }}
+            icon: mdi:cast-audio
+            icon_color: "{{ 'blue' if is_state('media_player.forked_daapd_output_living_room_speaker', 'on') else 'grey' }}"
+            entity: media_player.forked_daapd_output_living_room_speaker
+            tap_action:
+              action: toggle
+
+          - type: custom:mushroom-template-card
+            primary: Edifier
+            secondary: >
+              {% set m = 'media_player.forked_daapd_output_muscovy' %}
+              {{ 'Volume: ' ~ (state_attr(m, 'volume_level')*100)|int if is_state(m, 'on') else states(m)|title }}
+            icon: mdi:speaker
+            icon_color: "{{ 'red' if is_state('media_player.forked_daapd_output_muscovy', 'on') else 'grey' }}"
+            entity: media_player.forked_daapd_output_muscovy
+            tap_action:
+              action: toggle
+
+          - type: custom:mushroom-template-card
+            primary: Kitchen
+            secondary: >
+              {% set m = 'media_player.forked_daapd_output_kitchen_speaker' %}
+              {{ 'Volume: ' ~ (state_attr(m, 'volume_level')*100)|int if is_state(m, 'on') else states(m)|title }}
+            icon: mdi:cast-audio
+            icon_color: "{{ 'blue' if is_state('media_player.forked_daapd_output_kitchen_speaker', 'on') else 'grey' }}"
+            entity: media_player.forked_daapd_output_kitchen_speaker
+            tap_action:
+              action: toggle
+
+          - type: custom:mushroom-template-card
+            primary: Bedroom
+            secondary: >
+              {% set m = 'media_player.forked_daapd_output_bedroom_speaker' %}
+              {{ 'Volume: ' ~ (state_attr(m, 'volume_level')*100)|int if is_state(m, 'on') else states(m)|title }}
+            icon: mdi:desktop-tower-monitor
+            icon_color: "{{ 'blue' if is_state('media_player.forked_daapd_output_bedroom_speaker', 'on') else 'grey' }}"
+            entity: media_player.forked_daapd_output_bedroom_speaker
+            tap_action:
+              action: toggle
+
+          - type: custom:mushroom-template-card
+            primary: Soundbar
+            secondary: Unavailable
+            # secondary: >
+            #   {% set m = 'media_player.forked_daapd_output_wigeon' %}
+            #   {{ 'Volume: ' ~ (state_attr(m, 'volume_level')*100)|int if is_state(m, 'on') else states(m)|title }}
+            icon: mdi:soundbar
+            # icon_color: "{{ 'green' if is_state('media_player.forked_daapd_output_wigeon', 'on') else 'grey' }}"
+            icon_color: grey
+            # entity: media_player.forked_daapd_output_wigeon
+            # tap_action:
+            #   action: toggle
+
+          - type: custom:mushroom-template-card
+            primary: Office
+            secondary: >
+              {% set m = 'media_player.forked_daapd_output_office_speaker' %}
+              {{ 'Volume: ' ~ (state_attr(m, 'volume_level')*100)|int if is_state(m, 'on') else states(m)|title }}
+            icon: mdi:desktop-tower-monitor
+            icon_color: "{{ 'green' if is_state('media_player.forked_daapd_output_office_speaker', 'on') else 'grey' }}"
+            entity: media_player.forked_daapd_output_office_speaker
+            tap_action:
+              action: toggle
+
+          - type: custom:mushroom-template-card
+            primary: Wigeon
+            secondary: >
+              {% set m = 'media_player.forked_daapd_output_wigeon' %}
+              {{ 'Volume: ' ~ (state_attr(m, 'volume_level')*100)|int if is_state(m, 'on') else states(m)|title }}
+            icon: mdi:desktop-tower-monitor
+            icon_color: "{{ 'green' if is_state('media_player.forked_daapd_output_wigeon', 'on') else 'grey' }}"
+            entity: media_player.forked_daapd_output_wigeon
+            tap_action:
+              action: toggle
+
+          - type: custom:mushroom-template-card
+            primary: Teal
+            secondary: >
+              {% set m = 'media_player.forked_daapd_output_teal' %}
+              {{ 'Volume: ' ~ (state_attr(m, 'volume_level')*100)|int if is_state(m, 'on') else states(m)|title }}
+            icon: mdi:desktop-tower-monitor
+            icon_color: "{{ 'green' if is_state('media_player.forked_daapd_output_teal', 'on') else 'grey' }}"
+            entity: media_player.forked_daapd_output_teal
+            tap_action:
+              action: toggle
+
+          - type: custom:mushroom-template-card
+            primary: Sonos
+            secondary: >
+              {% set m = 'media_player.forked_daapd_output_sonos_roam' %}
+              {{ 'Volume: ' ~ (state_attr(m, 'volume_level')*100)|int if is_state(m, 'on') else states(m)|title }}
+            icon: mdi:desktop-tower-monitor
+            icon_color: "{{ 'green' if is_state('media_player.forked_daapd_output_sonos_roam', 'on') else 'grey' }}"
+            entity: media_player.forked_daapd_output_sonos_roam
+            tap_action:
+              action: toggle
+
+  - type: vertical-stack
+    title: Plugs
+    cards:
+      - type: custom:mushroom-entity-card
+        entity: switch.vinyl
+        layout: horizontal
+        name: Vinyl
+        icon: mdi:power-socket-uk
+        icon_color: orange
+        tap_action:
+          action: toggle
+
+  - type: vertical-stack
+    title: Edifier speakers
+    cards:
+      - type: grid
+        square: false
+        columns: 3
+        cards:
+          - type: custom:mushroom-template-card
+            primary: Power
+            icon: mdi:power
+            icon_color: red
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.broadlink_mini_remote
+                device: edifier speakers
+                command: power
+
+          - type: custom:mushroom-template-card
+            primary: Volume ↓
+            icon: mdi:volume-minus
+            icon_color: blue
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.broadlink_mini_remote
+                device: edifier speakers
+                command: volume down
+
+          - type: custom:mushroom-template-card
+            primary: Volume ↑
+            icon: mdi:volume-plus
+            icon_color: blue
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.broadlink_mini_remote
+                device: edifier speakers
+                command: volume up
+
+          - type: custom:mushroom-template-card
+            primary: Vinyl
+            icon: mdi:album
+            icon_color: orange
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.broadlink_mini_remote
+                device: edifier speakers
+                command:
+                  - opt_coax
+                  - line1_2
+                delay_secs: 0.2
+
+          - type: custom:mushroom-template-card
+            primary: daapd
+            icon: mdi:cast-audio
+            icon_color: yellow
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.broadlink_mini_remote
+                device: edifier speakers
+                command:
+                  - opt_coax
+                  - line1_2
+                  - line1_2
+                delay_secs: 0.2
+
+          - type: custom:mushroom-template-card
+            primary: Bluetooth
+            icon: mdi:bluetooth
+            icon_color: light-blue
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.broadlink_mini_remote
+                device: edifier speakers
+                command: bluetooth
+
+  - type: vertical-stack
+    title: LG soundbar
+    cards:
+      - type: grid
+        square: false
+        columns: 3
+        cards:
+          - type: custom:mushroom-template-card
+            primary: Power
+            icon: mdi:power
+            icon_color: red
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.broadlink_mini_remote
+                device: lg soundbar
+                command: power
+
+          - type: custom:mushroom-template-card
+            primary: Volume ↓
+            icon: mdi:volume-minus
+            icon_color: blue
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.broadlink_mini_remote
+                device: lg soundbar
+                command: volume down
+                num_repeats: 5
+                delay_secs: 0.1
+
+          - type: custom:mushroom-template-card
+            primary: Volume ↑
+            icon: mdi:volume-plus
+            icon_color: blue
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.broadlink_mini_remote
+                device: lg soundbar
+                command: volume up
+                num_repeats: 5
+                delay_secs: 0.1
+
+          - type: custom:mushroom-template-card
+            primary: Function
+            icon: mdi:audio-input-stereo-minijack
+            icon_color: green
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.broadlink_mini_remote
+                device: lg soundbar
+                command: function
+
+          - type: custom:mushroom-template-card
+            primary: SFX
+            icon: mdi:speaker-wireless
+            icon_color: orange
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.broadlink_mini_remote
+                device: lg soundbar
+                command: sound effect
+
+          - type: custom:mushroom-template-card
+            primary: DRC
+            icon: mdi:speaker-multiple
+            icon_color: yellow
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.broadlink_mini_remote
+                device: lg soundbar
+                command: drc

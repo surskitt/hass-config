@@ -1,0 +1,98 @@
+---
+- platform: template
+  sensors:
+    living_room_status:
+      friendly_name: Living room status
+      value_template: >
+        💡 
+        {% if is_state('group.living_room_lights', 'on') %}
+          on
+        {% else %}
+          off
+        {% endif %}
+         🌡️ 
+        {% if is_state('climate.living_room', 'heat') %}
+          {{ state_attr('climate.living_room', 'temperature')|round }}°C
+        {% else %}
+          off
+        {% endif %}
+      icon_template: 'mdi:sofa'
+
+    kitchen_status:
+      friendly_name: Kitchen status
+      value_template: >
+        💡 
+        {% if is_state('group.kitchen_lights', 'on') %}
+          on
+        {% else %}
+          off
+        {% endif %}
+         🌡️ 
+        {% if is_state('climate.kitchen', 'heat') %}
+          {{ state_attr('climate.kitchen', 'temperature')|round }}°C
+        {% else %}
+          off
+        {% endif %}
+      icon_template: 'mdi:stove'
+
+    stairs_status:
+      friendly_name: Stairs status
+      value_template: >
+        💡 
+        {% if is_state('group.stairs_bulbs', 'on') %}
+          on
+        {% else %}
+          off
+        {% endif %}
+         🌡️ 
+        {% if is_state('climate.stairs', 'heat') %}
+          {{ state_attr('climate.stairs', 'temperature')|round }}°C
+        {% else %}
+          off
+        {% endif %}
+      icon_template: 'mdi:stairs'
+
+    bedroom_status:
+      friendly_name: Bedroom status
+      value_template: >
+        💡 
+        {% if is_state('group.bedroom_lights', 'on') %}
+          on
+        {% else %}
+          off
+        {% endif %}
+         🌡️ 
+        {% if is_state('climate.bedroom', 'heat') %}
+          {{ state_attr('climate.bedroom', 'temperature')|round }}°C
+        {% else %}
+          off
+        {% endif %}
+      icon_template: 'mdi:bed'
+
+    office_status:
+      friendly_name: Office status
+      value_template: >
+        💡 
+        {% if is_state('group.office_lights', 'on') %}
+          on
+        {% else %}
+          off
+        {% endif %}
+         🌡️ 
+        {% if is_state('climate.office', 'heat') %}
+          {{ state_attr('climate.office', 'temperature')|round }}°C
+        {% else %}
+          off
+        {% endif %}
+      icon_template: 'mdi:sofa'
+
+    bathroom_status:
+      friendly_name: Bathroom status
+      value_template: >
+        💡 
+        {% if is_state('switch.bathroom_light_switch', 'on') %}
+          on
+        {% else %}
+          off
+        {% endif %}
+      icon_template: 'mdi:sofa'
