@@ -33,6 +33,7 @@
       switches:
         - switch.bedroom_light_switch
       lights:
+        - light.bedroom_lamp
         - light.wled_bed
         - light.wled_bedroom_dresser
 

@@ -27,6 +27,7 @@
         scene_id: bedroom_state
         entities:
           switch.bedroom_light_switch: 'off'
+          light.bedroom_lamp: 'on'
           light.wled_bed: 'off'
           light.wled_bedroom_dresser: 'off'
 
@@ -82,7 +83,7 @@
       data:
         scene_id: bedroom_state
         entities:
-          switch.bedroom_light_switch: 'on'
+          light.bedroom_lamp: 'on'
 
     - service: scene.create
       data:
@@ -140,7 +141,7 @@
       data:
         scene_id: bedroom_state
         entities:
-          switch.bedroom_light_switch: 'off'
+          light.bedroom_lamp: 'off'
           light.wled_bed:
             state: 'on'
             brightness_pct: 100

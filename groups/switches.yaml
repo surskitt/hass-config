@@ -19,6 +19,7 @@ away_lights:
     - switch.office_light_switch
     - light.not_bulb
     - switch.bedroom_light_switch
+    - light.bedroom_lamp
     - light.wled_bed
     - light.wled_bedroom_dresser
     - switch.bathroom_light_switch
@@ -40,6 +41,7 @@ bedroom_lights:
   name: Bedroom lights
   entities:
     - switch.bedroom_light_switch
+    - light.bedroom_lamp
     - light.wled_bed
     - light.wled_bedroom_dresser
 
