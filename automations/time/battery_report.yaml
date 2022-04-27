@@ -44,7 +44,6 @@
                                         'sensor.oven_fan_switch_bot_battery', 
                                         'sensor.paisley_battery', 
                                         'sensor.ryu_battery', 
-                                        'sensor.sonos_roam_battery', 
                                         'sensor.stairs_motion_battery', 
                                         'sensor.stairs_radiator_battery', 
                                         'sensor.thermostat_battery', 
