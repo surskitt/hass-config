@@ -68,17 +68,13 @@ cards:
             tap_action:
               action: toggle
 
-          - type: custom:mushroom-template-card
-            primary: Soundbar
-            icon: mdi:soundbar
+          - type: custom:mushroom-entity-card
+            entity: switch.vinyl
+            name: Vinyl
+            icon: mdi:album
+            layout: horizontal
             tap_action:
-              action: call-service
-              service: remote.send_command
-              service_data:
-                device: lg soundbar
-                command: power
-              target:
-                entity_id: remote.broadlink_mini_remote
+              action: toggle
 
           - type: custom:mushroom-entity-card
             entity: switch.living_room_diffuser
