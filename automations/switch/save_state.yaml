@@ -33,6 +33,7 @@
       scene_id: bedroom_state
       entities:
         - switch.bedroom_light_switch
+        - light.bedroom_lamp
         - light.wled_bed
         - light.wled_bedroom_dresser
       presence: input_boolean.bedroom_presence

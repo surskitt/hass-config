@@ -29,6 +29,16 @@ cards:
               action: toggle
 
       - type: custom:mushroom-light-card
+        entity: light.bedroom_lamp
+        name: Lamp
+        icon: mdi:floor-lamp
+        show_brightness_control: true
+        layout: horizontal
+        show_color_control: false
+        show_color_temp_control: true
+        use_light_color: true
+
+      - type: custom:mushroom-light-card
         entity: light.wled_bedroom
         name: LEDs
         icon: mdi:led-strip-variant
