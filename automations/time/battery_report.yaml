@@ -61,8 +61,8 @@
           
           {%- if states(b.entity_id) == "unavailable" %}
           {% set ns.found = true -%}
-          {{ name }} is at 0%
-          {%- elif states(b.entity_id)|default(100)|int <= 20 %}
+          {{ name }} is dead
+          {%- elif states(b.entity_id)|default(100)|int <= 5 %}
           {% set ns.found = true -%}
           {{ name }} is at {{ states(b.entity_id) }}%
           {%- endif -%}
