@@ -15,7 +15,6 @@
       data:
         message: |
           {% set plants = expand('plant.angus',
-                                 'plant.ryu',
                                  'plant.courtney',
                                  'plant.eric',
                                  'plant.jaesuk',
