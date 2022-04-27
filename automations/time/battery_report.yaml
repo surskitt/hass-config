@@ -1,0 +1,75 @@
+---
+- id: battery_report
+  alias: Give a report of battery status every morning
+  mode: single
+
+  trigger:
+    - platform: time
+      at:
+        - "09:10"
+
+  action:
+    - service: telegram_bot.send_message
+      data:
+        message: |
+          {% set batteries = expand('sensor.ali_battery', 
+                                        'sensor.angus_battery', 
+                                        'sensor.basil_battery', 
+                                        'sensor.bathroom_temperature_battery', 
+                                        'sensor.bed_motion_battery', 
+                                        'sensor.bedroom_curtains_battery', 
+                                        'sensor.bedroom_door_battery', 
+                                        'sensor.bedroom_radiator_battery', 
+                                        'sensor.beric_battery', 
+                                        'sensor.ble_battery_fridge_thermometer', 
+                                        'sensor.ble_battery_office_thermometer', 
+                                        'sensor.boiler_room_light_switch_battery', 
+                                        'sensor.courtney_battery', 
+                                        'sensor.doorbell_battery', 
+                                        'sensor.driveway_battery', 
+                                        'sensor.eric_battery_2', 
+                                        'sensor.garden_battery', 
+                                        'sensor.garden_sprinkler_battery_level', 
+                                        'sensor.jaesuk_battery', 
+                                        'sensor.karina_battery', 
+                                        'sensor.kitchen_radiator_battery', 
+                                        'sensor.living_room_curtains_battery', 
+                                        'sensor.living_room_door_battery', 
+                                        'sensor.living_room_radiator_battery', 
+                                        'sensor.nicki_battery', 
+                                        'sensor.office_curtain_battery', 
+                                        'sensor.office_door_battery', 
+                                        'sensor.office_luminosity_battery', 
+                                        'sensor.office_radiator_battery', 
+                                        'sensor.oven_fan_switch_bot_battery', 
+                                        'sensor.paisley_battery', 
+                                        'sensor.ryu_battery', 
+                                        'sensor.sonos_roam_battery', 
+                                        'sensor.stairs_motion_battery', 
+                                        'sensor.stairs_radiator_battery', 
+                                        'sensor.thermostat_battery', 
+                                        'sensor.tradfri1_battery', 
+                                        'sensor.tradfri2_battery', 
+                                        'sensor.tradfri3_battery', 
+                                        'sensor.tradfri4_battery') -%}
+          
+          🔋 Battery report 🔋
+          {% set ns = namespace(found=false) -%}
+          
+          {% for b in batteries -%}
+          
+          {% set name = state_attr(b.entity_id, 'friendly_name')|title|replace('_', ' ') -%}
+          
+          {%- if states(b.entity_id) == "unavailable" %}
+          {% set ns.found = true -%}
+          {{ name }} is at 0%
+          {%- elif states(b.entity_id)|default(100)|int <= 20 %}
+          {% set ns.found = true -%}
+          {{ name }} is at {{ states(b.entity_id) }}%
+          {%- endif -%}
+          
+          {%- endfor -%}
+          
+          {% if ns.found is false %}
+          ⭐ No problems found ⭐
+          {% endif -%}
