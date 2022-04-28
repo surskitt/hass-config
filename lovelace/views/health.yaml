@@ -5,55 +5,14 @@ path: health
 type: 'custom:vertical-layout'
 cards:
   - type: vertical-stack
+    title: Sleep
     cards:
-      - title: Water
-        type: entities
+      - type: 'custom:mini-graph-card'
         entities:
-          - name: Drunk today
-            entity: input_number.water_drinking_daily
-
-          - type: button
-            name: 1 litre
-            icon: 'mdi:glass-mug'
-            action_name: Add
-            tap_action:
-              action: call-service
-              service: script.input_number_inc_val
-              service_data:
-                entity: input_number.water_drinking_daily
-                steps: 100
-
-          - type: button
-            name: 1 pint
-            icon: 'mdi:beer'
-            action_name: Add
-            tap_action:
-              action: call-service
-              service: script.input_number_inc_val
-              service_data:
-                entity: input_number.water_drinking_daily
-                steps: 56
-
-          - type: button
-            name: 1/2 pint
-            icon: 'mdi:cup'
-            action_name: Add
-            tap_action:
-              action: call-service
-              service: script.input_number_inc_val
-              service_data:
-                entity: input_number.water_drinking_daily
-                steps: 28
-
-          - entity: sensor.expected_water_drunk
-
-      - name: Daily water drunk
-        type: 'custom:mini-graph-card'
-        entities:
-          - entity: input_number.water_drinking_daily
+          - entity: sensor.sleeping_hours
         line_color: "#88C0D0"
         hours_to_show: 168
-        aggregate_func: last
+        aggregate_func: max
         group_by: date
         show:
           graph: bar
@@ -61,15 +20,9 @@ cards:
           icon: false
 
   - type: vertical-stack
+    title: Weight
     cards:
-      - title: Weight
-        type: entities
-        entities:
-          - name: Current weight
-            entity: input_number.weight_in_kg
-
-      - name: Weight
-        type: 'custom:mini-graph-card'
+      - type: 'custom:mini-graph-card'
         entities:
           - entity: input_number.weight_in_kg
         line_color: "#88C0D0"
@@ -82,22 +35,60 @@ cards:
           icon: false
 
   - type: vertical-stack
+    title: Water
     cards:
-      - type: history-graph
-        entities:
-          - entity: sensor.sleepasandroid_rook
-            name: saa
-          - entity: binary_sensor.sleeping
-        refresh_interval: 0
-        hours_to_show: 24
-        title: Sleep
+      - type: grid
+        square: false
+        columns: 2
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: input_number.water_drinking_daily
+            name: Drunk today
+            layout: horizontal
+            icon_color: light-blue
 
-      - type: 'custom:mini-graph-card'
-        entities:
-          - entity: sensor.sleeping_hours
-        line_color: "#88C0D0"
-        hours_to_show: 168
-        aggregate_func: max
-        group_by: date
-        show:
-          graph: bar
+          - type: custom:mushroom-entity-card
+            entity: sensor.expected_water_drunk
+            name: Expected
+            layout: horizontal
+            icon_color: light-blue
+
+      - type: grid
+        square: false
+        columns: 3
+        cards:
+          - type: custom:mushroom-template-card
+            icon: mdi:cup
+            icon_color: blue
+            primary: 1/2 pint
+            layout: horizontal
+            tap_action:
+              action: call-service
+              service: script.input_number_inc_val
+              service_data:
+                entity: input_number.water_drinking_daily
+                steps: 28
+
+          - type: custom:mushroom-template-card
+            icon: mdi:beer
+            icon_color: blue
+            primary: 1 pint
+            layout: horizontal
+            tap_action:
+              action: call-service
+              service: script.input_number_inc_val
+              service_data:
+                entity: input_number.water_drinking_daily
+                steps: 56
+
+          - type: custom:mushroom-template-card
+            icon: mdi:glass-mug
+            icon_color: blue
+            primary: 1 litre
+            layout: horizontal
+            tap_action:
+              action: call-service
+              service: script.input_number_inc_val
+              service_data:
+                entity: input_number.water_drinking_daily
+                steps: 100
