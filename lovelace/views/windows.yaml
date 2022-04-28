@@ -4,52 +4,96 @@ icon: 'mdi:window-closed-variant'
 path: windows
 type: 'custom:vertical-layout'
 cards:
-  - title: Living room
-    type: entities
-    entities:
-      - entity: binary_sensor.living_room_window_left_contact
-        name: Left window
-      - entity: binary_sensor.living_room_window_right_contact
-        name: Right window
-    show_header_toggle: false
-    state_color: true
+  - type: vertical-stack
+    title: Living room windows
+    cards:
+      - type: grid
+        square: false
+        columns: 2
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: binary_sensor.living_room_window_left_contact
+            name: Left
+            layout: horizontal
+            icon_color: light-blue
 
-  - title: Kitchen
-    type: entities
-    entities:
-      - entity: binary_sensor.kitchen_window_main_contact
-        name: Main window
-      - entity: binary_sensor.kitchen_window_top_contact
-        name: Top window
-      - entity: binary_sensor.back_door_left_contact
-        name: Back door left
-      - entity: binary_sensor.back_door_right_contact
-        name: Back door right
-    show_header_toggle: false
-    state_color: true
+          - type: custom:mushroom-entity-card
+            entity: binary_sensor.living_room_window_right_contact
+            name: Right
+            layout: horizontal
+            icon_color: light-blue
 
-  - title: Office
-    type: entities
-    entities:
-      - entity: binary_sensor.office_window_contact
+  - type: vertical-stack
+    title: Kitchen windows
+    cards:
+      - type: grid
+        square: false
+        columns: 2
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: binary_sensor.kitchen_window_main_contact
+            name: Main
+            layout: horizontal
+            icon_color: light-blue
+
+          - type: custom:mushroom-entity-card
+            entity: binary_sensor.kitchen_window_top_contact
+            name: Top
+            layout: horizontal
+            icon_color: light-blue
+
+  - type: vertical-stack
+    title: Back door
+    cards:
+      - type: grid
+        square: false
+        columns: 2
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: binary_sensor.back_door_left_contact
+            name: Left
+            layout: horizontal
+            icon_color: light-blue
+
+          - type: custom:mushroom-entity-card
+            entity: binary_sensor.back_door_right_contact
+            name: Right
+            layout: horizontal
+            icon_color: light-blue
+
+  - type: vertical-stack
+    title: Office windows
+    cards:
+      - type: custom:mushroom-entity-card
+        entity: binary_sensor.office_window_contact
         name: Window
-    show_header_toggle: false
-    state_color: true
+        layout: horizontal
+        icon_color: light-blue
 
-  - title: Bedroom
-    type: entities
-    entities:
-      - entity: binary_sensor.bedroom_window_left_contact
-        name: Left window
-      - entity: binary_sensor.bedroom_window_right_contact
-        name: Right window
-    show_header_toggle: false
-    state_color: true
+  - type: vertical-stack
+    title: Bedroom windows
+    cards:
+      - type: grid
+        square: false
+        columns: 2
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: binary_sensor.bedroom_window_left_contact
+            name: Left
+            layout: horizontal
+            icon_color: light-blue
 
-  - title: Bathroom
-    type: entities
-    entities:
-      - entity: binary_sensor.bathroom_window_contact
+          - type: custom:mushroom-entity-card
+            entity: binary_sensor.bedroom_window_right_contact
+            name: Right
+            layout: horizontal
+            icon_color: light-blue
+
+  - type: vertical-stack
+    title: Bathroom windows
+    cards:
+      - type: custom:mushroom-entity-card
+        entity: binary_sensor.bathroom_window_contact
         name: Window
-    show_header_toggle: false
-    state_color: true
+        layout: horizontal
+        icon_color: light-blue
