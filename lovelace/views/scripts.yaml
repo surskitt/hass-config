@@ -3,4 +3,46 @@ title: Scripts
 icon: 'mdi:script'
 path: scripts
 type: 'custom:vertical-layout'
-cards: []
+cards:
+  - type: vertical-stack
+    title: Scheduled scenes
+    cards:
+      - type: grid
+        square: false
+        columns: 3
+        cards:
+          - type: custom:mushroom-template-card
+            icon: mdi:weather-sunset-up
+            icon_color: amber
+            primary: Sunrise
+            secondary: "{{ state_attr('automation.reset_scene_states_at_sunrise', 'last_triggered') | as_timestamp | timestamp_custom('%A %d %b %H:%M') }}"
+            layout: vertical
+            tap_action:
+              action: call-service
+              service: automation.trigger
+              service_data:
+                entity_id: automation.reset_scene_states_at_sunrise
+
+          - type: custom:mushroom-template-card
+            icon: mdi:weather-sunset-down
+            icon_color: amber
+            primary: Sunset
+            secondary: "{{ state_attr('automation.set_scene_state_at_sunset', 'last_triggered') | as_timestamp | timestamp_custom('%A %d %b %H:%M') }}"
+            layout: vertical
+            tap_action:
+              action: call-service
+              service: automation.trigger
+              service_data:
+                entity_id: automation.set_scene_state_at_sunset
+
+          - type: custom:mushroom-template-card
+            icon: mdi:weather-night
+            icon_color: teal
+            primary: Night
+            secondary: "{{ state_attr('automation.set_scene_state_at_night', 'last_triggered') | as_timestamp | timestamp_custom('%A %d %b %H:%M') }}"
+            layout: vertical
+            tap_action:
+              action: call-service
+              service: automation.trigger
+              service_data:
+                entity_id: automation.set_scene_state_at_night
