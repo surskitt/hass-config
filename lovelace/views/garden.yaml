@@ -158,7 +158,7 @@ cards:
         square: false
         cards:
           - type: custom:mushroom-entity-card
-            entity: weather.home
+            entity: weather.tomorrow_io_paddlepond_home_assistant_daily
             name: Condition
             layout: horizontal
             icon_color: teal
@@ -167,14 +167,14 @@ cards:
             icon: mdi:thermometer
             icon_color: red
             primary: Temp
-            secondary: "{{ state_attr('weather.home', 'temperature') }}°C"
+            secondary: "{{ state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'temperature') }}°C"
             layout: horizontal
 
           - type: custom:mushroom-template-card
             icon: mdi:weather-pouring
             icon_color: light-blue
             primary: Rain
-            secondary: "{{ state_attr('weather.home', 'forecast')[0].precipitation }}mm"
+            secondary: "{{ state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[0].precipitation }}mm"
             layout: horizontal
 
   - type: vertical-stack
