@@ -178,6 +178,34 @@ cards:
             layout: horizontal
 
   - type: vertical-stack
+    title: Rain forecast
+    cards:
+      - type: grid
+        columns: 3
+        square: false
+        cards:
+          - type: custom:mushroom-template-card
+            icon: mdi:weather-pouring
+            icon_color: light-blue
+            primary: "{{ (state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[1]).datetime | as_timestamp |timestamp_custom('%A')}}"
+            secondary: "{{ state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[1].precipitation }}mm"
+            layout: horizontal
+
+          - type: custom:mushroom-template-card
+            icon: mdi:weather-pouring
+            icon_color: light-blue
+            primary: "{{ (state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[2]).datetime | as_timestamp |timestamp_custom('%A')}}"
+            secondary: "{{ state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[2].precipitation }}mm"
+            layout: horizontal
+
+          - type: custom:mushroom-template-card
+            icon: mdi:weather-pouring
+            icon_color: light-blue
+            primary: "{{ (state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[3]).datetime | as_timestamp |timestamp_custom('%A')}}"
+            secondary: "{{ state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[3].precipitation }}mm"
+            layout: horizontal
+
+  - type: vertical-stack
     title: Camera
     cards:
       - type: 'custom:vertical-stack-in-card'
