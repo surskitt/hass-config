@@ -9,6 +9,7 @@ cards:
     cards:
       - type: custom:mushroom-entity-card
         entity: input_boolean.living_room_presence
+        icon_color: blue
         tap_action:
           action: toggle
 

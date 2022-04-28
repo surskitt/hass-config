@@ -4,92 +4,212 @@ icon: 'mdi:grass'
 path: garden
 type: 'custom:vertical-layout'
 cards:
-  - type: entities
-    entities:
-      - entity: switch.garden_zone
-        name: Sprinkler
-        icon: 'mdi:sprinkler-variant'
-      - entity: switch.garden_sprinkler_rain_delay
-        icon: 'mdi:weather-rainy'
-      - name: Morning program
-        entity: switch.garden_sprinkler_morning_program
-        icon: 'mdi:bulletin-board'
-      - name: Afternoon program
-        entity: switch.garden_sprinkler_afternoon_program
-        icon: 'mdi:bulletin-board'
-      - name: Evening program
-        entity: switch.garden_sprinkler_evening_program
-        icon: 'mdi:bulletin-board'
-      - entity: light.shelly_garden
-        name: Lamp
-        icon: 'mdi:coach-lamp'
-
-  - title: Timer
-    type: 'custom:vertical-stack-in-card'
+  - type: vertical-stack
+    title: Devices
     cards:
-      - type: 'custom:timer-card'
+      - type: custom:mushroom-light-card
+        entity: light.shelly_garden
+        name: Light
+        layout: horizontal
+        icon: mdi:coach-lamp
+        show_brightness_control: true
+        show_color_control: false
+        show_color_temp_control: true
+        use_light_color: true
+
+  - type: vertical-stack
+    title: Sprinkler controls
+    cards:
+      - type: grid
+        square: false
+        columns: 2
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: switch.garden_zone
+            name: Sprinkler
+            layout: horizontal
+            icon_color: blue
+            tap_action:
+              action: toggle
+
+          - type: custom:mushroom-entity-card
+            entity: switch.garden_sprinkler_rain_delay
+            name: Rain delay
+            layout: horizontal
+            icon_color: light-blue
+            tap_action:
+              action: toggle
+
+  - type: vertical-stack
+    title: Sprinkler programs
+    cards:
+      - type: grid
+        square: false
+        columns: 3
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: switch.garden_sprinkler_morning_program
+            name: Morning
+            layout: horizontal
+            icon_color: light-blue
+            tap_action:
+              action: toggle
+
+          - type: custom:mushroom-entity-card
+            entity: switch.garden_sprinkler_afternoon_program
+            name: Afternoon
+            layout: horizontal
+            icon_color: light-blue
+            tap_action:
+              action: toggle
+
+          - type: custom:mushroom-entity-card
+            entity: switch.garden_sprinkler_evening_program
+            name: Evening
+            layout: horizontal
+            icon_color: light-blue
+            tap_action:
+              action: toggle
+
+  - type: vertical-stack
+    title: Sprinkler timer
+    cards:
+      - type: custom:button-card
+        template: mushroom_timer
+        name: Timer
         entity: timer.sprinkler
-        name: false
+        variables:
+          input_datetime_id: input_datetime.sprinkler_custom_timer
 
-  - type: logbook
-    entities:
-      - switch.garden_zone
-    hours_to_show: 24
+      - type: grid
+        columns: 2
+        square: false
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: input_datetime.sprinkler_custom_timer
+            name: Duration
+            layout: horizontal
+            icon: mdi:timer
+            icon_color: green
 
-  - type: weather-forecast
-    entity: weather.home
-    secondary_info_attribute: wind_speed
-    show_forecast: true
-  
-  - name: Temperature
-    type: 'custom:mini-graph-card'
-    entities:
-      - name: Temperature
-        entity: sensor.paddlepond_home_assistant_apparent_temperature
-    line_color: "#D08770"
-    line_width: 2
-    hours_to_show: 48
+          - type: grid
+            columns: 2
+            square: false
+            cards:
+              - type: custom:button-card
+                icon: mdi:arrow-down-bold
+                size: "30%"
+                styles:
+                  card:
+                    - height: 66.25px
+                tap_action:
+                  action: call-service
+                  service: script.datetime_increment
+                  service_data:
+                    datetime: input_datetime.sprinkler_custom_timer
+                    hours: 0
+                    minutes: -1
 
-  - name: Sprinkler battery
-    type: 'custom:mini-graph-card'
-    entities:
-      - name: Battery
-        entity: sensor.garden_sprinkler_battery_level
-    line_color: "#A3BE8C"
-    line_width: 2
-    hours_to_show: 48
+              - type: custom:button-card
+                icon: mdi:arrow-up-bold
+                size: "30%"
+                styles:
+                  card:
+                    - height: 66.25px
+                tap_action:
+                  action: call-service
+                  service: script.datetime_increment
+                  service_data:
+                    datetime: input_datetime.sprinkler_custom_timer
+                    hours: 0
+                    minutes: 1
 
-  - type: 'custom:vertical-stack-in-card'
+  - type: vertical-stack
+    title: Sprinkler status
     cards:
-      - type: conditional
-        conditions:
-          - entity: binary_sensor.garden_streaming_sensor
-            state: 'False'
-        card:
-          type: picture-entity
-          entity: camera.garden_snapshot
-          show_name: true
-          show_state: false
-          tap_action:
-            action: call-service
-            service: camera.turn_on
-            service_data: {}
-            target:
-              entity_id: camera.garden
+      - type: grid
+        square: false
+        columns: 2
+        cards:
+          - type: 'custom:button-card'
+            name: Sprinkler
+            template: card_battery
+            entity: sensor.garden_sprinkler_battery_level
+            variables:
+              # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+              ulm_card_battery_battery_level_danger: 20
+              ulm_card_battery_battery_level_warning: 40
+              ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+              ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+              ulm_card_battery_color_battery_level_danger: '#BF616A'
 
-      - type: conditional
-        conditions:
-          - entity: binary_sensor.garden_streaming_sensor
-            state: 'True'
-        card:
-          type: 'custom:webrtc-camera'
-          entity: camera.garden
-          # title: Garden
-          ui: true
-          mse: false
-          shortcuts:
-            - name: Stop stream
-              icon: 'mdi:stop'
-              service: camera.turn_off
-              service_data:
-                entity_id: camera.garden
+          - type: custom:mushroom-entity-card
+            entity: sensor.garden_sprinkler_state
+            name: State
+            layout: horizontal
+            icon_color: yellow
+
+
+  - type: vertical-stack
+    title: Weather
+    cards:
+      - type: grid
+        columns: 3
+        square: false
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: weather.home
+            name: Condition
+            layout: horizontal
+            icon_color: teal
+
+          - type: custom:mushroom-template-card
+            icon: mdi:thermometer
+            icon_color: red
+            primary: Temp
+            secondary: "{{ state_attr('weather.home', 'temperature') }}°C"
+            layout: horizontal
+
+          - type: custom:mushroom-template-card
+            icon: mdi:weather-pouring
+            icon_color: light-blue
+            primary: Rain
+            secondary: "{{ state_attr('weather.home', 'forecast')[0].precipitation }}mm"
+            layout: horizontal
+
+  - type: vertical-stack
+    title: Camera
+    cards:
+      - type: 'custom:vertical-stack-in-card'
+        cards:
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.garden_streaming_sensor
+                state: 'False'
+            card:
+              type: picture-entity
+              entity: camera.garden_snapshot
+              show_name: false
+              show_state: false
+              hold_action:
+                action: call-service
+                service: camera.turn_on
+                service_data: {}
+                target:
+                  entity_id: camera.garden
+
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.garden_streaming_sensor
+                state: 'True'
+            card:
+              type: 'custom:webrtc-camera'
+              entity: camera.garden
+              ui: true
+              mse: false
+              shortcuts:
+                - name: Stop stream
+                  icon: 'mdi:stop'
+                  service: camera.turn_off
+                  service_data:
+                    entity_id: camera.garden

@@ -29,3 +29,9 @@ bath_custom_timer:
   has_time: true
   icon: mdi:bath
   initial: "00:19"
+
+sprinkler_custom_timer:
+  name: Sprinkler custom timer
+  has_time: true
+  icon: mdi:sprinkler-variant
+  initial: "00:15"
