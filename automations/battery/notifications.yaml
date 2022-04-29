@@ -13,6 +13,7 @@
         - sensor.bedroom_curtains_battery
         - sensor.office_curtain_battery
         - sensor.sonos_roam_battery
+        - sensor.kindle1_battery
       to: "100"
 
   action:

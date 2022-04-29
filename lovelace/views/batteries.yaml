@@ -546,6 +546,23 @@ cards:
           ulm_card_battery_color_battery_level_danger: '#BF616A'
 
   - type: grid
+    title: Kindle displays
+    square: false
+    columns: 3
+    cards:
+      - type: 'custom:button-card'
+        name: Kindle 1
+        template: card_battery
+        entity: sensor.kindle1_battery
+        variables:
+          # ulm_card_battery_charger_type_entity_id: select.driveway_charging_status
+          ulm_card_battery_battery_level_danger: 10
+          ulm_card_battery_battery_level_warning: 40
+          ulm_card_battery_color_battery_level_ok: '#A3BE8C'
+          ulm_card_battery_color_battery_level_warning: '#EBCB8B'
+          ulm_card_battery_color_battery_level_danger: '#BF616A'
+
+  - type: grid
     title: Other
     square: false
     columns: 3

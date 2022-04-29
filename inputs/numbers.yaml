@@ -80,3 +80,4 @@ kindle1_battery_level:
   icon: mdi:tablet-dashboard
   min: 0
   max: 100
+  initial: 0

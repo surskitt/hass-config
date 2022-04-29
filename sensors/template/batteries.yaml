@@ -54,3 +54,7 @@
         {% else %}
           100
         {% endif %}
+
+    kindle1_battery:
+      friendly_name: Kindle 1 battery
+      value_template: "{{ states('input_number.kindle1_battery_level')|round }}"

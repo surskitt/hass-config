@@ -32,6 +32,7 @@
                                         'sensor.garden_sprinkler_battery_level', 
                                         'sensor.jaesuk_battery', 
                                         'sensor.karina_battery', 
+                                        'sensor.kindle1_battery',
                                         'sensor.kitchen_radiator_battery', 
                                         'sensor.living_room_curtains_battery', 
                                         'sensor.living_room_door_battery', 
