@@ -78,18 +78,22 @@ cards:
               action: toggle
 
           - type: custom:mushroom-entity-card
-            entity: switch.living_room_diffuser
-            name: Diffuser
-            icon_color: light-blue
+            entity: switch.boiler_room_light_switch_switch
+            name: Boiler room
+            icon: mdi:ceiling-light
+            layout: horizontal
             tap_action:
               action: toggle
-            layout: horizontal
 
-          # boiler room light switch
+          # - type: custom:mushroom-entity-card
+          #   entity: switch.living_room_diffuser
+          #   name: Diffuser
+          #   icon_color: light-blue
+          #   tap_action:
+          #     action: toggle
+          #   layout: horizontal
+
           # diffuser light
-          # start steam
-          # kill steam
-          # force kill steam
 
       - type: custom:mushroom-light-card
         entity: light.shelly_not_bulb_living_room
