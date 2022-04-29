@@ -3,5 +3,215 @@ title: Computers
 icon: 'mdi:desktop-classic'
 path: computers
 type: 'custom:vertical-layout'
-cards: []
+cards:
+  - type: vertical-stack
+    title: Machines
+    cards:
+      - type: grid
+        square: false
+        columns: 3
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: switch.wigeon
+            name: wigeon
+            layout: horizontal
+            icon: mdi:desktop-tower-monitor
+            icon_color: blue
+            tap_action:
+              action: toggle
 
+          - type: custom:mushroom-entity-card
+            entity: binary_sensor.ping_teal_lan
+            name: teal
+            layout: horizontal
+            icon: mdi:laptop
+            icon_color: teal
+
+          - type: custom:mushroom-entity-card
+            entity: binary_sensor.ping_gadwall_lan
+            name: gadwall
+            layout: horizontal
+            icon: mdi:raspberry-pi
+            icon_color: green
+
+          - type: custom:mushroom-entity-card
+            entity: device_tracker.a0_ce_c8_da_91_df
+            name: macbook
+            layout: horizontal
+            icon: mdi:laptop
+            icon_color: blue-grey
+
+          - type: custom:mushroom-entity-card
+            entity: switch.serpentine
+            name: serpentine
+            layout: horizontal
+            icon: mdi:nas
+            icon_color: orange
+            tap_action:
+              action: toggle
+
+  - type: conditional
+    conditions:
+      - entity: switch.wigeon
+        state: 'on'
+    card:
+      type: vertical-stack
+      title: Wigeon controls
+      cards:
+        - type: grid
+          square: false
+          columns: 3
+          cards:
+            - type: custom:mushroom-entity-card
+              entity: switch.wigeon
+              name: Power
+              layout: horizontal
+              icon: mdi:power
+              icon_color: red
+              tap_action:
+                action: toggle
+
+            - type: custom:mushroom-entity-card
+              entity: switch.wigeon_headphones_connected
+              name: Headphones
+              layout: horizontal
+              icon_color: amber
+
+            - type: custom:mushroom-entity-card
+              entity: switch.wigeon_shairport_sync
+              name: Shairport
+              layout: horizontal
+              icon_color: lime
+
+  - type: conditional
+    conditions:
+      - entity: switch.wigeon
+        state: 'on'
+    card:
+      type: vertical-stack
+      title: Wigeon status
+      cards:
+        - type: grid
+          square: false
+          columns: 2
+          cards:
+            - type: custom:mushroom-entity-card
+              entity: sensor.wigeon_tsp_queue_length
+              name: tsp
+              layout: horizontal
+              icon_color: blue-grey
+
+            - type: custom:mushroom-entity-card
+              entity: sensor.wigeon_ytsp_queue_length
+              name: ytsp
+              layout: horizontal
+              icon_color: red
+
+  - type: vertical-stack
+    title: paddlepond
+    cards:
+      - type: grid
+        square: false
+        columns: 3
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: group.paddlepond_services
+            name: All
+            layout: horizontal
+            icon_color: red
+            tap_action:
+              action: call-service
+              service: home_assistant.toggle
+              service_data:
+                entity_id: group.paddlepond_services
+
+          - type: custom:mushroom-entity-card
+            entity: switch.bazarr_deployment
+            name: Bazarr
+            layout: horizontal
+            icon: mdi:bullhorn
+            icon_color: yellow
+
+          - type: custom:mushroom-entity-card
+            entity: switch.calibre_web_deployment
+            name: Calibre
+            layout: horizontal
+            icon: mdi:book
+            icon_color: blue
+
+          - type: custom:mushroom-entity-card
+            entity: switch.flood_deployment
+            name: Flood
+            layout: horizontal
+            icon: mdi:waves
+            icon_color: light-blue
+
+          - type: custom:mushroom-entity-card
+            entity: switch.forked_daapd_deployment
+            name: Owntone
+            layout: horizontal
+            icon: mdi:music
+            icon_color: blue-grey
+
+          - type: custom:mushroom-entity-card
+            entity: switch.jackett_deployment
+            name: Jackett
+            layout: horizontal
+            icon: mdi:filter
+            icon_color: deep-orange
+
+          - type: custom:mushroom-entity-card
+            entity: switch.komga_deployment
+            name: Komga
+            layout: horizontal
+            icon: mdi:message
+            icon_color: blue
+
+          - type: custom:mushroom-entity-card
+            entity: switch.mylar_deployment
+            name: Mylar
+            layout: horizontal
+            icon: mdi:message-outline
+            icon_color: blue
+
+          - type: custom:mushroom-entity-card
+            entity: switch.nzbget_deployment
+            name: nzbget
+            layout: horizontal
+            icon: mdi:download-box-outline
+            icon_color: light-blue
+
+          - type: custom:mushroom-entity-card
+            entity: switch.plex_deployment
+            name: Plex
+            layout: horizontal
+            icon: mdi:plex
+            icon_color: orange
+
+          - type: custom:mushroom-entity-card
+            entity: switch.pyload_deployment
+            name: Pyload
+            layout: horizontal
+            icon: mdi:download
+            icon_color: lime
+
+          - type: custom:mushroom-entity-card
+            entity: switch.radarr_deployment
+            name: Radarr
+            layout: horizontal
+            icon: mdi:filmstrip
+            icon_color: amber
+
+          - type: custom:mushroom-entity-card
+            entity: switch.sonarr_deployment
+            name: Sonarr
+            layout: horizontal
+            icon: mdi:television-classic
+            icon_color: blue
+
+          - type: custom:mushroom-entity-card
+            entity: switch.transmission_deployment
+            name: Torrents
+            layout: horizontal
+            icon: mdi:car-shift-pattern
+            icon_color: pink

@@ -50,3 +50,20 @@ office_lights:
   entities:
     - switch.office_light_switch
     - light.not_bulb
+
+paddlepond_services:
+  name: Paddlepond services
+  entities:
+    - switch.bazarr_deployment
+    - switch.calibre_web_deployment
+    - switch.flood_deployment
+    - switch.forked_daapd_deployment
+    - switch.jackett_deployment
+    - switch.komga_deployment
+    - switch.mylar_deployment
+    - switch.nzbget_deployment
+    - switch.plex_deployment
+    - switch.pyload_deployment
+    - switch.radarr_deployment
+    - switch.sonarr_deployment
+    - switch.transmission_deployment
