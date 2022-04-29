@@ -57,7 +57,6 @@ paddlepond_services:
     - switch.bazarr_deployment
     - switch.calibre_web_deployment
     - switch.flood_deployment
-    - switch.forked_daapd_deployment
     - switch.jackett_deployment
     - switch.komga_deployment
     - switch.mylar_deployment

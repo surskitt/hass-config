@@ -115,6 +115,11 @@ cards:
               layout: horizontal
               icon_color: red
 
+# conditional rouen
+# start steam
+# kill steam
+# force kill steam
+
   - type: vertical-stack
     title: paddlepond
     cards:
@@ -153,13 +158,6 @@ cards:
             layout: horizontal
             icon: mdi:waves
             icon_color: light-blue
-
-          - type: custom:mushroom-entity-card
-            entity: switch.forked_daapd_deployment
-            name: Owntone
-            layout: horizontal
-            icon: mdi:music
-            icon_color: amber
 
           - type: custom:mushroom-entity-card
             entity: switch.jackett_deployment
