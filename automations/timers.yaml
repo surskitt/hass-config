@@ -65,10 +65,8 @@
         entity_id: timer.bedtime_heating
 
   action:
-    - service: climate.set_temperature
+    - service: climate.turn_off
       entity_id: climate.bedroom
-      data:
-        temperature: 12
 
 - id: presence_heating
   alias: Turn on heating after timer finishes

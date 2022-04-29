@@ -84,12 +84,16 @@ cards:
               name: Headphones
               layout: horizontal
               icon_color: amber
+              tap_action:
+                action: toggle
 
             - type: custom:mushroom-entity-card
               entity: switch.wigeon_shairport_sync
               name: Shairport
               layout: horizontal
               icon_color: lime
+              tap_action:
+                action: toggle
 
   - type: conditional
     conditions:
