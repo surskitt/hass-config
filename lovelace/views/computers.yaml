@@ -121,7 +121,7 @@ cards:
             icon_color: red
             tap_action:
               action: call-service
-              service: home_assistant.toggle
+              service: homeassistant.toggle
               service_data:
                 entity_id: group.paddlepond_services
 
