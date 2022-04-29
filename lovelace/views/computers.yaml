@@ -50,6 +50,14 @@ cards:
             tap_action:
               action: toggle
 
+          - type: custom:mushroom-entity-card
+            entity: switch.rouen
+            name: rouen
+            layout: horizontal
+            icon_color: amber
+            tap_action:
+              action: toggle
+
   - type: conditional
     conditions:
       - entity: switch.wigeon
@@ -151,7 +159,7 @@ cards:
             name: Owntone
             layout: horizontal
             icon: mdi:music
-            icon_color: blue-grey
+            icon_color: amber
 
           - type: custom:mushroom-entity-card
             entity: switch.jackett_deployment
