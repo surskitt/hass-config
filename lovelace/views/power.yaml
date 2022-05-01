@@ -74,7 +74,7 @@ cards:
                 color: '#5e81ac'
             hours_to_show: 1
             points_per_hour: 12
-            aggregate_func: last
+            aggregate_func: max
             bar_spacing: 15
             show:
               graph: line
@@ -127,6 +127,7 @@ cards:
               graph: bar
               icon: false
               legend: false
+
       - type: grid
         title: Lights
         square: false
@@ -171,7 +172,7 @@ cards:
                 color: '#E5E9F0'
             hours_to_show: 1
             points_per_hour: 12
-            aggregate_func: last
+            aggregate_func: max
             bar_spacing: 15
             show:
               graph: line
