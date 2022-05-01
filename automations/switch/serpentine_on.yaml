@@ -7,7 +7,7 @@
     - platform: state
       entity_id:
         - switch.wigeon
-        - binary_sensor.ping_teal_lan
+        # - binary_sensor.ping_teal_lan
       to: 'on'
 
   action:
