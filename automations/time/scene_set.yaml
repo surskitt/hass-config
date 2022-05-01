@@ -27,7 +27,7 @@
         scene_id: bedroom_state
         entities:
           switch.bedroom_light_switch: 'off'
-          light.bedroom_lamp: 'on'
+          light.bedroom_lamp: 'off'
           light.wled_bed: 'off'
           light.wled_bedroom_dresser: 'off'
 
