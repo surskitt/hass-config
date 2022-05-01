@@ -174,7 +174,9 @@ cards:
             icon: mdi:weather-pouring
             icon_color: light-blue
             primary: Rain
-            secondary: "{{ state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[0].precipitation }}mm"
+            secondary: >
+              {{ state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[0].precipitation }}mm
+              ({{ state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[0].precipitation_probability }}%)
             layout: horizontal
 
   - type: vertical-stack
@@ -188,21 +190,27 @@ cards:
             icon: mdi:weather-pouring
             icon_color: light-blue
             primary: "{{ (state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[1]).datetime | as_timestamp |timestamp_custom('%A')}}"
-            secondary: "{{ state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[1].precipitation }}mm"
+            secondary: >
+              {{ state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[1].precipitation }}mm
+              ({{ state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[1].precipitation_probability }}%)
             layout: horizontal
 
           - type: custom:mushroom-template-card
             icon: mdi:weather-pouring
             icon_color: light-blue
             primary: "{{ (state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[2]).datetime | as_timestamp |timestamp_custom('%A')}}"
-            secondary: "{{ state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[2].precipitation }}mm"
+            secondary: >
+              {{ state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[2].precipitation }}mm
+              ({{ state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[2].precipitation_probability }}%)
             layout: horizontal
 
           - type: custom:mushroom-template-card
             icon: mdi:weather-pouring
             icon_color: light-blue
             primary: "{{ (state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[3]).datetime | as_timestamp |timestamp_custom('%A')}}"
-            secondary: "{{ state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[3].precipitation }}mm"
+            secondary: >
+              {{ state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[3].precipitation }}mm
+              ({{ state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[3].precipitation_probability }}%)
             layout: horizontal
 
   - type: vertical-stack

@@ -362,5 +362,7 @@ cards:
             icon: mdi:weather-pouring
             icon_color: light-blue
             primary: Rain
-            secondary: "{{ state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[0].precipitation }}mm"
+            secondary: >
+              {{ state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[0].precipitation }}mm
+              ({{ state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[0].precipitation_probability }}%)
             layout: horizontal
