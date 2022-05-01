@@ -2,186 +2,237 @@
 title: Power
 icon: 'mdi:power-plug'
 path: power
-type: 'custom:horizontal-layout'
-layout:
-  max_cols: 3
+type: 'custom:vertical-layout'
 cards:
-  - type: 'custom:apexcharts-card'
-    config_templates:
-      - default
-      - stacked_area
-      - last_three_hours
-    header:
-      title: Current power
-    series:
-      - entity: sensor.wigeon_current_consumption
-        name: wigeon
-      - entity: sensor.paddlepond_current_consumption
-        name: paddlepond
-      - entity: sensor.tv_plug_power
-        name: TV
-      - entity: sensor.fridge_current_consumption
-        name: Fridge
-      - entity: sensor.dishwasher_current_consumption
-        name: Dishwasher
-      - entity: sensor.washing_machine_current_consumption
-        name: Washing machine
-      - entity: sensor.dryer_current_consumption
-        name: Dryer
-      - entity: sensor.lights_power
-        name: Lights
+  - type: vertical-stack
+    cards:
+      - type: grid
+        title: Total
+        square: false
+        columns: 2
+        cards:
+          - type: 'custom:mini-graph-card'
+            name: Current
+            height: 240
+            entities:
+              - entity: sensor.all_power
+            line_color: "#88C0D0"
+            hours_to_show: 3
+            points_per_hour: 12
+            aggregate_func: max
+            show:
+              graph: line
+              icon: false
 
-  - type: 'custom:apexcharts-card'
-    config_templates:
-      - default
-      - stacked_bar
-      - hourly_day
-    header:
-      title: Hourly energy usage
-    series:
-      - entity: sensor.wigeon_hourly_energy
-        name: wigeon
-      - entity: sensor.paddlepond_hourly_energy
-        name: paddlepond
-      - entity: sensor.tv_hourly_energy
-        name: TV
-      - entity: sensor.fridge_hourly_energy
-        name: Fridge
-      - entity: sensor.dishwasher_hourly_energy
-        name: Dishwasher
-      - entity: sensor.washing_machine_hourly_energy
-        name: Washing machine
-      - entity: sensor.dryer_hourly_energy
-        name: Dryer
-      - entity: sensor.lights_hourly_energy
-        name: Lights
-    all_series_config:
-      float_precision: 2
+          - type: 'custom:mini-graph-card'
+            name: Hourly
+            height: 240
+            entities:
+              - entity: sensor.all_hourly_energy
+            unit: kWh
+            line_color: "#88C0D0"
+            hours_to_show: 24
+            aggregate_func: last
+            group_by: hour
+            decimals: 3
+            show:
+              graph: bar
+              icon: false
 
-  - type: 'custom:apexcharts-card'
-    config_templates:
-      - default
-      - stacked_bar
-      - daily_week
-    header:
-      title: Daily energy usage
-    series:
-      - entity: sensor.wigeon_daily_energy
-        name: wigeon
-      - entity: sensor.paddlepond_daily_energy
-        name: paddlepond
-      - entity: sensor.tv_daily_energy
-        name: TV
-      - entity: sensor.fridge_daily_energy
-        name: Fridge
-      - entity: sensor.dishwasher_daily_energy
-        name: Dishwasher
-      - entity: sensor.washing_machine_daily_energy
-        name: Washing machine
-      - entity: sensor.dryer_daily_energy
-        name: Dryer
-      - entity: sensor.lights_daily_energy
-        name: Lights
-    all_series_config:
-      float_precision: 2
+      - type: grid
+        title: Individual
+        square: false
+        columns: 2
+        cards:
+          - type: 'custom:mini-graph-card'
+            name: Current
+            height: 240
+            entities:
+              - entity: sensor.wigeon_current_consumption
+                name: wigeon
+                color: '#d08770'
+              - entity: sensor.paddlepond_current_consumption
+                name: paddlepond
+                color: '#ebcb8b'
+              - entity: sensor.tv_plug_power
+                name: TV
+                color: '#a3be8c'
+              - entity: sensor.fridge_current_consumption
+                name: Fridge
+                color: '#b48ead'
+              - entity: sensor.dishwasher_current_consumption
+                name: Dishwasher
+                color: '#bf616a'
+              - entity: sensor.washing_machine_current_consumption
+                name: Washing machine
+                color: '#8fbcbb'
+              - entity: sensor.dryer_current_consumption
+                name: Dryer
+                color: '#81a1c1'
+              - entity: sensor.lights_power
+                name: Lights
+                color: '#5e81ac'
+            hours_to_show: 1
+            points_per_hour: 12
+            aggregate_func: last
+            bar_spacing: 15
+            show:
+              graph: line
+              icon: false
+              legend: false
 
-  - type: 'custom:apexcharts-card'
-    config_templates:
-      - default
-      - stacked_area
-      - last_three_hours
-    header:
-      title: Current lights power
-    series:
-      - entity: sensor.living_room_light_switch_power_2 
-        name: Living room lights
-      - entity: sensor.shelly_not_bulb_living_room_power
-        name: Living room not
-      - entity: sensor.kitchen_light_switch_power
-        name: Kitchen lights
-      - entity: sensor.bedroom_light_switch_power
-        name: Bedroom lights
-      - entity: sensor.wled_bedroom_power
-        name: WLED bedroom
-      - entity: sensor.wled_kitchen_power
-        name: WLED kitchen
-      - entity: sensor.office_light_switch_power
-        name: Office lights
-      - entity: sensor.not_bulb_power
-        name: Office not
-      - entity: sensor.bathroom_light_switch_power
-        name: Bathroom lights
-      - entity: sensor.stairs_bulbs_power
-        name: Stairs bulbs
-      - entity: sensor.wled_windows_power
-        name: WLED windows
+          - type: 'custom:mini-graph-card'
+            name: Current hour
+            height: 240
+            entities:
+              - entity: sensor.wigeon_hourly_energy
+                name: wigeon
+                fixed_value: true
+                color: '#d08770'
+              - entity: sensor.paddlepond_hourly_energy
+                name: paddlepond
+                fixed_value: true
+                color: '#ebcb8b'
+              - entity: sensor.tv_hourly_energy
+                name: TV
+                fixed_value: true
+                color: '#a3be8c'
+              - entity: sensor.fridge_hourly_energy
+                name: Fridge
+                fixed_value: true
+                color: '#b48ead'
+              - entity: sensor.dishwasher_hourly_energy
+                name: Dishwasher
+                fixed_value: true
+                color: '#bf616a'
+              - entity: sensor.washing_machine_hourly_energy
+                name: Washing machine
+                fixed_value: true
+                color: '#8fbcbb'
+              - entity: sensor.dryer_hourly_energy
+                name: Dryer
+                fixed_value: true
+                color: '#81a1c1'
+              - entity: sensor.lights_hourly_energy
+                name: Lights
+                fixed_value: true
+                color: '#5e81ac'
+            unit: kWh
+            hours_to_show: 1
+            aggregate_func: last
+            group_by: hour
+            decimals: 3
+            bar_spacing: 15
+            show:
+              graph: bar
+              icon: false
+              legend: false
+      - type: grid
+        title: Lights
+        square: false
+        columns: 2
+        cards:
+          - type: 'custom:mini-graph-card'
+            name: Current
+            height: 240
+            entities:
+              - entity: sensor.living_room_light_switch_power_2 
+                name: Living room lights
+                color: '#d08770'
+              - entity: sensor.shelly_not_bulb_living_room_power
+                name: Living room not
+                color: '#ebcb8b'
+              - entity: sensor.kitchen_light_switch_power
+                name: Kitchen lights
+                color: '#a3be8c'
+              - entity: sensor.bedroom_light_switch_power
+                name: Bedroom lights
+                color: '#b48ead'
+              - entity: sensor.wled_bedroom_power
+                name: WLED bedroom
+                color: '#bf616a'
+              - entity: sensor.wled_kitchen_power
+                name: WLED kitchen
+                color: '#8fbcbb'
+              - entity: sensor.office_light_switch_power
+                name: Office lights
+                color: '#81a1c1'
+              - entity: sensor.not_bulb_power
+                name: Office not
+                color: '#5e81ac'
+              - entity: sensor.bathroom_light_switch_power
+                name: Bathroom lights
+                color: '#88C0D0'
+              - entity: sensor.stairs_bulbs_power
+                name: Stairs bulbs
+                color: '#D8DEE9'
+              - entity: sensor.wled_windows_power
+                name: WLED windows
+                color: '#E5E9F0'
+            hours_to_show: 1
+            points_per_hour: 12
+            aggregate_func: last
+            bar_spacing: 15
+            show:
+              graph: line
+              icon: false
+              legend: false
 
-  - type: 'custom:apexcharts-card'
-    config_templates:
-      - default
-      - stacked_bar
-      - hourly_day
-    header:
-      title: Hourly lights energy usage
-    series:
-      - entity: sensor.living_room_light_switch_energy_hourly
-        name: Living room lights
-      - entity: sensor.shelly_living_room_not_hourly_energy
-        name: Living room not
-      - entity: sensor.kitchen_light_switch_energy_hourly
-        name: Kitchen lights
-      - entity: sensor.bedroom_light_switch_energy_hourly
-        name: Bedroom lights
-      - entity: sensor.wled_bedroom_energy_hourly
-        name: WLED bedroom
-      - entity: sensor.wled_kitchen_energy_hourly
-        name: WLED kitchen
-      - entity: sensor.office_light_switch_energy_hourly
-        name: Office lights
-      - entity: sensor.shelly_office_not_hourly_energy
-        name: Office not
-      - entity: sensor.bathroom_light_switch_energy_hourly
-        name: Bathroom lights
-      - entity: sensor.stairs_bulbs_energy_hourly
-        name: Stairs bulbs
-      - entity: sensor.wled_windows_energy_hourly
-        name: WLED windows
-    all_series_config:
-      float_precision: 3
-    yaxis:
-      - decimals: 3
-
-  - type: 'custom:apexcharts-card'
-    config_templates:
-      - default
-      - stacked_bar
-      - daily_week
-    header:
-      title: Daily lights energy usage
-    series:
-      - entity: sensor.living_room_light_switch_energy_daily
-        name: Living room lights
-      - entity: sensor.shelly_living_room_not_daily_energy
-        name: Living room not
-      - entity: sensor.kitchen_light_switch_energy_daily
-        name: Kitchen lights
-      - entity: sensor.bedroom_light_switch_energy_daily
-        name: Bedroom lights
-      - entity: sensor.wled_bedroom_energy_daily
-        name: WLED bedroom
-      - entity: sensor.wled_kitchen_energy_daily
-        name: WLED kitchen
-      - entity: sensor.office_light_switch_energy_daily
-        name: Office lights
-      - entity: sensor.shelly_office_not_daily_energy
-        name: Office not
-      - entity: sensor.bathroom_light_switch_energy_daily
-        name: Bathroom lights
-      - entity: sensor.stairs_bulbs_energy_daily
-        name: Stairs bulbs
-      - entity: sensor.wled_windows_energy_daily
-        name: WLED windows
-    all_series_config:
-      float_precision: 3
-    yaxis:
-      - decimals: 3
+          - type: 'custom:mini-graph-card'
+            name: Current hour
+            height: 240
+            entities:
+              - entity: sensor.living_room_light_switch_power_2 
+                name: Living room lights
+                fixed_value: true
+                color: '#d08770'
+              - entity: sensor.shelly_not_bulb_living_room_power
+                name: Living room not
+                fixed_value: true
+                color: '#ebcb8b'
+              - entity: sensor.kitchen_light_switch_power
+                name: Kitchen lights
+                fixed_value: true
+                color: '#a3be8c'
+              - entity: sensor.bedroom_light_switch_power
+                name: Bedroom lights
+                fixed_value: true
+                color: '#b48ead'
+              - entity: sensor.wled_bedroom_power
+                name: WLED bedroom
+                fixed_value: true
+                color: '#bf616a'
+              - entity: sensor.wled_kitchen_power
+                name: WLED kitchen
+                fixed_value: true
+                color: '#8fbcbb'
+              - entity: sensor.office_light_switch_power
+                name: Office lights
+                fixed_value: true
+                color: '#81a1c1'
+              - entity: sensor.not_bulb_power
+                name: Office not
+                fixed_value: true
+                color: '#5e81ac'
+              - entity: sensor.bathroom_light_switch_power
+                name: Bathroom lights
+                fixed_value: true
+                color: '#88C0D0'
+              - entity: sensor.stairs_bulbs_power
+                name: Stairs bulbs
+                fixed_value: true
+                color: '#D8DEE9'
+              - entity: sensor.wled_windows_power
+                name: WLED windows
+                fixed_value: true
+                color: '#E5E9F0'
+            unit: kWh
+            hours_to_show: 1
+            aggregate_func: last
+            group_by: hour
+            decimals: 3
+            bar_spacing: 15
+            show:
+              graph: bar
+              icon: false
+              legend: false

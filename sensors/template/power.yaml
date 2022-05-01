@@ -1,0 +1,34 @@
+---
+- platform: template
+  sensors:
+    all_power:
+      friendly_name: All power
+      value_template: >-
+        {{
+          states('sensor.wigeon_current_consumption')|default(0)|float +
+          states('sensor.paddlepond_current_consumption')|default(0)|float +
+          states('sensor.tv_plug_power')|default(0)|float +
+          states('sensor.fridge_current_consumption')|default(0)|float +
+          states('sensor.dishwasher_current_consumption')|default(0)|float +
+          states('sensor.washing_machine_current_consumption')|default(0)|float +
+          states('sensor.dryer_current_consumption')|default(0)|float +
+          states('sensor.lights_power')|default(0)|float
+        }}
+      icon_template: mdi:flash
+      unit_of_measurement: W
+
+    all_power_total:
+      friendly_name: All power total
+      value_template: >-
+        {{
+          states('sensor.wigeon_total_consumption')|default(0)|float +
+          states('sensor.paddlepond_total_consumption')|default(0)|float +
+          states('sensor.tv_total_power')|default(0)|float +
+          states('sensor.fridge_total_consumption')|default(0)|float +
+          states('sensor.dishwasher_total_consumption')|default(0)|float +
+          states('sensor.washing_machine_total_consumption')|default(0)|float +
+          states('sensor.dryer_total_consumption')|default(0)|float +
+          states('sensor.lights_total_power')|default(0)|float
+        }}
+      icon_template: mdi:flash
+      unit_of_measurement: kWh

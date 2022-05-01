@@ -150,3 +150,15 @@ shelly_garden_not_hourly_energy:
 shelly_garden_not_daily_energy:
   source: sensor.shelly_garden_energy
   cycle: daily
+
+all_hourly_energy:
+  source: sensor.all_power_total
+  cycle: hourly
+
+all_daily_energy:
+  source: sensor.all_power_total
+  cycle: daily
+
+all_monthly_energy:
+  source: sensor.all_power_total
+  cycle: monthly
