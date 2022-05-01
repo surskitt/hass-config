@@ -183,47 +183,47 @@ cards:
             name: Current hour
             height: 240
             entities:
-              - entity: sensor.living_room_light_switch_power_2 
+              - entity: sensor.living_room_light_switch_energy_hourly
                 name: Living room lights
                 fixed_value: true
                 color: '#d08770'
-              - entity: sensor.shelly_not_bulb_living_room_power
+              - entity: sensor.shelly_living_room_not_hourly_energy
                 name: Living room not
                 fixed_value: true
                 color: '#ebcb8b'
-              - entity: sensor.kitchen_light_switch_power
+              - entity: sensor.kitchen_light_switch_energy_hourly
                 name: Kitchen lights
                 fixed_value: true
                 color: '#a3be8c'
-              - entity: sensor.bedroom_light_switch_power
+              - entity: sensor.bedroom_light_switch_energy_hourly
                 name: Bedroom lights
                 fixed_value: true
                 color: '#b48ead'
-              - entity: sensor.wled_bedroom_power
+              - entity: sensor.wled_bedroom_energy_hourly
                 name: WLED bedroom
                 fixed_value: true
                 color: '#bf616a'
-              - entity: sensor.wled_kitchen_power
+              - entity: sensor.wled_kitchen_energy_hourly
                 name: WLED kitchen
                 fixed_value: true
                 color: '#8fbcbb'
-              - entity: sensor.office_light_switch_power
+              - entity: sensor.office_light_switch_energy_hourly
                 name: Office lights
                 fixed_value: true
                 color: '#81a1c1'
-              - entity: sensor.not_bulb_power
+              - entity: sensor.shelly_office_not_hourly_energy
                 name: Office not
                 fixed_value: true
                 color: '#5e81ac'
-              - entity: sensor.bathroom_light_switch_power
+              - entity: sensor.bathroom_light_switch_energy_hourly
                 name: Bathroom lights
                 fixed_value: true
                 color: '#88C0D0'
-              - entity: sensor.stairs_bulbs_power
+              - entity: sensor.stairs_bulbs_energy_hourly
                 name: Stairs bulbs
                 fixed_value: true
                 color: '#D8DEE9'
-              - entity: sensor.wled_windows_power
+              - entity: sensor.wled_windows_energy_hourly
                 name: WLED windows
                 fixed_value: true
                 color: '#E5E9F0'
@@ -231,7 +231,7 @@ cards:
             hours_to_show: 1
             aggregate_func: last
             group_by: hour
-            decimals: 3
+            decimals: 4
             bar_spacing: 15
             show:
               graph: bar
