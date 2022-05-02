@@ -28,7 +28,7 @@ cards:
             name: Hourly
             height: 240
             entities:
-              - entity: sensor.all_hourly_energy
+              - entity: sensor.all_hourly_energy_2
             unit: kWh
             line_color: "#88C0D0"
             hours_to_show: 24

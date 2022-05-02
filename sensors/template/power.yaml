@@ -20,15 +20,26 @@
     all_power_total:
       friendly_name: All power total
       value_template: >-
-        {{
-          states('sensor.wigeon_total_consumption')|default(0)|float +
-          states('sensor.paddlepond_total_consumption')|default(0)|float +
-          states('sensor.tv_total_power')|default(0)|float +
-          states('sensor.fridge_total_consumption')|default(0)|float +
-          states('sensor.dishwasher_total_consumption')|default(0)|float +
-          states('sensor.washing_machine_total_consumption')|default(0)|float +
-          states('sensor.dryer_total_consumption')|default(0)|float +
-          states('sensor.lights_total_power')|default(0)|float
-        }}
+        {% if is_number(states('sensor.wigeon_total_consumption')) and
+              is_number(states('sensor.paddlepond_total_consumption')) and 
+              is_number(states('sensor.tv_total_power')) and 
+              is_number(states('sensor.fridge_total_consumption')) and 
+              is_number(states('sensor.dishwasher_total_consumption')) and 
+              is_number(states('sensor.washing_machine_total_consumption')) and 
+              is_number(states('sensor.dryer_total_consumption')) and 
+              is_number(states('sensor.lights_total_power')) %}
+          {{
+            states('sensor.wigeon_total_consumption')|float +
+            states('sensor.paddlepond_total_consumption')|float +
+            states('sensor.tv_total_power')|float +
+            states('sensor.fridge_total_consumption')|float +
+            states('sensor.dishwasher_total_consumption')|float +
+            states('sensor.washing_machine_total_consumption')|float +
+            states('sensor.dryer_total_consumption')|float +
+            states('sensor.lights_total_power')|float
+          }}
+        {% else %}
+          None
+        {% endif %}
       icon_template: mdi:flash
       unit_of_measurement: kWh
