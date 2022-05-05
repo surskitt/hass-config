@@ -48,7 +48,6 @@
       entity_id:
         - light.not_bulb
         - light.bedroom_lamp
-        - light.wled_bedroom
         - light.wled_kitchen
         - light.stairs_bulbs
         - light.attic_light
@@ -56,6 +55,12 @@
     - service: alarm_control_panel.alarm_arm_night
       target:
         entity_id: alarm_control_panel.home_alarm
+
+    - if: "{{ is_state('binary_sensor.ping_teal_lan', 'on') }}"
+      then:
+        - service: switch.turn_off
+          entity_id:
+            - switch.serpentine
 
 - id: tradfri2_lights
   alias: Toggle bedroom leds when pressing tradfri 1 on button
