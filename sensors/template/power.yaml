@@ -43,3 +43,15 @@
         {% endif %}
       icon_template: mdi:flash
       unit_of_measurement: kWh
+
+    all_power_monthly_cost:
+      friendly_name: All power monthly cost
+      value_template: >-
+        {{
+          (
+            (now().day * 0.3792) +
+            (states('sensor.all_monthly_energy_2')|float * 0.2924)
+          ) | round(2)
+        }}
+      icon_template: mdi:currency-gbp
+      unit_of_measurement: £

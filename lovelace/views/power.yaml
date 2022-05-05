@@ -237,3 +237,39 @@ cards:
               graph: bar
               icon: false
               legend: false
+                
+      - type: grid
+        title: Cost
+        square: false
+        columns: 2
+        cards:
+          - type: 'custom:mini-graph-card'
+            name: Current
+            height: 240
+            entities:
+              - entity: sensor.all_power_monthly_cost
+            line_color: "#88C0D0"
+            hours_to_show: 24
+            points_per_hour: 6
+            aggregate_func: max
+            group_by: hour
+            decimals: 2
+            show:
+              graph: line
+              icon: false
+              legend: false
+
+          - type: 'custom:mini-graph-card'
+            name: Current month
+            height: 240
+            entities:
+              - entity: sensor.all_power_monthly_cost
+            line_color: "#88C0D0"
+            hours_to_show: 720
+            aggregate_func: last
+            group_by: date
+            decimals: 2
+            show:
+              graph: line
+              icon: false
+              legend: false
