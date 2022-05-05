@@ -151,6 +151,12 @@
 
     - service: scene.create
       data:
+        scene_id: bathroom_state
+        entities:
+          switch.bathroom_light_switch: 'off'
+
+    - service: scene.create
+      data:
         scene_id: stairs_state
         entities:
           light.stairs_bulbs:
