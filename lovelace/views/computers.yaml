@@ -148,6 +148,8 @@ cards:
             layout: horizontal
             icon: mdi:bullhorn
             icon_color: yellow
+            tap_action:
+              action: toggle
 
           - type: custom:mushroom-entity-card
             entity: switch.calibre_web_deployment
@@ -155,6 +157,8 @@ cards:
             layout: horizontal
             icon: mdi:book
             icon_color: blue
+            tap_action:
+              action: toggle
 
           - type: custom:mushroom-entity-card
             entity: switch.flood_deployment
@@ -162,13 +166,8 @@ cards:
             layout: horizontal
             icon: mdi:waves
             icon_color: light-blue
-
-          - type: custom:mushroom-entity-card
-            entity: switch.jackett_deployment
-            name: Jackett
-            layout: horizontal
-            icon: mdi:filter
-            icon_color: deep-orange
+            tap_action:
+              action: toggle
 
           - type: custom:mushroom-entity-card
             entity: switch.komga_deployment
@@ -176,6 +175,8 @@ cards:
             layout: horizontal
             icon: mdi:message
             icon_color: blue
+            tap_action:
+              action: toggle
 
           - type: custom:mushroom-entity-card
             entity: switch.mylar_deployment
@@ -183,6 +184,8 @@ cards:
             layout: horizontal
             icon: mdi:message-outline
             icon_color: blue
+            tap_action:
+              action: toggle
 
           - type: custom:mushroom-entity-card
             entity: switch.nzbget_deployment
@@ -190,6 +193,8 @@ cards:
             layout: horizontal
             icon: mdi:download-box-outline
             icon_color: light-blue
+            tap_action:
+              action: toggle
 
           - type: custom:mushroom-entity-card
             entity: switch.plex_deployment
@@ -197,6 +202,8 @@ cards:
             layout: horizontal
             icon: mdi:plex
             icon_color: orange
+            tap_action:
+              action: toggle
 
           - type: custom:mushroom-entity-card
             entity: switch.pyload_deployment
@@ -204,6 +211,8 @@ cards:
             layout: horizontal
             icon: mdi:download
             icon_color: lime
+            tap_action:
+              action: toggle
 
           - type: custom:mushroom-entity-card
             entity: switch.radarr_deployment
@@ -211,6 +220,8 @@ cards:
             layout: horizontal
             icon: mdi:filmstrip
             icon_color: amber
+            tap_action:
+              action: toggle
 
           - type: custom:mushroom-entity-card
             entity: switch.sonarr_deployment
@@ -218,6 +229,8 @@ cards:
             layout: horizontal
             icon: mdi:television-classic
             icon_color: blue
+            tap_action:
+              action: toggle
 
           - type: custom:mushroom-entity-card
             entity: switch.transmission_deployment
@@ -225,3 +238,5 @@ cards:
             layout: horizontal
             icon: mdi:car-shift-pattern
             icon_color: pink
+            tap_action:
+              action: toggle
