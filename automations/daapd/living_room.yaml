@@ -48,6 +48,11 @@
         - 'off'
         - unavailable
 
+  condition:
+    - condition: state
+      entity_id: switch.vinyl
+      state: 'on'
+
   action:
     - service: remote.send_command
       data:
