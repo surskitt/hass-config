@@ -1,36 +1,23 @@
 ---
-- id: spotify_play
-  alias: Play spotify using nfc tags
+- id: daapd_nfc_queue_next
+  alias: queue and play albums on spotify using nfc tags
   mode: single
   max_exceeded: silent
-  variables:
-    tags:
-      glenn_branca_the_ascension:
-        media_content_id: spotify:album:2cFixT6QIE4gzPjZS7sen7
-      swans_the_seer:
-        media_content_id: spotify:album:774XM9c4BAxkNqvu7Rea1E
-      johnny_cash_at_folsom_prison:
-        media_content_id: spotify:album:4TJIdlY9hGSSTO1kUs1neh
-      boris_akuma_no_uta:
-        media_content_id: spotify:album:00oVPPcp3eor9x6VG2hvhy
-      boris_feedbacker:
-        media_content_id: spotify:album:2Xbd3EI9auhlw5WOKnNX3H
-      chai_punk:
-        media_content_id: spotify:album:0SkwXqlaB16ENaYJaPUW7d
+
   trigger:
-    platform: event
-    event_type: tag_scanned
-  condition:
-    - "{{ trigger.event.data.tag_id in tags }}"
+    - platform: tag
+      id: doopees_doopee_time
+      tag_id: 211db900-8a30-4909-a323-f64cf1a734a8
+      variables:
+        uri: library:album:7029187951521706744
+
+    - platform: tag
+      id: geinoh_yamashirogumi_symphonic_suite_akira
+      tag_id: 85551f5d-b4aa-42d6-8856-e8a4db7627fd
+      variables:
+        uri: library:album:1469973857267628112
 
   action:
-    - variables:
-        media_content_id: "{{ tags[trigger.event.data.tag_id].media_content_id }}"
-
-    - service: media_player.play_media
+    - service: shell_command.daapd_queue_next
       data:
-        entity_id: media_player.spotify_sharktamer
-        media_content_id: "{{ media_content_id }}"
-        media_content_type: album
-
-    - delay: 2
+        uri: "{{ uri }}"

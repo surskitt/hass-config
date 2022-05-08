@@ -34,3 +34,5 @@ sonarr_scale_down:       "/config/helpers/deployment_scale.sh media sonarr      
 sonarr_scale_up:         "/config/helpers/deployment_scale.sh media sonarr       1 /config/k8s_token /config/k8s_ca.crt"
 transmission_scale_down: "/config/helpers/deployment_scale.sh media transmission 0 /config/k8s_token /config/k8s_ca.crt"
 transmission_scale_up:   "/config/helpers/deployment_scale.sh media transmission 1 /config/k8s_token /config/k8s_ca.crt"
+
+daapd_queue_next: "/config/helpers/daapd_queue_next.sh {{ uri }}"
