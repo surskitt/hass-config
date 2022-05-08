@@ -131,14 +131,6 @@
       turn_off:
         service: shell_command.komga_scale_down
 
-    jackett_deployment:
-      icon_template: 'mdi:kubernetes'
-      value_template: "{{ states('sensor.jackett_deployment_replicas')|int > 0 }}"
-      turn_on:
-        service: shell_command.jackett_scale_up
-      turn_off:
-        service: shell_command.jackett_scale_down
-
     mylar_deployment:
       icon_template: 'mdi:kubernetes'
       value_template: "{{ states('sensor.mylar_deployment_replicas')|int > 0 }}"
@@ -196,3 +188,11 @@
         service: shell_command.transmission_scale_down
 
 - platform: bhyve
+
+- platform: mqtt
+  name: Jackett deployment
+  icon: mdi:kubernetes
+  unique_id: jackett_deployment
+  state_topic: mqtt-kube/jackett/power/state
+  command_topic: mqtt-kube/jackett/power/set
+  retain: true
