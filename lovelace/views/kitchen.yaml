@@ -87,24 +87,27 @@ cards:
         entity: camera.kitchen_cam_hd
         ui: true
         shortcuts:
-          - name: Oven
-            icon: 'mdi:stove'
-            service: tapo_control.ptz
-            service_data:
-              preset: Oven
-              entity_id: camera.kitchen_cam_hd
-          - name: Back door
-            icon: 'mdi:door'
-            service: tapo_control.ptz
-            service_data:
-              preset: Back door
-              entity_id: camera.kitchen_cam_hd
-          - name: Table
-            icon: 'mdi:table-furniture'
-            service: tapo_control.ptz
-            service_data:
-              preset: Table
-              entity_id: camera.kitchen_cam_hd
+          services:
+            - name: Oven
+              icon: 'mdi:stove'
+              service: tapo_control.ptz
+              service_data:
+                preset: Oven
+                entity_id: camera.kitchen_cam_hd
+
+            - name: Back door
+              icon: 'mdi:door'
+              service: tapo_control.ptz
+              service_data:
+                preset: Back door
+                entity_id: camera.kitchen_cam_hd
+
+            - name: Table
+              icon: 'mdi:table-furniture'
+              service: tapo_control.ptz
+              service_data:
+                preset: Table
+                entity_id: camera.kitchen_cam_hd
         ptz:
           service: tapo_control.ptz
           data_left:

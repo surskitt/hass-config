@@ -112,15 +112,16 @@ cards:
           entity: camera.bedroom_camera_hd
           ui: true
           shortcuts:
-            - name: Privacy mode
-              icon: mdi:eye-off
-              service: input_boolean.toggle
-              service_data:
-                entity_id: input_boolean.bedroom_camera_privacy_mode
+            services:
+              - name: Privacy mode
+                icon: mdi:eye-off
+                service: input_boolean.toggle
+                service_data:
+                  entity_id: input_boolean.bedroom_camera_privacy_mode
 
-            - name: Snapshot
-              icon: mdi:camera
-              service: camera.snapshot
-              service_data:
-                entity_id: camera.bedroom_camera_hd
-                filename: /config/www/snapshots/bedroom.jpg
+              - name: Snapshot
+                icon: mdi:camera
+                service: camera.snapshot
+                service_data:
+                  entity_id: camera.bedroom_camera_hd
+                  filename: /config/www/snapshots/bedroom.jpg
