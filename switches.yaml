@@ -89,105 +89,95 @@
           entity_id: fan.living_room_diffuser
           speed: 'off'
 
-- platform: template
-  switches:
-    bazarr_deployment:
-      icon_template: 'mdi:kubernetes'
-      value_template: "{{ states('sensor.bazarr_deployment_replicas')|int > 0 }}"
-      turn_on:
-        service: shell_command.bazarr_scale_up
-      turn_off:
-        service: shell_command.bazarr_scale_down
-
-    calibre_web_deployment:
-      icon_template: 'mdi:kubernetes'
-      value_template: "{{ states('sensor.calibre_web_deployment_replicas')|int > 0 }}"
-      turn_on:
-        service: shell_command.calibre_web_scale_up
-      turn_off:
-        service: shell_command.calibre_web_scale_down
-
-    flood_deployment:
-      icon_template: 'mdi:kubernetes'
-      value_template: "{{ states('sensor.flood_deployment_replicas')|int > 0 }}"
-      turn_on:
-        service: shell_command.flood_scale_up
-      turn_off:
-        service: shell_command.flood_scale_down
-
-    forked_daapd_deployment:
-      icon_template: 'mdi:kubernetes'
-      value_template: "{{ states('sensor.forked_daapd_deployment_replicas')|int > 0 }}"
-      turn_on:
-        service: shell_command.forked_daapd_scale_up
-      turn_off:
-        service: shell_command.forked_daapd_scale_down
-
-    komga_deployment:
-      icon_template: 'mdi:kubernetes'
-      value_template: "{{ states('sensor.komga_deployment_replicas')|int > 0 }}"
-      turn_on:
-        service: shell_command.komga_scale_up
-      turn_off:
-        service: shell_command.komga_scale_down
-
-    mylar_deployment:
-      icon_template: 'mdi:kubernetes'
-      value_template: "{{ states('sensor.mylar_deployment_replicas')|int > 0 }}"
-      turn_on:
-        service: shell_command.mylar_scale_up
-      turn_off:
-        service: shell_command.mylar_scale_down
-
-    nzbget_deployment:
-      icon_template: 'mdi:kubernetes'
-      value_template: "{{ states('sensor.nzbget_deployment_replicas')|int > 0 }}"
-      turn_on:
-        service: shell_command.nzbget_scale_up
-      turn_off:
-        service: shell_command.nzbget_scale_down
-
-    plex_deployment:
-      icon_template: 'mdi:kubernetes'
-      value_template: "{{ states('sensor.plex_deployment_replicas')|int > 0 }}"
-      turn_on:
-        service: shell_command.plex_scale_up
-      turn_off:
-        service: shell_command.plex_scale_down
-
-    pyload_deployment:
-      icon_template: 'mdi:kubernetes'
-      value_template: "{{ states('sensor.pyload_deployment_replicas')|int > 0 }}"
-      turn_on:
-        service: shell_command.pyload_scale_up
-      turn_off:
-        service: shell_command.pyload_scale_down
-
-    radarr_deployment:
-      icon_template: 'mdi:kubernetes'
-      value_template: "{{ states('sensor.radarr_deployment_replicas')|int > 0 }}"
-      turn_on:
-        service: shell_command.radarr_scale_up
-      turn_off:
-        service: shell_command.radarr_scale_down
-
-    sonarr_deployment:
-      icon_template: 'mdi:kubernetes'
-      value_template: "{{ states('sensor.sonarr_deployment_replicas')|int > 0 }}"
-      turn_on:
-        service: shell_command.sonarr_scale_up
-      turn_off:
-        service: shell_command.sonarr_scale_down
-
-    transmission_deployment:
-      icon_template: 'mdi:kubernetes'
-      value_template: "{{ states('sensor.transmission_deployment_replicas')|int > 0 }}"
-      turn_on:
-        service: shell_command.transmission_scale_up
-      turn_off:
-        service: shell_command.transmission_scale_down
-
 - platform: bhyve
+
+- platform: mqtt
+  name: bazarr deployment
+  icon: mdi:kubernetes
+  unique_id: bazarr_deployment
+  state_topic: mqtt-kube/bazarr/power/state
+  command_topic: mqtt-kube/bazarr/power/set
+  retain: true
+
+- platform: mqtt
+  name: calibre-web deployment
+  icon: mdi:kubernetes
+  unique_id: calibre_web_deployment
+  state_topic: mqtt-kube/calibre-web/power/state
+  command_topic: mqtt-kube/calibre-web/power/set
+  retain: true
+
+- platform: mqtt
+  name: flood deployment
+  icon: mdi:kubernetes
+  unique_id: flood_deployment
+  state_topic: mqtt-kube/flood/power/state
+  command_topic: mqtt-kube/flood/power/set
+  retain: true
+
+- platform: mqtt
+  name: komga deployment
+  icon: mdi:kubernetes
+  unique_id: komga_deployment
+  state_topic: mqtt-kube/komga/power/state
+  command_topic: mqtt-kube/komga/power/set
+  retain: true
+
+- platform: mqtt
+  name: mylar deployment
+  icon: mdi:kubernetes
+  unique_id: mylar_deployment
+  state_topic: mqtt-kube/mylar/power/state
+  command_topic: mqtt-kube/mylar/power/set
+  retain: true
+
+- platform: mqtt
+  name: nzbget deployment
+  icon: mdi:kubernetes
+  unique_id: nzbget_deployment
+  state_topic: mqtt-kube/nzbget/power/state
+  command_topic: mqtt-kube/nzbget/power/set
+  retain: true
+
+- platform: mqtt
+  name: plex deployment
+  icon: mdi:kubernetes
+  unique_id: plex_deployment
+  state_topic: mqtt-kube/plex/power/state
+  command_topic: mqtt-kube/plex/power/set
+  retain: true
+
+- platform: mqtt
+  name: pyload deployment
+  icon: mdi:kubernetes
+  unique_id: pyload_deployment
+  state_topic: mqtt-kube/pyload/power/state
+  command_topic: mqtt-kube/pyload/power/set
+  retain: true
+
+- platform: mqtt
+  name: radarr deployment
+  icon: mdi:kubernetes
+  unique_id: radarr_deployment
+  state_topic: mqtt-kube/radarr/power/state
+  command_topic: mqtt-kube/radarr/power/set
+  retain: true
+
+- platform: mqtt
+  name: sonarr deployment
+  icon: mdi:kubernetes
+  unique_id: sonarr_deployment
+  state_topic: mqtt-kube/sonarr/power/state
+  command_topic: mqtt-kube/sonarr/power/set
+  retain: true
+
+- platform: mqtt
+  name: transmission deployment
+  icon: mdi:kubernetes
+  unique_id: transmission_deployment
+  state_topic: mqtt-kube/transmission/power/state
+  command_topic: mqtt-kube/transmission/power/set
+  retain: true
 
 - platform: mqtt
   name: Jackett deployment
