@@ -1,0 +1,16 @@
+---
+- id: muscovy_daapd_buttons
+  alias: Toggle daapd using tradfri4
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id:
+        - sensor.tradfri4_action
+      to:
+        - "on"
+
+  action:
+    - service: media_player.media_play_pause
+      target:
+        entity_id: media_player.forked_daapd_server
