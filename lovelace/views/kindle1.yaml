@@ -16,3 +16,55 @@ cards:
       - type: custom:mushroom-template-card
         icon: mdi:battery
         primary: "Current battery: {{ states('input_number.kindle1_battery_level') | int }}%"
+
+  - type: vertical-stack
+    title: Rain forecast
+    cards:
+      - type: grid
+        columns: 3
+        square: false
+        cards:
+          - type: custom:mushroom-template-card
+            icon: mdi:weather-pouring
+            icon_color: light-blue
+            primary: "{{ (state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[1]).datetime | as_timestamp |timestamp_custom('%A')}}"
+            secondary: >
+              {{ state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[1].precipitation }}mm
+              ({{ state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[1].precipitation_probability }}%)
+            layout: horizontal
+
+          - type: custom:mushroom-template-card
+            icon: mdi:weather-pouring
+            icon_color: light-blue
+            primary: "{{ (state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[2]).datetime | as_timestamp |timestamp_custom('%A')}}"
+            secondary: >
+              {{ state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[2].precipitation }}mm
+              ({{ state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[2].precipitation_probability }}%)
+            layout: horizontal
+
+          - type: custom:mushroom-template-card
+            icon: mdi:weather-pouring
+            icon_color: light-blue
+            primary: "{{ (state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[3]).datetime | as_timestamp |timestamp_custom('%A')}}"
+            secondary: >
+              {{ state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[3].precipitation }}mm
+              ({{ state_attr('weather.tomorrow_io_paddlepond_home_assistant_daily', 'forecast')[3].precipitation_probability }}%)
+            layout: horizontal
+
+  - type: vertical-stack
+    title: Daily power
+    cards:
+      - type: 'custom:mini-graph-card'
+        height: 100
+        # font_size: 50
+        entities:
+          - entity: sensor.all_daily_energy_2
+        unit: kWh
+        line_color: "#88C0D0"
+        hours_to_show: 24
+        points_per_hour: 2
+        aggregate_func: max
+        decimals: 3
+        show:
+          graph: line
+          icon: false
