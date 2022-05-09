@@ -97,10 +97,10 @@ cards:
         hold_action:
           action: toggle
 
-  - square: true
-    columns: 4
-    type: grid
+  - type: grid
     title: Navigation
+    columns: 4
+    square: false
     cards:
       - type: custom:mushroom-template-card
         icon: mdi:radiator
