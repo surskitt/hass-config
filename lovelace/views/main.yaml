@@ -241,18 +241,19 @@ cards:
               entity: camera.living_room_cam
               ui: true
               shortcuts:
-                - name: Stop stream
-                  icon: mdi:stop
-                  service: input_boolean.turn_off
-                  service_data:
-                    entity_id: input_boolean.living_room_camera_stream_main
+                services:
+                  - name: Stop stream
+                    icon: mdi:stop
+                    service: input_boolean.turn_off
+                    service_data:
+                      entity_id: input_boolean.living_room_camera_stream_main
 
-                - name: Snapshot
-                  icon: mdi:camera
-                  service: camera.snapshot
-                  service_data:
-                    entity_id: camera.living_room_cam
-                    filename: /config/www/snapshots/living_room.jpg
+                  - name: Snapshot
+                    icon: mdi:camera
+                    service: camera.snapshot
+                    service_data:
+                      entity_id: camera.living_room_cam
+                      filename: /config/www/snapshots/living_room.jpg
 
       - type: 'custom:vertical-stack-in-card'
         cards:
@@ -280,18 +281,19 @@ cards:
               entity: camera.kitchen_cam_hd
               ui: true
               shortcuts:
-                - name: Stop stream
-                  icon: mdi:stop
-                  service: input_boolean.turn_off
-                  service_data:
-                    entity_id: input_boolean.kitchen_camera_stream_main
+                services:
+                  - name: Stop stream
+                    icon: mdi:stop
+                    service: input_boolean.turn_off
+                    service_data:
+                      entity_id: input_boolean.kitchen_camera_stream_main
 
-                - name: Snapshot
-                  icon: mdi:camera
-                  service: camera.snapshot
-                  service_data:
-                    entity_id: camera.kitchen_cam_hd
-                    filename: /config/www/snapshots/kitchen.jpg
+                  - name: Snapshot
+                    icon: mdi:camera
+                    service: camera.snapshot
+                    service_data:
+                      entity_id: camera.kitchen_cam_hd
+                      filename: /config/www/snapshots/kitchen.jpg
 
       - type: 'custom:vertical-stack-in-card'
         cards:
@@ -321,11 +323,12 @@ cards:
               ui: true
               mse: false
               shortcuts:
-                - name: Stop stream
-                  icon: 'mdi:stop'
-                  service: camera.turn_off
-                  service_data:
-                    entity_id: camera.driveway
+                services:
+                  - name: Stop stream
+                    icon: 'mdi:stop'
+                    service: camera.turn_off
+                    service_data:
+                      entity_id: camera.driveway
 
       - type: 'custom:vertical-stack-in-card'
         cards:
@@ -355,11 +358,12 @@ cards:
               ui: true
               mse: false
               shortcuts:
-                - name: Stop stream
-                  icon: 'mdi:stop'
-                  service: camera.turn_off
-                  service_data:
-                    entity_id: camera.garden
+                services:
+                  - name: Stop stream
+                    icon: 'mdi:stop'
+                    service: camera.turn_off
+                    service_data:
+                      entity_id: camera.garden
 
       - type: conditional
         conditions:
@@ -392,24 +396,25 @@ cards:
                 entity: camera.bedroom_camera_hd
                 ui: true
                 shortcuts:
-                  - name: Stop stream
-                    icon: mdi:stop
-                    service: input_boolean.turn_off
-                    service_data:
-                      entity_id: input_boolean.bedroom_camera_stream_main
+                  services:
+                    - name: Stop stream
+                      icon: mdi:stop
+                      service: input_boolean.turn_off
+                      service_data:
+                        entity_id: input_boolean.bedroom_camera_stream_main
 
-                  - name: Privacy mode
-                    icon: mdi:eye-off
-                    service: input_boolean.toggle
-                    service_data:
-                      entity_id: input_boolean.bedroom_camera_privacy_mode
+                    - name: Privacy mode
+                      icon: mdi:eye-off
+                      service: input_boolean.toggle
+                      service_data:
+                        entity_id: input_boolean.bedroom_camera_privacy_mode
 
-                  - name: Snapshot
-                    icon: mdi:camera
-                    service: camera.snapshot
-                    service_data:
-                      entity_id: camera.bedroom_camera_hd
-                      filename: /config/www/snapshots/bedroom.jpg
+                    - name: Snapshot
+                      icon: mdi:camera
+                      service: camera.snapshot
+                      service_data:
+                        entity_id: camera.bedroom_camera_hd
+                        filename: /config/www/snapshots/bedroom.jpg
 
               
       - type: conditional

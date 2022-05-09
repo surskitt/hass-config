@@ -244,8 +244,9 @@ cards:
               ui: true
               mse: false
               shortcuts:
-                - name: Stop stream
-                  icon: 'mdi:stop'
-                  service: camera.turn_off
-                  service_data:
-                    entity_id: camera.garden
+                services:
+                  - name: Stop stream
+                    icon: 'mdi:stop'
+                    service: camera.turn_off
+                    service_data:
+                      entity_id: camera.garden
