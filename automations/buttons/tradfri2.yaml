@@ -70,7 +70,7 @@
             - switch.pyload_deployment
             - switch.radarr_deployment
             - switch.sonarr_deployment
-            - switch.transmission_deployment
+            - switch.transmission_deployment_shell
 
         - wait_template: "{{ is_state('binary_sensor.mallard_nfs_mounted', 'off') }}"
           timeout: "00:15:00"

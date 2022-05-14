@@ -186,3 +186,13 @@
   state_topic: mqtt-kube/jackett/power/state
   command_topic: mqtt-kube/jackett/power/set
   retain: true
+
+- platform: template
+  switches:
+    transmission_deployment_shell:
+      icon_template: mdi:kubernetes
+      value_template: "{{ states('switch.transmission_deployment') }}"
+      turn_on:
+        service: shell_command.transmission_scale_up
+      turn_off:
+        service: shell_command.transmission_scale_down

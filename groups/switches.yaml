@@ -64,4 +64,4 @@ paddlepond_services:
     - switch.pyload_deployment
     - switch.radarr_deployment
     - switch.sonarr_deployment
-    - switch.transmission_deployment
+    - switch.transmission_deployment_shell

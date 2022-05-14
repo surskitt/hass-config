@@ -233,7 +233,7 @@ cards:
               action: toggle
 
           - type: custom:mushroom-entity-card
-            entity: switch.transmission_deployment
+            entity: switch.transmission_deployment_shell
             name: Torrents
             layout: horizontal
             icon: mdi:car-shift-pattern
