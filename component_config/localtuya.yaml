@@ -137,35 +137,35 @@
 - host: 192.168.10.5
   device_id: 6000521024a160044f2f
   local_key: a66b5926188b27e0
-  friendly_name: tv plug
+  friendly_name: router plug
   protocol_version: "3.3"
   entities:
     - platform: binary_sensor
-      friendly_name: tv plug status
+      friendly_name: router plug status
       id: 1
       device_class: power
       state_on: "true"
       state_off: "false"
 
     # - platform: switch
-    #   friendly_name: tv plug
+    #   friendly_name: router plug
     #   id: 1
 
     - platform: sensor
-      friendly_name: tv plug current
+      friendly_name: router plug current
       id: 18
       device_class: current
       unit_of_measurement: mA
 
     - platform: sensor
-      friendly_name: tv plug power
+      friendly_name: router plug power
       id: 19
       device_class: power
       unit_of_measurement: W
       scaling: 0.1
 
     - platform: sensor
-      friendly_name: tv plug voltage
+      friendly_name: router plug voltage
       id: 20
       device_class: voltage
       unit_of_measurement: V

@@ -7,7 +7,7 @@
         {{
           states('sensor.wigeon_current_consumption')|default(0)|float +
           states('sensor.paddlepond_current_consumption')|default(0)|float +
-          states('sensor.tv_plug_power')|default(0)|float +
+          states('sensor.router_plug_power')|default(0)|float +
           states('sensor.fridge_current_consumption')|default(0)|float +
           states('sensor.dishwasher_current_consumption')|default(0)|float +
           states('sensor.washing_machine_current_consumption')|default(0)|float +

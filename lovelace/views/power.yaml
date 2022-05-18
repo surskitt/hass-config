@@ -54,7 +54,7 @@ cards:
               - entity: sensor.paddlepond_current_consumption
                 name: paddlepond
                 color: '#ebcb8b'
-              - entity: sensor.tv_plug_power
+              - entity: sensor.router_plug_power
                 name: TV
                 color: '#a3be8c'
               - entity: sensor.fridge_current_consumption
