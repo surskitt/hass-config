@@ -18,7 +18,7 @@
         title: Washing machine
         message: The washing machine has finished
 
-    - service: notify.tv
+    - service: notify.lg_webos_smart_tv
       data:
         message: The washing machine has finished
 
@@ -46,7 +46,7 @@
         title: Dryer
         message: The dryer has finished
 
-    - service: notify.tv
+    - service: notify.lg_webos_smart_tv
       data:
         message: The dryer has finished
 
