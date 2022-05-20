@@ -1,12 +1,16 @@
 ---
 - id: bedtime_routine
   alias: Turn off all lights and heating when pressing tradfri 2 off button
-  mode: single
+  mode: restart
 
   trigger:
     - platform: state
       entity_id: sensor.tradfri2_action
       to: 'off'
+
+    - platform: state
+      entity_id: sensor.sleepasandroid_rook
+      to: sleep_tracking_started
 
   action:
     - service: climate.turn_off
@@ -56,28 +60,29 @@
       target:
         entity_id: alarm_control_panel.home_alarm
 
-    - if: "{{ is_state('binary_sensor.ping_teal_lan', 'off') }}"
-      then:
-        - service: switch.turn_off
-          entity_id:
-            - switch.bazarr_deployment
-            - switch.calibre_web_deployment
-            - switch.flood_deployment
-            - switch.komga_deployment
-            - switch.mylar_deployment
-            - switch.nzbget_deployment
-            - switch.plex_deployment
-            - switch.pyload_deployment
-            - switch.radarr_deployment
-            - switch.sonarr_deployment
-            - switch.transmission_deployment_shell
+    - wait_template: "{{ is_state('binary_sensor.ping_teal_lan', 'off') }}"
+      timeout: "00:10:00"
 
-        - wait_template: "{{ is_state('binary_sensor.mallard_nfs_mounted', 'off') }}"
-          timeout: "00:15:00"
+    - service: switch.turn_off
+      entity_id:
+        - switch.bazarr_deployment
+        - switch.calibre_web_deployment
+        - switch.flood_deployment
+        - switch.komga_deployment
+        - switch.mylar_deployment
+        - switch.nzbget_deployment
+        - switch.plex_deployment
+        - switch.pyload_deployment
+        - switch.radarr_deployment
+        - switch.sonarr_deployment
+        - switch.transmission_deployment_shell
 
-        - service: switch.turn_off
-          entity_id:
-            - switch.serpentine
+    - wait_template: "{{ is_state('binary_sensor.mallard_nfs_mounted', 'off') }}"
+      timeout: "00:15:00"
+
+    - service: switch.turn_off
+      entity_id:
+        - switch.serpentine
 
 - id: tradfri2_lights
   alias: Toggle bedroom leds when pressing tradfri 1 on button
