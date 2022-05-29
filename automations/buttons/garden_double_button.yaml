@@ -1,0 +1,14 @@
+---
+- id: garden_double_switch_garden_light
+  alias: Toggle garden light when pressing left garden double button
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: sensor.garden_double_switch_action
+      to: 'left'
+
+  action:
+    - service: light.toggle
+      entity_id:
+        - light.shelly_garden
