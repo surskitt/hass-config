@@ -79,13 +79,13 @@
     - repeat:
         count: 3
         sequence:
-            - service: media_player.play_media
-              target:
-                entity_id:
-                  - media_player.bedroom_speaker
-                  - media_player.office_speaker
-              data:
-                media_content_id: https://github.com/johnzanussi/unifi-g4-doorbell-sounds/blob/main/sounds/sounds_ring_button/Ding-dong.wav?raw=true
-                media_content_type: music
+          - service: media_player.play_media
+            target:
+              entity_id:
+                - media_player.bedroom_speaker
+                - media_player.office_speaker
+            data:
+              media_content_id: https://github.com/johnzanussi/unifi-g4-doorbell-sounds/blob/main/sounds/sounds_ring_button/Ding-dong.wav?raw=true
+              media_content_type: music
 
           - delay: 3
