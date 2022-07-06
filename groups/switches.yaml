@@ -54,7 +54,7 @@ office_lights:
 paddlepond_services:
   name: Paddlepond services
   entities:
-    - switch.bazarr_deployment
+    - switch.restic_nfs_deployment
     - switch.calibre_web_deployment
     - switch.flood_deployment
     - switch.komga_deployment

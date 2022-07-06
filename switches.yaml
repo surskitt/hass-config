@@ -92,14 +92,6 @@
 - platform: bhyve
 
 - platform: mqtt
-  name: bazarr deployment
-  icon: mdi:kubernetes
-  unique_id: bazarr_deployment
-  state_topic: mqtt-kube/bazarr/power/state
-  command_topic: mqtt-kube/bazarr/power/set
-  retain: true
-
-- platform: mqtt
   name: calibre-web deployment
   icon: mdi:kubernetes
   unique_id: calibre_web_deployment
@@ -185,6 +177,14 @@
   unique_id: jackett_deployment
   state_topic: mqtt-kube/jackett/power/state
   command_topic: mqtt-kube/jackett/power/set
+  retain: true
+
+- platform: mqtt
+  name: Restic nfs deployment
+  icon: mdi:kubernetes
+  unique_id: restic_nfs_deployment
+  state_topic: mqtt-kube/resticnfs/power/state
+  command_topic: mqtt-kube/resticnfs/power/set
   retain: true
 
 - platform: template

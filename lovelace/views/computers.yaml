@@ -143,10 +143,10 @@ cards:
                 entity_id: group.paddlepond_services
 
           - type: custom:mushroom-entity-card
-            entity: switch.bazarr_deployment
-            name: Bazarr
+            entity: switch.restic_nfs_deployment
+            name: Restic
             layout: horizontal
-            icon: mdi:bullhorn
+            icon: mdi:upload
             icon_color: yellow
             tap_action:
               action: toggle

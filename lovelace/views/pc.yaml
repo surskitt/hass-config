@@ -88,8 +88,8 @@ cards:
     state_color: true
     show_header_toggle: true
     entities:
-      - name: bazarr
-        entity: switch.bazarr_deployment
+      - name: restic
+        entity: switch.restic_nfs_deployment
       - name: calibre-web
         entity: switch.calibre_web_deployment
       - name: flood
