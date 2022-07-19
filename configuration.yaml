@@ -23,7 +23,6 @@ http:
     - 10.42.0.0/24
 
 recorder:
-  db_url: !secret mariadb_connect_string
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
