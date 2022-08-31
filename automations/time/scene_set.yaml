@@ -141,13 +141,7 @@
       data:
         scene_id: bedroom_state
         entities:
-          light.bedroom_lamp: 'off'
-          light.wled_bed:
-            state: 'on'
-            brightness_pct: 100
-          light.wled_bedroom_dresser:
-            state: 'on'
-            brightness_pct: 100
+          light.bedroom_lamp: 'on'
 
     - service: scene.create
       data:
