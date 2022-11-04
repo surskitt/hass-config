@@ -8,9 +8,25 @@ cards:
     title: Presence
     cards:
       - type: custom:mushroom-entity-card
-        entity: input_boolean.office_presence
+        entity: input_boolean.bathroom_presence
         tap_action:
           action: toggle
+
+  - type: grid
+    columns: 2
+    square: false
+    cards:
+      - type: custom:mushroom-entity-card
+        entity: binary_sensor.bathroom_motion_occupancy
+        name: Motion
+        layout: horizontal
+        icon: mdi:motion-sensor
+
+      - type: custom:mushroom-entity-card
+        entity: binary_sensor.bathroom_door_contact
+        name: Door
+        layout: horizontal
+        icon: mdi:door
 
   - type: vertical-stack
     title: Devices

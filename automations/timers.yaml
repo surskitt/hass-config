@@ -19,6 +19,14 @@
         summary: The dryer has finished
       timer.bath_fill:
         summary: The bath is full
+      timer.vita_daily:
+        summary: Vita daily is ready
+      timer.vita_dungeon:
+        summary: Vita dungeon is ready
+      timer.vita_minigames:
+        summary: Vita minigames is ready
+      timer.vita_tt:
+        summary: Vita trick or treat is ready
 
   trigger:
     platform: event
@@ -53,6 +61,8 @@
       data:
         title: Timer finished
         message: "{{ timer_dict.summary }}"
+        data:
+          clickAction: "/lovelace/timers"
 
 - id: bedtime_heating
   alias: Turn off heating at bedtime after a delay

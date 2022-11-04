@@ -12,6 +12,12 @@ cards:
         tap_action:
           action: toggle
 
+      - type: custom:mushroom-entity-card
+        entity: binary_sensor.stairs_motion_occupancy
+        name: Motion
+        layout: horizontal
+        icon: mdi:motion-sensor
+
   - type: vertical-stack
     title: Devices
     cards:
