@@ -352,3 +352,104 @@ cards:
   #             service: timer.cancel
   #             target:
   #               entity_id: timer.bath_fill
+  
+  - type: vertical-stack
+    title: Vita
+    cards:
+      - type: grid
+        columns: 2
+        square: false
+        cards:
+          - type: custom:button-card
+            template: mushroom_timer
+            name: Daily
+            entity: timer.vita_daily
+            variables:
+              input_datetime_id: input_datetime.vita_daily_custom_timer
+
+          - type: custom:mushroom-entity-card
+            entity: input_datetime.vita_daily_custom_timer
+            name: Duration
+            layout: horizontal
+            icon: mdi:timer
+            icon_color: light-blue
+            tap_action:
+              action: call-service
+              service: input_datetime.set_datetime
+              service_data:
+                entity_id: input_datetime.vita_daily_custom_timer
+                time: "23:59:59"
+
+      - type: grid
+        columns: 2
+        square: false
+        cards:
+          - type: custom:button-card
+            template: mushroom_timer
+            name: Dungeon
+            entity: timer.vita_dungeon
+            variables:
+              input_datetime_id: input_datetime.vita_dungeon_custom_timer
+
+          - type: custom:mushroom-entity-card
+            entity: input_datetime.vita_dungeon_custom_timer
+            name: Duration
+            layout: horizontal
+            icon: mdi:timer
+            icon_color: light-blue
+            tap_action:
+              action: call-service
+              service: input_datetime.set_datetime
+              service_data:
+                entity_id: input_datetime.vita_dungeon_custom_timer
+                time: "02:00:00"
+
+
+      - type: grid
+        columns: 2
+        square: false
+        cards:
+          - type: custom:button-card
+            template: mushroom_timer
+            name: Minigames
+            entity: timer.vita_minigames
+            variables:
+              input_datetime_id: input_datetime.vita_minigames_custom_timer
+
+          - type: custom:mushroom-entity-card
+            entity: input_datetime.vita_minigames_custom_timer
+            name: Duration
+            layout: horizontal
+            icon: mdi:timer
+            icon_color: light-blue
+            tap_action:
+              action: call-service
+              service: input_datetime.set_datetime
+              service_data:
+                entity_id: input_datetime.vita_minigames_custom_timer
+                time: "03:00:00"
+
+
+      - type: grid
+        columns: 2
+        square: false
+        cards:
+          - type: custom:button-card
+            template: mushroom_timer
+            name: Trick or treat
+            entity: timer.vita_tt
+            variables:
+              input_datetime_id: input_datetime.vita_tt_custom_timer
+
+          - type: custom:mushroom-entity-card
+            entity: input_datetime.vita_tt_custom_timer
+            name: Duration
+            layout: horizontal
+            icon: mdi:timer
+            icon_color: light-blue
+            tap_action:
+              action: call-service
+              service: input_datetime.set_datetime
+              service_data:
+                entity_id: input_datetime.vita_tt_custom_timer
+                time: "01:30:00"

@@ -35,3 +35,27 @@ sprinkler_custom_timer:
   has_time: true
   icon: mdi:sprinkler-variant
   initial: "00:15"
+
+vita_daily_custom_timer:
+  name: Vita daily custom timer
+  has_time: true
+  icon: mdi:flower-poppy
+  initial: "23:59"
+
+vita_dungeon_custom_timer:
+  name: Vita dungeon custom timer
+  has_time: true
+  icon: mdi:flower-poppy
+  initial: "02:00"
+
+vita_minigames_custom_timer:
+  name: Vita minigames custom timer
+  has_time: true
+  icon: mdi:flower-poppy
+  initial: "03:00"
+
+vita_tt_custom_timer:
+  name: Vita trick or treat custom timer
+  has_time: true
+  icon: mdi:halloween
+  initial: "01:30"
