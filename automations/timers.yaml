@@ -64,6 +64,11 @@
         data:
           clickAction: "/lovelace/timers"
 
+    - service: notify.bedroom_tv
+      data:
+        title: Timer finished
+        message: "{{ timer_dict.summary }}"
+
 - id: bedtime_heating
   alias: Turn off heating at bedtime after a delay
   mode: single
