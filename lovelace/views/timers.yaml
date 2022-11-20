@@ -378,7 +378,31 @@ cards:
               service: input_datetime.set_datetime
               service_data:
                 entity_id: input_datetime.vita_daily_custom_timer
-                time: "23:59:59"
+                time: "20:00:00"
+
+      - type: grid
+        columns: 2
+        square: false
+        cards:
+          - type: custom:button-card
+            template: mushroom_timer
+            name: Raid
+            entity: timer.vita_raid
+            variables:
+              input_datetime_id: input_datetime.vita_raid_custom_timer
+
+          - type: custom:mushroom-entity-card
+            entity: input_datetime.vita_raid_custom_timer
+            name: Duration
+            layout: horizontal
+            icon: mdi:timer
+            icon_color: light-blue
+            tap_action:
+              action: call-service
+              service: input_datetime.set_datetime
+              service_data:
+                entity_id: input_datetime.vita_raid_custom_timer
+                time: "08:00:00"
 
       - type: grid
         columns: 2
@@ -404,20 +428,19 @@ cards:
                 entity_id: input_datetime.vita_dungeon_custom_timer
                 time: "02:00:00"
 
-
       - type: grid
         columns: 2
         square: false
         cards:
           - type: custom:button-card
             template: mushroom_timer
-            name: Minigames
-            entity: timer.vita_minigames
+            name: Feed bonus
+            entity: timer.vita_feed_bonus
             variables:
-              input_datetime_id: input_datetime.vita_minigames_custom_timer
+              input_datetime_id: input_datetime.vita_feed_bonus_custom_timer
 
           - type: custom:mushroom-entity-card
-            entity: input_datetime.vita_minigames_custom_timer
+            entity: input_datetime.vita_feed_bonus_custom_timer
             name: Duration
             layout: horizontal
             icon: mdi:timer
@@ -426,30 +449,5 @@ cards:
               action: call-service
               service: input_datetime.set_datetime
               service_data:
-                entity_id: input_datetime.vita_minigames_custom_timer
-                time: "03:00:00"
-
-
-      - type: grid
-        columns: 2
-        square: false
-        cards:
-          - type: custom:button-card
-            template: mushroom_timer
-            name: Trick or treat
-            entity: timer.vita_tt
-            variables:
-              input_datetime_id: input_datetime.vita_tt_custom_timer
-
-          - type: custom:mushroom-entity-card
-            entity: input_datetime.vita_tt_custom_timer
-            name: Duration
-            layout: horizontal
-            icon: mdi:timer
-            icon_color: light-blue
-            tap_action:
-              action: call-service
-              service: input_datetime.set_datetime
-              service_data:
-                entity_id: input_datetime.vita_tt_custom_timer
-                time: "01:30:00"
+                entity_id: input_datetime.vita_feed_bonus_custom_timer
+                time: "04:00:00"

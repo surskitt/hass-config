@@ -21,12 +21,12 @@
         summary: The bath is full
       timer.vita_daily:
         summary: Vita daily is ready
+      timer.vita_raid:
+        summary: Vita trick or treat is ready
       timer.vita_dungeon:
         summary: Vita dungeon is ready
-      timer.vita_minigames:
-        summary: Vita minigames is ready
-      timer.vita_tt:
-        summary: Vita trick or treat is ready
+      timer.vita_feed_bonus:
+        summary: Vita feed bonus is ready
 
   trigger:
     platform: event
@@ -63,6 +63,11 @@
         message: "{{ timer_dict.summary }}"
         data:
           clickAction: "/lovelace/timers"
+
+    - service: notify.google_tv
+      data:
+        title: Timer finished
+        message: "{{ timer_dict.summary }}"
 
     - service: notify.bedroom_tv
       data:

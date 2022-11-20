@@ -51,7 +51,12 @@ sprinkler:
 
 vita_daily:
   name: Vita daily
-  duration: '23:59:59'
+  duration: '20:00:00'
+  icon: mdi:flower-poppy
+
+vita_raid:
+  name: Vita raid
+  duration: '08:00:00'
   icon: mdi:flower-poppy
 
 vita_dungeon:
@@ -59,12 +64,7 @@ vita_dungeon:
   duration: '02:00:00'
   icon: mdi:flower-poppy
 
-vita_minigames:
-  name: Vita minigames
-  duration: '03:00:00'
+vita_feed_bonus:
+  name: Vita feed bonus
+  duration: '04:00:00'
   icon: mdi:flower-poppy
-
-vita_tt:
-  name: Vita trick or treat
-  duration: '01:30:00'
-  icon: mdi:halloween

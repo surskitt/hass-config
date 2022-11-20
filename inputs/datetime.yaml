@@ -40,7 +40,13 @@ vita_daily_custom_timer:
   name: Vita daily custom timer
   has_time: true
   icon: mdi:flower-poppy
-  initial: "23:59"
+  initial: "20:00"
+
+vita_raid_custom_timer:
+  name: Vita raid custom timer
+  has_time: true
+  icon: mdi:flower-poppy
+  initial: "08:00"
 
 vita_dungeon_custom_timer:
   name: Vita dungeon custom timer
@@ -48,14 +54,8 @@ vita_dungeon_custom_timer:
   icon: mdi:flower-poppy
   initial: "02:00"
 
-vita_minigames_custom_timer:
-  name: Vita minigames custom timer
+vita_feed_bonus_custom_timer:
+  name: Vita feed bonus custom timer
   has_time: true
   icon: mdi:flower-poppy
-  initial: "03:00"
-
-vita_tt_custom_timer:
-  name: Vita trick or treat custom timer
-  has_time: true
-  icon: mdi:halloween
-  initial: "01:30"
+  initial: "04:00"
