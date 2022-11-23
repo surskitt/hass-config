@@ -5,7 +5,7 @@
 
   trigger:
     - platform: state
-      entity_id: binary_sensor.doorbell_doorbell_pressed
+      entity_id: binary_sensor.doorbell_ringing_sensor
       to: 'on'
 
   action:
@@ -24,7 +24,7 @@
 
   trigger:
     - platform: state
-      entity_id: binary_sensor.doorbell_person_detected
+      entity_id: binary_sensor.doorbell_motion_sensor
       to: 'on'
 
   action:
@@ -43,7 +43,7 @@
 
   trigger:
     - platform: state
-      entity_id: binary_sensor.doorbell_doorbell_pressed
+      entity_id: binary_sensor.doorbell_ringing_sensor
       to: 'on'
 
   condition:
@@ -64,7 +64,7 @@
 
   trigger:
     - platform: state
-      entity_id: binary_sensor.doorbell_doorbell_pressed
+      entity_id: binary_sensor.doorbell_ringing_sensor
       to: 'on'
 
   action:
@@ -89,3 +89,29 @@
               media_content_type: music
 
           - delay: 3
+
+- alias: Notify on office pc light when doorbell is pressed
+  id: 'doorbell_office_pc_light_notify'
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.doorbell_ringing_sensor
+      to: 'on'
+
+  action:
+    - service: light.turn_on
+      data:
+        rgb_color:
+          - 170
+          - 255
+          - 255
+        brightness_pct: 70
+      target:
+        entity_id: light.alantop_smart_desk_lamp_rgbcw
+
+    - delay: 3
+
+    - service: light.turn_off
+      target:
+        entity_id: light.alantop_smart_desk_lamp_rgbcw

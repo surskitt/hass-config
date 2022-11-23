@@ -42,9 +42,9 @@
       data:
         url: https://hass.shane.run{{ state_attr('camera.office_camera_hd', 'entity_picture') }}
 
-    - service: telegram_bot.send_photo
-      data:
-        url: https://hass.shane.run{{ state_attr('camera.doorbell_last_event', 'entity_picture') }}
+    # - service: telegram_bot.send_photo
+    #   data:
+    #     url: https://hass.shane.run{{ state_attr('camera.doorbell_last_event', 'entity_picture') }}
 
     - service: telegram_bot.send_photo
       data:

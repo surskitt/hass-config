@@ -6,7 +6,7 @@
   trigger:
     - platform: state
       entity_id:
-        - sensor.doorbell_battery_percentage
+        - sensor.doorbell_battery
         - sensor.garden_battery
         - sensor.driveway_battery
         - sensor.living_room_curtains_battery
