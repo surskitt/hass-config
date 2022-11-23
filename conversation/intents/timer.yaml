@@ -1,0 +1,12 @@
+---
+vitaDailyTimerStart:
+  - start vita daily timer
+
+vitaRaidTimerStart:
+  - start vita raid timer
+
+vitaDungeonTimerStart:
+  - start vita dungeon timer
+
+vitaFeedBonusTimerStart:
+  - start vita feed bonus timer

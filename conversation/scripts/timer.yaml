@@ -1,0 +1,52 @@
+---
+vitaDailyTimerStart:
+  speech:
+    text: Starting vita daily timer
+  action:
+    - service: timer.start
+      target:
+        entity_id: timer.vita_daily
+
+    - service: notify.gotify
+      data:
+        title: Timer started
+        message: Vita daily timer started
+
+vitaRaidTimerStart:
+  speech:
+    text: Starting vita raid timer
+  action:
+    - service: timer.start
+      target:
+        entity_id: timer.vita_raid
+
+    - service: notify.gotify
+      data:
+        title: Timer started
+        message: Vita raid timer started
+
+vitaDungeonTimerStart:
+  speech:
+    text: Starting vita dungeon timer
+  action:
+    - service: timer.start
+      target:
+        entity_id: timer.vita_dungeon
+
+    - service: notify.gotify
+      data:
+        title: Timer started
+        message: Vita dungeon timer started
+
+vitaFeedBonusTimerStart:
+  speech:
+    text: Starting vita feed bonus timer
+  action:
+    - service: timer.start
+      target:
+        entity_id: timer.vita_feed_bonus
+
+    - service: notify.gotify
+      data:
+        title: Timer started
+        message: Vita feed bonus timer started
