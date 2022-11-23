@@ -43,7 +43,7 @@ telegram_bot: !include component_config/telegram_bot.yaml
 plex: !include component_config/plex.yaml
 powercalc: !include component_config/powercalc.yaml
 saver:
-spotify: !include component_config/spotify.yaml
+# spotify: !include component_config/spotify.yaml
 # spotcast: !include component_config/spotcast.yaml
 # vacuum: !include component_config/robovac.yaml
 
@@ -56,8 +56,9 @@ script: !include_dir_merge_named scripts/
 binary_sensor: !include_dir_merge_list binary_sensors
 camera: !include cameras.yaml
 media_player: !include media_player.yaml
+mqtt: !include_dir_merge_named mqtt/
 notify: !include notify.yaml
-plant: !include plants.yaml
+# plant: !include plants.yaml
 sensor: !include_dir_merge_list sensors
 switch: !include switches.yaml
 template: !include_dir_merge_list template
@@ -75,6 +76,6 @@ shell_command: !include commands/shell.yaml
 
 light groups: !include groups/lights.yaml
 group: !include groups/switches.yaml
-group plants: !include groups/plants.yaml
+# group plants: !include groups/plants.yaml
 
-localtuya: !include component_config/localtuya.yaml
+# localtuya: !include component_config/localtuya.yaml

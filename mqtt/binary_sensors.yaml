@@ -1,0 +1,6 @@
+---
+binary_sensor:
+  - name: mallard nfs mounted
+    state_topic: mallard/nfs_mounted
+    payload_on: "1"
+    payload_off: "0"
