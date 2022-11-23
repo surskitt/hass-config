@@ -6,7 +6,7 @@
   trigger:
     - platform: state
       entity_id: binary_sensor.doorbell_ringing_sensor
-      to: 'on'
+      to: 'True'
 
   action:
     - service: notify.gotify_high
@@ -25,7 +25,7 @@
   trigger:
     - platform: state
       entity_id: binary_sensor.doorbell_motion_sensor
-      to: 'on'
+      to: 'True'
 
   action:
     - service: notify.gotify
@@ -44,7 +44,7 @@
   trigger:
     - platform: state
       entity_id: binary_sensor.doorbell_ringing_sensor
-      to: 'on'
+      to: 'True'
 
   condition:
     - condition: state
@@ -65,7 +65,7 @@
   trigger:
     - platform: state
       entity_id: binary_sensor.doorbell_ringing_sensor
-      to: 'on'
+      to: 'True'
 
   action:
     - service: media_player.volume_set
@@ -97,7 +97,7 @@
   trigger:
     - platform: state
       entity_id: binary_sensor.doorbell_ringing_sensor
-      to: 'on'
+      to: 'True'
 
   action:
     - service: light.turn_on

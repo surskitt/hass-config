@@ -16,7 +16,7 @@
         - platform: state
           entity_id:
             - binary_sensor.doorbell_ringing_sensor
-          to: 'on'
+          to: 'True'
 
     - service: input_boolean.turn_on
       target:
