@@ -22,7 +22,7 @@
       timer.vita_daily:
         summary: Vita daily is ready
       timer.vita_raid:
-        summary: Vita trick or treat is ready
+        summary: Vita raid is ready
       timer.vita_dungeon:
         summary: Vita dungeon is ready
       timer.vita_feed_bonus:
@@ -73,6 +73,22 @@
       data:
         title: Timer finished
         message: "{{ timer_dict.summary }}"
+
+    - service: light.turn_on
+      data:
+        rgb_color:
+          - 221
+          - 180
+          - 255
+        brightness_pct: 70
+      target:
+        entity_id: light.alantop_smart_desk_lamp_rgbcw
+
+    - delay: 3
+
+    - service: light.turn_off
+      target:
+        entity_id: light.alantop_smart_desk_lamp_rgbcw
 
 - id: bedtime_heating
   alias: Turn off heating at bedtime after a delay
